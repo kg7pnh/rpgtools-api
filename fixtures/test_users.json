@@ -1,2 +1,38 @@
 [
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$LBXa9o13ZzIL$Q9Ox2Y/JV+ZHyXRkzM2HI6j/yZXTkOcl9Os24btGicw=",
+        "last_login": null,
+        "is_superuser": true,
+        "username": "admin",
+        "first_name": "admin",
+        "last_name": "admin",
+        "email": "admin@bayhasworld.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2019-06-18T15:59:54.830Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$100000$COvEIsoUrBDX$ZNeBoq9rQJR6SWuPZTsQdbMgugQFq1HPY5IxUPO+5AY=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "read-only",
+        "first_name": "read",
+        "last_name": "only",
+        "email": "ro@bayhasworld.com",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2019-06-18T15:59:56.821Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
 ]

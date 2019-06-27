@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zx#98+_4q6--7s3yix5*nu6k-rl00w3t)%x^if6-wi!(!sn#a#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["*"]
 
@@ -61,12 +61,17 @@ LOGGING = {
             'level': 'DEBUG',
             'propagate': True,
         },
+        'django.template': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
     }
 }
 
 # Add-on Application definition
 MY_INSTALLED_APPS = [
-    # 'api',
+    'api',
     # 'ui',
     'markdownx',
     'rest_framework',
@@ -107,7 +112,7 @@ ROOT_URLCONF = 'rpgtools.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -180,7 +185,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',),
     'DEFAULT_PARSER_CLASSES': ('rest_framework.parsers.JSONParser',),
-    'DEFAULT_AUTHENTICATION_CLASSES': ('rest_framework_simplejwt.authentication.JWTAuthentication',),
+    'DEFAULT_AUTHENTICATION_CLASSES':
+    (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 10
@@ -204,9 +213,35 @@ SIMPLE_JWT = {
     'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
     'TOKEN_TYPE_CLAIM': 'token_type',
 
+
+
     # 'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     # 'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+# django-rest-swagger settings
+SWAGGER_SETTINGS = {
+    'exclude_namespaces': [], # List URL namespaces to ignore
+    'api_version': '0.1',  # Specify your API's version
+    'api_path': '/',  # Specify the path to your API not a root level
+    'enabled_methods': [  # Specify which methods to enable in Swagger UI
+        'get',
+        'post',
+        'put',
+        'patch',
+        'delete'
+    ],
+    'api_key': '', # An API key
+    'is_authenticated': False,  # Set to True to enforce user authentication,
+    'is_superuser': False,  # Set to True to enforce admin only access
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    }
 }
 
 # simplehistory settings
