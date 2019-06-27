@@ -22,6 +22,7 @@ django-currentuser = "==0.3.3"
 django-simple-history = "*"
 django-extensions = "*"
 django-shortuuidfield = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.6"

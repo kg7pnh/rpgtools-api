@@ -28,9 +28,6 @@ run:
 run-dev:
 	pipenv run python ./manage.py runserver --settings rpgtools.settings_dev
 
-# run_wide:
-# 	pipenv run python ./manage.py runserver 0.0.0.0:8000 --settings rpgtools.settings
-
 setup_db:
 	psql -h localhost -U postgres -c "CREATE USER rpgtools_admin with PASSWORD 'Gerrit8684!';"
 	psql -h localhost -U postgres -c 'ALTER USER rpgtools_admin WITH SUPERUSER;'
