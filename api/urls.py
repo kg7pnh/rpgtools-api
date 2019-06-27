@@ -66,7 +66,6 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     url(r'info/?', views.Root.as_view(), name='info'),
     url(r'^$', RedirectView.as_view(url='info')),
 
-    
     path('', include(router.urls)),
 ]
 
