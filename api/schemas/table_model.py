@@ -1,0 +1,63 @@
+table_model = {
+    "definitions": {
+        "tablerow": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "footnote": {
+            "type": "array",
+            "maxItems": 2,
+            "items": {
+                "type": "string"
+            }
+        }
+    },
+    "$id": "http://127.0.0.1:8000/api/v1/schemas/table-model",
+    "type": "object",
+    "title": "Table",
+    "description": "Data required to populate a table object.",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "required": [
+    	"name",
+        "columns",
+        "rows"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "The Table name schema",
+            "description": "The name of the table.",
+            "examples": [
+                "Consolidated Effects of Age",
+                "Language List"
+            ]
+        },
+        "description": {
+            "type": "string",
+            "title": "The Table description schema",
+            "description": "The description of the table.",
+            "examples": [
+              "Represents the various modifiers / stats for a character based on age / term.",
+              "List of available languages and the groups and families they belong to."
+            ]
+        },
+        "columns": {
+            "type": "array"
+        },
+        "rows": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/tablerow"
+            }
+        },
+        "footnotes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/footnote"
+            }
+        }
+
+    }
+}

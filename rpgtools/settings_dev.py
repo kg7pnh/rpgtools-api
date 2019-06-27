@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zx#98+_4q6--7s3yix5*nu6k-rl00w3t)%x^if6-wi!(!sn#a#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -247,3 +247,5 @@ SWAGGER_SETTINGS = {
 # simplehistory settings
 SIMPLE_HISTORY_HISTORY_ID_USE_UUID=True
 SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD=True
+
+LOGIN_REDIRECT_URL = 'home'
