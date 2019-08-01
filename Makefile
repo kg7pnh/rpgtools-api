@@ -20,7 +20,16 @@ build-dev:
 	pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_user('read-only', 'ro@bayhasworld.com', 'ropassword',first_name='read',last_name='only')"
 	pipenv run python manage.py loaddata ./fixtures/*
 	pipenv run python manage.py populate_history --auto
-	pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/test_users.json
+	pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/users.json
+
+dumpdata:
+	pipenv run python manage.py dumpdata api.book --indent 4 | grep -v Fetch > ./fixtures/book.json
+	pipenv run python manage.py dumpdata api.bookformat --indent 4 | grep -v Fetch > ./fixtures/bookformat.json
+	pipenv run python manage.py dumpdata api.game --indent 4 | grep -v Fetch > ./fixtures/game.json
+	pipenv run python manage.py dumpdata api.gamesystem --indent 4 | grep -v Fetch > ./fixtures/gamesystem.json
+	pipenv run python manage.py dumpdata api.person --indent 4 | grep -v Fetch > ./fixtures/person.json
+	pipenv run python manage.py dumpdata api.publisher --indent 4 | grep -v Fetch > ./fixtures/publisher.json
+	pipenv run python manage.py dumpdata api.schema --indent 4 | grep -v Fetch > ./fixtures/schema.json
 
 run:
 	pipenv run python ./manage.py runserver --settings rpgtools.settings

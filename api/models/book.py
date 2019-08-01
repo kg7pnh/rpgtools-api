@@ -2,39 +2,104 @@
 """
 Defines the Book model
 """
-from uuid import uuid4
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from django.utils import timezone
+from django.core.validators import RegexValidator
 from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
-from simple_history.models import HistoricalRecords
+from .base import Base
 from .book_format import BookFormat
 from .game import Game
+from .person import Person
 from .publisher import Publisher
 
+VALIDATE_ISBN_10 = RegexValidator(r'^(?:ISBN(?:10)?(?:\-10)?\x20)?[0-9]{9}(\d|X)$',
+                                  'Only ISNB-10 formatted strings are allowd.')
+VALIDATE_ISBN_13 = RegexValidator(r'^(?:ISBN(?:13)?(?:\-13)?\x20)?:?97(?:8|9)[0-9]{10}$',
+                                  'Only ISNB-13 formatted strings are allowd.')
+
 # Create your models here.
-class Book(models.Model):
+class Book(Base):
     """
     Definition for Book
     """
     # Relationships
+    book_format = models.ForeignKey(BookFormat,
+                                  on_delete=models.PROTECT,
+                                  null=True,
+                                  blank=True)
+    game = models.ForeignKey(Game,
+                             on_delete=models.PROTECT,
+                             null=True,
+                             blank=True)
+    publisher = models.ForeignKey(Publisher,
+                                  on_delete=models.PROTECT,
+                                  null=True,
+                                  blank=True)
+    art_assistant = models.ManyToManyField(Person,
+                                           blank=True,
+                                           verbose_name='Art Assistant(s)',
+                                           related_name='art_assistant')
+    art_director = models.ManyToManyField(Person,
+                                          blank=True,
+                                          verbose_name='Art Director(s)',
+                                          related_name='art_director')
+    artist_cover = models.ManyToManyField(Person,
+                                          blank=True,
+                                          verbose_name='Cover Artist(s)',
+                                          related_name='artist_cover')
+    artist_interior = models.ManyToManyField(Person,
+                                             blank=True,
+                                             verbose_name='Interior Artist(s)',
+                                             related_name='artist_interior')
+    author = models.ManyToManyField(Person,
+                                    blank=True,
+                                    verbose_name='Author(s)',
+                                    related_name='author')
+    designer = models.ManyToManyField(Person,
+                                      blank=True,
+                                      verbose_name='Designer(s)',
+                                      related_name='designer')
+    developer = models.ManyToManyField(Person,
+                                       blank=True,
+                                       verbose_name='Developer(s)',
+                                       related_name='developer')
+    editor = models.ManyToManyField(Person,
+                                    blank=True,
+                                    verbose_name='Editor(s)',
+                                    related_name='editor')
+    graphic_designer = models.ManyToManyField(Person,
+                                              blank=True,
+                                              verbose_name='Graphic Designer(s)',
+                                              related_name='graphic_designer')
+    play_tester = models.ManyToManyField(Person,
+                                         blank=True,
+                                         verbose_name='Play Tester(s)',
+                                         related_name='play_tester')
+    proofreader = models.ManyToManyField(Person,
+                                         blank=True,
+                                         verbose_name='Proofreader(s)',
+                                         related_name='proofreader')
+    research_assistant = models.ManyToManyField(Person,
+                                                blank=True,
+                                                verbose_name='Research Assistant(s)',
+                                                related_name='research_assistant')
+    text_manager = models.ManyToManyField(Person,
+                                          blank=True,
+                                          verbose_name='Text Manager(s)',
+                                          related_name='text_manager')
+    text_processor = models.ManyToManyField(Person,
+                                            blank=True,
+                                            verbose_name='Text Processor(s)',
+                                            related_name='text_processor')
+    type_setter = models.ManyToManyField(Person,
+                                         blank=True,
+                                         verbose_name='Type Setter(s)',
+                                         related_name='type_setter')
 
     # Attributes
-    _id = models.UUIDField(primary_key=True,
-                           default=uuid4,
-                           editable=False,
-                           verbose_name='_ID')
-    id = models.CharField(max_length=256,
-                          verbose_name='ID',
-                          editable=False)
-    edition_id = models.CharField(max_length=256,
-                                  verbose_name='ID',
-                                  editable=False)
-    name = models.CharField(max_length=256,
-                            verbose_name='Name')
     short_name = models.CharField(max_length=128,
                                   verbose_name='Short Name',
                                   null=True,
@@ -43,57 +108,31 @@ class Book(models.Model):
                                     verbose_name='Abbreviation',
                                     null=True,
                                     blank=True)
-    edition = models.CharField(max_length=256,
-                               verbose_name='Edition')
-    publisher = models.ForeignKey(Publisher,
-                                  on_delete=models.PROTECT,
-                                  null=True,
-                                  blank=True)
-    game = models.ForeignKey(Game,
-                             on_delete=models.PROTECT,
-                             null=True,
-                             blank=True)
-    book_format = models.ForeignKey(BookFormat,
-                                    on_delete=models.PROTECT,
-                                    null=True,
-                                    blank=True)
-    created = models.DateTimeField(editable=False,
-                                   verbose_name='Created')
-    modified = models.DateTimeField(editable=False,
-                                    verbose_name='Modified')
-    description = models.TextField(verbose_name='Description',
-                                   null=True,
-                                   blank=True)
-    history = HistoricalRecords(excluded_fields=['id', 'edition_id', 'modified'])
+    catalog_number = models.CharField(max_length=20,
+                                      verbose_name='Catalog Number',
+                                      null=True,
+                                      blank=True)
+    pages = models.IntegerField(verbose_name='Pages',
+                                null=True,
+                                blank=True)
+    isbn_10 = models.CharField(max_length=18,
+                               verbose_name='ISBN-10',
+                               validators=[VALIDATE_ISBN_10],
+                               null=True,
+                               blank=True)
+    isbn_13 = models.CharField(max_length=21,
+                               verbose_name='ISBN-10',
+                               validators=[VALIDATE_ISBN_13],
+                               null=True,
+                               blank=True)
+    url = models.URLField(verbose_name='Website',
+                          null=True,
+                          blank=True)
 
     # Manager
     books = models.Manager()
 
     # Functions
-    def __str__(self):
-        '''
-        __str__
-        '''
-        return self.name
-
-    def __unicode__(self):
-        '''
-        __unicode__
-        '''
-        return self.name
-
-    def save(self, *args, **kwargs): # pylint: disable=arguments-differ
-        '''
-        On save, update timestamps and parameters
-        '''
-        if not self.id or not self.created:
-            self.created = timezone.now()
-            self.id = slugify(self.name) # pylint: disable=invalid-name
-            self.edition_id = slugify(self.edition)
-        self.modified = timezone.now()
-        self.id = slugify(self.name) # pylint: disable=invalid-name
-        self.edition_id = slugify(self.edition)
-        return super().save(*args, **kwargs)
 
     # Meta
     class Meta: # pylint: disable=too-few-public-methods
@@ -101,10 +140,6 @@ class Book(models.Model):
         Model meta data
         """
         db_table = 'book'
-        get_latest_by = 'modified'
-        indexes = [models.Index(fields=['id', 'edition_id'])]
-        ordering = ['id', 'edition_id']
-        unique_together = ('id', 'edition_id')
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
 
@@ -114,19 +149,11 @@ def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
     Set parameter values to html friendly format
     '''
     instance.id = slugify(instance.name)
-    instance.edition_id = slugify(instance.edition)
 
 class Serializer(serializers.ModelSerializer):
     '''
     Serializer class
     '''
-    def validate(self, validated_data): #pylint: disable=arguments-differ
-        game = Book.books.filter(name=validated_data['name'],
-                                 version=validated_data['edition']).exists()
-        if game:
-            raise ValidationError(
-                'A book entry with the specified name and edition already exists')
-        return validated_data
 
     class Meta: # pylint: disable=too-few-public-methods
         """

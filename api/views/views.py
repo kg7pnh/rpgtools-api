@@ -4,13 +4,27 @@ Defines the base views
 """
 from django.conf import settings
 from rest_framework import generics
+from rest_framework import schemas
 from rest_framework import status
+from rest_framework.decorators import api_view
+from rest_framework.decorators import renderer_classes
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.exceptions import InvalidToken
 from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
+from rest_framework_swagger.renderers import OpenAPIRenderer
+from rest_framework_swagger.renderers import SwaggerUIRenderer
+
+@api_view()
+@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+def schema_view(request):
+    '''
+    schema_view
+    '''
+    generator = schemas.SchemaGenerator(title='RPGTools API')
+    return Response(generator.get_schema(request=request))
 
 class Root(APIView):
     '''

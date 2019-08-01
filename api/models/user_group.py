@@ -6,11 +6,23 @@ from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
+    '''
+    UserSerializer
+    '''
+    class Meta: # pylint: disable=too-few-public-methods
+        '''
+        Meta
+        '''
         model = User
         fields = ('url', 'username', 'email', 'groups')
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
-    class Meta:
+    '''
+    GroupSerializer
+    '''
+    class Meta: # pylint: disable=too-few-public-methods
+        '''
+        Meta
+        '''
         model = Group
         fields = ('url', 'name')
