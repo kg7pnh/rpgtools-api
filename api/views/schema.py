@@ -2,9 +2,9 @@
 """
 Defines the Schema views
 """
+from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
-
 from api.models.schema import Schema
 from api.models.schema import DocumentSerializer
 from api.models.schema import HrefSerializer
@@ -27,7 +27,7 @@ class MultipleFieldLookupMixin(): # pylint: disable=too-few-public-methods
                 filter[field] = self.kwargs[field]
         return get_object_or_404(queryset, **filter) # pylint: disable=undefined-variable
 
-class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAPIView):
+class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAPIView): # pylint: disable=too-many-ancestors
     '''
     Provides access to the DELETE, GET, PATCH and PUT requests for a given ID and Version.
     '''

@@ -5,7 +5,7 @@ Test case definitions
 from django.urls import reverse
 from rest_framework import status
 from rest_framework.test import APITestCase
-from myproject.apps.core.models import Account
+from rpgtools.apps.core.models import Account
 
 class AccountTests(APITestCase):
     def test_create_account(self):

@@ -2,68 +2,33 @@
 """
 Defines the Publisher model
 """
-from uuid import uuid4
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from django.utils import timezone
 from rest_framework import serializers
-from simple_history.models import HistoricalRecords
+from .base import Base
 
 # Create your models here.
-class Publisher(models.Model):
+class Publisher(Base):
     """
     Definition for Publisher
     """
     # Relationships
 
     # Attributes
-    _id = models.UUIDField(primary_key=True,
-                           default=uuid4,
-                           editable=False,
-                           verbose_name='_ID')
-    id = models.CharField(max_length=256,
-                          verbose_name='ID',
-                          editable=False)
-    name = models.CharField(max_length=256,
-                            verbose_name='Name')
-    created = models.DateTimeField(editable=False,
-                                   verbose_name='Created')
-    modified = models.DateTimeField(editable=False,
-                                    verbose_name='Modified')
-    description = models.TextField(verbose_name='Description',
-                                   null=True,
-                                   blank=True)
-    history = HistoricalRecords(excluded_fields=['id', 'modified'])
-
+    abbreviation = models.CharField(max_length=8,
+                                    verbose_name='Abbreviation',
+                                    null=True,
+                                    blank=True)
+    url = models.URLField(verbose_name='Website',
+                          null=True,
+                          blank=True)
 
     # Manager
     publishers = models.Manager()
 
     # Functions
-    def __str__(self):
-        '''
-        __str__
-        '''
-        return self.name
-
-    def __unicode__(self):
-        '''
-        __unicode__
-        '''
-        return self.name
-
-    def save(self, *args, **kwargs): # pylint: disable=arguments-differ
-        '''
-        On save, update timestamps and url_name
-        '''
-        if not self.id or not self.created:
-            self.created = timezone.now()
-            self.id = slugify(self.name) #pylint: disable=invalid-name
-        self.modified = timezone.now()
-        self.id = slugify(self.name) #pylint: disable=invalid-name
-        return super().save(*args, **kwargs)
 
     # Meta
     class Meta: # pylint: disable=too-few-public-methods
@@ -71,9 +36,6 @@ class Publisher(models.Model):
         Model meta data
         """
         db_table = 'publisher'
-        get_latest_by = 'modified'
-        indexes = [models.Index(fields=['id'])]
-        ordering = ['id']
         verbose_name = 'Publisher'
         verbose_name_plural = 'Publishers'
 

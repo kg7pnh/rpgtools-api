@@ -1,0 +1,50 @@
+[
+{
+    "model": "api.game",
+    "pk": "9237676c-f206-4dd5-85b7-264d6f63eacb",
+    "fields": {
+        "id": "twilight-2000-2nd-edition-v22",
+        "name": "Twilight: 2000, 2nd Edition (v.2.2)",
+        "created": "2019-07-24T21:10:09.214Z",
+        "modified": "2019-07-24T21:10:09.214Z",
+        "description": "string",
+        "game_system": "49ac9127-69ab-461c-ba5e-d078a092cdd2",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Twilight: 2000",
+        "abbreviation": "TK2E2V22",
+        "url": ""
+    }
+},
+{
+    "model": "api.game",
+    "pk": "9d739130-b037-4425-8103-3cf13bd21fc1",
+    "fields": {
+        "id": "twilight-2000-1st-edition",
+        "name": "Twilight: 2000, 1st Edition",
+        "created": "2019-07-24T21:08:22.469Z",
+        "modified": "2019-07-24T21:09:10.698Z",
+        "description": "string",
+        "game_system": "22225209-9434-4c48-a459-a71b24c39802",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Twilight: 2000",
+        "abbreviation": "TK2E1",
+        "url": ""
+    }
+},
+{
+    "model": "api.game",
+    "pk": "cc8c2d01-4a2f-468a-8c87-3a4f759ee9f6",
+    "fields": {
+        "id": "twilight-2000-2nd-edition",
+        "name": "Twilight: 2000, 2nd Edition",
+        "created": "2019-07-24T21:07:46.561Z",
+        "modified": "2019-07-24T21:07:46.561Z",
+        "description": "string",
+        "game_system": "26ca2f0b-a549-4518-a7a9-17452b34623f",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Twilight: 2000",
+        "abbreviation": "TK2E2",
+        "url": ""
+    }
+}
+]

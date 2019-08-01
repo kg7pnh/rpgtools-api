@@ -16,6 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView
 from django.views.generic.base import TemplateView
 
 from django.urls import include
@@ -27,14 +28,9 @@ from markdownx import urls as markdownx
 # import api.urls
 
 urlpatterns = [ # pylint: disable=invalid-name
+    url(r'^$', RedirectView.as_view(url='ui/')),
     path('admin/', admin.site.urls),
-    # path('', include(loginapp.urls)),
-    # path('', include(catalogweb.urls)),
-    # path('ui/', include(omf_ui.urls)),
-    url(r'^markdownx/', include(markdownx)),
+    path('ui/', include('ui.urls')),
     re_path('api/v1/', include('api.urls')),
-
-    url(r'^$', TemplateView.as_view(template_name='home.html'), name='home'),
-    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^logout/$', auth_views.logout, {'template_name': 'logged_out.html'}, name='logout'),
+    url(r'^markdownx/', include(markdownx)),
 ]
