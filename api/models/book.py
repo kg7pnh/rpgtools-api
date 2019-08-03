@@ -12,7 +12,8 @@ from rest_framework.exceptions import ValidationError
 from .base import Base
 from .book_format import BookFormat
 from .game import Game
-from .person import Person
+from .contributor import Contributor
+# from .person import Person
 from .publisher import Publisher
 
 VALIDATE_ISBN_10 = RegexValidator(r'^(?:ISBN(?:10)?(?:\-10)?\x20)?[0-9]{9}(\d|X)$',
@@ -38,63 +39,63 @@ class Book(Base):
                                   on_delete=models.PROTECT,
                                   null=True,
                                   blank=True)
-    art_assistant = models.ManyToManyField(Person,
+    art_assistant = models.ManyToManyField(Contributor,
                                            blank=True,
                                            verbose_name='Art Assistant(s)',
                                            related_name='art_assistant')
-    art_director = models.ManyToManyField(Person,
+    art_director = models.ManyToManyField(Contributor,
                                           blank=True,
                                           verbose_name='Art Director(s)',
                                           related_name='art_director')
-    artist_cover = models.ManyToManyField(Person,
+    artist_cover = models.ManyToManyField(Contributor,
                                           blank=True,
                                           verbose_name='Cover Artist(s)',
                                           related_name='artist_cover')
-    artist_interior = models.ManyToManyField(Person,
+    artist_interior = models.ManyToManyField(Contributor,
                                              blank=True,
                                              verbose_name='Interior Artist(s)',
                                              related_name='artist_interior')
-    author = models.ManyToManyField(Person,
+    author = models.ManyToManyField(Contributor,
                                     blank=True,
                                     verbose_name='Author(s)',
                                     related_name='author')
-    designer = models.ManyToManyField(Person,
+    designer = models.ManyToManyField(Contributor,
                                       blank=True,
                                       verbose_name='Designer(s)',
                                       related_name='designer')
-    developer = models.ManyToManyField(Person,
+    developer = models.ManyToManyField(Contributor,
                                        blank=True,
                                        verbose_name='Developer(s)',
                                        related_name='developer')
-    editor = models.ManyToManyField(Person,
+    editor = models.ManyToManyField(Contributor,
                                     blank=True,
                                     verbose_name='Editor(s)',
                                     related_name='editor')
-    graphic_designer = models.ManyToManyField(Person,
+    graphic_designer = models.ManyToManyField(Contributor,
                                               blank=True,
                                               verbose_name='Graphic Designer(s)',
                                               related_name='graphic_designer')
-    play_tester = models.ManyToManyField(Person,
+    play_tester = models.ManyToManyField(Contributor,
                                          blank=True,
                                          verbose_name='Play Tester(s)',
                                          related_name='play_tester')
-    proofreader = models.ManyToManyField(Person,
+    proofreader = models.ManyToManyField(Contributor,
                                          blank=True,
                                          verbose_name='Proofreader(s)',
                                          related_name='proofreader')
-    research_assistant = models.ManyToManyField(Person,
+    research_assistant = models.ManyToManyField(Contributor,
                                                 blank=True,
                                                 verbose_name='Research Assistant(s)',
                                                 related_name='research_assistant')
-    text_manager = models.ManyToManyField(Person,
+    text_manager = models.ManyToManyField(Contributor,
                                           blank=True,
                                           verbose_name='Text Manager(s)',
                                           related_name='text_manager')
-    text_processor = models.ManyToManyField(Person,
+    text_processor = models.ManyToManyField(Contributor,
                                             blank=True,
                                             verbose_name='Text Processor(s)',
                                             related_name='text_processor')
-    type_setter = models.ManyToManyField(Person,
+    type_setter = models.ManyToManyField(Contributor,
                                          blank=True,
                                          verbose_name='Type Setter(s)',
                                          related_name='type_setter')
@@ -125,9 +126,9 @@ class Book(Base):
                                validators=[VALIDATE_ISBN_13],
                                null=True,
                                blank=True)
-    url = models.URLField(verbose_name='Website',
-                          null=True,
-                          blank=True)
+    # url = models.URLField(verbose_name='Website',
+    #                       null=True,
+    #                       blank=True)
 
     # Manager
     books = models.Manager()

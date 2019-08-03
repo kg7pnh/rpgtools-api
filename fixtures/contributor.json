@@ -1,0 +1,431 @@
+[
+{
+    "model": "api.contributor",
+    "pk": "0f11751f-210d-4e72-b139-65e0c4fada45",
+    "fields": {
+        "id": "mcgonigle-james-colton",
+        "name": "McGonigle, James Colton",
+        "created": "2019-08-01T19:51:08.167Z",
+        "modified": "2019-08-01T19:51:08.167Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "19cd4e0f-00a3-4050-802b-fac441bba253",
+    "fields": {
+        "id": "harris-rick",
+        "name": "Harris, Rick",
+        "created": "2019-08-01T19:42:59.903Z",
+        "modified": "2019-08-01T19:42:59.903Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "1a9fb6d3-8a29-4ba5-aaf8-e961e35face9",
+    "fields": {
+        "id": "bryant-steve",
+        "name": "Bryant, Steve",
+        "created": "2019-08-01T19:45:59.655Z",
+        "modified": "2019-08-01T19:45:59.655Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "1c948919-d9e8-41e7-a71a-071a898f4d3c",
+    "fields": {
+        "id": "ryan-tim",
+        "name": "Ryan, Tim",
+        "created": "2019-08-01T19:45:42.353Z",
+        "modified": "2019-08-01T19:45:42.353Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "204cdcad-a648-4db7-ba1f-039000c00ebf",
+    "fields": {
+        "id": "pratt-barbie",
+        "name": "Pratt, Barbie",
+        "created": "2019-08-01T19:52:33.999Z",
+        "modified": "2019-08-01T19:52:33.999Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "2429e5b1-9fa5-4bf5-9296-fd9dc7f8a90f",
+    "fields": {
+        "id": "mulkey-thomas-e",
+        "name": "Mulkey, Thomas E",
+        "created": "2019-08-01T19:53:28.708Z",
+        "modified": "2019-08-01T19:53:28.708Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "2677e839-2a17-4edb-8b1f-edde62120c6e",
+    "fields": {
+        "id": "oblinger-lauretta",
+        "name": "Oblinger, Lauretta",
+        "created": "2019-08-01T19:47:20.845Z",
+        "modified": "2019-08-01T19:47:20.845Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "29d28429-1bee-4ce3-8ba2-833d66499142",
+    "fields": {
+        "id": "sturgeon-michelle",
+        "name": "Sturgeon, Michelle",
+        "created": "2019-08-01T19:48:16.553Z",
+        "modified": "2019-08-01T19:48:16.553Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "3136b468-c0a3-4385-832d-06e0cf426fcf",
+    "fields": {
+        "id": "gibson-bryan",
+        "name": "Gibson, Bryan",
+        "created": "2019-08-01T19:45:28.732Z",
+        "modified": "2019-08-01T19:45:28.732Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "361b4dfe-c639-45d5-8477-3393fab12d7c",
+    "fields": {
+        "id": "stephens-david",
+        "name": "Stephens, David",
+        "created": "2019-08-01T19:47:31.796Z",
+        "modified": "2019-08-01T19:47:31.796Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "36221f42-329f-499c-b41e-581d2f4302e9",
+    "fields": {
+        "id": "holloway-jim",
+        "name": "Holloway, Jim",
+        "created": "2019-08-01T19:51:53.830Z",
+        "modified": "2019-08-01T19:51:53.830Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "484ed2e7-3e86-4711-a2e6-b17ec4ad4fe9",
+    "fields": {
+        "id": "sheeley-craig",
+        "name": "Sheeley, Craig",
+        "created": "2019-08-01T19:51:39.052Z",
+        "modified": "2019-08-01T19:51:39.052Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "487deac7-8fe6-44cb-852f-7ca4a1791c39",
+    "fields": {
+        "id": "hoss-eric",
+        "name": "Hoss, Eric",
+        "created": "2019-08-01T19:44:38.949Z",
+        "modified": "2019-08-01T19:44:38.949Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "53bea405-deb2-4610-ab31-aeaddc526f13",
+    "fields": {
+        "id": "lumb-karen",
+        "name": "Lumb, Karen",
+        "created": "2019-08-01T19:47:45.246Z",
+        "modified": "2019-08-01T19:47:45.246Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "5ddd3b2a-8b86-4f01-b1cd-bb364fcbc5cf",
+    "fields": {
+        "id": "ryan-shea",
+        "name": "Ryan, Shea",
+        "created": "2019-08-01T19:48:53.907Z",
+        "modified": "2019-08-01T19:48:53.907Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "5f6cd5cd-10ad-422d-be3e-45756a25a13b",
+    "fields": {
+        "id": "astell-john",
+        "name": "Astell, John",
+        "created": "2019-08-01T19:47:04.263Z",
+        "modified": "2019-08-01T19:47:04.263Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "6166a671-7196-44d4-9091-ef5a784bb93a",
+    "fields": {
+        "id": "fossler-charles",
+        "name": "Fossler, Charles",
+        "created": "2019-08-01T19:52:21.258Z",
+        "modified": "2019-08-01T19:52:21.258Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "66efafd4-f5a4-4668-acb7-0ceeff949d32",
+    "fields": {
+        "id": "chadwick-frank",
+        "name": "Chadwick, Frank",
+        "created": "2019-08-01T19:48:01.743Z",
+        "modified": "2019-08-01T19:48:01.743Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "7513b460-5bb1-45b8-8b39-231e799dd815",
+    "fields": {
+        "id": "miller-marc",
+        "name": "Miller, Marc",
+        "created": "2019-08-01T19:50:22.162Z",
+        "modified": "2019-08-01T19:50:22.162Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "8450bed8-0263-4f60-b527-8beee0357bd6",
+    "fields": {
+        "id": "amdor-julie",
+        "name": "Amdor, Julie",
+        "created": "2019-08-01T19:45:12.799Z",
+        "modified": "2019-08-01T19:45:12.799Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "9131b31a-b496-4728-8867-c59ac501cebe",
+    "fields": {
+        "id": "moll-david",
+        "name": "Moll, David",
+        "created": "2019-08-01T19:46:35.435Z",
+        "modified": "2019-08-01T19:46:35.435Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "94c0d9c0-72cf-4a68-896f-284cdbd770c6",
+    "fields": {
+        "id": "white-scott-g",
+        "name": "White, Scott G",
+        "created": "2019-08-01T19:49:57.516Z",
+        "modified": "2019-08-01T19:49:57.516Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "99b6803b-f0fe-45e3-a32a-016630a225ad",
+    "fields": {
+        "id": "brown-timothy-b",
+        "name": "Brown, Timothy B",
+        "created": "2019-08-01T19:29:41.033Z",
+        "modified": "2019-08-01T19:29:41.033Z",
+        "description": ""
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "9f6fba93-9955-4a52-99be-647e9bf58346",
+    "fields": {
+        "id": "banner-rich",
+        "name": "Banner, Rich",
+        "created": "2019-08-01T19:49:29.508Z",
+        "modified": "2019-08-01T19:49:29.508Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "a26ef439-6d23-4d2e-89dd-66ce7b58cde3",
+    "fields": {
+        "id": "bradstreet-tim",
+        "name": "Bradstreet, Tim",
+        "created": "2019-08-01T19:52:46.888Z",
+        "modified": "2019-08-01T19:52:46.888Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "be556bf5-e324-420b-83f7-ebff8e047ba1",
+    "fields": {
+        "id": "harshman-john",
+        "name": "Harshman, John",
+        "created": "2019-08-01T19:43:32.007Z",
+        "modified": "2019-08-01T19:43:32.007Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "befd62fe-0771-4edd-9565-0c79f175f46e",
+    "fields": {
+        "id": "keith-william-h-jr",
+        "name": "Keith, William H. Jr.",
+        "created": "2019-08-01T19:49:12.838Z",
+        "modified": "2019-08-01T19:49:12.838Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "c84e86a8-8aca-408e-b31c-5645febf1eb8",
+    "fields": {
+        "id": "reischauer-dana",
+        "name": "Reischauer, Dana",
+        "created": "2019-08-01T19:52:07.359Z",
+        "modified": "2019-08-01T19:52:07.359Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "c9c36bcf-d2b6-47c5-927c-f67970df5d03",
+    "fields": {
+        "id": "brown-john-p",
+        "name": "Brown, John P",
+        "created": "2019-08-01T19:51:26.676Z",
+        "modified": "2019-08-01T19:51:26.676Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cb4f7eb6-69bc-4df6-b6ce-73f67d6a1a52",
+    "fields": {
+        "id": "venters-steve",
+        "name": "Venters, Steve",
+        "created": "2019-08-01T19:53:16.792Z",
+        "modified": "2019-08-01T19:53:16.792Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cc4704ef-261b-432d-82ce-e88a7ace7615",
+    "fields": {
+        "id": "danforth-liz",
+        "name": "Danforth, Liz",
+        "created": "2019-08-01T19:46:15.926Z",
+        "modified": "2019-08-01T19:46:15.926Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "ce78c288-421b-42ec-8d83-8f84f0f29dc8",
+    "fields": {
+        "id": "wiseman-loren-k",
+        "name": "Wiseman, Loren K",
+        "created": "2019-08-01T19:53:02.929Z",
+        "modified": "2019-08-01T19:53:02.929Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cf0d9830-d0d0-413b-b501-2780f5e7a06c",
+    "fields": {
+        "id": "adan-jay",
+        "name": "Adan, Jay",
+        "created": "2019-08-01T19:46:48.288Z",
+        "modified": "2019-08-01T19:46:48.288Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "d3d8e6e9-9feb-4a84-ad0c-2a252a0ee52f",
+    "fields": {
+        "id": "martin-julia",
+        "name": "Martin, Julia",
+        "created": "2019-08-01T19:49:43.368Z",
+        "modified": "2019-08-01T19:49:43.368Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "de2cd778-2633-40d3-863d-864e7fc14a54",
+    "fields": {
+        "id": "kuntz-james-r",
+        "name": "Kuntz, James R",
+        "created": "2019-08-01T19:44:55.674Z",
+        "modified": "2019-08-01T19:44:55.674Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "e148971c-9e6c-4ff3-95b1-eac497b71ffa",
+    "fields": {
+        "id": "etter-carol",
+        "name": "Etter, Carol",
+        "created": "2019-08-01T19:48:31.770Z",
+        "modified": "2019-08-01T19:48:31.770Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "eb4666df-17e0-4959-8270-29ed469e5f88",
+    "fields": {
+        "id": "walsh-kelly",
+        "name": "Walsh, Kelly",
+        "created": "2019-08-01T19:50:54.686Z",
+        "modified": "2019-08-01T19:50:54.686Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f76781d0-e6e5-4e71-b0bb-b2de99335497",
+    "fields": {
+        "id": "renner-matt",
+        "name": "Renner, Matt",
+        "created": "2019-08-01T19:50:09.948Z",
+        "modified": "2019-08-01T19:50:09.948Z",
+        "description": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f86e36d5-b15b-4cb3-b4ce-625401811c9e",
+    "fields": {
+        "id": "banner-paul-r",
+        "name": "Banner, Paul R",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-08-01T19:50:34.995Z",
+        "description": null
+    }
+}
+]

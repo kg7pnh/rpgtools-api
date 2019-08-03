@@ -1,31 +1,36 @@
 # -*- coding: utf-8 -*-
 """
-Defines the BookFormat model
+Defines the Game System model
 """
-from uuid import uuid4
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
-from django.utils.text import slugify
 from django.utils import timezone
+from django.utils.text import slugify
 from rest_framework import serializers
-from simple_history.models import HistoricalRecords
+from .contributor import Contributor
+
+# # -*- coding: utf-8 -*-
+# """
+# Defines the BookFormat model
+# """
+# from uuid import uuid4
+# from django.db import models
+# from django.db.models.signals import pre_save
+# from django.dispatch import receiver
+# from django.utils.text import slugify
+# from django.utils import timezone
+# from rest_framework import serializers
+# from simple_history.models import HistoricalRecords
 
 # Create your models here.
-class Person(models.Model):
+class Person(Contributor):
     """
     Definition for Person
     """
     # Relationships
 
     # Attributes
-    _id = models.UUIDField(primary_key=True,
-                           default=uuid4,
-                           editable=False,
-                           verbose_name='_ID')
-    id = models.CharField(max_length=256,
-                          verbose_name='ID',
-                          editable=False)
     name_prefix = models.CharField(max_length=6,
                                    verbose_name='Prefix',
                                    null=True,
@@ -42,14 +47,6 @@ class Person(models.Model):
                                    verbose_name='Prefix',
                                    null=True,
                                    blank=True)
-    created = models.DateTimeField(editable=False,
-                                   verbose_name='Created')
-    modified = models.DateTimeField(editable=False,
-                                    verbose_name='Modified')
-    description = models.TextField(verbose_name='Description',
-                                   null=True,
-                                   blank=True)
-    history = HistoricalRecords(excluded_fields=['id', 'modified'])
 
     # Manager
     people = models.Manager()
@@ -59,41 +56,50 @@ class Person(models.Model):
         '''
         __str__
         '''
-        return concat_name(self.name_prefix,
-                           self.name_last,
-                           self.name_first,
-                           self.name_middle,
-                           self.name_suffix)
+        return self.name
+        # return concat_name(self.name_prefix,
+        #                    self.name_last,
+        #                    self.name_first,
+        #                    self.name_middle,
+        #                    self.name_suffix)
 
     def __unicode__(self):
         '''
         __unicode__
         '''
-        return concat_name(self.name_prefix,
-                           self.name_last,
-                           self.name_first,
-                           self.name_middle,
-                           self.name_suffix)
+        return self.name
+        # return concat_name(self.name_prefix,
+        #                    self.name_last,
+        #                    self.name_first,
+        #                    self.name_middle,
+        #                    self.name_suffix)
 
     def save(self, *args, **kwargs): # pylint: disable=arguments-differ
         '''
         On save, update timestamps and parameters
         '''
+        self.name = concat_name(self.name_prefix, # pylint: disable=invalid-name
+                                self.name_last,
+                                self.name_first,
+                                self.name_middle,
+                                self.name_suffix)
 
         if not self.id or not self.created:
             self.created = timezone.now()
-            self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
-                                          self.name_last,
-                                          self.name_first,
-                                          self.name_middle,
-                                          self.name_suffix)) 
+            self.id = slugify(self.name) # pylint: disable=invalid-name
+            # self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
+            #                               self.name_last,
+            #                               self.name_first,
+            #                               self.name_middle,
+            #                               self.name_suffix)) 
         
         self.modified = timezone.now()
-        self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
-                                      self.name_last,
-                                      self.name_first,
-                                      self.name_middle,
-                                      self.name_suffix))
+        self.id = slugify(self.name) # pylint: disable=invalid-name
+        # self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
+        #                               self.name_last,
+        #                               self.name_first,
+        #                               self.name_middle,
+        #                               self.name_suffix))
         return super().save(*args, **kwargs)
 
     # Meta
@@ -102,23 +108,35 @@ class Person(models.Model):
         Model meta data
         """
         db_table = 'person'
-        get_latest_by = 'modified'
-        indexes = [models.Index(fields=['id'])]
-        ordering = ['id']
         verbose_name = 'Person'
         verbose_name_plural = 'People'
+    # class Meta: # pylint: disable=too-few-public-methods
+    #     """
+    #     Model meta data
+    #     """
+    #     db_table = 'person'
+    #     get_latest_by = 'modified'
+    #     indexes = [models.Index(fields=['id'])]
+    #     ordering = ['id']
+    #     verbose_name = 'Person'
+    #     verbose_name_plural = 'People'
 
 @receiver(pre_save, sender=Person)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
     '''
     Set parameter values to html friendly format
     '''
-    
-    instance.id = slugify(concat_name(instance.name_prefix,
-                                      instance.name_last,
-                                      instance.name_first,
-                                      instance.name_middle,
-                                      instance.name_suffix))
+    instance.name = concat_name(instance.name_prefix,
+                                instance.name_last,
+                                instance.name_first,
+                                instance.name_middle,
+                                instance.name_suffix)
+    instance.id = slugify(instance.name) 
+    # instance.id = slugify(concat_name(instance.name_prefix,
+    #                                   instance.name_last,
+    #                                   instance.name_first,
+    #                                   instance.name_middle,
+    #                                   instance.name_suffix))
 
 def concat_name(prefix, last, first, middle, suffix):
 

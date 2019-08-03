@@ -11,8 +11,10 @@ from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenVerifyView
 from api.views import book
 from api.views import book_format
+from api.views import contributor
 from api.views import game
 from api.views import game_system
+from api.views import organization
 from api.views import person
 from api.views import publisher
 from api.views import schema
@@ -35,6 +37,10 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('book-format/', book_format.CreateView.as_view(), name="book_format_create"),
     path('book-format', book_format.ListView.as_view(), name="book_format_list"),
 
+    # Contributor paths
+    path('contributor/<str:id>', contributor.ItemView.as_view(), name="contributor"),
+    path('contributor', contributor.ListView.as_view(), name="contributor_list"),
+
     # Game paths
     path('game/<str:id>', game.ItemView.as_view(), name="game"),
     path('game/', game.CreateView.as_view(), name="game_create"),
@@ -44,6 +50,11 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('game-system/<str:id>', game_system.ItemView.as_view(), name="game_system"),
     path('game-system/', game_system.CreateView.as_view(), name="game_system_create"),
     path('game-system', game_system.ListView.as_view(), name="game_system_list"),
+
+    # Person paths
+    path('organization/<str:id>', organization.ItemView.as_view(), name="organization"),
+    path('organization/', organization.CreateView.as_view(), name="organization_create"),
+    path('organization', organization.ListView.as_view(), name="organization_list"),
 
     # Person paths
     path('person/<str:id>', person.ItemView.as_view(), name="person"),

@@ -35,9 +35,9 @@ class Game(Base):
                                     verbose_name='Abbreviation',
                                     null=True,
                                     blank=True)
-    url = models.URLField(verbose_name='Website',
-                          null=True,
-                          blank=True)
+    # url = models.URLField(verbose_name='Website',
+    #                       null=True,
+    #                       blank=True)
 
 
     # Manager

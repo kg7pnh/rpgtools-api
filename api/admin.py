@@ -7,8 +7,10 @@ from django.db import models
 from markdownx.widgets import AdminMarkdownxWidget
 from api.models.book import Book
 from api.models.book_format import BookFormat
+from api.models.contributor import Contributor
 from api.models.game import Game
 from api.models.game_system import GameSystem
+from api.models.organization import Organization
 from api.models.person import Person
 from api.models.publisher import Publisher
 from api.models.schema import Schema
@@ -23,6 +25,8 @@ class BookAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
+              'created',
+              'modified',
               'name',
               'publisher',
               'game',
@@ -30,6 +34,11 @@ class BookAdmin(admin.ModelAdmin):
               'short_name',
               'abbreviation',
               'catalog_number',
+              'pages',
+              'isbn_10',
+              'isbn_13',
+              'description',
+              'url',
               'art_assistant',
               'art_director',
               'artist_cover',
@@ -44,14 +53,7 @@ class BookAdmin(admin.ModelAdmin):
               'research_assistant',
               'text_manager',
               'text_processor',
-              'type_setter',
-              'pages',
-              'isbn_10',
-              'isbn_13',
-              'url',
-              'created',
-              'modified',
-              'description')
+              'type_setter')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -64,18 +66,18 @@ class BookAdmin(admin.ModelAdmin):
     filter_horizontal = ('art_assistant',
                          'art_director',
                          'artist_cover',
-                         'artist_interior',
-                         'author',
-                         'designer',
-                         'developer',
-                         'editor',
-                         'graphic_designer',
-                         'play_tester',
-                         'proofreader',
-                         'research_assistant',
-                         'text_manager',
-                         'text_processor',
-                         'type_setter',)
+                        'artist_interior',
+                        'author',
+                        'designer',
+                        'developer',
+                        'editor',
+                        'graphic_designer',
+                        'play_tester',
+                        'proofreader',
+                        'research_assistant',
+                        'text_manager',
+                        'text_processor',
+                        'type_setter',)
 
 admin.site.register(Book, BookAdmin)
 
@@ -88,11 +90,12 @@ class BookFormatAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
-              'name',
-              'format_type',
               'created',
               'modified',
-              'description')
+              'name',
+              'format_type',
+              'description',
+              'url',)
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -105,6 +108,32 @@ class BookFormatAdmin(admin.ModelAdmin):
 
 admin.site.register(BookFormat, BookFormatAdmin)
 
+class ContributorAdmin(admin.ModelAdmin):
+    """
+    ContributorAdmin
+    """
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget},
+    }
+    fields = ('_id',
+              'id',
+              'name',
+              'created',
+              'modified',
+              'description',
+              'url')
+    readonly_fields = ('_id',
+                       'id',
+                       'created',
+                       'modified')
+    list_display = ('name',
+                    'created',
+                    'modified',
+                    'id',
+                    '_id')
+
+admin.site.register(Contributor, ContributorAdmin)
+
 class GameAdmin(admin.ModelAdmin):
     """
     GameAdmin
@@ -114,15 +143,15 @@ class GameAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
+              'created',
+              'modified',
               'name',
               'short_name',
               'abbreviation',
               'publisher',
               'game_system',
-              'url',
-              'created',
-              'modified',
-              'description')
+              'description',
+              'url')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -144,14 +173,14 @@ class GameSystemAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
+              'created',
+              'modified',
               'name',
               'short_name',
               'abbreviation',
               'publisher',
-              'url',
-              'created',
-              'modified',
-              'description')
+              'description',
+              'url')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -164,6 +193,32 @@ class GameSystemAdmin(admin.ModelAdmin):
 
 admin.site.register(GameSystem, GameSystemAdmin)
 
+class OrganizationAdmin(admin.ModelAdmin):
+    """
+    ContributorAdmin
+    """
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget},
+    }
+    fields = ('_id',
+              'id',
+              'name',
+              'created',
+              'modified',
+              'description',
+              'url')
+    readonly_fields = ('_id',
+                       'id',
+                       'created',
+                       'modified')
+    list_display = ('name',
+                    'created',
+                    'modified',
+                    'id',
+                    '_id')
+
+admin.site.register(Organization, OrganizationAdmin)
+
 class PersonAdmin(admin.ModelAdmin):
     """
     BookAdmin
@@ -173,14 +228,15 @@ class PersonAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
+              'created',
+              'modified',
               'name_prefix',
               'name_first',
               'name_middle',
               'name_last',
               'name_suffix',
-              'created',
-              'modified',
-              'description')
+              'description',
+              'url')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -206,12 +262,12 @@ class PublisherAdmin(admin.ModelAdmin):
     }
     fields = ('_id',
               'id',
-              'name',
-              'abbreviation',
-              'url',
               'created',
               'modified',
-              'description')
+              'name',
+              'abbreviation',
+              'description',
+              'url')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -240,7 +296,8 @@ class SchemaAdmin(admin.ModelAdmin):
               'document',
               'form_schema',
               'specification',
-              'description')
+              'description',
+              'url')
     readonly_fields = ('_id',
                        'id',
                        'version',
