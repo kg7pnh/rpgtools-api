@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Defines the Publisher model
+Defines the Game System model
 """
 from django.db import models
 from django.db.models.signals import pre_save
@@ -10,23 +10,16 @@ from rest_framework import serializers
 from .base import Base
 
 # Create your models here.
-class Publisher(Base):
+class Contributor(Base):
     """
-    Definition for Publisher
+    Definition for Contributor
     """
     # Relationships
 
     # Attributes
-    abbreviation = models.CharField(max_length=8,
-                                    verbose_name='Abbreviation',
-                                    null=True,
-                                    blank=True)
-    # url = models.URLField(verbose_name='Website',
-    #                       null=True,
-    #                       blank=True)
 
     # Manager
-    publishers = models.Manager()
+    contributors = models.Manager()
 
     # Functions
 
@@ -35,11 +28,12 @@ class Publisher(Base):
         """
         Model meta data
         """
-        db_table = 'publisher'
-        verbose_name = 'Publisher'
-        verbose_name_plural = 'Publishers'
+        db_table = 'contributor'
+        verbose_name = 'Contributor'
+        verbose_name_plural = 'Contributors'
+        ordering = ['name']
 
-@receiver(pre_save, sender=Publisher)
+@receiver(pre_save, sender=Contributor)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
     '''
     Set parameter values to html friendly format
@@ -50,9 +44,10 @@ class Serializer(serializers.ModelSerializer):
     '''
     Serializer class
     '''
+
     class Meta: # pylint: disable=too-few-public-methods
         """
         Class meta data
         """
-        model = Publisher
+        model = Contributor
         fields = ('__all__')

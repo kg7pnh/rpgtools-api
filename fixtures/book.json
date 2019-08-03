@@ -18,34 +18,17 @@
         "isbn_10": "0943580560",
         "isbn_13": "9780943580562",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051",
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "author": [
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "designer": [],
-        "developer": [],
-        "graphic_designer": [],
-        "play_tester": [],
-        "editor": [
-            "a2390855-80b8-41f0-be51-6d6a1bbf5fa1",
-            "d2b966db-b5b7-4c1e-9137-bebe2e7f708e",
-            "5b5cf238-754c-4576-82e4-40e29d15ff45",
-            "f3d6c136-cce0-47ec-bc17-37fb911b17fd",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -71,33 +54,17 @@
         "isbn_10": "0943580153",
         "isbn_13": "9780943580159",
         "url": "",
-        "artist_cover": [
-            "d7068a88-33a7-4153-8de7-9f211f545776"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "11911faa-00e7-4aa3-b4ee-c0169c105463"
-        ],
-        "author": [
-            "2f27b8b1-1fda-4ec8-9b61-3643c0637035",
-            "be67f2d9-b997-4e44-a9f9-061d9487393f"
-        ],
-        "editor": [
-            "2592c1d7-0434-4688-b897-dcb5dd243da9",
-            "30c61316-13d3-4f1c-8c7e-fbcfbb72888b",
-            "a7497954-8161-4e25-978d-7f45114a47f4",
-            "7f7d279a-97f7-4ea2-aac6-bbdcaf3d04ca",
-            "2f27b8b1-1fda-4ec8-9b61-3643c0637035",
-            "56979fb2-89ee-4a78-b74a-b70a64ec5154",
-            "623d4b9b-9d83-4d4f-9a36-8f1775866ff9"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -123,29 +90,17 @@
         "isbn_10": "0943580501",
         "isbn_13": "9780943580500",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "author": [
-            "46ff944a-ec75-40a8-9249-d639550bb9e9",
-            "5b5cf238-754c-4576-82e4-40e29d15ff45",
-            "12856c82-94d6-491c-908b-330413312aac",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "editor": [
-            "c5928947-0853-4d74-ad27-ca0c42117929",
-            "c04830a6-4137-46d5-94f3-93ead780014e"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -171,34 +126,17 @@
         "isbn_10": "1558780033",
         "isbn_13": "9781558780033",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff"
-        ],
-        "author": [
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "editor": [
-            "1df32c37-3bbf-4821-a312-d55f1b806943",
-            "21469d84-e52f-4328-b63d-348b0ffd05b7",
-            "5aff8bc6-e707-47ad-9417-630a150bb5a0",
-            "a7497954-8161-4e25-978d-7f45114a47f4",
-            "4e615809-d9e5-4e5e-8c73-b34a8eeba55e",
-            "d7dce33d-ad36-4f10-b12a-f9cddb61299f",
-            "7f7d279a-97f7-4ea2-aac6-bbdcaf3d04ca",
-            "623d4b9b-9d83-4d4f-9a36-8f1775866ff9",
-            "cbb96f9b-f694-43bb-bcf8-048499217986",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -224,27 +162,17 @@
         "isbn_10": "0943580188",
         "isbn_13": "9780943580180",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051"
-        ],
-        "author": [
-            "9f63622e-c8ba-494d-9314-9565aa86dfbb"
-        ],
-        "editor": [
-            "f3d6c136-cce0-47ec-bc17-37fb911b17fd",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -270,36 +198,17 @@
         "isbn_10": "0943580692",
         "isbn_13": "9780943580692",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051"
-        ],
-        "author": [
-            "070f3747-5f96-4b70-b428-431fd93d1b36"
-        ],
-        "editor": [
-            "6d6c61a7-1267-47f5-88f5-85aba16066f2",
-            "e851af8a-2c24-4144-afff-ae5445142124",
-            "21469d84-e52f-4328-b63d-348b0ffd05b7",
-            "5aff8bc6-e707-47ad-9417-630a150bb5a0",
-            "a7497954-8161-4e25-978d-7f45114a47f4",
-            "37c17b8f-2c08-4211-93d1-e39aaad61df6",
-            "4e615809-d9e5-4e5e-8c73-b34a8eeba55e",
-            "f3d6c136-cce0-47ec-bc17-37fb911b17fd",
-            "d7dce33d-ad36-4f10-b12a-f9cddb61299f",
-            "623d4b9b-9d83-4d4f-9a36-8f1775866ff9",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -325,26 +234,17 @@
         "isbn_10": "0943580153",
         "isbn_13": "9780943580159",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051"
-        ],
-        "author": [
-            "9f63622e-c8ba-494d-9314-9565aa86dfbb"
-        ],
-        "editor": [
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -370,29 +270,17 @@
         "isbn_10": "0943580293",
         "isbn_13": "9780943580296",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051"
-        ],
-        "author": [
-            "9f63622e-c8ba-494d-9314-9565aa86dfbb"
-        ],
-        "editor": [
-            "4e615809-d9e5-4e5e-8c73-b34a8eeba55e",
-            "f3d6c136-cce0-47ec-bc17-37fb911b17fd",
-            "d7dce33d-ad36-4f10-b12a-f9cddb61299f",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -418,33 +306,17 @@
         "isbn_10": "1558780068",
         "isbn_13": "9781558780064",
         "url": "",
-        "artist_cover": [
-            "d7068a88-33a7-4153-8de7-9f211f545776"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "11911faa-00e7-4aa3-b4ee-c0169c105463"
-        ],
-        "author": [
-            "2f27b8b1-1fda-4ec8-9b61-3643c0637035",
-            "be67f2d9-b997-4e44-a9f9-061d9487393f"
-        ],
-        "editor": [
-            "2592c1d7-0434-4688-b897-dcb5dd243da9",
-            "30c61316-13d3-4f1c-8c7e-fbcfbb72888b",
-            "a7497954-8161-4e25-978d-7f45114a47f4",
-            "7f7d279a-97f7-4ea2-aac6-bbdcaf3d04ca",
-            "2f27b8b1-1fda-4ec8-9b61-3643c0637035",
-            "56979fb2-89ee-4a78-b74a-b70a64ec5154",
-            "623d4b9b-9d83-4d4f-9a36-8f1775866ff9"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -470,22 +342,17 @@
         "isbn_10": "",
         "isbn_13": "",
         "url": "",
-        "artist_cover": [],
-        "artist_interior": [],
-        "author": [
-            "d48003b9-35fa-44d6-840f-2638b657b836"
-        ],
-        "editor": [
-            "3a7b532c-d1b2-4bc4-acc1-66002227e00a",
-            "d48003b9-35fa-44d6-840f-2638b657b836"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -511,30 +378,17 @@
         "isbn_10": "0943580242",
         "isbn_13": "9780943580241",
         "url": "",
-        "artist_cover": [
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "artist_interior": [
-            "f42f8a5b-797d-4828-8c34-ae1ed5e96dff",
-            "35fcb2f8-5fa5-4a04-b87e-979ae2fb7051"
-        ],
-        "author": [
-            "ff4c63ab-ab59-493f-9d94-e146b892ee78"
-        ],
-        "editor": [
-            "4e615809-d9e5-4e5e-8c73-b34a8eeba55e",
-            "f3d6c136-cce0-47ec-bc17-37fb911b17fd",
-            "d7dce33d-ad36-4f10-b12a-f9cddb61299f",
-            "bf927417-70ee-4e9f-b9e2-56844efb09b8",
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],
@@ -560,30 +414,17 @@
         "isbn_10": "1558780319",
         "isbn_13": "9781558780316",
         "url": "",
-        "artist_cover": [
-            "d193d328-6078-49f1-9115-fa7eccec601e"
-        ],
-        "artist_interior": [
-            "28b82b55-6f17-4e79-b3bd-e7ca96033a42",
-            "fca579de-371a-4509-a288-0f78918aa1df"
-        ],
-        "author": [
-            "f77b147e-9a93-4bd7-90eb-21dd01123816"
-        ],
-        "editor": [
-            "2592c1d7-0434-4688-b897-dcb5dd243da9",
-            "30c61316-13d3-4f1c-8c7e-fbcfbb72888b",
-            "a7497954-8161-4e25-978d-7f45114a47f4",
-            "2f27b8b1-1fda-4ec8-9b61-3643c0637035",
-            "623d4b9b-9d83-4d4f-9a36-8f1775866ff9"
-        ],
-        "proofreader": [],
         "art_assistant": [],
         "art_director": [],
+        "artist_cover": [],
+        "artist_interior": [],
+        "author": [],
         "designer": [],
         "developer": [],
+        "editor": [],
         "graphic_designer": [],
         "play_tester": [],
+        "proofreader": [],
         "research_assistant": [],
         "text_manager": [],
         "text_processor": [],

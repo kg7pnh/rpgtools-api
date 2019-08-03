@@ -23,6 +23,7 @@ django-simple-history = "*"
 django-extensions = "*"
 django-shortuuidfield = "*"
 gunicorn = "*"
+django-debug-toolbar = "*"
 
 [requires]
 python_version = "3.6"
