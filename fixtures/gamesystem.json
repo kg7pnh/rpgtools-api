@@ -8,10 +8,10 @@
         "created": "2019-07-22T03:24:17.213Z",
         "modified": "2019-07-22T19:21:26.051Z",
         "description": "GDW House System version 1 uses 1d6 vs Skill + modfiers, or (Skill)d6's totaled vs a target number, or (skill)d6's individually vs a target number by difficulty counting successes. This system is used by Space 1889 and Twilight: 2000 v.1.0",
+        "url": null,
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "GDW HS 1",
-        "abbreviation": "GDWHS1",
-        "url": null
+        "abbreviation": "GDWHS1"
     }
 },
 {
@@ -23,10 +23,10 @@
         "created": "2019-07-22T04:17:57.164Z",
         "modified": "2019-07-22T20:11:15.965Z",
         "description": "House System version 2 is a 1d10 based rule system. For skill difficulty checks, there are numerous difficulty levels: 1d10 vs Skill x2, x1, and x1/2, Roll Low. This system is used by Twilight: 2000 v.2.0.",
+        "url": null,
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "GDW HS 2",
-        "abbreviation": "GDWHS2",
-        "url": null
+        "abbreviation": "GDWHS2"
     }
 },
 {
@@ -38,10 +38,10 @@
         "created": "2019-07-22T21:46:19.109Z",
         "modified": "2019-07-22T21:46:19.109Z",
         "description": "House System version 3 was developed for Twilight: 2000 v.2.2 and is based on 1d20 rolls. It is also used in Dark Conspiracy 2nd Edition. There are 5 skill difficulty levels; 1d20 vs (Stat+Skill) x4, x2, x1, x1/2, x1/4, Roll Low. Character generation is identical to system 2 save for a couple of errata entries. Combat is revised slightly.",
+        "url": null,
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "GDW HS 3",
-        "abbreviation": "GDWHS3",
-        "url": null
+        "abbreviation": "GDWHS3"
     }
 },
 {
@@ -53,10 +53,10 @@
         "created": "2019-07-22T21:37:12.500Z",
         "modified": "2019-07-22T21:37:12.500Z",
         "description": "House System version 4 is the 4th version and is used in Traveller: The New Era. It makes many additional changes to version 3's engine, especially in Character Generation and Combat. Equipment is compatible, and characters are very close in compatibility.",
+        "url": null,
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "GDW HS 4",
-        "abbreviation": "GDWHS4",
-        "url": null
+        "abbreviation": "GDWHS4"
     }
 }
 ]

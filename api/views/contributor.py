@@ -25,23 +25,3 @@ class ListView(generics.ListAPIView):
     '''
     queryset = Contributor.contributors.all()
     serializer_class = Serializer
-
-# class CreateView(generics.CreateAPIView):
-#     '''
-#      Provides access to the POST request for creating game objects.
-#     '''
-#     permission_classes = (IsAuthenticated,)
-#     queryset = Organization.organizations.all()
-#     serializer_class = Serializer
-
-#     def create(self, request, *args, **kwargs):
-#         name = request.data['name']
-#         id = slugify(name) # pylint: disable=redefined-builtin, invalid-name
-
-#         queryset = Organization.organizations.filter(id=id)
-
-#         if queryset.count() != 0:
-#             detail = 'A Game System entry already exists with the id '+id
-#             raise serializers.ValidationError(detail)
-
-#         return super(CreateView, self).create(request, *args, **kwargs)

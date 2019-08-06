@@ -20,8 +20,7 @@ class Base(models.Model):
                            verbose_name='_ID')
     id = models.CharField(max_length=256,
                           verbose_name='ID',
-                          editable=False,
-                          unique=True)
+                          editable=False)
     name = models.CharField(max_length=256,
                             verbose_name='Name')
     created = models.DateTimeField(editable=False,

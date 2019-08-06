@@ -2,8 +2,10 @@
 """
 Defines the Schema views
 """
+from django.utils.text import slugify
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
+from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from api.models.schema import Schema
 from api.models.schema import DocumentSerializer
@@ -58,6 +60,29 @@ class CreateView(generics.CreateAPIView):
     permission_classes = (IsAuthenticated,)
     queryset = Schema.schemas.all()
     serializer_class = Serializer
+
+    def create(self, request, *args, **kwargs):
+        name = request.data['name']
+        id = slugify(name) # pylint: disable=redefined-builtin, invalid-name
+
+        queryset = Schema.schemas.filter(id=id)
+
+        if queryset.count() != 0:
+            high_version = 1
+            for e in queryset:
+                if e.version > high_version:
+                    high_version = e.version
+        
+            print()
+            print(request.data)
+            request.data["version"] = high_version + 1
+            print(request.data)
+            print()
+
+            # detail = 'A Book entry already exists with the id '+id
+            # raise serializers.ValidationError(detail)
+
+        return super(CreateView, self).create(request, *args, **kwargs)
 
 class ItemView(generics.RetrieveAPIView):
     '''

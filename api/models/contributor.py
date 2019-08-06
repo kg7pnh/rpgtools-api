@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Defines the Game System model
+Defines the Contributor model
 """
 from django.db import models
 from django.db.models.signals import pre_save

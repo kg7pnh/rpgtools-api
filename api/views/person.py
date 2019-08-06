@@ -36,11 +36,17 @@ class CreateView(generics.CreateAPIView):
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
-        name_prefix = request.data['name_prefix']
+        name_prefix = ""
+        if request.data['name_prefix']:
+            name_prefix = request.data['name_prefix']
         name_first = request.data['name_first']
-        name_middle = request.data['name_middle']
+        name_middle = ""
+        if request.data['name_middle']:
+            name_middle = request.data['name_middle']
         name_last = request.data['name_last']
-        name_suffix = request.data['name_suffix']
+        name_suffix = ""
+        if  request.data['name_suffix']:
+            name_suffix = request.data['name_suffix']
         name = concat_name(name_prefix,
                            name_last,
                            name_first,

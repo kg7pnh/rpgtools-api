@@ -38,7 +38,7 @@ class CreateView(generics.CreateAPIView):
         '''
         create
         '''
-        id = slugify(name) # pylint: disable=redefined-builtin, invalid-name
+        id = slugify(request.data['name']) # pylint: disable=redefined-builtin, invalid-name
 
         queryset = Organization.organizations.filter(id=id)
 

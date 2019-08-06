@@ -28,7 +28,6 @@ class Schema(Base):
 
     # Attributes
     version = models.IntegerField(default=1,
-                                  editable=False,
                                   verbose_name='Version')
     document = JSONField(verbose_name='Document',
                          null=True,
