@@ -8,6 +8,7 @@
         "created": "2019-07-19T17:02:25.437Z",
         "modified": "2019-07-19T17:02:25.437Z",
         "description": "**EPUB** is an e-book file format that uses the `.epub` file extension. The term is short for electronic publication and is sometimes styled _ePub_. EPUB is supported by many e-readers, and compatible software is available for most smartphones, tablets, and computers. EPUB is a technical standard published by the International Digital Publishing Forum (IDPF). It became an official standard of the IDPF in September 2007, superseding the older Open eBook standard.",
+        "url": null,
         "format_type": "Digital"
     }
 },
@@ -20,6 +21,7 @@
         "created": "2019-07-19T16:52:11.014Z",
         "modified": "2019-07-19T16:52:11.014Z",
         "description": "The **Portable Document Format** (**PDF**) (redundantly: PDF format) is a file format developed by Adobe in the 1990s to present documents, including text formatting and images, in a manner independent of application software, hardware, and operating systems. Based on the PostScript language, each PDF file encapsulates a complete description of a fixed-layout flat document, including the text, fonts, vector graphics, raster images and other information needed to display it. PDF was standardized as an open format, ISO 32000, in 2008, and no longer requires any royalties for its implementation.",
+        "url": null,
         "format_type": "Digital"
     }
 },
@@ -32,6 +34,7 @@
         "created": "2019-07-19T16:48:59.444Z",
         "modified": "2019-07-19T16:48:59.444Z",
         "description": "A hardcover or hardback (also known as hardbound, and sometimes as case-bound) book is one bound with rigid protective covers (typically of Binder's board or heavy paperboard covered with buckram or other cloth, heavy paper, or occasionally leather). It has a flexible, sewn spine which allows the book to lie flat on a surface when opened.",
+        "url": null,
         "format_type": "Physical"
     }
 },
@@ -44,6 +47,7 @@
         "created": "2019-07-19T17:10:21.276Z",
         "modified": "2019-07-19T17:10:21.276Z",
         "description": "A **magazine** is a publication, usually a periodical publication, which is printed or electronically published (sometimes referred to as an online magazine). Magazines are generally published on a regular schedule and contain a variety of content. They are generally financed by advertising, by a purchase price, by prepaid subscriptions, or a combination of the three.",
+        "url": null,
         "format_type": "Physical"
     }
 },
@@ -56,6 +60,7 @@
         "created": "2019-07-19T16:58:37.560Z",
         "modified": "2019-07-19T16:58:37.560Z",
         "description": "**Mobipocket** SA was a French company incorporated in March 2000 that created the `.mobi` e-book file format and produced the Mobipocket Reader software for mobile phones, personal digital assistants (PDA) and desktop operating systems.",
+        "url": null,
         "format_type": "Digital"
     }
 },
@@ -68,6 +73,7 @@
         "created": "2019-07-19T16:43:43.335Z",
         "modified": "2019-07-19T16:43:43.335Z",
         "description": "A paperback, also known as a softcover or softback, is a type of book characterized by a thick paper or paperboard cover, and often held together with glue rather than stitches or staples. In contrast, hardcover or hardback books are bound with cardboard covered with cloth. The pages on the inside are made of paper.",
+        "url": null,
         "format_type": "Physical"
     }
 },
@@ -80,6 +86,7 @@
         "created": "2019-07-25T16:40:03.629Z",
         "modified": "2019-07-25T16:40:03.629Z",
         "description": "A set of softcover books contained in a hard box of some kind and intended to be sold as a set.",
+        "url": null,
         "format_type": "Physical"
     }
 }

@@ -2,6 +2,7 @@
 """
 Url cofigurations
 """
+from django.conf import settings
 from django.conf.urls import url
 from django.urls import include
 from django.urls import path
@@ -12,6 +13,7 @@ from rest_framework_simplejwt.views import TokenVerifyView
 from api.views import book
 from api.views import book_format
 from api.views import contributor
+from api.views import die_roll
 from api.views import game
 from api.views import game_system
 from api.views import organization
@@ -40,6 +42,9 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     # Contributor paths
     path('contributor/<str:id>', contributor.ItemView.as_view(), name="contributor"),
     path('contributor', contributor.ListView.as_view(), name="contributor_list"),
+
+    # DieRoll paths
+    path('die-roll', die_roll.DieRollRequest.as_view(), name='die-roll'),
 
     # Game paths
     path('game/<str:id>', game.ItemView.as_view(), name="game"),
@@ -88,3 +93,13 @@ api_urlpatterns = [ #pylint: disable=invalid-name
 urlpatterns = api_urlpatterns + [ #pylint: disable=invalid-name
     url(r'docs/', views.schema_view)
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+
+        # For django versions before 2.0:
+        # url(r'^__debug__/', include(debug_toolbar.urls)),
+
+    ] + urlpatterns

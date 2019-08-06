@@ -8,11 +8,11 @@
         "created": "2019-07-24T21:10:09.214Z",
         "modified": "2019-07-24T21:10:09.214Z",
         "description": "string",
+        "url": "",
         "game_system": "49ac9127-69ab-461c-ba5e-d078a092cdd2",
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "Twilight: 2000",
-        "abbreviation": "TK2E2V22",
-        "url": ""
+        "abbreviation": "TK2E2V22"
     }
 },
 {
@@ -24,11 +24,11 @@
         "created": "2019-07-24T21:08:22.469Z",
         "modified": "2019-07-24T21:09:10.698Z",
         "description": "string",
+        "url": "",
         "game_system": "22225209-9434-4c48-a459-a71b24c39802",
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "Twilight: 2000",
-        "abbreviation": "TK2E1",
-        "url": ""
+        "abbreviation": "TK2E1"
     }
 },
 {
@@ -40,11 +40,11 @@
         "created": "2019-07-24T21:07:46.561Z",
         "modified": "2019-07-24T21:07:46.561Z",
         "description": "string",
+        "url": "",
         "game_system": "26ca2f0b-a549-4518-a7a9-17452b34623f",
         "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
         "short_name": "Twilight: 2000",
-        "abbreviation": "TK2E2",
-        "url": ""
+        "abbreviation": "TK2E2"
     }
 }
 ]

@@ -8,6 +8,7 @@
         "created": "2019-06-15T06:54:47.274Z",
         "modified": "2019-06-23T06:03:30.882Z",
         "description": "`Book Model\r\n==========\r\nDescription\r\n------------\r\nThis schema is for a book object. There are only three required fields in the json object: title, publisher and page count.\r\n\r\nExample\r\n--------\r\nBelow is an example of the minimum json object based on this schema:\r\n\r\n```{ \"title\": \"A Tale of Two Cities\", \"publisher\": \"Chapman & Hall\", \"pages\": 341 }````",
+        "url": null,
         "version": 1,
         "document": {
             "$id": "http://127.0.0.1:8000/api/v1/schemas/book-model",

@@ -29,6 +29,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '192.168.0.35',
+]
+
 logfile = "logs/rpgtools.log"
 
 LOGGING = {
@@ -78,6 +83,7 @@ MY_INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_swagger',
     'simple_history',
+    'debug_toolbar',
 ]
 
 # Application definition
@@ -102,7 +108,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'request_logging.middleware.LoggingMiddleware',
-    'simple_history.middleware.HistoryRequestMiddleware'
+    'simple_history.middleware.HistoryRequestMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
