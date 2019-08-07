@@ -18,7 +18,16 @@ build-dev:
 	pipenv run python manage.py migrate
 	pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@bayhasworld.com', 'adminpass',first_name='admin',last_name='admin')"
 	pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_user('read-only', 'ro@bayhasworld.com', 'ropassword',first_name='read',last_name='only')"
-	pipenv run python manage.py loaddata ./fixtures/*
+	pipenv run python manage.py loaddata ./fixtures/publisher.json
+	pipenv run python manage.py loaddata ./fixtures/bookformat.json
+	pipenv run python manage.py loaddata ./fixtures/schema.json
+	pipenv run python manage.py loaddata ./fixtures/contributor.json
+	pipenv run python manage.py loaddata ./fixtures/person.json
+	pipenv run python manage.py loaddata ./fixtures/organization.json
+	pipenv run python manage.py loaddata ./fixtures/gamesystem.json
+	pipenv run python manage.py loaddata ./fixtures/game.json
+	pipenv run python manage.py loaddata ./fixtures/book.json
+
 	pipenv run python manage.py populate_history --auto
 	pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/users.json
 
