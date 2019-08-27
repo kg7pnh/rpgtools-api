@@ -242,9 +242,9 @@
         "graphic_designer": [],
         "play_tester": [
             "fb6de340-c2b8-4490-86f4-35c8db11941e",
-            "cef17989-35b7-43ea-bfcf-b5a4bffcf91c",
+            "721c9e3b-b12e-4271-8b58-7fd8b68b4cd9",
             "287b4340-e3c1-4153-ac1b-95fa2dfe4b6c",
-            "721c9e3b-b12e-4271-8b58-7fd8b68b4cd9"
+            "cef17989-35b7-43ea-bfcf-b5a4bffcf91c"
         ],
         "proofreader": [],
         "research_assistant": [
@@ -954,7 +954,7 @@
         "id": "t2ke1-urban-guerilla",
         "name": "T2KE1 - Urban Guerilla",
         "created": "2019-08-06T01:55:35.116Z",
-        "modified": "2019-08-06T01:55:35.116Z",
+        "modified": "2019-08-07T05:29:17.326Z",
         "description": "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp_It's like this: there's this bunch down in St. Pete called the New Americans. They're into that \"natural aristocrat\" stuff about the superior man ruling the rest, and they decide who's superior._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Urban Guerilla_ is a module for use with **Twilight: 2000**, GDW's post-World War III role-playing game. The module takes players into central Florida, now controlled by New America. Members of the Natrual Aristocrats of the St. Petersburg cell control the area around Tampa Bay and plan to use it as a springboard for conquest.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The players must join desperate war as freedom fighters who pit their lives against the powerful state being built.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This book contains the following material:<ul><li>Capsule biographies of important NPCs.</li><li>A classified New American document that might be the key to breaking the New American strangle-hold over central Florida.</li><li>A description of the \"Brave New Society,\" along with a New American Values Inventory used in the classification of members.</li><li>An inside view of the secret police \"provocateur\" units.</li><li>A map of Tampa Bay and environs (including St. Petersburg).</li><li>A map of west central Florida</li><li>Geographic descriptions of the remaining towns and villages in the path of the New American drive to conquest, along with brief biographies of prominent local leaders in significant localities.</li><li>Organizational details of the New American Florida Theater of Operations and the Urban Renewal Regiments, as well as the various militias, resisteance movements and organizations.</li></ul>",
         "url": "",
         "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
@@ -991,9 +991,12 @@
             "c84e86a8-8aca-408e-b31c-5645febf1eb8"
         ],
         "play_tester": [
+            "2a9f02fb-dc26-4c4a-8424-c93e943bee4f",
             "adca5920-d250-4021-8771-3ce980ea9006",
-            "89aff94f-3e5f-4cef-8532-297f6871f114",
-            "8ddee189-8287-4457-9c65-19ac4f9015b2"
+            "3f366d8b-0a3c-4009-8dc7-ed0e949b4be9",
+            "dfa8295c-f549-435b-b27b-9d3b4d1f9648",
+            "8ddee189-8287-4457-9c65-19ac4f9015b2",
+            "89aff94f-3e5f-4cef-8532-297f6871f114"
         ],
         "proofreader": [],
         "research_assistant": [],
@@ -1236,8 +1239,8 @@
         ],
         "author": [],
         "designer": [
-            "f4317b98-b2bd-4bfa-a9ff-76acd073d542",
             "4d98607f-761f-43ad-82d8-3cab861f3a92",
+            "f4317b98-b2bd-4bfa-a9ff-76acd073d542",
             "4da76ad6-e5ba-44b7-aec6-8ac6c6aea3ca",
             "ce78c288-421b-42ec-8d83-8f84f0f29dc8"
         ],

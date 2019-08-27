@@ -72,7 +72,7 @@ LOGGING = {
 # Add-on Application definition
 MY_INSTALLED_APPS = [
     'api',
-    'ui',
+    # 'ui',
     'markdownx',
     'rest_framework',
     'rest_framework.authtoken',

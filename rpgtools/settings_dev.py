@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ["*"]
 
 INTERNAL_IPS = [
     '127.0.0.1',
+    '192.168.0.104'
     '192.168.0.35',
 ]
 
@@ -77,7 +78,7 @@ LOGGING = {
 # Add-on Application definition
 MY_INSTALLED_APPS = [
     'api',
-    'ui',
+    #'ui',
     'markdownx',
     'rest_framework',
     'rest_framework.authtoken',

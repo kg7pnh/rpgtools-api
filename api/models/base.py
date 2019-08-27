@@ -33,8 +33,8 @@ class Base(models.Model):
     url = models.URLField(verbose_name='Website',
                           null=True,
                           blank=True)
-    # history = HistoricalRecords(excluded_fields=['id', 'modified'],
-    #                             inherit=True)
+    history = HistoricalRecords(excluded_fields=['id', 'modified'],
+                                inherit=True)
 
     # Functions
     def __str__(self):

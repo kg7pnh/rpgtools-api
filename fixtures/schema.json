@@ -1,6 +1,56 @@
 [
 {
     "model": "api.schema",
+    "pk": "079970cd-6555-4992-83e8-e06f5ee8b848",
+    "fields": {
+        "id": "attribute-generation-t2000-1e-output-schema",
+        "name": "Attribute Generation - T2000 1E - Output Schema",
+        "created": "2019-08-08T03:50:19.194Z",
+        "modified": "2019-08-08T04:27:35.235Z",
+        "description": "",
+        "url": "",
+        "version": 1,
+        "document": {},
+        "form_schema": null,
+        "specification": "Draft-07"
+    }
+},
+{
+    "model": "api.schema",
+    "pk": "4567f493-1b2d-48f1-a2f8-fec3fc2893c6",
+    "fields": {
+        "id": "attribute-generation-t2000-1e-input-schema",
+        "name": "Attribute Generation - T2000 1E - Input Schema",
+        "created": "2019-08-08T03:49:25.449Z",
+        "modified": "2019-08-08T04:27:23.204Z",
+        "description": "",
+        "url": "",
+        "version": 1,
+        "document": {},
+        "form_schema": null,
+        "specification": "Draft-07"
+    }
+},
+{
+    "model": "api.schema",
+    "pk": "931434e2-9093-4241-bd7a-5d48a2aedc75",
+    "fields": {
+        "id": "place-holder",
+        "name": "Place Holder",
+        "created": "2019-08-08T17:54:21.504Z",
+        "modified": "2019-08-08T17:54:21.504Z",
+        "description": "A place holder schema",
+        "url": "",
+        "version": 1,
+        "document": {
+            "place": "holder"
+        },
+        "form_schema": null,
+        "specification": "Draft-07"
+    }
+},
+{
+    "model": "api.schema",
     "pk": "f9783496-6c7a-4fca-87c1-02847b0c4b47",
     "fields": {
         "id": "book",

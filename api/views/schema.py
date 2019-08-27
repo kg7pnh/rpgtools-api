@@ -11,7 +11,6 @@ from api.models.schema import Schema
 from api.models.schema import DocumentSerializer
 from api.models.schema import HrefSerializer
 from api.models.schema import Serializer
-
 class MultipleFieldLookupMixin(): # pylint: disable=too-few-public-methods
     """
     Apply this mixin to any view or viewset to get multiple field filtering
@@ -37,6 +36,13 @@ class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAP
     queryset = Schema.schemas.all()
     serializer_class = HrefSerializer
     lookup_fields = ('id', 'version')
+
+    def update(self, request, *args, **kwargs):
+        
+        print('****DEBUG****')
+        print(request.data)
+        print('****DEBUG****')
+        return super(ItemVersionView, self).update(request, *args, **kwargs)
 
 class DocumentVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     '''
@@ -72,12 +78,8 @@ class CreateView(generics.CreateAPIView):
             for e in queryset:
                 if e.version > high_version:
                     high_version = e.version
-        
-            print()
-            print(request.data)
+
             request.data["version"] = high_version + 1
-            print(request.data)
-            print()
 
             # detail = 'A Book entry already exists with the id '+id
             # raise serializers.ValidationError(detail)

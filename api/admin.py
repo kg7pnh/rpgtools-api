@@ -5,17 +5,47 @@ Registers modesl for the admin section
 from django.contrib import admin
 from django.db import models
 from markdownx.widgets import AdminMarkdownxWidget
+from api.models.action import Action
 from api.models.book import Book
 from api.models.book_format import BookFormat
 from api.models.contributor import Contributor
 from api.models.game import Game
 from api.models.game_system import GameSystem
+from api.models.handler import Handler
 from api.models.organization import Organization
 from api.models.person import Person
 from api.models.publisher import Publisher
 from api.models.schema import Schema
+from api.models.workflow import Workflow
 
 # Register your models here.
+class ActionAdmin(admin.ModelAdmin):
+    """
+    ActionAdmin
+    """
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget,}
+    }
+    fields = ('_id',
+              'id',
+              'created',
+              'modified',
+              'name',
+              'game',
+              'input_schema',
+              'output_schema')
+    readonly_fields = ('_id',
+                        'id',
+                        'created',
+                        'modified')
+    list_display = ('name',
+                    'created',
+                    'modified',
+                    'id',
+                    '_id')
+
+admin.site.register(Action, ActionAdmin)
+
 class BookAdmin(admin.ModelAdmin):
     """
     BookAdmin
@@ -193,6 +223,33 @@ class GameSystemAdmin(admin.ModelAdmin):
 
 admin.site.register(GameSystem, GameSystemAdmin)
 
+class HandlerAdmin(admin.ModelAdmin):
+    """
+    WorkflowAdmin
+    """
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget,}
+    }
+    fields = ('_id',
+              'id',
+              'created',
+              'modified',
+              'name',
+              'game',
+              'method',
+              'api_resource')
+    readonly_fields = ('_id',
+                        'id',
+                        'created',
+                        'modified')
+    list_display = ('name',
+                    'created',
+                    'modified',
+                    'id',
+                    '_id')
+
+admin.site.register(Handler, HandlerAdmin)
+
 class OrganizationAdmin(admin.ModelAdmin):
     """
     ContributorAdmin
@@ -310,3 +367,30 @@ class SchemaAdmin(admin.ModelAdmin):
                     '_id')
 
 admin.site.register(Schema, SchemaAdmin)
+
+class WorkflowAdmin(admin.ModelAdmin):
+    """
+    WorkflowAdmin
+    """
+    formfield_overrides = {
+        models.TextField: {'widget': AdminMarkdownxWidget,}
+    }
+    fields = ('_id',
+              'id',
+              'created',
+              'modified',
+              'name',
+              'game',
+              'actions')
+    readonly_fields = ('_id',
+                        'id',
+                        'created',
+                        'modified')
+    list_display = ('name',
+                    'created',
+                    'modified',
+                    'id',
+                    '_id')
+    filter_horizontal = ('actions',)
+
+admin.site.register(Workflow, WorkflowAdmin)

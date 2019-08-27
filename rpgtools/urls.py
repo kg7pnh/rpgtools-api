@@ -21,6 +21,7 @@ from django.views.generic.base import TemplateView
 
 from django.urls import include
 from django.urls import path
+from django.urls import reverse_lazy
 from django.urls import re_path
 
 from markdownx import urls as markdownx
@@ -28,9 +29,10 @@ from markdownx import urls as markdownx
 # import api.urls
 
 urlpatterns = [ # pylint: disable=invalid-name
-    url(r'^$', RedirectView.as_view(url='ui/')),
+    # url(r'^$', RedirectView.as_view(url='admin/')),
+    path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('admin/', admin.site.urls),
-    path('ui/', include('ui.urls')),
+    # path('ui/', include('ui.urls')),
     re_path('api/v1/', include('api.urls')),
     url(r'^markdownx/', include(markdownx)),
 ]
