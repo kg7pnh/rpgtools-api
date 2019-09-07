@@ -5,7 +5,7 @@ Defines the ActionRunner views
 import json
 from api.models.action_runner import ActionRunner
 from api.models.action_runner import Serializer
-from api.views.die_roll import perform_die_roll
+from api.actions.die_roll import run
 from rest_framework import exceptions
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
@@ -29,9 +29,19 @@ class ActionRunnerRequest(CreateAPIView):
         response_json  = '{'
 
         for action in action_input:
+
             method = action_input[action]["Method"]
 
-            if method == 'die-roll':
+            try:
+                module = 'api.actions.'+method
+                print(module)
+                __import__ (module)
+                print('successfully imported '+method)
+                print(action_input[action]['Input'])
+            except(ImportError):
+                print('failed to import '+method)
+
+            if method == 'die_roll':
                 per_modifier_type = None
                 per_modifier_value = None
                 roll_modifier_type = None
@@ -60,7 +70,8 @@ class ActionRunnerRequest(CreateAPIView):
                 if 'reroll_value' in action_input[action]['Input']:
                     reroll_value = action_input[action]['Input']['reroll_value']
                 
-                value = perform_die_roll(die_size,
+                value = run(None,
+                            die_size,
                                  die_count,
                                  per_modifier_type,
                                  per_modifier_value,
