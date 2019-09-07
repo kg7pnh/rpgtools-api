@@ -19,7 +19,6 @@ class Contributor(Base):
     # Attributes
 
     # Manager
-    contributors = models.Manager()
 
     # Functions
 

@@ -35,4 +35,5 @@ urlpatterns = [ # pylint: disable=invalid-name
     # path('ui/', include('ui.urls')),
     re_path('api/v1/', include('api.urls')),
     url(r'^markdownx/', include(markdownx)),
+    # path('books/', TemplateView.as_view(template_name='index.html')),
 ]

@@ -26,7 +26,6 @@ class Publisher(Base):
     #                       blank=True)
 
     # Manager
-    publishers = models.Manager()
 
     # Functions
 

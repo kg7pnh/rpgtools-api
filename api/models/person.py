@@ -49,7 +49,6 @@ class Person(Contributor):
                                    blank=True)
 
     # Manager
-    people = models.Manager()
 
     # Functions
     def __str__(self):
@@ -57,22 +56,12 @@ class Person(Contributor):
         __str__
         '''
         return self.name
-        # return concat_name(self.name_prefix,
-        #                    self.name_last,
-        #                    self.name_first,
-        #                    self.name_middle,
-        #                    self.name_suffix)
 
     def __unicode__(self):
         '''
         __unicode__
         '''
         return self.name
-        # return concat_name(self.name_prefix,
-        #                    self.name_last,
-        #                    self.name_first,
-        #                    self.name_middle,
-        #                    self.name_suffix)
 
     def save(self, *args, **kwargs): # pylint: disable=arguments-differ
         '''
@@ -87,19 +76,9 @@ class Person(Contributor):
         if not self.id or not self.created:
             self.created = timezone.now()
             self.id = slugify(self.name) # pylint: disable=invalid-name
-            # self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
-            #                               self.name_last,
-            #                               self.name_first,
-            #                               self.name_middle,
-            #                               self.name_suffix)) 
         
         self.modified = timezone.now()
         self.id = slugify(self.name) # pylint: disable=invalid-name
-        # self.id = slugify(concat_name(self.name_prefix, # pylint: disable=invalid-name
-        #                               self.name_last,
-        #                               self.name_first,
-        #                               self.name_middle,
-        #                               self.name_suffix))
         return super().save(*args, **kwargs)
 
     # Meta
@@ -110,16 +89,6 @@ class Person(Contributor):
         db_table = 'person'
         verbose_name = 'Person'
         verbose_name_plural = 'People'
-    # class Meta: # pylint: disable=too-few-public-methods
-    #     """
-    #     Model meta data
-    #     """
-    #     db_table = 'person'
-    #     get_latest_by = 'modified'
-    #     indexes = [models.Index(fields=['id'])]
-    #     ordering = ['id']
-    #     verbose_name = 'Person'
-    #     verbose_name_plural = 'People'
 
 @receiver(pre_save, sender=Person)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
@@ -131,12 +100,7 @@ def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
                                 instance.name_first,
                                 instance.name_middle,
                                 instance.name_suffix)
-    instance.id = slugify(instance.name) 
-    # instance.id = slugify(concat_name(instance.name_prefix,
-    #                                   instance.name_last,
-    #                                   instance.name_first,
-    #                                   instance.name_middle,
-    #                                   instance.name_suffix))
+    instance.id = slugify(instance.name)
 
 def concat_name(prefix, last, first, middle, suffix):
 

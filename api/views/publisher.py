@@ -5,40 +5,58 @@ Defines the Publisher views
 from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from api.models.publisher import Publisher
 from api.models.publisher import Serializer
+from api.permissions.admin import IsAdminOrReadOnly
 
 
-class ItemView(generics.RetrieveUpdateDestroyAPIView): # pylint: disable=too-many-ancestors
+class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     '''
     Provides access to the DELETE, GET, PATCH and PUT requests for a given ID.
+    '''    
+    queryset = Publisher.objects.all()
+    serializer_class = Serializer
+    lookup_field = "id"
+
+class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Publisher.publishers.all()
+    Provides access to the PATCH and PUT requests for a given ID.
+    '''
+    permission_classes = (IsAdminUser,)
+    queryset = Publisher.objects.all()
+    serializer_class = Serializer
+    lookup_field = "id"
+
+class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancestors
+    '''
+    Provides access to the DELETE requests for a given ID.
+    '''
+    permission_classes = (IsAdminUser,)
+    queryset = Publisher.objects.all()
     serializer_class = Serializer
     lookup_field = "id"
 
 class ListView(generics.ListAPIView):
     '''
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET request for a list of all Publisher objects.
     '''
-    queryset = Publisher.publishers.all()
+    queryset = Publisher.objects.all()
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     '''
-     Provides access to the POST request for creating game objects.
+     Provides access to the POST request for creating Publisher objects.
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Publisher.publishers.all()
+    permission_classes = (IsAdminUser,)
+    queryset = Publisher.objects.all()
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
         name = request.data['name']
         id = slugify(name) # pylint: disable=redefined-builtin, invalid-name
 
-        queryset = Publisher.publishers.filter(id=id)
+        queryset = Publisher.objects.filter(id=id)
 
         if queryset.count() != 0:
             detail = 'A Publisher entry already exists with the id '+id

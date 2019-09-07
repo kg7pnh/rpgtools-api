@@ -120,7 +120,7 @@ ROOT_URLCONF = 'rpgtools.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ui/templates'), ],
+        'DIRS': [os.path.join(BASE_DIR, 'ui/content/templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -186,9 +186,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "ui/static"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "vue"),
+# ]
 
 STATIC_URL = '/content/'
 

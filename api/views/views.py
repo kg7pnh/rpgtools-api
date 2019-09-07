@@ -8,6 +8,8 @@ from rest_framework import schemas
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import renderer_classes
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
@@ -69,18 +71,12 @@ class CurrentUser(generics.GenericAPIView):
         is_authenticated = user.is_authenticated
         response = {
             "is_authenticated": is_authenticated,
-            "environment": {
-                "omf_environment": settings.OMF_ENVIRONMENT,
-                "omf_instance": settings.OMF_INSTANCE
-            },
             "username": None,
             "first_name": None,
             "last_name": None,
             "last_login": None,
             "is_superuser": None,
-            "thumbnailphoto": None,
-            "ldap_groups": [],
-            "teams": []
+            "thumbnailphoto": None
         }
         if is_authenticated:
             response["username"] = user.username
@@ -89,3 +85,10 @@ class CurrentUser(generics.GenericAPIView):
             response["last_login"] = user.last_login
             response["is_superuser"] = user.is_superuser
         return Response(response)
+
+class IsAdminView(generics.GenericAPIView):
+    """Is Admin View """
+    permission_classes = (IsAdminUser,)
+
+    def get(self, request, *args, **kwargs):
+        return Response()

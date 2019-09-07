@@ -63,7 +63,6 @@ class DieRoll(models.Model):
                                        blank=True)
 
     # Manager
-    die_rolls = models.Manager()
 
     class Meta:
         managed = False

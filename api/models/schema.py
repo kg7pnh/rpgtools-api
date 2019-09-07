@@ -41,7 +41,6 @@ class Schema(Base):
                                      verbose_name='Specification')
 
     # Manager
-    schemas = models.Manager()
 
     # Functions
 

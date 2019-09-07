@@ -138,7 +138,7 @@ class DieRollRequest(CreateAPIView):
     """
     DieRollRequest
     """
-    queryset = DieRoll.die_rolls.all()
+    queryset = DieRoll.objects.all()
     serializer_class = Serializer
 
     def post(self, request, *args, **kwargs):

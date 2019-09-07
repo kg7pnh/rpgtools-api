@@ -5,33 +5,51 @@ Defines the Book views
 from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from api.models.organization import Organization
 from api.models.organization import Serializer
+from api.permissions.admin import IsAdminOrReadOnly
 
 
-class ItemView(generics.RetrieveUpdateDestroyAPIView): # pylint: disable=too-many-ancestors
+class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     '''
     Provides access to the DELETE, GET, PATCH and PUT requests for a given ID.
+    '''    
+    queryset = Organization.objects.all()
+    serializer_class = Serializer
+    lookup_field = "id"
+
+class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Organization.organizations.all()
+    Provides access to the PATCH and PUT requests for a given ID.
+    '''
+    permission_classes = (IsAdminUser,)
+    queryset = Organization.objects.all()
+    serializer_class = Serializer
+    lookup_field = "id"
+
+class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancestors
+    '''
+    Provides access to the DELETE requests for a given ID.
+    '''
+    permission_classes = (IsAdminUser,)
+    queryset = Organization.objects.all()
     serializer_class = Serializer
     lookup_field = "id"
 
 class ListView(generics.ListAPIView):
     '''
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET request for a list of all Organization objects.
     '''
-    queryset = Organization.organizations.all()
+    queryset = Organization.objects.all()
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     '''
-    Provides access to the POST request for creating game objects.
+    Provides access to the POST request for creating Organization objects.
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Organization.organizations.all()
+    permission_classes = (IsAdminUser,)
+    queryset = Organization.objects.all()
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
@@ -40,7 +58,7 @@ class CreateView(generics.CreateAPIView):
         '''
         id = slugify(request.data['name']) # pylint: disable=redefined-builtin, invalid-name
 
-        queryset = Organization.organizations.filter(id=id)
+        queryset = Organization.objects.filter(id=id)
 
         if queryset.count() != 0:
             detail = 'A Organization entry already exists with the id '+id

@@ -1,14 +1,12 @@
 .PHONY: build
 
-init:
-	pipenv install --skip-lock
-
 build-dev:
 	pipenv lock --requirements > requirements.txt
 	rm -f ./api/migrations/0001_initial.py
 	rm -f ./base/migrations/0001_initial.py
 	rm -f ./ui/migrations/0001_initial.py
 
+	mkdir -p ui/static
 	mkdir -p fixtures
 	mkdir -p logs
 	pipenv run python manage.py collectstatic --noinput
@@ -28,9 +26,15 @@ build-dev:
 	pipenv run python manage.py loaddata ./fixtures/game.json
 	pipenv run python manage.py loaddata ./fixtures/book.json
 	pipenv run python manage.py loaddata ./fixtures/action.json
-
+	pipenv run python manage.py loaddata ./fixtures/token.json
 	pipenv run python manage.py populate_history --auto
 	pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/users.json
+
+collectstatic:
+	pipenv run python manage.py collectstatic --noinput
+
+delete-db:
+	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
 
 dumpdata:
 	pipenv run python manage.py dumpdata api.contributor --indent 4 | grep -v Fetch > ./fixtures/contributor.json
@@ -43,6 +47,13 @@ dumpdata:
 	pipenv run python manage.py dumpdata api.game --indent 4 | grep -v Fetch > ./fixtures/game.json
 	pipenv run python manage.py dumpdata api.schema --indent 4 | grep -v Fetch > ./fixtures/schema.json
 	pipenv run python manage.py dumpdata api.action --indent 4 | grep -v Fetch > ./fixtures/action.json
+	pipenv run python manage.py dumpdata authtoken.token --indent 4 | grep -v Fetch > ./fixtures/token.json
+
+init:
+	pipenv install --skip-lock
+
+lint:
+	pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,settings_dev.py,wsgi.py,migrations,schemas --disable=R0801
 
 run:
 	pipenv run python ./manage.py runserver --settings rpgtools.settings
@@ -55,9 +66,3 @@ setup-db:
 	psql -h localhost -U postgres -c 'ALTER USER rpgtools_admin WITH SUPERUSER;'
 	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
 	psql -h localhost -U postgres -c 'CREATE database rpgtools';
-
-delete-db:
-	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
-
-lint:
-	pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,settings_dev.py,wsgi.py,migrations,schemas --disable=R0801

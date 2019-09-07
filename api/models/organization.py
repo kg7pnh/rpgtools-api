@@ -20,7 +20,6 @@ class Organization(Contributor):
     # Attributes
 
     # Manager
-    organizations = models.Manager()
 
     # Functions
     def __str__(self):

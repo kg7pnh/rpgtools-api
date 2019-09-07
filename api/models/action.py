@@ -37,7 +37,6 @@ class Action(Base):
     # Attributes
 
     # Manager
-    actions = models.Manager()
 
     # Functions
 

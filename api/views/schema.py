@@ -6,11 +6,13 @@ from django.utils.text import slugify
 from django.shortcuts import get_object_or_404
 from rest_framework import generics
 from rest_framework import serializers
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAdminUser
 from api.models.schema import Schema
 from api.models.schema import DocumentSerializer
 from api.models.schema import HrefSerializer
 from api.models.schema import Serializer
+from api.permissions.admin import IsAdminOrReadOnly
+
 class MultipleFieldLookupMixin(): # pylint: disable=too-few-public-methods
     """
     Apply this mixin to any view or viewset to get multiple field filtering
@@ -32,8 +34,8 @@ class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAP
     '''
     Provides access to the DELETE, GET, PATCH and PUT requests for a given ID and Version.
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Schema.schemas.all()
+    permission_classes = (IsAdminOrReadOnly,)
+    queryset = Schema.objects.all()
     serializer_class = HrefSerializer
     lookup_fields = ('id', 'version')
 
@@ -48,7 +50,7 @@ class DocumentVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     '''
     Returns the document object in json format for a given ID and Version.
     '''
-    queryset = Schema.schemas.all()
+    queryset = Schema.objects.all()
     serializer_class = DocumentSerializer
     lookup_fields = ('id', 'version')
 
@@ -56,22 +58,22 @@ class ListView(generics.ListAPIView):
     '''
     Provides access to the GET request for a list of all schema objects.
     '''
-    queryset = Schema.schemas.all()
+    queryset = Schema.objects.all()
     serializer_class = HrefSerializer
 
 class CreateView(generics.CreateAPIView):
     '''
     Provides access to the POST request for creating schema objects.
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Schema.schemas.all()
+    permission_classes = (IsAdminUser,)
+    queryset = Schema.objects.all()
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
         name = request.data['name']
         id = slugify(name) # pylint: disable=redefined-builtin, invalid-name
 
-        queryset = Schema.schemas.filter(id=id)
+        queryset = Schema.objects.filter(id=id)
 
         if queryset.count() != 0:
             high_version = 1
@@ -90,7 +92,6 @@ class ItemView(generics.RetrieveAPIView):
     '''
     Provides access to the GET request for a given ID.
     '''
-    permission_classes = (IsAuthenticated,)
-    queryset = Schema.schemas.all()
+    queryset = Schema.objects.all()
     serializer_class = Serializer
     lookup_field = "id"

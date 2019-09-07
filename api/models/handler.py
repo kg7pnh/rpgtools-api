@@ -36,7 +36,6 @@ class Handler(Base):
                                    verbose_name='API Resource')
 
     # Manager
-    handlers = models.Manager()
 
     # Functions
 

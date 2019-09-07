@@ -41,7 +41,6 @@ class Game(Base):
 
 
     # Manager
-    games = models.Manager()
 
     # Functions
 

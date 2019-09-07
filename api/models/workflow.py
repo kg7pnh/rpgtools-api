@@ -26,7 +26,6 @@ class Workflow(Base):
     # Attributes
 
     # Manager
-    workflows = models.Manager()
 
     # Functions
 

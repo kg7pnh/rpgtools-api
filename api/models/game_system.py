@@ -36,7 +36,6 @@ class GameSystem(Base):
 
 
     # Manager
-    game_systems = models.Manager()
 
     # Functions
 

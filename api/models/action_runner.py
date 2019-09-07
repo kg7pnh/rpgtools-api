@@ -17,8 +17,7 @@ class ActionRunner(models.Model):
     action_input = JSONField(verbose_name='Input')
 
     # Manager
-    action_runners = models.Manager()
-
+    
     class Meta:
         managed = False
 

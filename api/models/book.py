@@ -126,12 +126,8 @@ class Book(Base):
                                validators=[VALIDATE_ISBN_13],
                                null=True,
                                blank=True)
-    # url = models.URLField(verbose_name='Website',
-    #                       null=True,
-    #                       blank=True)
 
     # Manager
-    books = models.Manager()
 
     # Functions
 

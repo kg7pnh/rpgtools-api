@@ -28,7 +28,6 @@ class BookFormat(Base):
                                    verbose_name='Type')
 
     # Manager
-    book_formats = models.Manager()
 
     # Functions
 

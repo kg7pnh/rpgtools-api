@@ -15,7 +15,7 @@ class ActionRunnerRequest(CreateAPIView):
     """
     ActionRunnerRequest
     """
-    queryset = ActionRunner.action_runners.all()
+    queryset = ActionRunner.objects.all()
     serializer_class = Serializer
 
     def post(self, request, *args, **kwargs):
