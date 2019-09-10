@@ -8,9 +8,9 @@ verify_ssl = true
 [packages]
 base58 = "==1.0.2"
 Django = "==2.0.5"
-djangorestframework = "*"
-django-rest-swagger = "*"
-djangorestframework-simplejwt = "*"
+djangorestframework = "==3.10.2"
+django-rest-swagger = "==2.2.0"
+djangorestframework-simplejwt = "==4.3.0"
 django-markdownx = "*"
 psycopg2-binary = "*"
 pylint-django = "*"

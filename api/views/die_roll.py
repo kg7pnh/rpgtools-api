@@ -2,10 +2,11 @@
 """
 Defines the DieRoll. views
 """
-import api.actions
+import api.actions.die_roll
 from api.models.die_roll import DieRoll
 from api.models.die_roll import Serializer
 from rest_framework import exceptions
+from rest_framework import status
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from random import randint
@@ -21,31 +22,9 @@ class DieRollRequest(CreateAPIView):
         """
         post
         """
-        die_roll = Serializer(data=request.data, )
-        die_roll.is_valid(raise_exception=True)
+        input_data = Serializer(data=request.data,)
+        input_data.is_valid(raise_exception=True)
 
-        die_size = die_roll.data["die_size"]
-        die_count = die_roll.data["die_count"]
-        per_modifier_type = die_roll.data["per_modifier_type"]
-        per_modifier_value = die_roll.data["per_modifier_value"]
-        roll_modifier_type = die_roll.data["roll_modifier_type"]
-        roll_modifier_value = die_roll.data["roll_modifier_value"]
-        post_modifier_type = die_roll.data["post_modifier_type"]
-        post_modifier_value = die_roll.data["post_modifier_value"]
-        reroll_condition = die_roll.data["reroll_condition"]
-        reroll_value = die_roll.data["reroll_value"]
+        value = api.actions.die_roll.run(input_data.data)        
 
-        value = die_roll.run(data,
-                             die_size,
-                             die_count,
-                             per_modifier_type,
-                             per_modifier_value,
-                             roll_modifier_type,
-                             roll_modifier_value,
-                             post_modifier_type,
-                             post_modifier_value,
-                             reroll_condition,
-                             reroll_value)
-        
-
-        return Response({"Roll": value},status=200)
+        return Response({"Roll": value},status=status.HTTP_201_CREATED)

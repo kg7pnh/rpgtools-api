@@ -8,7 +8,7 @@ BASE_URL = 'http://127.0.0.1:8000/api/v1'
 ACTION_RUNNER_INPUT = {
     "action_input": {
         "Fitness": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,
@@ -19,7 +19,7 @@ ACTION_RUNNER_INPUT = {
             }
         },
         "Agility": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,
@@ -30,7 +30,7 @@ ACTION_RUNNER_INPUT = {
             }
         },
         "Constitution": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,
@@ -41,7 +41,7 @@ ACTION_RUNNER_INPUT = {
             }
         },
         "Stature": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,
@@ -52,7 +52,7 @@ ACTION_RUNNER_INPUT = {
             }
         },
         "Intelligence": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,
@@ -63,7 +63,7 @@ ACTION_RUNNER_INPUT = {
             }
         },
         "Education": {
-            "Method": "die-roll",
+            "Method": "die_roll",
             "Input": {
                 "die_size": 6,
                 "die_count": 4,

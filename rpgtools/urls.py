@@ -31,9 +31,8 @@ from markdownx import urls as markdownx
 urlpatterns = [ # pylint: disable=invalid-name
     # url(r'^$', RedirectView.as_view(url='admin/')),
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
-    path('admin/', admin.site.urls),
-    # path('ui/', include('ui.urls')),
-    re_path('api/v1/', include('api.urls')),
+    path('admin/', admin.site.urls), 
+    path('api/', RedirectView.as_view(url='/api/v1/')),
+    re_path('api/v1/', include('api.urls'), name='api'),
     url(r'^markdownx/', include(markdownx)),
-    # path('books/', TemplateView.as_view(template_name='index.html')),
 ]

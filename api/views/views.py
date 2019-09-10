@@ -25,7 +25,10 @@ def schema_view(request):
     '''
     schema_view
     '''
-    generator = schemas.SchemaGenerator(title='RPGTools API')
+    generator = schemas.SchemaGenerator(title='RPGTools API',
+                                        description='API access to tools '+
+                                        'and information for RPG players '+
+                                        'and game masters.')
     return Response(generator.get_schema(request=request))
 
 class Root(APIView):
@@ -38,7 +41,11 @@ class Root(APIView):
         '''
         return Response({
             "service": "rpg-tools",
-            "verion": "0.0.1"
+            "verion": "1.0.0",
+            "description": "API access to tools "+
+                           "and information for RPG players "+
+                           "and game masters.",
+            "swagger_docs": "/api/v1/docs"
         })
 
 class TokenView(TokenObtainPairView):
