@@ -11,10 +11,13 @@ from rest_framework import serializers
 from rest_framework.exceptions import ValidationError
 from .base import Base
 from .book_format import BookFormat
+from .book_format import Serializer as BookFormatSerializer
 from .game import Game
+from .game import Serializer as GameSerializer
 from .contributor import Contributor
-# from .person import Person
+from .contributor import Serializer as ContributorSerializer
 from .publisher import Publisher
+from .publisher import Serializer as PublisherSerializer
 
 VALIDATE_ISBN_10 = RegexValidator(r'^(?:ISBN(?:10)?(?:\-10)?\x20)?[0-9]{9}(\d|X)$',
                                   'Only ISNB-10 formatted strings are allowd.')
@@ -28,9 +31,9 @@ class Book(Base):
     """
     # Relationships
     book_format = models.ForeignKey(BookFormat,
-                                  on_delete=models.PROTECT,
-                                  null=True,
-                                  blank=True)
+                                    on_delete=models.PROTECT,
+                                    null=True,
+                                    blank=True)
     game = models.ForeignKey(Game,
                              on_delete=models.PROTECT,
                              null=True,
@@ -122,7 +125,7 @@ class Book(Base):
                                null=True,
                                blank=True)
     isbn_13 = models.CharField(max_length=21,
-                               verbose_name='ISBN-10',
+                               verbose_name='ISBN-13',
                                validators=[VALIDATE_ISBN_13],
                                null=True,
                                blank=True)
@@ -139,6 +142,7 @@ class Book(Base):
         db_table = 'book'
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Book)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
@@ -157,4 +161,45 @@ class Serializer(serializers.ModelSerializer):
         Class meta data
         """
         model = Book
+        fields = ('__all__')
+
+class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    HyperLinkedSerializer class
+    '''
+    
+    art_assistant = ContributorSerializer(many=True, read_only=True)
+    art_director = ContributorSerializer(many=True, read_only=True)
+    artist_cover = ContributorSerializer(many=True, read_only=True)
+    artist_interior = ContributorSerializer(many=True, read_only=True)
+    author = ContributorSerializer(many=True, read_only=True)
+    designer = ContributorSerializer(many=True, read_only=True)
+    developer = ContributorSerializer(many=True, read_only=True)
+    editor = ContributorSerializer(many=True, read_only=True)
+    graphic_designer = ContributorSerializer(many=True, read_only=True)
+    play_tester = ContributorSerializer(many=True, read_only=True)
+    proofreader = ContributorSerializer(many=True, read_only=True)
+    research_assistant = ContributorSerializer(many=True, read_only=True)
+    text_manager = ContributorSerializer(many=True, read_only=True)
+    text_processor = ContributorSerializer(many=True, read_only=True)
+    type_setter = ContributorSerializer(many=True, read_only=True)
+    book_format = BookFormatSerializer(many=False, read_only=True)
+    game = GameSerializer(many=False, read_only=True)
+    publisher = PublisherSerializer(many=False, read_only=True)
+
+    class Meta: # pylint: disable=too-few-public-methods
+        """
+        Class meta data
+        """
+        model = Book
+        fields = ('__all__')
+
+
+class BookHistorySerializer(serializers.ModelSerializer):
+    """
+    Book history serializer
+    """
+
+    class Meta:
+        model = Book.history.model
         fields = ('__all__')

@@ -7,7 +7,8 @@
         "name": "Attribute Generation - T2000 1E - Output Schema",
         "created": "2019-08-08T03:50:19.194Z",
         "modified": "2019-08-08T04:27:35.235Z",
-        "description": "",
+        "description": null,
+        "read_me": "",
         "url": "",
         "version": 1,
         "document": {},
@@ -23,7 +24,8 @@
         "name": "Attribute Generation - T2000 1E - Input Schema",
         "created": "2019-08-08T03:49:25.449Z",
         "modified": "2019-08-08T04:27:23.204Z",
-        "description": "",
+        "description": null,
+        "read_me": "",
         "url": "",
         "version": 1,
         "document": {},
@@ -39,7 +41,8 @@
         "name": "Place Holder",
         "created": "2019-08-08T17:54:21.504Z",
         "modified": "2019-08-08T17:54:21.504Z",
-        "description": "A place holder schema",
+        "description": null,
+        "read_me": "A place holder schema",
         "url": "",
         "version": 1,
         "document": {
@@ -57,7 +60,8 @@
         "name": "Book",
         "created": "2019-06-15T06:54:47.274Z",
         "modified": "2019-06-23T06:03:30.882Z",
-        "description": "`Book Model\r\n==========\r\nDescription\r\n------------\r\nThis schema is for a book object. There are only three required fields in the json object: title, publisher and page count.\r\n\r\nExample\r\n--------\r\nBelow is an example of the minimum json object based on this schema:\r\n\r\n```{ \"title\": \"A Tale of Two Cities\", \"publisher\": \"Chapman & Hall\", \"pages\": 341 }````",
+        "description": null,
+        "read_me": "`Book Model\r\n==========\r\nread_me\r\n------------\r\nThis schema is for a book object. There are only three required fields in the json object: title, publisher and page count.\r\n\r\nExample\r\n--------\r\nBelow is an example of the minimum json object based on this schema:\r\n\r\n```{ \"title\": \"A Tale of Two Cities\", \"publisher\": \"Chapman & Hall\", \"pages\": 341 }````",
         "url": null,
         "version": 1,
         "document": {
@@ -126,6 +130,15 @@
                     ],
                     "description": "The ISBN-13 number assigned to the book."
                 },
+                "read_me": {
+                    "type": "string",
+                    "title": "The Book read_me schema",
+                    "examples": [
+                        "Nuclear War has decimated the US, Europe and Asia. You are trying to survive in this new world, where modern technology is dying, roving bands of marauders want your provisions, and radiation is everywhere. Will you survive to find a way home?",
+                        "Shapes that rip and tear. Shadows that live in corners. Windows in space and time that lead to realms of madness and decay. A dark lurking horror that feeds off the echoing anguish of a billion tortured souls. This is the center of a twisted, sinister conspiracy which threatens the very existence of all humankind. Set in the near future, the world of Dark Conspiracy is dramatically altered from today and is fraught with peril and challenges. The Metroplexes, where most of the world's population lives, are a blend of lawless gang turf and corporate fortresses ruled by men and women powerful enough to be above the law. The countryside is sparsely inhabited, its natives suspicious and violent. And increasing areas of countryside are turning into Demonground, from which few humans return."
+                    ],
+                    "description": "The read_me of the book."
+                },
                 "publisher": {
                     "type": "string",
                     "title": "The Book publisher schema",
@@ -135,15 +148,6 @@
                         "Game Designers' Workshop"
                     ],
                     "description": "The publisher of the book."
-                },
-                "description": {
-                    "type": "string",
-                    "title": "The Book description schema",
-                    "examples": [
-                        "Nuclear War has decimated the US, Europe and Asia. You are trying to survive in this new world, where modern technology is dying, roving bands of marauders want your provisions, and radiation is everywhere. Will you survive to find a way home?",
-                        "Shapes that rip and tear. Shadows that live in corners. Windows in space and time that lead to realms of madness and decay. A dark lurking horror that feeds off the echoing anguish of a billion tortured souls. This is the center of a twisted, sinister conspiracy which threatens the very existence of all humankind. Set in the near future, the world of Dark Conspiracy is dramatically altered from today and is fraught with peril and challenges. The Metroplexes, where most of the world's population lives, are a blend of lawless gang turf and corporate fortresses ruled by men and women powerful enough to be above the law. The countryside is sparsely inhabited, its natives suspicious and violent. And increasing areas of countryside are turning into Demonground, from which few humans return."
-                    ],
-                    "description": "The description of the book."
                 },
                 "short title": {
                     "type": "string",

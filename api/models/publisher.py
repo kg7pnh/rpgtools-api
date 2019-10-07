@@ -37,6 +37,7 @@ class Publisher(Base):
         db_table = 'publisher'
         verbose_name = 'Publisher'
         verbose_name_plural = 'Publishers'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Publisher)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

@@ -2,23 +2,35 @@
 """
 Defines the die_roll actions
 """
+import importlib
 import json
-from . import addition
-from . import average
-from . import die_roll
 
-def run(input):
+def iterate_input(input, additional_input):
     """
-    def
+    iterate_input
     """
-
-    response_json = '{'
-
+    response = {}
     for stat in input:
-        response_json  = response_json + '"'+stat+'": 0,' 
         print(stat)
+        if not additional_input:
+            additional_input = response
+        if 'Method' in input[stat]:
+            method = input[stat]['Method']
+            try:
+                module_name = 'api.actions.'+method
+                module = importlib.import_module(module_name)
+                response[stat] = module.run(input[stat]['Input'], additional_input)
+            except ImportError as error:
+                response[stat] = '"Failed to find an action method named '+method+'."'
+        else:
+            additional_input = response
+            response[stat] = iterate_input(input[stat], additional_input)
+    return response
 
-    
-    response_json = response_json[:-1] + '}'
 
-    return json.loads(response_json)
+def run(input, additional_input = None):
+    """
+    run
+    """
+    response = iterate_input(input, additional_input)
+    return response

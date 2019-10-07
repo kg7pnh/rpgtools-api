@@ -48,6 +48,7 @@ class Action(Base):
         db_table = 'action'
         verbose_name = 'Action'
         verbose_name_plural = 'Actions'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Action)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

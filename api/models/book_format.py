@@ -39,6 +39,7 @@ class BookFormat(Base):
         db_table = 'book_format'
         verbose_name = 'Book Format'
         verbose_name_plural = 'Book Formats'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=BookFormat)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

@@ -47,6 +47,7 @@ class Handler(Base):
         db_table = 'handler'
         verbose_name = 'Handler'
         verbose_name_plural = 'Handlers'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Handler)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

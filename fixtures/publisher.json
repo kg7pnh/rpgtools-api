@@ -6,8 +6,9 @@
         "id": "steve-jackson-games",
         "name": "Steve Jackson Games",
         "created": "2019-07-19T01:08:22.845Z",
-        "modified": "2019-07-19T01:08:22.846Z",
-        "description": "**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.",
+        "modified": "2019-10-01T20:15:51.472Z",
+        "description": "Well known for their GURPS system as well as Munchkin.",
+        "read_me": "Steve Jackson Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.",
         "url": "http://www.sjgames.com/",
         "abbreviation": "SJGames"
     }
@@ -19,8 +20,9 @@
         "id": "r-talsorian-games",
         "name": "R. Talsorian Games",
         "created": "2019-07-19T01:06:56.310Z",
-        "modified": "2019-07-19T01:06:56.310Z",
-        "description": "**R. Talsorian Games**, based in Renton, Washington (until 1997 in Berkeley, California), is a publisher of role-playing game books and accessories. Their titles include the Cyberpunk 2020 series and for anime-related titles such as Dragonball Z. Their major product line today is the Fuzion system.\r\n\r\nThe company's chairman is Mike Pondsmith, usually known as \"Maximum Mike\" by players, R. Talsorian Games, and members of their online bulletin board.\r\n\r\nProducts include Cyberpunk 2020, Mekton Zeta (an anime RPG), Castle Falkenstein (a Sorcery and steampunk RPG), The Witcher: Role-Playing Game (based on a fantasy series based on novels and video games by CD Projekt Red)[1], Teenagers from Outer Space (an anime universal setting, the first generic anime RPG until the creation of Big Eyes, Small Mouth using the Tri-Stat system) and several RPGS based on anime such as Bubblegum Crisis, Armored Trooper Votoms and Dragonball Z. They also produced the short-lived Dream Park RPG based on the setting of the Dream Park novels.",
+        "modified": "2019-10-01T18:47:45.361Z",
+        "description": "Publisher of numerous games, including the popular Cyberpunk 2020 series.",
+        "read_me": "R. Talsorian Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**R. Talsorian Games**, based in Renton, Washington (until 1997 in Berkeley, California), is a publisher of role-playing game books and accessories. Their titles include the Cyberpunk 2020 series and for anime-related titles such as Dragonball Z. Their major product line today is the Fuzion system.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The company's chairman is Mike Pondsmith, usually known as \"Maximum Mike\" by players, R. Talsorian Games, and members of their online bulletin board. Their products include Cyberpunk 2020, Mekton Zeta (an anime RPG), Castle Falkenstein (a Sorcery and steampunk RPG), The Witcher: Role-Playing Game (based on a fantasy series based on novels and video games by CD Projekt Red)[1], Teenagers from Outer Space (an anime universal setting, the first generic anime RPG until the creation of Big Eyes, Small Mouth using the Tri-Stat system) and several RPGS based on anime such as Bubblegum Crisis, Armored Trooper Votoms and Dragonball Z. They also produced the short-lived Dream Park RPG based on the setting of the Dream Park novels.",
         "url": "https://rtalsoriangames.com/",
         "abbreviation": "RTG"
     }
@@ -32,9 +34,10 @@
         "id": "3w",
         "name": "3W",
         "created": "2019-07-28T01:20:59.313Z",
-        "modified": "2019-07-28T01:20:59.313Z",
-        "description": "3W Inc, also known as World Wide Wargames, was a wargame company that began publishing in 1977. Originally launched in England, the company moved later to California. In addition to producing boxed wargames, 3W published the magazine The Wargamer.",
-        "url": "",
+        "modified": "2019-10-01T18:41:08.708Z",
+        "description": "Publiher of war games and The Wargamer magazin.",
+        "read_me": "3W\n==\n---\n**3W** Inc, also known as _World Wide Wargames_, was a wargame company that began publishing in 1977. Originally launched in England, the company moved later to California. \n\nIn addition to producing boxed wargames, 3W published the magazine The Wargamer.",
+        "url": null,
         "abbreviation": "3W"
     }
 },
@@ -45,8 +48,9 @@
         "id": "games-workshop",
         "name": "Games Workshop",
         "created": "2019-07-19T01:16:38.750Z",
-        "modified": "2019-07-19T01:16:38.751Z",
-        "description": "**Games Workshop Group PLC** (often abbreviated as **GW**) is a British miniature wargaming manufacturing company based in Nottingham, England. Games Workshop is best known as developer and publisher of the tabletop wargames Warhammer Age of Sigmar (previously Warhammer Fantasy Battle), Warhammer 40,000, The Lord of the Rings Strategy Battle Game and The Hobbit Strategy Battle Game (now sold as The Middle Earth Strategy Battle Game). It is listed on the London Stock Exchange and is a constituent of the FTSE 250 Index.",
+        "modified": "2019-10-01T18:44:26.032Z",
+        "description": "Publisher most known for their WarHammer products.",
+        "read_me": "Games Workshop\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Games Workshop Group PLC** (often abbreviated as **GW**) is a British miniature wargaming manufacturing company based in Nottingham, England.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Games Workshop is best known as developer and publisher of the tabletop wargames Warhammer Age of Sigmar (previously Warhammer Fantasy Battle), Warhammer 40,000, The Lord of the Rings Strategy Battle Game and The Hobbit Strategy Battle Game (now sold as The Middle Earth Strategy Battle Game).\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is listed on the London Stock Exchange and is a constituent of the FTSE 250 Index.",
         "url": "https://www.games-workshop.com",
         "abbreviation": "GW"
     }
@@ -58,8 +62,9 @@
         "id": "victory-games",
         "name": "Victory Games",
         "created": "2019-07-19T01:26:07.643Z",
-        "modified": "2019-07-19T01:26:07.643Z",
-        "description": "**Victory Games**, a subsidiary company of **The Avalon Hill Game Co**, was created in 1982. The company was formed from a core of ex-SPI (Simulations Publications, Inc.) design employees. SPI (Simulations Publications, Inc.) had specialized in wargames that were more complex and more exacting simulations (such as War in the Pacific (first edition), itself remade by VG as Pacific War: The Struggle Against Japan 1941-1945) than what The Avalon Hill Game Co had normally published.",
+        "modified": "2019-10-01T18:52:31.498Z",
+        "description": "A subsidiary of The Avalon Hill Game company known for complex war games.",
+        "read_me": "Victory Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Victory Games**, a subsidiary company of **The Avalon Hill Game Co**, was created in 1982. The company was formed from a core of ex-SPI (Simulations Publications, Inc.) design employees. \n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPI (Simulations Publications, Inc.) had specialized in wargames that were more complex and more exacting simulations (such as War in the Pacific (first edition), itself remade by VG as Pacific War: The Struggle Against Japan 1941-1945) than what The Avalon Hill Game Co had normally published.",
         "url": "https://boardgamegeek.com/boardgamepublisher/123/victory-games-i",
         "abbreviation": "VG"
     }
@@ -71,8 +76,9 @@
         "id": "wizards-of-the-coast",
         "name": "Wizards of the Coast",
         "created": "2019-07-19T01:04:50.831Z",
-        "modified": "2019-07-19T01:13:43.913Z",
-        "description": "**Wizards of the Coast LLC** (often referred to as **WotC**) is an American publisher of games, primarily based on fantasy and science fiction themes, and formerly an operator of retail stores for games. Originally a basement-run role-playing game publisher, the company popularized the collectible card game genre with Magic: The Gathering in the mid-1990s, acquired the popular Dungeons & Dragons role-playing game by purchasing the failing company TSR, and further increased its success by publishing the licensed Pok\u00e9mon Trading Card Game. The company's corporate headquarters are located in Renton, Washington in the United States.\r\n\r\nWizards of the Coast publishes role-playing games, board games, and collectible card games. They have received numerous awards, including several Origins Awards. The company has been a subsidiary of Hasbro since 1999. All Wizards of the Coast stores were closed in 2004.",
+        "modified": "2019-10-01T19:00:02.206Z",
+        "description": "Publisher of the D&D series of products as well as the popular Magic: The Gathering trading card game.",
+        "read_me": "Wizards of the Coast\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Wizards of the Coast LLC** (often referred to as **WotC**) is an American publisher of games, primarily based on fantasy and science fiction themes, and formerly an operator of retail stores for games. Originally a basement-run role-playing game publisher, the company popularized the collectible card game genre with Magic: The Gathering in the mid-1990s, acquired the popular Dungeons & Dragons role-playing game by purchasing the failing company TSR, and further increased its success by publishing the licensed Pok\u00e9mon Trading Card Game. The company's corporate headquarters are located in Renton, Washington in the United States.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wizards of the Coast publishes role-playing games, board games, and collectible card games. They have received numerous awards, including several Origins Awards. The company has been a subsidiary of Hasbro since 1999. All Wizards of the Coast stores were closed in 2004.",
         "url": "https://company.wizards.com/",
         "abbreviation": "WotC"
     }
@@ -84,10 +90,25 @@
         "id": "tsr",
         "name": "TSR",
         "created": "2019-07-19T01:02:27.994Z",
-        "modified": "2019-07-19T01:13:34.926Z",
-        "description": "**TSR, Inc.** was an American game publishing company and the publisher of Dungeons & Dragons (D&D).\r\n\r\nWhen Gary Gygax could not find a publisher for D&D, a new type of game he and Dave Arneson were co-developing, Gygax and Don Kaye founded **Tactical Studies Rules** in October, 1973, to self-publish their products.[1] However, needing immediate financing to bring their new game to market before several similar competing products were released, Gygax and Kaye brought in Brian Blume in December as an equal partner.[1] When Kaye died suddenly in 1975, the Tactical Studies Rules partnership restructured into TSR Hobbies, Inc. and accepted investment from Blume's father Melvin.[2] With the now popular D&D as its main product, TSR Hobbies became a major force in the games industry by the late 1970s. Melvin Blume eventually transferred his shares to his other son Kevin, making the two Blume brothers the largest shareholders in TSR Hobbies.\r\n\r\nTSR Hobbies ran into financial difficulties in the spring of 1983, prompting the company to split into four independent businesses, with game publishing and development continuing as TSR, Inc. (TSR) After losing their executive positions due to the company's underperformance, the Blume brothers subsequently sold their shares to TSR Vice President Lorraine Williams, who in turn engineered Gygax's ouster from the company in October 1985.[2] TSR saw prosperity under Williams, but by 1995, had fallen behind their competitors in overall sales. TSR was left unable to cover its publishing costs due to a variety of factors, so facing insolvency, TSR was purchased in 1997 by Wizards of the Coast (WotC). WotC initially retained use of the TSR name for their D&D products, but by 2000, the TSR moniker was dropped, coinciding with the release of the 3rd edition of D&D.",
+        "modified": "2019-10-01T18:50:47.637Z",
+        "description": "Most famous for their D&D and AD&D games which were acquired by WotC.",
+        "read_me": "TSR\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**TSR, Inc.** was an American game publishing company and the publisher of Dungeons & Dragons (D&D).\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When Gary Gygax could not find a publisher for D&D, a new type of game he and Dave Arneson were co-developing, Gygax and Don Kaye founded **Tactical Studies Rules** in October, 1973, to self-publish their products. However, needing immediate financing to bring their new game to market before several similar competing products were released, Gygax and Kaye brought in Brian Blume in December as an equal partner. When Kaye died suddenly in 1975, the Tactical Studies Rules partnership restructured into TSR Hobbies, Inc. and accepted investment from Blume's father Melvin. With the now popular D&D as its main product, TSR Hobbies became a major force in the games industry by the late 1970s. Melvin Blume eventually transferred his shares to his other son Kevin, making the two Blume brothers the largest shareholders in TSR Hobbies.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TSR Hobbies ran into financial difficulties in the spring of 1983, prompting the company to split into four independent businesses, with game publishing and development continuing as TSR, Inc. (TSR) After losing their executive positions due to the company's underperformance, the Blume brothers subsequently sold their shares to TSR Vice President Lorraine Williams, who in turn engineered Gygax's ouster from the company in October 1985. TSR saw prosperity under Williams, but by 1995, had fallen behind their competitors in overall sales. TSR was left unable to cover its publishing costs due to a variety of factors, so facing insolvency, TSR was purchased in 1997 by Wizards of the Coast (WotC). WotC initially retained use of the TSR name for their D&D products, but by 2000, the TSR moniker was dropped, coinciding with the release of the 3rd edition of D&D.",
         "url": "https://en.wikipedia.org/wiki/TSR_(company)",
         "abbreviation": "TSR"
+    }
+},
+{
+    "model": "api.publisher",
+    "pk": "8f6c8d2c-a8d7-46da-a2cf-1ceefe28ea28",
+    "fields": {
+        "id": "chaosium",
+        "name": "Chaosium",
+        "created": "2019-10-01T19:32:26.548Z",
+        "modified": "2019-10-01T19:32:26.548Z",
+        "description": "One of the oldest publishers of role-playing games still in existence, known for horror role-playing games.",
+        "read_me": "Chaosium\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Chaosium Inc.** is one of the oldest publishers of role-playing games still in existence and is known for horror role-playing games. Established by Greg Stafford in 1975, its first title was the board game *White Bear and Red Moon* (later renamed *Dragon Pass*), set in Stafford's fictional fantasy gaming world of Glorantha. Over the years Chaosium has published many acclaimed and award-winning games. These include the roleplaying games *Call of Cthulhu*, based on the Horror fiction stories of H.P. Lovecraft and *RuneQuest*, set in Glorantha.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Many of Chaosium\u2019s product lines are based upon literary sources. While Stafford himself has been described as \"one of the most decorated game designers of all time\" and \"the grand shaman of gaming\", many other notable game designers have written material for Chaosium.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;One of the very first RPGs by a female lead designer was published by Chaosium: Kerie Campbell-Robson's 1986 release Hawkmoon.",
+        "url": "https://www.chaosium.com/",
+        "abbreviation": "CHSM"
     }
 },
 {
@@ -97,8 +118,9 @@
         "id": "far-future-enterprises",
         "name": "Far Future Enterprises",
         "created": "2019-07-19T01:28:58.660Z",
-        "modified": "2019-07-19T01:28:58.660Z",
-        "description": "**Far Future Enterprises** is the successor to **Game Designers' Workshop**; we publish reprints of the classic role-playing game systems originally produced by GDW: Traveller (as well as many of its licensed support materials), 2300 AD, Twilight: 2000, and Dark Conspiracy.",
+        "modified": "2019-10-01T18:41:41.057Z",
+        "description": "Publisher of reprents of material for GDW games.",
+        "read_me": "Far Future Enterprises\n==\n---\n**Far Future Enterprises** (or **FFE**) is the successor to **Game Designers' Workshop**. They are the current publisher of reprints of the classic role-playing game systems originally produced by GDW: Traveller (as well as many of its licensed support materials), 2300 AD, Twilight: 2000, and Dark Conspiracy.",
         "url": "https://www.farfuture.net/",
         "abbreviation": "FFE"
     }
@@ -110,8 +132,9 @@
         "id": "game-designers-workshop",
         "name": "Game Designers' Workshop",
         "created": "2019-07-19T00:54:46.798Z",
-        "modified": "2019-07-19T00:54:46.798Z",
-        "description": "**Game Designers' Workshop** was originally established June 22, 1973. The founding members consisted of Frank Chadwick, Rich Banner, Marc Miller, and Loren Wiseman. GDW acquired the Conflict Games Company from John Hill in the early 1970s.\r\n\r\nGDW published a new product approximately every twenty-two days for over twenty years. In an effort to bridge the gap between role players, board wargamers and miniature wargamers, the company published RPGs with fantastic settings alongside games with realistic themes including rulesets for 15mm and 20mm miniatures set during the American Civil War, World War I, World War II, and the modern era; and boardgames involving these eras such as the Air Superiority series and Harpoon.\r\n\r\nThe company disbanded February 29, 1996 after suffering financial troubles.",
+        "modified": "2019-10-01T18:42:39.289Z",
+        "description": "Game publishing house responsible for Twilight: 2000, Traveller and Dark Conspiracy.",
+        "read_me": "Game Designers' Workshop\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Game Designers' Workshop** was originally established June 22, 1973. The founding members consisted of Frank Chadwick, Rich Banner, Marc Miller, and Loren Wiseman. GDW acquired the Conflict Games Company from John Hill in the early 1970s.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GDW published a new product approximately every twenty-two days for over twenty years. In an effort to bridge the gap between role players, board wargamers and miniature wargamers, the company published RPGs with fantastic settings alongside games with realistic themes including rulesets for 15mm and 20mm miniatures set during the American Civil War, World War I, World War II, and the modern era; and boardgames involving these eras such as the Air Superiority series and Harpoon.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The company disbanded February 29, 1996 after suffering financial troubles.",
         "url": "https://en.wikipedia.org/wiki/Game_Designers%27_Workshop",
         "abbreviation": "GDW"
     }
@@ -123,8 +146,9 @@
         "id": "palladium-books",
         "name": "Palladium Books",
         "created": "2019-07-19T00:59:21.348Z",
-        "modified": "2019-07-19T01:13:24.544Z",
-        "description": "**Palladium Books** is a publisher of role-playing games (RPGs) perhaps best known for its popular, expansive Rifts series (1990\u2013present). Palladium was founded April 1981 in Detroit, Michigan by current president and lead game designer Kevin Siembieda, and is now based in Westland, Michigan. The company enjoys the support of a small but dedicated fanbase who praise its various game series for their innovative settings and ease of adaptability to various personal preferences, play styles, and power levels.",
+        "modified": "2019-10-01T19:00:08.104Z",
+        "description": "Famous for their popular RIFTs role-playing game and their use of the \"megaverse\" view point.",
+        "read_me": "Palladium Books\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Palladium Books** is a publisher of role-playing games (RPGs) perhaps best known for its popular, expansive Rifts series (1990\u2013present). \n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Palladium was founded April 1981 in Detroit, Michigan by current president and lead game designer Kevin Siembieda, and is now based in Westland, Michigan. The company enjoys the support of a small but dedicated fanbase who praise its various game series for their innovative settings and ease of adaptability to various personal preferences, play styles, and power levels.",
         "url": "https://palladiumbooks.com/",
         "abbreviation": "PB"
     }
@@ -136,8 +160,9 @@
         "id": "white-wolf-publishing",
         "name": "White Wolf Publishing",
         "created": "2019-07-19T01:20:18.666Z",
-        "modified": "2019-07-19T01:20:18.666Z",
-        "description": "**White Wolf Publishing** was a roleplaying game and book publisher. The company was founded in 1991 as a merger between **Lion Rampant** and **White Wolf Magazine** (est. 1986 in Rocky Face, GA; it later became \"White Wolf Inphobia\"), and was initially led by Mark Rein\u00b7Hagen of the former and Steve Wieck and Stewart Wieck of the latter. White Wolf Publishing, Inc. merged with CCP Games in 2006. White Wolf Publishing operated as an imprint of CCP hf, but ceased in-house production of any material, instead licensing their properties to other publishers. It was announced in October 2015 that White Wolf had been acquired from CCP by Paradox Interactive. In November 2018, after most of its staff were dismissed for making controversial statements, it was announced that White Wolf would no longer function as an entity separate from Paradox Interactive.\r\n\r\nThe name \"White Wolf\" originates from Michael Moorcock's works.",
+        "modified": "2019-10-01T18:54:10.469Z",
+        "description": "Publisher of the famous White Wolf Magzaine.",
+        "read_me": "White Wolf Publishing\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**White Wolf Publishing** was a roleplaying game and book publisher. The company was founded in 1991 as a merger between **Lion Rampant** and **White Wolf Magazine** (est. 1986 in Rocky Face, GA; it later became \"White Wolf Inphobia\"), and was initially led by Mark Rein\u00b7Hagen of the former and Steve Wieck and Stewart Wieck of the latter. \n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;White Wolf Publishing, Inc. merged with CCP Games in 2006. White Wolf Publishing operated as an imprint of CCP hf, but ceased in-house production of any material, instead licensing their properties to other publishers.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It was announced in October 2015 that White Wolf had been acquired from CCP by Paradox Interactive. In November 2018, after most of its staff were dismissed for making controversial statements, it was announced that White Wolf would no longer function as an entity separate from Paradox Interactive.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The name \"White Wolf\" originates from Michael Moorcock's works.",
         "url": "https://www.white-wolf.com/",
         "abbreviation": "WW"
     }

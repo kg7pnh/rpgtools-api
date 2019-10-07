@@ -68,6 +68,7 @@ class BookAdmin(admin.ModelAdmin):
               'isbn_10',
               'isbn_13',
               'description',
+              'read_me',
               'url',
               'art_assistant',
               'art_director',
@@ -125,6 +126,7 @@ class BookFormatAdmin(admin.ModelAdmin):
               'name',
               'format_type',
               'description',
+              'read_me',
               'url',)
     readonly_fields = ('_id',
                        'id',
@@ -151,6 +153,7 @@ class ContributorAdmin(admin.ModelAdmin):
               'created',
               'modified',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -181,6 +184,7 @@ class GameAdmin(admin.ModelAdmin):
               'publisher',
               'game_system',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -210,6 +214,7 @@ class GameSystemAdmin(admin.ModelAdmin):
               'abbreviation',
               'publisher',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -263,6 +268,7 @@ class OrganizationAdmin(admin.ModelAdmin):
               'created',
               'modified',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -293,6 +299,7 @@ class PersonAdmin(admin.ModelAdmin):
               'name_last',
               'name_suffix',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -324,6 +331,7 @@ class PublisherAdmin(admin.ModelAdmin):
               'name',
               'abbreviation',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',
@@ -354,6 +362,7 @@ class SchemaAdmin(admin.ModelAdmin):
               'form_schema',
               'specification',
               'description',
+              'read_me',
               'url')
     readonly_fields = ('_id',
                        'id',

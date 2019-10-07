@@ -50,3 +50,15 @@ class Serializer(serializers.ModelSerializer):
         """
         model = Contributor
         fields = ('__all__')
+
+class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    HyperLinkedSerializer class
+    '''
+
+    class Meta: # pylint: disable=too-few-public-methods
+        """
+        Class meta data
+        """
+        model = Contributor
+        fields = ('__all__')

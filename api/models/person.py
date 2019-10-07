@@ -89,6 +89,7 @@ class Person(Contributor):
         db_table = 'person'
         verbose_name = 'Person'
         verbose_name_plural = 'People'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Person)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

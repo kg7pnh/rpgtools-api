@@ -8,6 +8,8 @@ from rest_framework import serializers
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAdminUser
 from api.models.book import Book
+from api.models.book import BookHistorySerializer
+from api.models.book import HyperLinkedSerializer
 from api.models.book import Serializer
 from api.permissions.admin import IsAdminOrReadOnly
 
@@ -63,3 +65,10 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)
+
+class BookHistoryView(generics.ListAPIView):
+    """Get org history by name"""
+    serializer_class = BookHistorySerializer
+
+    def get_queryset(self):
+        return Book.history.filter(id=self.kwargs["id"])

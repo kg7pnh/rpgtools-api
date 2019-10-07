@@ -40,97 +40,98 @@ api_urlpatterns = [ #pylint: disable=invalid-name
 
     # Action paths
     path('actions/<str:id>', action.ItemView.as_view(), name="action"),
-    path('actions/edit/<str:id>', action.ItemEditView.as_view(), name="action_edit"),
-    path('actions/delete/<str:id>', action.ItemDeleteView.as_view(), name="action_delete"),
-    path('actions/', action.CreateView.as_view(), name="action_create"),
-    path('actions', action.ListView.as_view(), name="action_list"),
+    path('actions/edit/<str:id>', action.ItemEditView.as_view(), name="action-edit"),
+    path('actions/delete/<str:id>', action.ItemDeleteView.as_view(), name="action-delete"),
+    path('actions/', action.CreateView.as_view(), name="action-create"),
+    path('actions', action.ListView.as_view(), name="action-list"),
 
     # Action Runner paths
     path('action-runner', action_runner.ActionRunnerRequest.as_view(), name='action-runner'),
 
     # Book paths
-    path('books/<str:id>', book.ItemView.as_view(), name="book"),
-    path('books/edit/<str:id>', book.ItemEditView.as_view(), name="book_edit"),
-    path('books/delete/<str:id>', book.ItemDeleteView.as_view(), name="book_delete"),
-    path('books/', book.CreateView.as_view(), name="book_create"),
-    path('books', book.ListView.as_view(), name="book_list"),
+    path('books/<str:id>', book.ItemView.as_view(), name="book-detail"),
+    path('books/edit/<str:id>', book.ItemEditView.as_view(), name="book-edit"),
+    path('books/delete/<str:id>', book.ItemDeleteView.as_view(), name="book-delete"),
+    path('books/', book.CreateView.as_view(), name="book-create"),
+    path('books', book.ListView.as_view(), name="book-list"),
+    path('books/<str:id>/history', book.BookHistoryView.as_view(), name="book-history"),
 
     # BookFormat paths
-    path('book-formats/<str:id>', book_format.ItemView.as_view(), name="book_format"),
-    path('book-formats/edit/<str:id>', book_format.ItemEditView.as_view(), name="book_format_edit"),
-    path('book-formats/delete/<str:id>', book_format.ItemDeleteView.as_view(), name="book_format_delete"),
-    path('book-formats/', book_format.CreateView.as_view(), name="book_format_create"),
-    path('book-formats', book_format.ListView.as_view(), name="book_format_list"),
+    path('bookformats/<str:id>', book_format.ItemView.as_view(), name="bookformat-detail"),
+    path('bookformats/edit/<str:id>', book_format.ItemEditView.as_view(), name="bookformat-edit"),
+    path('bookformats/delete/<str:id>', book_format.ItemDeleteView.as_view(), name="bookformat-delete"),
+    path('bookformats/', book_format.CreateView.as_view(), name="bookformat-create"),
+    path('bookformats', book_format.ListView.as_view(), name="bookformat-list"),
 
     # Contributor paths
-    path('contributors/<str:id>', contributor.ItemView.as_view(), name="contributor"),
-    path('contributors', contributor.ListView.as_view(), name="contributor_list"),
+    path('contributors/<str:id>', contributor.ItemView.as_view(), name="contributor-detail"),
+    path('contributors', contributor.ListView.as_view(), name="contributor-list"),
 
     # Die Roll paths
     path('die-roll', die_roll.DieRollRequest.as_view(), name='die-roll'),
     
     # Game paths
-    path('games/<str:id>', game.ItemView.as_view(), name="game"),
-    path('games/edit/<str:id>', game.ItemEditView.as_view(), name="game_edit"),
-    path('games/delete/<str:id>', game.ItemDeleteView.as_view(), name="game_delete"),
-    path('games/', game.CreateView.as_view(), name="game_create"),
-    path('games', game.ListView.as_view(), name="game_list"),
+    path('games/<str:id>', game.ItemView.as_view(), name="game-detail"),
+    path('games/edit/<str:id>', game.ItemEditView.as_view(), name="game-edit"),
+    path('games/delete/<str:id>', game.ItemDeleteView.as_view(), name="game-delete"),
+    path('games/', game.CreateView.as_view(), name="game-create"),
+    path('games', game.ListView.as_view(), name="game-list"),
 
     # GameSystem paths
-    path('game-systems/<str:id>', game_system.ItemView.as_view(), name="game_system"),
-    path('game-systems/edit/<str:id>', game_system.ItemEditView.as_view(), name="game_system_edit"),
-    path('game-systems/delete/<str:id>', game_system.ItemDeleteView.as_view(), name="game_system_delete"),
-    path('game-systems/', game_system.CreateView.as_view(), name="game_system_create"),
-    path('game-systems', game_system.ListView.as_view(), name="game_system_list"),
+    path('gamesystems/<str:id>', game_system.ItemView.as_view(), name="gamesystem-detail"),
+    path('gamesystems/edit/<str:id>', game_system.ItemEditView.as_view(), name="gamesystem-edit"),
+    path('gamesystems/delete/<str:id>', game_system.ItemDeleteView.as_view(), name="gamesystem-delete"),
+    path('gamesystems/', game_system.CreateView.as_view(), name="gamesystem-create"),
+    path('gamesystems', game_system.ListView.as_view(), name="gamesystem-list"),
 
     # Handler paths
-    path('handlers/<str:id>', handler.ItemView.as_view(), name="handler"),
-    path('handlers/edit/<str:id>', handler.ItemEditView.as_view(), name="handler_edit"),
-    path('handlers/delete/<str:id>', handler.ItemDeleteView.as_view(), name="handler_delete"),
-    path('handlers/', handler.CreateView.as_view(), name="handler_create"),
-    path('handlers', handler.ListView.as_view(), name="handler_list"),
+    path('handlers/<str:id>', handler.ItemView.as_view(), name="handler-detail"),
+    path('handlers/edit/<str:id>', handler.ItemEditView.as_view(), name="handler-edit"),
+    path('handlers/delete/<str:id>', handler.ItemDeleteView.as_view(), name="handler-delete"),
+    path('handlers/', handler.CreateView.as_view(), name="handler-create"),
+    path('handlers', handler.ListView.as_view(), name="handler-list"),
 
     # Organization paths
-    path('organizations/<str:id>', organization.ItemView.as_view(), name="organization"),
-    path('organizations/edit/<str:id>', organization.ItemEditView.as_view(), name="organization_edit"),
-    path('organizations/delete/<str:id>', organization.ItemDeleteView.as_view(), name="organization_delete"),
-    path('organizations/', organization.CreateView.as_view(), name="organization_create"),
-    path('organizations', organization.ListView.as_view(), name="organization_list"),
+    path('organizations/<str:id>', organization.ItemView.as_view(), name="organization-detail"),
+    path('organizations/edit/<str:id>', organization.ItemEditView.as_view(), name="organization-edit"),
+    path('organizations/delete/<str:id>', organization.ItemDeleteView.as_view(), name="organization-delete"),
+    path('organizations/', organization.CreateView.as_view(), name="organization-create"),
+    path('organizations', organization.ListView.as_view(), name="organization-list"),
 
     # Person paths
-    path('persons/<str:id>', person.ItemView.as_view(), name="person"),
-    path('persons/edit/<str:id>', person.ItemEditView.as_view(), name="person_edit"),
-    path('persons/delete/<str:id>', person.ItemDeleteView.as_view(), name="person_delete"),
-    path('persons/', person.CreateView.as_view(), name="person_create"),
-    path('persons', person.ListView.as_view(), name="person_list"),
+    path('persons/<str:id>', person.ItemView.as_view(), name="person-detail"),
+    path('persons/edit/<str:id>', person.ItemEditView.as_view(), name="person-edit"),
+    path('persons/delete/<str:id>', person.ItemDeleteView.as_view(), name="person-delete"),
+    path('persons/', person.CreateView.as_view(), name="person-create"),
+    path('persons', person.ListView.as_view(), name="person-list"),
 
     # Publisher paths
-    path('publishers/<str:id>', publisher.ItemView.as_view(), name="publisher"),
-    path('publishers/edit/<str:id>', publisher.ItemEditView.as_view(), name="publisher_edit"),
-    path('publishers/delete/<str:id>', publisher.ItemDeleteView.as_view(), name="publisher_delete"),
-    path('publishers/', publisher.CreateView.as_view(), name="publisher_create"),
-    path('publishers', publisher.ListView.as_view(), name="publisher_list"),
+    path('publishers/<str:id>', publisher.ItemView.as_view(), name="publisher-detail"),
+    path('publishers/edit/<str:id>', publisher.ItemEditView.as_view(), name="publisher-edit"),
+    path('publishers/delete/<str:id>', publisher.ItemDeleteView.as_view(), name="publisher-delete"),
+    path('publishers/', publisher.CreateView.as_view(), name="publisher-create"),
+    path('publishers', publisher.ListView.as_view(), name="publisher-list"),
 
     # Schema paths
     path('schemas/<str:id>/<int:version>',
-         schema.ItemVersionView.as_view(), name="schema_version"),
+         schema.ItemVersionView.as_view(), name="schema-version"),
     path('schemas/<str:id>/<int:version>.json',
-         schema.DocumentVersionView.as_view(), name="schema_item_version_json"),
-    path('schemas/<str:id>', schema.ItemView.as_view(), name="schema"),
-    path('schemas/', schema.CreateView.as_view(), name="schema_create"),
-    path('schemas', schema.ListView.as_view(), name="schema_list"),
+         schema.DocumentVersionView.as_view(), name="schema-item-version-json"),
+    path('schemas/<str:id>', schema.ItemView.as_view(), name="schema-detail"),
+    path('schemas/', schema.CreateView.as_view(), name="schema-create"),
+    path('schemas', schema.ListView.as_view(), name="schema-list"),
 
     # Workflow paths
-    path('workflows/<str:id>', workflow.ItemView.as_view(), name="workflow"),
-    path('workflows/edit/<str:id>', workflow.ItemEditView.as_view(), name="workflow_edit"),
-    path('workflows/delete/<str:id>', workflow.ItemDeleteView.as_view(), name="workflow_delete"),
-    path('workflows/', workflow.CreateView.as_view(), name="workflow_create"),
-    path('workflows', workflow.ListView.as_view(), name="workflow_list"),
+    path('workflows/<str:id>', workflow.ItemView.as_view(), name="workflow-detail"),
+    path('workflows/edit/<str:id>', workflow.ItemEditView.as_view(), name="workflow-edit"),
+    path('workflows/delete/<str:id>', workflow.ItemDeleteView.as_view(), name="workflow-delete"),
+    path('workflows/', workflow.CreateView.as_view(), name="workflow-create"),
+    path('workflows', workflow.ListView.as_view(), name="workflow-list"),
 
     # system paths
-    path('token', views.TokenView.as_view(), name="token_obtain_pair"),
-    path('token/refresh', TokenRefreshView.as_view(), name="token_refresh"),
-    path('token/refresh/?', TokenVerifyView.as_view(), name="token_verify"),
+    path('token', views.TokenView.as_view(), name="token-obtain-pair"),
+    path('token/refresh', TokenRefreshView.as_view(), name="token-refresh"),
+    path('token/refresh/?', TokenVerifyView.as_view(), name="token-verify"),
 ]
 
 urlpatterns = api_urlpatterns + [ #pylint: disable=invalid-name

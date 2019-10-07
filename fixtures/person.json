@@ -23,6 +23,17 @@
 },
 {
     "model": "api.person",
+    "pk": "f4317b98-b2bd-4bfa-a9ff-76acd073d542",
+    "fields": {
+        "name_prefix": "",
+        "name_first": "Steve",
+        "name_middle": "",
+        "name_last": "Arrowsmith",
+        "name_suffix": ""
+    }
+},
+{
+    "model": "api.person",
     "pk": "5f6cd5cd-10ad-422d-be3e-45756a25a13b",
     "fields": {
         "name_prefix": "",
@@ -205,17 +216,6 @@
         "name_first": "Carol",
         "name_middle": "",
         "name_last": "Etter",
-        "name_suffix": ""
-    }
-},
-{
-    "model": "api.person",
-    "pk": "f4317b98-b2bd-4bfa-a9ff-76acd073d542",
-    "fields": {
-        "name_prefix": "",
-        "name_first": "Steve",
-        "name_middle": "",
-        "name_last": "Arrowsmith",
         "name_suffix": ""
     }
 },
@@ -412,7 +412,7 @@
     "fields": {
         "name_prefix": "",
         "name_first": "Marc",
-        "name_middle": "",
+        "name_middle": "William",
         "name_last": "Miller",
         "name_suffix": ""
     }

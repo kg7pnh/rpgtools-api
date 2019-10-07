@@ -31,7 +31,7 @@ ALLOWED_HOSTS = ["*"]
 
 INTERNAL_IPS = [
     '127.0.0.1',
-    '192.168.0.104'
+    '192.168.0.45',
     '192.168.0.35',
 ]
 
@@ -50,7 +50,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
@@ -69,7 +69,7 @@ LOGGING = {
         },
         'django.template': {
             'handlers': ['file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
@@ -95,6 +95,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
+    'drf_link_header_pagination',
+    'drf_rw_serializers'
 ] + MY_INSTALLED_APPS
 
 MIDDLEWARE = [
@@ -114,7 +117,7 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_EXPOSE_HEADERS = ["Link"]
 ROOT_URLCONF = 'rpgtools.urls'
 
 TEMPLATES = [
@@ -204,7 +207,8 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'drf_link_header_pagination.LinkHeaderPagination',
     'PAGE_SIZE': 10
 }
 

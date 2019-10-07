@@ -61,11 +61,12 @@ def run_roll(die_size,
 
     return result
 
-def run(input):
+def run(input, additional_input = None):
     """
     run
     """
     print(input)
+    print(additional_input)
     die_size = input['die_size']
     die_count = input['die_count']
     per_modifier_type = None

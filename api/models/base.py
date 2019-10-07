@@ -20,21 +20,25 @@ class Base(models.Model):
                            verbose_name='_ID')
     id = models.CharField(max_length=256,
                           verbose_name='ID',
-                          editable=False)
+                          editable=False,
+                          unique=True)
     name = models.CharField(max_length=256,
                             verbose_name='Name')
     created = models.DateTimeField(editable=False,
                                    verbose_name='Created')
     modified = models.DateTimeField(editable=False,
                                     verbose_name='Modified')
-    description = models.TextField(verbose_name='Description',
-                                   null=True,
-                                   blank=True)
+    description = models.CharField(max_length=256,
+                                         verbose_name='Description',
+                                         null=True,
+                                         blank=True)
+    read_me = models.TextField(verbose_name='Read Me',
+                               null=True,
+                               blank=True)
     url = models.URLField(verbose_name='Website',
                           null=True,
                           blank=True)
-    history = HistoricalRecords(excluded_fields=['id', 'modified'],
-                                inherit=True)
+    history = HistoricalRecords(inherit=True)
 
     # Functions
     def __str__(self):
@@ -67,4 +71,4 @@ class Base(models.Model):
         """
         abstract = True
         get_latest_by = 'modified'
-        indexes = [models.Index(fields=['id'])]
+        indexes = [models.Index(fields=['id', 'name'])]

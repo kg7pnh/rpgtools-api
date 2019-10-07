@@ -9,7 +9,9 @@ from django.utils.text import slugify
 from rest_framework import serializers
 from .base import Base
 from .game_system import GameSystem
+from .game_system import Serializer as GameSystemSerializer
 from .publisher import Publisher
+from .publisher import Serializer as PublisherSerializer
 
 # Create your models here.
 class Game(Base):
@@ -52,6 +54,7 @@ class Game(Base):
         db_table = 'game'
         verbose_name = 'Game'
         verbose_name_plural = 'Games'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=GameSystem)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
@@ -70,4 +73,19 @@ class Serializer(serializers.ModelSerializer):
         Class meta data
         """
         model = Game
+        fields = ('__all__')
+
+class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
+    '''
+    HyperLinkedSerializer class
+    '''
+    
+    game_system = GameSystemSerializer(many=False, read_only=True)
+    publisher = PublisherSerializer(many=False, read_only=True)
+
+    class Meta: # pylint: disable=too-few-public-methods
+        """
+        Class meta data
+        """
+        model = GameSystem
         fields = ('__all__')

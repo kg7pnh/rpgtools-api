@@ -41,9 +41,9 @@ class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAP
 
     def update(self, request, *args, **kwargs):
         
-        print('****DEBUG****')
-        print(request.data)
-        print('****DEBUG****')
+        # print('****DEBUG****')
+        # print(request.data)
+        # print('****DEBUG****')
         return super(ItemVersionView, self).update(request, *args, **kwargs)
 
 class DocumentVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
@@ -59,7 +59,7 @@ class ListView(generics.ListAPIView):
     Provides access to the GET request for a list of all schema objects.
     '''
     queryset = Schema.objects.all()
-    serializer_class = HrefSerializer
+    serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     '''

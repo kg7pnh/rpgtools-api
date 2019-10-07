@@ -55,6 +55,7 @@ class Organization(Contributor):
         db_table = 'organization'
         verbose_name = 'Organization'
         verbose_name_plural = 'Organizations'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Organization)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

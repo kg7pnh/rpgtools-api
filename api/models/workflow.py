@@ -37,6 +37,7 @@ class Workflow(Base):
         db_table = 'workflow'
         verbose_name = 'Workflow'
         verbose_name_plural = 'Workflows'
+        ordering = ('name', )
 
 @receiver(pre_save, sender=Workflow)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
