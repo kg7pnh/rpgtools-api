@@ -26,13 +26,26 @@ class Action(Base):
     input_json = JSONField(default='{"Place": "Holder"}',
                            verbose_name='Input JSON')
     input_schema = models.ForeignKey(Schema,
-                                     default='931434e2-9093-4241-bd7a-5d48a2aedc75',
+                                     blank=True,
+                                     limit_choices_to={'schema_type': 'Input'},
+                                     null=True,
                                      on_delete=models.PROTECT,
-                                     related_name='input_schema')
+                                     related_name='action_input_schema',
+                                     verbose_name='Input Schema')
     output_schema = models.ForeignKey(Schema,
-                                      default='931434e2-9093-4241-bd7a-5d48a2aedc75',
+                                      blank=True,
+                                      limit_choices_to={'schema_type': 'Output'},
+                                      null=True,
                                       on_delete=models.PROTECT,
-                                      related_name='output_schema')
+                                      related_name='action_output_schema',
+                                      verbose_name='Output Schema')
+    form_schema = models.ForeignKey(Schema,
+                                    blank=True,
+                                    limit_choices_to={'schema_type': 'Form'},
+                                    null=True,
+                                    on_delete=models.PROTECT,
+                                    related_name='action_form_schema',
+                                    verbose_name='Form Schema')
 
     # Attributes
 

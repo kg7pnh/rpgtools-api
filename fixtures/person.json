@@ -38,19 +38,8 @@
     "fields": {
         "name_prefix": "",
         "name_first": "John",
-        "name_middle": "",
+        "name_middle": "M",
         "name_last": "Astell",
-        "name_suffix": ""
-    }
-},
-{
-    "model": "api.person",
-    "pk": "f86e36d5-b15b-4cb3-b4ce-625401811c9e",
-    "fields": {
-        "name_prefix": "",
-        "name_first": "Paul",
-        "name_middle": "R",
-        "name_last": "Banner",
         "name_suffix": ""
     }
 },
@@ -59,8 +48,8 @@
     "pk": "9f6fba93-9955-4a52-99be-647e9bf58346",
     "fields": {
         "name_prefix": "",
-        "name_first": "Rich",
-        "name_middle": "",
+        "name_first": "Paul",
+        "name_middle": "Richard",
         "name_last": "Banner",
         "name_suffix": ""
     }
@@ -140,6 +129,17 @@
         "name_middle": "",
         "name_last": "Bryant",
         "name_suffix": ""
+    }
+},
+{
+    "model": "api.person",
+    "pk": "300d40e1-e0c0-4cf7-af5c-9cecf90152ed",
+    "fields": {
+        "name_prefix": null,
+        "name_first": "Cain",
+        "name_middle": null,
+        "name_last": "Budds",
+        "name_suffix": null
     }
 },
 {
@@ -258,9 +258,20 @@
     "fields": {
         "name_prefix": "",
         "name_first": "Frank",
-        "name_middle": "",
+        "name_middle": "J",
         "name_last": "Frey",
-        "name_suffix": "Jr"
+        "name_suffix": "III"
+    }
+},
+{
+    "model": "api.person",
+    "pk": "23158121-f38e-4355-9d3b-9fd21d2544d6",
+    "fields": {
+        "name_prefix": null,
+        "name_first": "Lamont",
+        "name_middle": null,
+        "name_last": "Fullerton",
+        "name_suffix": null
     }
 },
 {
@@ -272,6 +283,28 @@
         "name_middle": "",
         "name_last": "Gibson",
         "name_suffix": ""
+    }
+},
+{
+    "model": "api.person",
+    "pk": "00c4806c-6a1d-46ab-9284-d0e0b3626c1f",
+    "fields": {
+        "name_prefix": null,
+        "name_first": "Dan",
+        "name_middle": null,
+        "name_last": "Griffin",
+        "name_suffix": null
+    }
+},
+{
+    "model": "api.person",
+    "pk": "73f38185-9025-4349-b7f7-d2aba593f5d7",
+    "fields": {
+        "name_prefix": null,
+        "name_first": "Dell",
+        "name_middle": null,
+        "name_last": "Harris",
+        "name_suffix": null
     }
 },
 {
@@ -302,7 +335,7 @@
     "fields": {
         "name_prefix": "",
         "name_first": "Brad",
-        "name_middle": "",
+        "name_middle": "R",
         "name_last": "Hay",
         "name_suffix": ""
     }
@@ -312,7 +345,7 @@
     "pk": "36221f42-329f-499c-b41e-581d2f4302e9",
     "fields": {
         "name_prefix": "",
-        "name_first": "Jim",
+        "name_first": "James",
         "name_middle": "",
         "name_last": "Holloway",
         "name_suffix": ""
@@ -404,6 +437,17 @@
         "name_middle": "Colton",
         "name_last": "McGonigle",
         "name_suffix": ""
+    }
+},
+{
+    "model": "api.person",
+    "pk": "00484ad5-cb86-4070-9cf3-3d6378eff8e6",
+    "fields": {
+        "name_prefix": null,
+        "name_first": "Elizabeth",
+        "name_middle": null,
+        "name_last": "Meier",
+        "name_suffix": null
     }
 },
 {
@@ -643,7 +687,7 @@
     "fields": {
         "name_prefix": "",
         "name_first": "Dan",
-        "name_middle": "",
+        "name_middle": "R",
         "name_last": "Williams",
         "name_suffix": ""
     }

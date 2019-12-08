@@ -6,9 +6,11 @@ from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
 from rest_framework.permissions import IsAdminUser
+from api.models.contributor import Contributor
 from api.models.person import Person
 from api.models.person import concat_name
 from api.models.person import Serializer
+from api.models.person import PersonHistorySerializer
 from api.permissions.admin import IsAdminOrReadOnly
 
 
@@ -55,16 +57,25 @@ class CreateView(generics.CreateAPIView):
 
     def create(self, request, *args, **kwargs):
         name_prefix = ""
-        if request.data['name_prefix']:
-            name_prefix = request.data['name_prefix']
+        try:
+            if request.data['name_prefix']:
+                name_prefix = request.data['name_prefix']
+        except:
+            pass
         name_first = request.data['name_first']
         name_middle = ""
-        if request.data['name_middle']:
-            name_middle = request.data['name_middle']
+        try:
+            if request.data['name_middle']:
+                name_middle = request.data['name_middle']
+        except:
+            pass
         name_last = request.data['name_last']
         name_suffix = ""
-        if  request.data['name_suffix']:
-            name_suffix = request.data['name_suffix']
+        try:
+            if  request.data['name_suffix']:
+                name_suffix = request.data['name_suffix']
+        except:
+            pass
         name = concat_name(name_prefix,
                            name_last,
                            name_first,
@@ -81,3 +92,9 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)
+        
+class PersonHistoryView(generics.RetrieveAPIView):
+    """Get person history by name"""
+    serializer_class = PersonHistorySerializer
+    queryset = Contributor.objects.all()
+    lookup_field = "id"

@@ -25,7 +25,9 @@ build-dev:
 	pipenv run python manage.py loaddata ./fixtures/gamesystem.json
 	pipenv run python manage.py loaddata ./fixtures/game.json
 	pipenv run python manage.py loaddata ./fixtures/book.json
+	pipenv run python manage.py loaddata ./fixtures/handler.json
 	pipenv run python manage.py loaddata ./fixtures/action.json
+	# pipenv run python manage.py loaddata ./fixtures/workflow.json
 	pipenv run python manage.py loaddata ./fixtures/token.json
 	pipenv run python manage.py populate_history --auto
 	pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/users.json
@@ -46,7 +48,9 @@ dumpdata:
 	pipenv run python manage.py dumpdata api.book --indent 4 | grep -v Fetch > ./fixtures/book.json
 	pipenv run python manage.py dumpdata api.game --indent 4 | grep -v Fetch > ./fixtures/game.json
 	pipenv run python manage.py dumpdata api.schema --indent 4 | grep -v Fetch > ./fixtures/schema.json
+	pipenv run python manage.py dumpdata api.handler --indent 4 | grep -v Fetch > ./fixtures/handler.json
 	pipenv run python manage.py dumpdata api.action --indent 4 | grep -v Fetch > ./fixtures/action.json
+	pipenv run python manage.py dumpdata api.workflow --indent 4 | grep -v Fetch > ./fixtures/workflow.json
 	pipenv run python manage.py dumpdata authtoken.token --indent 4 | grep -v Fetch > ./fixtures/token.json
 
 init:

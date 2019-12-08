@@ -54,6 +54,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('books/delete/<str:id>', book.ItemDeleteView.as_view(), name="book-delete"),
     path('books/', book.CreateView.as_view(), name="book-create"),
     path('books', book.ListView.as_view(), name="book-list"),
+    # path('books/<str:id>/history', book.BookHistoryView.as_view(), name="book-history"),
     path('books/<str:id>/history', book.BookHistoryView.as_view(), name="book-history"),
 
     # BookFormat paths
@@ -62,6 +63,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('bookformats/delete/<str:id>', book_format.ItemDeleteView.as_view(), name="bookformat-delete"),
     path('bookformats/', book_format.CreateView.as_view(), name="bookformat-create"),
     path('bookformats', book_format.ListView.as_view(), name="bookformat-list"),
+    path('bookformats/<str:id>/history', book_format.BookFormatHistoryView.as_view(), name="booformatk-history"),
 
     # Contributor paths
     path('contributors/<str:id>', contributor.ItemView.as_view(), name="contributor-detail"),
@@ -76,6 +78,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('games/delete/<str:id>', game.ItemDeleteView.as_view(), name="game-delete"),
     path('games/', game.CreateView.as_view(), name="game-create"),
     path('games', game.ListView.as_view(), name="game-list"),
+    path('games/<str:id>/history', game.GameHistoryView.as_view(), name="game-history"),
 
     # GameSystem paths
     path('gamesystems/<str:id>', game_system.ItemView.as_view(), name="gamesystem-detail"),
@@ -83,6 +86,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('gamesystems/delete/<str:id>', game_system.ItemDeleteView.as_view(), name="gamesystem-delete"),
     path('gamesystems/', game_system.CreateView.as_view(), name="gamesystem-create"),
     path('gamesystems', game_system.ListView.as_view(), name="gamesystem-list"),
+    path('gamesystems/<str:id>/history', game_system.GameSystemHistoryView.as_view(), name="gamesystem-history"),
 
     # Handler paths
     path('handlers/<str:id>', handler.ItemView.as_view(), name="handler-detail"),
@@ -97,6 +101,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('organizations/delete/<str:id>', organization.ItemDeleteView.as_view(), name="organization-delete"),
     path('organizations/', organization.CreateView.as_view(), name="organization-create"),
     path('organizations', organization.ListView.as_view(), name="organization-list"),
+    path('organizations/<str:id>/history', organization.OrganizationHistoryView.as_view(), name="organization-history"),
 
     # Person paths
     path('persons/<str:id>', person.ItemView.as_view(), name="person-detail"),
@@ -104,6 +109,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('persons/delete/<str:id>', person.ItemDeleteView.as_view(), name="person-delete"),
     path('persons/', person.CreateView.as_view(), name="person-create"),
     path('persons', person.ListView.as_view(), name="person-list"),
+    path('persons/<str:id>/history', person.PersonHistoryView.as_view(), name="person-history"),
 
     # Publisher paths
     path('publishers/<str:id>', publisher.ItemView.as_view(), name="publisher-detail"),
@@ -111,6 +117,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('publishers/delete/<str:id>', publisher.ItemDeleteView.as_view(), name="publisher-delete"),
     path('publishers/', publisher.CreateView.as_view(), name="publisher-create"),
     path('publishers', publisher.ListView.as_view(), name="publisher-list"),
+    path('publishers/<str:id>/history', publisher.PublisherHistoryView.as_view(), name="publisher-history"),
 
     # Schema paths
     path('schemas/<str:id>/<int:version>',
@@ -120,6 +127,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('schemas/<str:id>', schema.ItemView.as_view(), name="schema-detail"),
     path('schemas/', schema.CreateView.as_view(), name="schema-create"),
     path('schemas', schema.ListView.as_view(), name="schema-list"),
+    path('schemas/<str:id>/history', schema.SchemaHistoryViewNew.as_view(), name="schema-history"),
 
     # Workflow paths
     path('workflows/<str:id>', workflow.ItemView.as_view(), name="workflow-detail"),

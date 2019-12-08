@@ -2,14 +2,17 @@
 """
 Defines the Book views
 """
+import django.http.response
 from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
+from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAdminUser
 from api.models.book import Book
 from api.models.book import BookHistorySerializer
 from api.models.book import HyperLinkedSerializer
+from api.models.book import BookHistorySerializer
 from api.models.book import Serializer
 from api.permissions.admin import IsAdminOrReadOnly
 
@@ -41,14 +44,14 @@ class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancest
 
 class ListView(generics.ListAPIView):
     '''
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET request for a list of all book objects.
     '''
     queryset = Book.objects.all()
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     '''
-     Provides access to the POST request for creating game objects.
+     Provides access to the POST request for creating book objects.
     '''
     permission_classes = (IsAdminUser,)
     queryset = Book.objects.all()
@@ -66,9 +69,26 @@ class CreateView(generics.CreateAPIView):
 
         return super(CreateView, self).create(request, *args, **kwargs)
 
-class BookHistoryView(generics.ListAPIView):
+# class BookHistoryView(generics.ListAPIView):
+#     """Get org history by name"""
+#     serializer_class = BookHistorySerializer
+
+#     def get_queryset(self):
+#         return Book.history.filter(id=self.kwargs["id"])
+
+class BookHistoryView(generics.RetrieveAPIView):
     """Get org history by name"""
     serializer_class = BookHistorySerializer
+    queryset = Book.objects.all()
+    lookup_field = "id"
 
-    def get_queryset(self):
-        return Book.history.filter(id=self.kwargs["id"])
+# class BookHistoryView(viewsets.ModelViewSet):
+#     queryset = Book.objects.all()
+#     serializer_class = BookHistorySerializer
+    
+#     def bookHistory(self,request):
+#         var = Book.history.all()
+#         serialized_data = BookHistorySerializer(var,many=True)
+#         print(serialized_data)
+#         print(serialized_data.data)
+#         return Response(serialized_data.data)

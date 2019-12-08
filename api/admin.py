@@ -32,8 +32,10 @@ class ActionAdmin(admin.ModelAdmin):
               'modified',
               'name',
               'game',
+              'handler',
               'input_schema',
-              'output_schema')
+              'output_schema',
+              'form_schema')
     readonly_fields = ('_id',
                         'id',
                         'created',
@@ -64,6 +66,7 @@ class BookAdmin(admin.ModelAdmin):
               'short_name',
               'abbreviation',
               'catalog_number',
+              'publication_year',
               'pages',
               'isbn_10',
               'isbn_13',
@@ -230,7 +233,7 @@ admin.site.register(GameSystem, GameSystemAdmin)
 
 class HandlerAdmin(admin.ModelAdmin):
     """
-    WorkflowAdmin
+    HandlerAdmin
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget,}
@@ -240,9 +243,10 @@ class HandlerAdmin(admin.ModelAdmin):
               'created',
               'modified',
               'name',
-              'game',
               'method',
-              'api_resource')
+              'api_handler',
+              'input_schema',
+              'output_schema')
     readonly_fields = ('_id',
                         'id',
                         'created',
@@ -265,6 +269,7 @@ class OrganizationAdmin(admin.ModelAdmin):
     fields = ('_id',
               'id',
               'name',
+              'abbreviation',
               'created',
               'modified',
               'description',
@@ -284,7 +289,7 @@ admin.site.register(Organization, OrganizationAdmin)
 
 class PersonAdmin(admin.ModelAdmin):
     """
-    BookAdmin
+    PersonAdmin
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -358,10 +363,11 @@ class SchemaAdmin(admin.ModelAdmin):
               'version',
               'created',
               'modified',
-              'document',
-              'form_schema',
               'specification',
+              'schema_type',
+              'form_schema',
               'description',
+              'document',
               'read_me',
               'url')
     readonly_fields = ('_id',
@@ -390,7 +396,9 @@ class WorkflowAdmin(admin.ModelAdmin):
               'modified',
               'name',
               'game',
-              'actions')
+              'method',
+              'type',
+              'definition')
     readonly_fields = ('_id',
                         'id',
                         'created',
@@ -400,6 +408,5 @@ class WorkflowAdmin(admin.ModelAdmin):
                     'modified',
                     'id',
                     '_id')
-    filter_horizontal = ('actions',)
 
 admin.site.register(Workflow, WorkflowAdmin)

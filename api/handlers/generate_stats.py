@@ -17,7 +17,7 @@ def iterate_input(input, additional_input):
         if 'Method' in input[stat]:
             method = input[stat]['Method']
             try:
-                module_name = 'api.actions.'+method
+                module_name = 'api.handlers.'+method
                 module = importlib.import_module(module_name)
                 response[stat] = module.run(input[stat]['Input'], additional_input)
             except ImportError as error:

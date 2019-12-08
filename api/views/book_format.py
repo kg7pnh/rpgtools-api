@@ -9,6 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAdminUser
 from api.models.book_format import BookFormat
 from api.models.book_format import Serializer
+from api.models.book_format import BookFormatHistorySerializer
 from api.permissions.admin import IsAdminOrReadOnly
 
 
@@ -64,3 +65,9 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)
+
+class BookFormatHistoryView(generics.RetrieveAPIView):
+    """Get book format history by name"""
+    serializer_class = BookFormatHistorySerializer
+    queryset = BookFormat.objects.all()
+    lookup_field = "id"

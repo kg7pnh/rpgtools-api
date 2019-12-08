@@ -10,6 +10,7 @@ from rest_framework.permissions import IsAdminUser
 from api.models.game_system import GameSystem
 from api.models.game_system import Serializer
 from api.models.game_system import HyperLinkedSerializer
+from api.models.game_system import GameSystemHistorySerializer
 from api.permissions.admin import IsAdminOrReadOnly
 
 
@@ -65,3 +66,9 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)
+
+class GameSystemHistoryView(generics.RetrieveAPIView):
+    """Get game system history by name"""
+    serializer_class = GameSystemHistorySerializer
+    queryset = GameSystem.objects.all()
+    lookup_field = "id"
