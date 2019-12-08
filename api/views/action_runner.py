@@ -6,7 +6,6 @@ import importlib
 import json
 from api.models.action_runner import ActionRunner
 from api.models.action_runner import Serializer
-# from api.actions.die_roll import run
 from rest_framework import exceptions
 from rest_framework import serializers
 from rest_framework import status
@@ -20,13 +19,12 @@ def iterate_input(input, additional_input):
     """
     response = {}
     for entry in input:
-        print(entry)
         if not additional_input:
             additional_input = response
         if 'Method' in input[entry]:
             method = input[entry]['Method']
             try:
-                module_name = 'api.actions.'+method
+                module_name = 'api.handlers.'+method
                 module = importlib.import_module(module_name)
                 response[entry] = module.run(input[entry]['Input'], additional_input)
             except ImportError as error:
@@ -61,7 +59,7 @@ class ActionRunnerRequest(CreateAPIView):
         #     method = action_input[action]["Method"]
 
         #     try:
-        #         module_name = 'api.actions.'+method
+        #         module_name = 'api.handlers.'+method
         #         module = importlib.import_module(module_name)
 
         #         json_input = str(action_input[action]['Input']).replace('\'', '"')

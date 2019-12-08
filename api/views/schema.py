@@ -11,6 +11,7 @@ from api.models.schema import Schema
 from api.models.schema import DocumentSerializer
 from api.models.schema import HrefSerializer
 from api.models.schema import Serializer
+from api.models.schema import SchemaHistorySerializerNew
 from api.permissions.admin import IsAdminOrReadOnly
 
 class MultipleFieldLookupMixin(): # pylint: disable=too-few-public-methods
@@ -94,4 +95,10 @@ class ItemView(generics.RetrieveAPIView):
     '''
     queryset = Schema.objects.all()
     serializer_class = Serializer
+    lookup_field = "id"
+
+class SchemaHistoryViewNew(generics.RetrieveAPIView):
+    """Get schema history by name"""
+    serializer_class = SchemaHistorySerializerNew
+    queryset = Schema.objects.all()
     lookup_field = "id"

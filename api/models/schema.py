@@ -4,6 +4,8 @@ Defines the Schema model
 """
 from django.contrib.postgres.fields import JSONField
 from django.db import models
+from django.db.models import ManyToManyRel
+from django.db.models import ManyToOneRel
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.urls import reverse
@@ -17,7 +19,9 @@ SCHEMA_SPECIFICATION = (
 
 SCHEMA_TYPE = (
     ('Form', 'Form'),
-    ('Object', 'Object')
+    ('Object', 'Object'),
+    ('Input', 'Input'),
+    ('Output', 'Output')
 )
 
 class Schema(Base):
@@ -25,16 +29,23 @@ class Schema(Base):
     Definition for Schema Model
     """
     # Relationships
+    form_schema = models.ForeignKey("self",
+                                    blank=True,
+                                    null=True,
+                                    limit_choices_to={'schema_type': 'Form'},
+                                    on_delete=models.PROTECT,
+                                    verbose_name='Form Schema')
 
     # Attributes
+    schema_type = models.CharField(choices=SCHEMA_TYPE,
+                                   default='Object',
+                                   max_length=10,
+                                   verbose_name='Schema Type')
     version = models.IntegerField(default=1,
                                   verbose_name='Version')
     document = JSONField(verbose_name='Document',
                          null=True,
                          blank=True)
-    form_schema = JSONField(verbose_name='Form Schema',
-                            null=True,
-                            blank=True)
     specification = models.CharField(max_length=64,
                                      choices=SCHEMA_SPECIFICATION,
                                      default='Draft-07',
@@ -104,3 +115,36 @@ class DocumentSerializer(HrefSerializer):
     def to_representation(self, schema): #pylint: disable=arguments-differ
         # print(schema)
         return self.get_document(schema)
+
+class SchemaHistorySerializerNew(serializers.Serializer):
+    """
+    Schema history serializer
+    """
+    changes = serializers.SerializerMethodField()
+
+    def get_changes(self, obj):
+        # for property, value in vars(obj).iteritems():
+        #     print(property, ": ", value)
+        changes = []
+        for record in obj.history.all():
+            _change = {
+                "type": record.get_history_type_display(),
+                "changes": []
+            }
+            if _change["type"] == "Created":
+                for field in record.history_object._meta.get_fields():
+                    if not isinstance(field, ManyToOneRel) and not isinstance(field, ManyToManyRel) and not field.primary_key and field.editable and not field.blank:
+                        value = getattr(record.history_object, field.name)
+                        _change["changes"].append({
+                            "old": None,
+                            "new": value,
+                            "type": field.__class__.__name__,
+                            "field": field.name
+                        })
+            else:
+                delta = record.diff_against(record.prev_record)
+                _change["changes"].extend(
+                    [change.__dict__ for change in delta.changes]
+                )
+            changes.append(_change)
+        return changes

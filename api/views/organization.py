@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Defines the Book views
+Defines the Organization views
 """
 from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
 from rest_framework.permissions import IsAdminUser
+from api.models.contributor import Contributor
 from api.models.organization import Organization
 from api.models.organization import Serializer
+from api.models.organization import OrganizationHistorySerializer
 from api.permissions.admin import IsAdminOrReadOnly
 
 
@@ -65,3 +67,9 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)
+
+class OrganizationHistoryView(generics.RetrieveAPIView):
+    """Get Organizaiton history by id"""
+    serializer_class = OrganizationHistorySerializer
+    queryset = Contributor.objects.all()
+    lookup_field = "id"

@@ -3,6 +3,8 @@
 Defines the Game System model
 """
 from django.db import models
+from django.db.models import ManyToManyRel
+from django.db.models import ManyToOneRel
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
@@ -37,10 +39,6 @@ class Game(Base):
                                     verbose_name='Abbreviation',
                                     null=True,
                                     blank=True)
-    # url = models.URLField(verbose_name='Website',
-    #                       null=True,
-    #                       blank=True)
-
 
     # Manager
 
@@ -89,3 +87,48 @@ class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
         """
         model = GameSystem
         fields = ('__all__')
+
+class GameHistorySerializer(serializers.Serializer):
+    """
+    Book history serializer
+    """
+  
+    # history_user = serializers.ReadOnlyField(source='history_user.username')
+    changes = serializers.SerializerMethodField()
+
+    def get_changes(self, obj):
+        history = obj.history.all()
+        changes = []
+        for record in obj.history.all():
+            _change = {
+                "type": record.get_history_type_display(),
+                "changes": []
+            }
+            if _change["type"] == "Created":
+                for field in record.history_object._meta.get_fields():
+                    # if not isinstance(field, ManyToOneRel) and not isinstance(field, ForeignKey):
+                    # if not isinstance(field, ManyToOneRel) and not field.primary_key and field.editable and not field.blank:
+                    if not isinstance(field, ManyToOneRel) and not isinstance(field, ManyToManyRel) and not field.primary_key and field.editable and not field.blank:
+                        value = getattr(record.history_object, field.name)
+                        _change["changes"].append({
+                            "old": None,
+                            "new": value,
+                            "type": field.__class__.__name__,
+                            "field": field.name
+                        })
+                    # elif isinstance(field, ForeignKey):
+                    #     related_objs = getattr(
+                    #         record.history_object, field.name)
+                    #     _change["changes"].append({
+                    #         "old": None,
+                    #         "len": len(related_objs),
+                    #         "type": field.__class__.__name__,
+                    #         "field": field.name
+                    #     })
+
+            else:
+                delta = record.diff_against(record.prev_record)
+                _change["changes"].extend(
+                    [change.__dict__ for change in delta.changes])
+            changes.append(_change)
+        return changes
