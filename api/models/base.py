@@ -20,8 +20,7 @@ class Base(models.Model):
                            verbose_name='_ID')
     id = models.CharField(max_length=256,
                           verbose_name='ID',
-                          editable=False,
-                          unique=True)
+                          editable=False)
     name = models.CharField(max_length=256,
                             verbose_name='Name')
     created = models.DateTimeField(editable=False,
@@ -29,16 +28,17 @@ class Base(models.Model):
     modified = models.DateTimeField(editable=False,
                                     verbose_name='Modified')
     description = models.CharField(max_length=256,
-                                         verbose_name='Description',
-                                         null=True,
-                                         blank=True)
+                                   verbose_name='Description',
+                                   null=True,
+                                   blank=True)
     read_me = models.TextField(verbose_name='Read Me',
                                null=True,
                                blank=True)
     url = models.URLField(verbose_name='Website',
                           null=True,
                           blank=True)
-    history = HistoricalRecords(inherit=True)
+    history = HistoricalRecords(inherit=True,
+                                excluded_fields=['id', 'created', 'modified'])
 
     # Functions
     def __str__(self):

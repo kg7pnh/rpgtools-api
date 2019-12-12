@@ -2,24 +2,21 @@
 """
 Defines the DieRoll model
 """
-from django.core.validators import MaxValueValidator
-from django.core.validators import MinValueValidator
 from django.db import models
-from rest_framework import serializers
 
 CONDITION_TYPE = {
-    ('==','=='),
-    ('<=','<='),
-    ('>=','>='),
-    ('>','>'),
-    ('<','<'),
+    ('==', '=='),
+    ('<=', '<='),
+    ('>=', '>='),
+    ('>', '>'),
+    ('<', '<'),
 }
 
 MODIFIER_TYPE = {
-    ('+','+'),
-    ('-','-'),
-    ('*','×'),
-    ('/','÷')
+    ('+', '+'),
+    ('-', '-'),
+    ('*', '×'),
+    ('/', '÷')
 }
 
 class DieRoll(models.Model):
@@ -64,11 +61,8 @@ class DieRoll(models.Model):
 
     # Manager
 
-    class Meta:
+    class Meta: # pylint: disable=too-few-public-methods
+        """
+        Meta
+        """
         managed = False
-
-class Serializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = DieRoll
-        fields = ('__all__')

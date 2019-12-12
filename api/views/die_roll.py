@@ -2,20 +2,18 @@
 """
 Defines the DieRoll. views
 """
-import api.actions.die_roll
-from api.models.die_roll import DieRoll
-from api.models.die_roll import Serializer
-from rest_framework import exceptions
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
-from random import randint
+import api.handlers.die_roll
+from api.models.die_roll import DieRoll
+from api.serializers.die_roll import Serializer
 
 class DieRollRequest(CreateAPIView):
     """
     DieRollRequest
     """
-    queryset = DieRoll.objects.all()
+    queryset = DieRoll.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
     def post(self, request, *args, **kwargs):
@@ -25,6 +23,6 @@ class DieRollRequest(CreateAPIView):
         input_data = Serializer(data=request.data,)
         input_data.is_valid(raise_exception=True)
 
-        value = api.actions.die_roll.run(input_data.data)        
+        value = api.handlers.die_roll.run(input_data.data)
 
-        return Response({"Roll": value},status=status.HTTP_201_CREATED)
+        return Response({"Roll": value}, status=status.HTTP_201_CREATED)

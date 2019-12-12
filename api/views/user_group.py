@@ -4,8 +4,8 @@ Defines the user and group views
 """
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from api.models.user_group import UserSerializer
-from api.models.user_group import GroupSerializer
+from api.serializers.user_group import UserSerializer
+from api.serializers.user_group import GroupSerializer
 from api.permissions.admin import IsAdminOrReadOnly
 
 

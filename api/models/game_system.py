@@ -9,7 +9,6 @@ from django.utils.text import slugify
 from rest_framework import serializers
 from .base import Base
 from .publisher import Publisher
-from .publisher import Serializer as PublisherSerializer
 
 # Create your models here.
 class GameSystem(Base):
@@ -48,29 +47,15 @@ class GameSystem(Base):
 
 @receiver(pre_save, sender=GameSystem)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
-    '''
+    """
     Set parameter values to html friendly format
-    '''
+    """
     instance.id = slugify(instance.name)
 
 class Serializer(serializers.ModelSerializer):
-    '''
+    """
     Serializer class
-    '''
-
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = GameSystem
-        fields = ('__all__')
-
-class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
-    '''
-    HyperLinkedSerializer class
-    '''
-    
-    publisher = PublisherSerializer(many=False, read_only=True)
+    """
 
     class Meta: # pylint: disable=too-few-public-methods
         """

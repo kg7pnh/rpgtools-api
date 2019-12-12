@@ -3,10 +3,7 @@
 Defines the ActionRunner model
 """
 from django.contrib.postgres.fields import JSONField
-from django.core.validators import MaxValueValidator
-from django.core.validators import MinValueValidator
 from django.db import models
-from rest_framework import serializers
 
 
 class ActionRunner(models.Model):
@@ -17,12 +14,9 @@ class ActionRunner(models.Model):
     action_input = JSONField(verbose_name='Input')
 
     # Manager
-    
-    class Meta:
+
+    class Meta: # pylint: disable=too-few-public-methods
+        """
+        Meta
+        """
         managed = False
-
-class Serializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = ActionRunner
-        fields = ('__all__')

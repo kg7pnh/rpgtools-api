@@ -1,54 +1,54 @@
 # -*- coding: utf-8 -*-
-import math
 """
 Defines the average actions
 """
+import math
 
-def iterate_parameters(input, additional_input):
+def iterate_parameters(iterate_input, additional_input):
     """
     iterate_parameters
     """
     response = {}
-    print(type(input))
-    print(input)
-    for entry in input:
+    print(type(iterate_input))
+    print(iterate_input)
+    for entry in iterate_input:
         print(entry)
-        print(input[entry])
-        if isinstance(input[entry], (int, long, float)):
+        print(iterate_input[entry])
+        if isinstance(iterate_input[entry], (int, float)):
             response[entry] = additional_input[entry]
         else:
-            results = iterate_parameters(input, additional_input)
+            results = iterate_parameters(iterate_input, additional_input)
     return response
 
-def run(input, additional_input = None):
+def run(run_input, additional_input=None):
     """
     run
     """
-    print(input)
+    print(run_input)
     print(additional_input)
     total = 0
     count = 0
     round_down = False
     round_up = False
 
-    for entry in input:
+    for entry in run_input:
         print(entry)
         if entry == 'Round':
-            if input[entry] == "Up":
+            if run_input[entry] == "Up":
                 round_down = False
                 round_up = True
-            elif input[entry] == "Down":
+            elif run_input[entry] == "Down":
                 round_down = True
                 round_up = False
         elif entry == 'additional_input':
-            print(input['additional_input'])
+            print(run_input['additional_input'])
             # for parameter in input['additional_input']:
-            values = iterate_parameters(input['additional_input'], additional_input)
+            values = iterate_parameters(run_input['additional_input'], additional_input)
 
             total = total + additional_input[entry]
             count = count + 1
         else:
-            for value in input[entry]:
+            for value in run_input[entry]:
                 total = total + value
                 count = count + 1
     if round_down:

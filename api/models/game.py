@@ -1,17 +1,14 @@
 # -*- coding: utf-8 -*-
 """
-Defines the Game System model
+Defines the Game model
 """
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from rest_framework import serializers
 from .base import Base
 from .game_system import GameSystem
-from .game_system import Serializer as GameSystemSerializer
 from .publisher import Publisher
-from .publisher import Serializer as PublisherSerializer
 
 # Create your models here.
 class Game(Base):
@@ -37,10 +34,6 @@ class Game(Base):
                                     verbose_name='Abbreviation',
                                     null=True,
                                     blank=True)
-    # url = models.URLField(verbose_name='Website',
-    #                       null=True,
-    #                       blank=True)
-
 
     # Manager
 
@@ -58,34 +51,7 @@ class Game(Base):
 
 @receiver(pre_save, sender=GameSystem)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
-    '''
+    """
     Set parameter values to html friendly format
-    '''
+    """
     instance.id = slugify(instance.name)
-
-class Serializer(serializers.ModelSerializer):
-    '''
-    Serializer class
-    '''
-
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = Game
-        fields = ('__all__')
-
-class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
-    '''
-    HyperLinkedSerializer class
-    '''
-    
-    game_system = GameSystemSerializer(many=False, read_only=True)
-    publisher = PublisherSerializer(many=False, read_only=True)
-
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = GameSystem
-        fields = ('__all__')

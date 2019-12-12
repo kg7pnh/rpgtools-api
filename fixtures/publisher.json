@@ -31,13 +31,13 @@
     "model": "api.publisher",
     "pk": "14bb7026-4216-4aaa-b931-75f95d0d9adf",
     "fields": {
-        "id": "3w",
-        "name": "3W",
+        "id": "world-wide-wargames",
+        "name": "World Wide Wargames",
         "created": "2019-07-28T01:20:59.313Z",
-        "modified": "2019-10-01T18:41:08.708Z",
+        "modified": "2019-11-05T19:22:35.112Z",
         "description": "Publiher of war games and The Wargamer magazin.",
-        "read_me": "3W\n==\n---\n**3W** Inc, also known as _World Wide Wargames_, was a wargame company that began publishing in 1977. Originally launched in England, the company moved later to California. \n\nIn addition to producing boxed wargames, 3W published the magazine The Wargamer.",
-        "url": null,
+        "read_me": "World Wide Wargames\n==\n---\n**World Wide Wargames** Inc, also known as *3W*, was a wargame company that began publishing in 1977. Originally launched in England, the company moved later to California. \n\nIn addition to producing boxed wargames, 3W published the magazine The Wargamer.",
+        "url": "https://rpggeek.com/rpgpublisher/489/3w-world-wide-wargames",
         "abbreviation": "3W"
     }
 },
@@ -62,10 +62,10 @@
         "id": "victory-games",
         "name": "Victory Games",
         "created": "2019-07-19T01:26:07.643Z",
-        "modified": "2019-10-01T18:52:31.498Z",
+        "modified": "2019-11-05T19:20:58.449Z",
         "description": "A subsidiary of The Avalon Hill Game company known for complex war games.",
         "read_me": "Victory Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Victory Games**, a subsidiary company of **The Avalon Hill Game Co**, was created in 1982. The company was formed from a core of ex-SPI (Simulations Publications, Inc.) design employees. \n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPI (Simulations Publications, Inc.) had specialized in wargames that were more complex and more exacting simulations (such as War in the Pacific (first edition), itself remade by VG as Pacific War: The Struggle Against Japan 1941-1945) than what The Avalon Hill Game Co had normally published.",
-        "url": "https://boardgamegeek.com/boardgamepublisher/123/victory-games-i",
+        "url": "https://rpggeek.com/rpgpublisher/123/victory-games-i",
         "abbreviation": "VG"
     }
 },
@@ -87,13 +87,13 @@
     "model": "api.publisher",
     "pk": "693871ff-c778-4f83-a997-729423f89cdf",
     "fields": {
-        "id": "tsr",
-        "name": "TSR",
+        "id": "tactical-studies-rules",
+        "name": "Tactical Studies Rules",
         "created": "2019-07-19T01:02:27.994Z",
-        "modified": "2019-10-01T18:50:47.637Z",
+        "modified": "2019-11-05T19:20:20.908Z",
         "description": "Most famous for their D&D and AD&D games which were acquired by WotC.",
         "read_me": "TSR\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**TSR, Inc.** was an American game publishing company and the publisher of Dungeons & Dragons (D&D).\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;When Gary Gygax could not find a publisher for D&D, a new type of game he and Dave Arneson were co-developing, Gygax and Don Kaye founded **Tactical Studies Rules** in October, 1973, to self-publish their products. However, needing immediate financing to bring their new game to market before several similar competing products were released, Gygax and Kaye brought in Brian Blume in December as an equal partner. When Kaye died suddenly in 1975, the Tactical Studies Rules partnership restructured into TSR Hobbies, Inc. and accepted investment from Blume's father Melvin. With the now popular D&D as its main product, TSR Hobbies became a major force in the games industry by the late 1970s. Melvin Blume eventually transferred his shares to his other son Kevin, making the two Blume brothers the largest shareholders in TSR Hobbies.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TSR Hobbies ran into financial difficulties in the spring of 1983, prompting the company to split into four independent businesses, with game publishing and development continuing as TSR, Inc. (TSR) After losing their executive positions due to the company's underperformance, the Blume brothers subsequently sold their shares to TSR Vice President Lorraine Williams, who in turn engineered Gygax's ouster from the company in October 1985. TSR saw prosperity under Williams, but by 1995, had fallen behind their competitors in overall sales. TSR was left unable to cover its publishing costs due to a variety of factors, so facing insolvency, TSR was purchased in 1997 by Wizards of the Coast (WotC). WotC initially retained use of the TSR name for their D&D products, but by 2000, the TSR moniker was dropped, coinciding with the release of the 3rd edition of D&D.",
-        "url": "https://en.wikipedia.org/wiki/TSR_(company)",
+        "url": "https://rpggeek.com/rpgpublisher/16/tsr",
         "abbreviation": "TSR"
     }
 },
@@ -132,10 +132,10 @@
         "id": "game-designers-workshop",
         "name": "Game Designers' Workshop",
         "created": "2019-07-19T00:54:46.798Z",
-        "modified": "2019-10-01T18:42:39.289Z",
+        "modified": "2019-11-05T19:21:33.365Z",
         "description": "Game publishing house responsible for Twilight: 2000, Traveller and Dark Conspiracy.",
         "read_me": "Game Designers' Workshop\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Game Designers' Workshop** was originally established June 22, 1973. The founding members consisted of Frank Chadwick, Rich Banner, Marc Miller, and Loren Wiseman. GDW acquired the Conflict Games Company from John Hill in the early 1970s.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GDW published a new product approximately every twenty-two days for over twenty years. In an effort to bridge the gap between role players, board wargamers and miniature wargamers, the company published RPGs with fantastic settings alongside games with realistic themes including rulesets for 15mm and 20mm miniatures set during the American Civil War, World War I, World War II, and the modern era; and boardgames involving these eras such as the Air Superiority series and Harpoon.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The company disbanded February 29, 1996 after suffering financial troubles.",
-        "url": "https://en.wikipedia.org/wiki/Game_Designers%27_Workshop",
+        "url": "https://rpggeek.com/rpgpublisher/181/game-designers-workshop",
         "abbreviation": "GDW"
     }
 },
