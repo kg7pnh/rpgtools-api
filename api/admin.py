@@ -37,9 +37,9 @@ class ActionAdmin(admin.ModelAdmin):
               'output_schema',
               'form_schema')
     readonly_fields = ('_id',
-                        'id',
-                        'created',
-                        'modified')
+                       'id',
+                       'created',
+                       'modified')
     list_display = ('name',
                     'created',
                     'modified',
@@ -100,18 +100,18 @@ class BookAdmin(admin.ModelAdmin):
     filter_horizontal = ('art_assistant',
                          'art_director',
                          'artist_cover',
-                        'artist_interior',
-                        'author',
-                        'designer',
-                        'developer',
-                        'editor',
-                        'graphic_designer',
-                        'play_tester',
-                        'proofreader',
-                        'research_assistant',
-                        'text_manager',
-                        'text_processor',
-                        'type_setter',)
+                         'artist_interior',
+                         'author',
+                         'designer',
+                         'developer',
+                         'editor',
+                         'graphic_designer',
+                         'play_tester',
+                         'proofreader',
+                         'research_assistant',
+                         'text_manager',
+                         'text_processor',
+                         'type_setter',)
 
 admin.site.register(Book, BookAdmin)
 
@@ -248,9 +248,9 @@ class HandlerAdmin(admin.ModelAdmin):
               'input_schema',
               'output_schema')
     readonly_fields = ('_id',
-                        'id',
-                        'created',
-                        'modified')
+                       'id',
+                       'created',
+                       'modified')
     list_display = ('name',
                     'created',
                     'modified',
@@ -361,6 +361,8 @@ class SchemaAdmin(admin.ModelAdmin):
               'id',
               'name',
               'version',
+              'enabled',
+              'depricated',
               'created',
               'modified',
               'specification',
@@ -379,6 +381,7 @@ class SchemaAdmin(admin.ModelAdmin):
                     'created',
                     'modified',
                     'id',
+                    'version',
                     '_id')
 
 admin.site.register(Schema, SchemaAdmin)
@@ -400,9 +403,9 @@ class WorkflowAdmin(admin.ModelAdmin):
               'type',
               'definition')
     readonly_fields = ('_id',
-                        'id',
-                        'created',
-                        'modified')
+                       'id',
+                       'created',
+                       'modified')
     list_display = ('name',
                     'created',
                     'modified',

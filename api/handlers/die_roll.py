@@ -8,11 +8,11 @@ def roll(die_size):
     """
     roll
     """
-    return randint(1,die_size)
+    return randint(1, die_size)
 
 def process_modifier(value,
-                    modifier,
-                    modification):
+                     modifier,
+                     modification):
     """
     process_modifier
     """
@@ -57,26 +57,26 @@ def run_roll(die_size,
 
     return result
 
-def run(input, additional_input = None):
+def run(run_input):
     """
     run
     """
-    die_size = input['die_size']
-    die_count = input['die_count']
+    die_size = run_input['die_size']
+    die_count = run_input['die_count']
     per_modifier = None
     roll_modifier = None
     post_modifier = None
 
-    if 'per_modifier' in input:
-        per_modifier = input['per_modifier']
-    if 'roll_modifier' in input:
-        roll_modifier = input['roll_modifier']
-    if 'post_modifier' in input:
-        post_modifier = input['post_modifier']
-    if 'reroll_condition' in input:
-        reroll_condition = input['reroll_condition']
-    if 'reroll_value' in input:
-        reroll_value = input['reroll_value']
+    if 'per_modifier' in run_input:
+        per_modifier = run_input['per_modifier']
+    if 'roll_modifier' in run_input:
+        roll_modifier = run_input['roll_modifier']
+    if 'post_modifier' in run_input:
+        post_modifier = run_input['post_modifier']
+    if 'reroll_condition' in run_input:
+        reroll_condition = run_input['reroll_condition']
+    if 'reroll_value' in run_input:
+        reroll_value = run_input['reroll_value']
 
     roll_result = 0
     if die_size > 0 and die_count > 0:
@@ -117,10 +117,10 @@ def run(input, additional_input = None):
                                        post_modifier)
         else:
             roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
+                                   die_count,
+                                   per_modifier,
+                                   roll_modifier,
+                                   post_modifier)
 
     # return the result
     return roll_result

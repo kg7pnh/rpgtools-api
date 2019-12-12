@@ -2,13 +2,11 @@
 """
 Defines the base views
 """
-from django.conf import settings
 from rest_framework import generics
 from rest_framework import schemas
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.decorators import renderer_classes
-from rest_framework.permissions import IsAuthenticated
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -22,9 +20,9 @@ from rest_framework_swagger.renderers import SwaggerUIRenderer
 @api_view()
 @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
 def schema_view(request):
-    '''
+    """
     schema_view
-    '''
+    """
     generator = schemas.SchemaGenerator(title='RPGTools API',
                                         description='API access to tools '+
                                         'and information for RPG players '+
@@ -32,13 +30,13 @@ def schema_view(request):
     return Response(generator.get_schema(request=request))
 
 class Root(APIView):
-    '''
+    """
     Root
-    '''
+    """
     def get(self, request, *args, **kwargs): # pylint: disable=unused-argument, no-self-use
-        '''
+        """
         get
-        '''
+        """
         return Response({
             "service": "rpg-tools",
             "verion": "1.0.0",
@@ -49,15 +47,15 @@ class Root(APIView):
         })
 
 class TokenView(TokenObtainPairView):
-    '''
+    """
     TokenView
-    '''
+    """
     serializer_class = TokenObtainPairSerializer
 
     def post(self, request, *args, **kwargs):
-        '''
+        """
         post
-        '''
+        """
         serializer = self.get_serializer(data=request.data)
         try:
             serializer.is_valid(raise_exception=True)
@@ -67,13 +65,13 @@ class TokenView(TokenObtainPairView):
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
 class CurrentUser(generics.GenericAPIView):
-    '''
+    """
     CurrentUser
-    '''
+    """
     def get(self, request, *args, **kwargs): # pylint: disable=unused-argument
-        '''
+        """
         get
-        '''
+        """
         user = self.request.user
         is_authenticated = user.is_authenticated
         response = {
@@ -94,8 +92,13 @@ class CurrentUser(generics.GenericAPIView):
         return Response(response)
 
 class IsAdminView(generics.GenericAPIView):
-    """Is Admin View """
+    """
+    Is Admin View
+    """
     permission_classes = (IsAdminUser,)
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args, **kwargs): # pylint: disable=unused-argument, no-self-use
+        """
+        get
+        """
         return Response()

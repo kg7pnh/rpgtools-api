@@ -1,3 +1,6 @@
+"""
+Defines admin settings
+"""
 from rest_framework import permissions
 
 class IsAdminOrReadOnly(permissions.IsAuthenticated):
@@ -22,7 +25,7 @@ class IsAdminOrReadOnly(permissions.IsAuthenticated):
 
         if request.method in permissions.SAFE_METHODS:
             has_permission = True
-        
+
         else:
             user = request.user
             if user.is_staff:

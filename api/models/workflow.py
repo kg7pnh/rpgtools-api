@@ -10,7 +10,6 @@ from django.utils.text import slugify
 from rest_framework import serializers
 from .base import Base
 from .game import Game
-from .action import Action
 
 WORKFLOW_METHOD = (
     ('MANUAL', 'MANUAL'),
@@ -38,9 +37,9 @@ class Workflow(Base):
                               max_length=8,
                               verbose_name='Method')
     type = models.CharField(choices=WORKFLOW_TYPE,
-                              default='CHARACHTER',
-                              max_length=50,
-                              verbose_name='Type')
+                            default='CHARACHTER',
+                            max_length=50,
+                            verbose_name='Type')
     definition = JSONField(blank=True,
                            null=True,
                            verbose_name='Definition')

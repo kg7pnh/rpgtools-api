@@ -57,7 +57,7 @@ init:
 	pipenv install --skip-lock
 
 lint:
-	pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,settings_dev.py,wsgi.py,migrations,schemas --disable=R0801
+	pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,settings_dev.py,wsgi.py,migrations,schemas,check_contributers.py --disable=R0801
 
 run:
 	pipenv run python ./manage.py runserver --settings rpgtools.settings

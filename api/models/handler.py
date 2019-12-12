@@ -6,7 +6,6 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from rest_framework import serializers
 from .schema import Schema
 from .base import Base
 
@@ -23,7 +22,6 @@ HADNLER_METHODS = (
     ('POST', 'POST'),
     ('PUT', 'PUT'),
 )
-
 
 # Create your models here.
 class Handler(Base):
@@ -50,9 +48,9 @@ class Handler(Base):
                               max_length=15,
                               verbose_name='Method')
     api_handler = models.CharField(choices=HANDLER_ACTIONS,
-                                  default='/api/v1/die-roll',
-                                  max_length=150,
-                                  verbose_name='API Handler')
+                                   default='/api/v1/die-roll',
+                                   max_length=150,
+                                   verbose_name='API Handler')
 
     # Manager
 
@@ -74,14 +72,3 @@ def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
     Set parameter values to html friendly format
     '''
     instance.id = slugify(instance.name)
-
-class Serializer(serializers.ModelSerializer):
-    '''
-    Serializer class
-    '''
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = Handler
-        fields = ('__all__')

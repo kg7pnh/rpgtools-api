@@ -85,7 +85,3 @@ for org in orgs:
         if len(testers) > 0:
             for tester in testers:
                 print(tester)
-
-
-
-

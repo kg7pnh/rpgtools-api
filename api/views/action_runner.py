@@ -4,41 +4,40 @@ Defines the ActionRunner views
 """
 import importlib
 import json
-from api.models.action_runner import ActionRunner
-from api.models.action_runner import Serializer
-from rest_framework import exceptions
-from rest_framework import serializers
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
-from random import randint
+from api.models.action_runner import ActionRunner
+from api.serializers.action_runner import Serializer
 
-def iterate_input(input, additional_input):
+def iterate_input(action_input, additional_input):
     """
     iterate_input
     """
     response = {}
-    for entry in input:
+    for entry in action_input:
         if not additional_input:
             additional_input = response
-        if 'Method' in input[entry]:
-            method = input[entry]['Method']
+        if 'Method' in action_input[entry]:
+            method = action_input[entry]['Method']
             try:
                 module_name = 'api.handlers.'+method
                 module = importlib.import_module(module_name)
-                response[entry] = module.run(input[entry]['Input'], additional_input)
-            except ImportError as error:
-                response[entry] = '"Failed to find an action method named '+method+'."'
+                response[entry] = module.run(action_input[entry]['Input'], additional_input)
+            except ImportError as import_error:
+                response[entry] = \
+                    'Failed to find an action method named '+method+\
+                    '('+import_error+').'
         else:
             additional_input = response
-            response[entry] = iterate_input(input[entry], additional_input)
+            response[entry] = iterate_input(action_input[entry], additional_input)
     return response
 
 class ActionRunnerRequest(CreateAPIView):
     """
     ActionRunnerRequest
     """
-    queryset = ActionRunner.objects.all()
+    queryset = ActionRunner.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
     def post(self, request, *args, **kwargs):
@@ -69,4 +68,4 @@ class ActionRunnerRequest(CreateAPIView):
         #         action_response = '"Failed to find an action method named '+method+'."'
 
         #     response[action] = action_response
-        return Response(json.loads(json.dumps(response)),status=status.HTTP_201_CREATED)
+        return Response(json.loads(json.dumps(response)), status=status.HTTP_201_CREATED)
