@@ -50,9 +50,15 @@ class Handler(Base):
                               verbose_name='Method')
     api_handler = models.CharField(choices=HANDLER_ACTIONS,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                    default='/api/v1/die-roll',
                                    max_length=150,
                                    verbose_name='API Handler')
+=======
+                                  default='/api/v1/die-roll',
+                                  max_length=150,
+                                  verbose_name='API Handler')
+>>>>>>> cec4f9a092090d14e97cbb0a46e0a23d701b33f7
 =======
                                   default='/api/v1/die-roll',
                                   max_length=150,
