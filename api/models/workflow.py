@@ -20,6 +20,15 @@ WORKFLOW_TYPE = (
     ('CHARACHTER', 'CHARACHTER'),
 )
 
+WORKFLOW_METHOD = (
+    ('MANUAL', 'MANUAL'),
+    ('AUTO', 'AUTO'),
+)
+
+WORKFLOW_TYPE = (
+    ('CHARACHTER', 'CHARACHTER'),
+)
+
 # Create your models here.
 class Workflow(Base):
     """

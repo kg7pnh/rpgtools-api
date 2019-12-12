@@ -2,6 +2,7 @@
 """
 Defines the Book views
 """
+import django.http.response
 from django.utils.text import slugify
 from rest_framework import generics
 from rest_framework import serializers
