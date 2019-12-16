@@ -16,7 +16,7 @@ class ItemView(generics.RetrieveAPIView): #.RetrieveUpdateDestroyAPIView): # pyl
 
 class ListView(generics.ListAPIView):
     """
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET request for a list of all contributor objects.
     """
     queryset = Contributor.objects.all() # pylint: disable=no-member
     serializer_class = Serializer

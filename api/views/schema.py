@@ -30,21 +30,38 @@ class MultipleFieldLookupMixin(): # pylint: disable=too-few-public-methods
                 filter[field] = self.kwargs[field]
         return get_object_or_404(queryset, **filter) # pylint: disable=undefined-variable
 
-class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveUpdateDestroyAPIView): # pylint: disable=too-many-ancestors
+class ItemVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the DELETE, GET, PATCH and PUT requests for a given ID and Version.
+    Provides access to the GET method for a given Schema ID and Version.
     """
-    permission_classes = (IsAdminOrReadOnly,)
     queryset = Schema.objects.all() # pylint: disable=no-member
     serializer_class = HrefSerializer
     lookup_fields = ('id', 'version')
 
+class ItemEditView(MultipleFieldLookupMixin, generics.UpdateAPIView): # pylint: disable=too-many-ancestors
+    """
+    Provides access to the PATCH and PUT methods for a given Schema ID and Version.
+    """
+    permission_classes = (IsAdminUser,)
+    queryset = Schema.objects.all() # pylint: disable=no-member
+    serializer_class = Serializer
+    lookup_fields = ('id', 'version')
+
     def update(self, request, *args, **kwargs):
-        return super(ItemVersionView, self).update(request, *args, **kwargs) # pylint: disable=no-member
+        return super(ItemEditView, self).update(request, *args, **kwargs) # pylint: disable=no-member
+
+class ItemDeleteView(MultipleFieldLookupMixin, generics.DestroyAPIView): # pylint: disable=too-many-ancestors
+    """
+    Provides access to the DELETE method for a given Schema ID and Version.
+    """
+    permission_classes = (IsAdminUser,)
+    queryset = Schema.objects.all() # pylint: disable=no-member
+    serializer_class = Serializer
+    lookup_fields = ('id', 'version')
 
 class DocumentVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     """
-    Returns the document object in json format for a given ID and Version.
+    Returns the document object in json format for a given Schema ID and Version.
     """
     queryset = Schema.objects.all() # pylint: disable=no-member
     serializer_class = DocumentSerializer
@@ -52,14 +69,14 @@ class DocumentVersionView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
 
 class ListView(generics.ListAPIView):
     """
-    Provides access to the GET request for a list of all schema objects.
+    Provides access to the GET method for a list of all Schema objects.
     """
     queryset = Schema.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     """
-    Provides access to the POST request for creating schema objects.
+    Provides access to the POST method for creating Schema objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = Schema.objects.all() # pylint: disable=no-member
@@ -110,10 +127,10 @@ class ItemView(generics.RetrieveAPIView):
     serializer_class = Serializer
     lookup_field = "id"
 
-class SchemaHistoryView(generics.RetrieveAPIView):
+class SchemaHistoryView(MultipleFieldLookupMixin, generics.RetrieveAPIView):
     """
-    Get schema history by name
+    Get Schema history by ID and Version
     """
     serializer_class = HistorySerializer
     queryset = Schema.objects.all() # pylint: disable=no-member
-    lookup_field = "id"
+    lookup_fields = ('id', 'version')

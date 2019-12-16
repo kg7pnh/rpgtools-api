@@ -67,6 +67,8 @@ djangorestframework-link-header-pagination = "*"
 django-filters = "*"
 drf-rw-serializers = "*"
 django-filter = "*"
+coverage = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.6"

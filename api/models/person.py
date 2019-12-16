@@ -3,8 +3,6 @@
 Defines the Person model
 """
 from django.db import models
-from django.db.models import ManyToManyRel
-from django.db.models import ManyToOneRel
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils import timezone
@@ -39,18 +37,6 @@ class Person(Contributor):
     # Manager
 
     # Functions
-    def __str__(self):
-        """
-        __str__
-        """
-        return self.name
-
-    def __unicode__(self):
-        """
-        __unicode__
-        """
-        return self.name
-
     def save(self, *args, **kwargs): # pylint: disable=arguments-differ
         """
         On save, update timestamps and parameters

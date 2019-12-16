@@ -4,8 +4,6 @@ Defines the Schema model
 """
 from django.contrib.postgres.fields import JSONField
 from django.db import models
-from django.db.models import ManyToManyRel
-from django.db.models import ManyToOneRel
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
@@ -51,7 +49,7 @@ class Schema(Base):
     enabled = models.BooleanField(default=True,
                                   null=False,
                                   verbose_name='Enabled')
-    depricated = models.BooleanField(default=False,
+    deprecated = models.BooleanField(default=False,
                                      null=False,
                                      verbose_name='Debricated')
 

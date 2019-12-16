@@ -24,16 +24,17 @@ class Serializer(serializers.ModelSerializer):
         model = GameSystem
         fields = ('__all__')
 
-class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
-    '''
-    HyperLinkedSerializer class
-    '''
+# class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
+#     '''
+#     HyperLinkedSerializer class
+#     '''
     
-    publisher = PublisherSerializer(many=False, read_only=True)
+#     publisher = PublisherSerializer(many=False, read_only=True)
 
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = GameSystem
-        fields = ('__all__')
+#     class Meta: # pylint: disable=too-few-public-methods
+#         """
+#         Class meta data
+#         """
+#         model = GameSystem
+#         ref_name = 'GameSystemHLS'
+#         fields = ('__all__')

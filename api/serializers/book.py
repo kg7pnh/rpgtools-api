@@ -30,32 +30,33 @@ class Serializer(serializers.ModelSerializer):
         model = Book
         fields = ('__all__')
 
-class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
-    '''
-    HyperLinkedSerializer class
-    '''
-    art_assistant = ContributorSerializer(many=True, read_only=True)
-    art_director = ContributorSerializer(many=True, read_only=True)
-    artist_cover = ContributorSerializer(many=True, read_only=True)
-    artist_interior = ContributorSerializer(many=True, read_only=True)
-    author = ContributorSerializer(many=True, read_only=True)
-    designer = ContributorSerializer(many=True, read_only=True)
-    developer = ContributorSerializer(many=True, read_only=True)
-    editor = ContributorSerializer(many=True, read_only=True)
-    graphic_designer = ContributorSerializer(many=True, read_only=True)
-    play_tester = ContributorSerializer(many=True, read_only=True)
-    proofreader = ContributorSerializer(many=True, read_only=True)
-    research_assistant = ContributorSerializer(many=True, read_only=True)
-    text_manager = ContributorSerializer(many=True, read_only=True)
-    text_processor = ContributorSerializer(many=True, read_only=True)
-    type_setter = ContributorSerializer(many=True, read_only=True)
-    book_format = BookFormatSerializer(many=False, read_only=True)
-    game = GameSerializer(many=False, read_only=True)
-    publisher = PublisherSerializer(many=False, read_only=True)
+# class HyperLinkedSerializer(serializers.HyperlinkedModelSerializer):
+#     '''
+#     HyperLinkedSerializer class
+#     '''
+#     art_assistant = ContributorSerializer(many=True, read_only=True)
+#     art_director = ContributorSerializer(many=True, read_only=True)
+#     artist_cover = ContributorSerializer(many=True, read_only=True)
+#     artist_interior = ContributorSerializer(many=True, read_only=True)
+#     author = ContributorSerializer(many=True, read_only=True)
+#     designer = ContributorSerializer(many=True, read_only=True)
+#     developer = ContributorSerializer(many=True, read_only=True)
+#     editor = ContributorSerializer(many=True, read_only=True)
+#     graphic_designer = ContributorSerializer(many=True, read_only=True)
+#     play_tester = ContributorSerializer(many=True, read_only=True)
+#     proofreader = ContributorSerializer(many=True, read_only=True)
+#     research_assistant = ContributorSerializer(many=True, read_only=True)
+#     text_manager = ContributorSerializer(many=True, read_only=True)
+#     text_processor = ContributorSerializer(many=True, read_only=True)
+#     type_setter = ContributorSerializer(many=True, read_only=True)
+#     book_format = BookFormatSerializer(many=False, read_only=True)
+#     game = GameSerializer(many=False, read_only=True)
+#     publisher = PublisherSerializer(many=False, read_only=True)
 
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
-        """
-        model = Book
-        fields = ('__all__')
+#     class Meta: # pylint: disable=too-few-public-methods
+#         """
+#         Class meta data
+#         """
+#         model = Book
+#         ref_name = 'BookHLS'
+#         fields = ('__all__')

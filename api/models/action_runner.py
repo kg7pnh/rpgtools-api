@@ -12,6 +12,9 @@ class ActionRunner(models.Model):
     """
     # Attributes
     action_input = JSONField(verbose_name='Input')
+    additional_input = JSONField(verbose_name='Additional Input',
+                                 blank=True,
+                                 null=True)
 
     # Manager
 

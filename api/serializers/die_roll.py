@@ -9,7 +9,9 @@ from rest_framework import serializers
 from api.models.die_roll import DieRoll
 
 class Serializer(serializers.ModelSerializer):
-
+    """
+    die_roll
+    """
     class Meta:
         model = DieRoll
         fields = ('__all__')

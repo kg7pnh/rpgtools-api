@@ -258,7 +258,8 @@ SWAGGER_SETTINGS = {
             'in': 'header',
             'name': 'Authorization'
         }
-    }
+    },
+    'JSON_EDITOR': True
 }
 
 # simplehistory settings

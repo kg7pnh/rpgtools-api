@@ -7,6 +7,9 @@ from django.conf.urls import url
 from django.urls import include
 from django.urls import path
 from django.views.generic import RedirectView
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+from rest_framework import permissions
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenVerifyView
@@ -32,6 +35,21 @@ from api.views import workflow
 ROUTER = routers.DefaultRouter()
 ROUTER.register(r'users', user_group.UserViewSet)
 ROUTER.register(r'groups', user_group.GroupViewSet)
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title='RPGTools API',
+        default_version='v.1.0.0',
+        description='API access to tools '+
+        'and information for RPG players '+
+        'and game masters.',
+        # terms_of_service="https://www.google.com/policies/terms/",
+        # contact=openapi.Contact(email="contact@snippets.local"),
+        # license=openapi.License(name="BSD License"
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny, )
+)
 
 api_urlpatterns = [ #pylint: disable=invalid-name
 
@@ -116,7 +134,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('die-roll',
          die_roll.DieRollRequest.as_view(),
          name='die_roll'),
-    
+
     # Game paths
     path('games/<str:id>',
          game.ItemView.as_view(),
@@ -238,19 +256,22 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('schemas/<str:id>/<int:version>',
          schema.ItemVersionView.as_view(),
          name="schema_version"),
+    path('schemas/edit/<str:id>/<int:version>',
+         schema.ItemEditView.as_view(),
+         name="schema_edit"),
+    path('schemas/delete/<str:id>/<int:version>',
+         schema.ItemDeleteView.as_view(),
+         name="schema_delete"),
     path('schemas/<str:id>/<int:version>.json',
          schema.DocumentVersionView.as_view(),
          name="schema_item_version_json"),
-    path('schemas/<str:id>',
-         schema.ItemView.as_view(),
-         name="schema_detail"),
     path('schemas/',
          schema.CreateView.as_view(),
          name="schema_create"),
     path('schemas',
          schema.ListView.as_view(),
          name="schema_list"),
-    path('schemas/<str:id>/history',
+    path('schemas/<str:id>/<int:version>/history',
          schema.SchemaHistoryView.as_view(),
          name="schema_history"),
 
@@ -278,21 +299,26 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('token/refresh',
          TokenRefreshView.as_view(),
          name="token_refresh"),
-    path('token/refresh/?',
+    path('token/refresh/',
          TokenVerifyView.as_view(),
          name="token_verify"),
 ]
 
 urlpatterns = api_urlpatterns + [ #pylint: disable=invalid-name
-    url(r'docs/',
-        views.schema_view),
+#     url(r'docs/',
+#         views.schema_view),
+
+    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    # url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
+    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
     url(r'info/?',
-        views.Root.as_view(),
-        name='info'),
+    views.Root.as_view(),
+    name='info'),
     url(r'^$',
-        RedirectView.as_view(url='info')),
+    RedirectView.as_view(url='info')),
     url(r'^',
-        RedirectView.as_view(url='info')),
+    RedirectView.as_view(url='info')),
     path('', include(ROUTER.urls)),
 ]
 

@@ -19,6 +19,17 @@ class Contributor(Base):
     # Manager
 
     # Functions
+    # def __str__(self):
+    #     """
+    #     __str__
+    #     """
+    #     return self.name
+
+    # def __unicode__(self):
+    #     """
+    #     __unicode__
+    #     """
+    #     return self.name
 
     # Meta
     class Meta: # pylint: disable=too-few-public-methods

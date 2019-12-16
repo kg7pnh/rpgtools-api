@@ -41,7 +41,6 @@ class HrefSerializer(serializers.ModelSerializer):
         return document
         """
         request = self.context['request']
-        # print(request)
         document = schema.document
         document["$id"] = request.build_absolute_uri(reverse(
             "schema_item_version_json", kwargs={'id': schema.id, 'version': schema.version}))
@@ -52,5 +51,4 @@ class DocumentSerializer(HrefSerializer):
     DocumentSerializer class
     """
     def to_representation(self, schema): #pylint: disable=arguments-differ
-        # print(schema)
         return self.get_document(schema)

@@ -12,6 +12,28 @@ from api.serializers.die_roll import Serializer
 class DieRollRequest(CreateAPIView):
     """
     DieRollRequest
+    Excpects a JSON package in the following format:
+
+        {
+            "die_size": 0,
+            "die_count": 0,
+            "per_modifier": {
+                "value": 0,
+                "type": "+"
+            },
+            "roll_modifier": {
+                "value": 0,
+                "type": "+"
+            },
+            "post_modifier": {
+                "value": 0,
+                "type": "+"
+            },
+            "reroll": {
+                "value": 0,
+                "condition": "=="
+            }
+        }
     """
     queryset = DieRoll.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
@@ -19,10 +41,9 @@ class DieRollRequest(CreateAPIView):
     def post(self, request, *args, **kwargs):
         """
         post
-        """
+        """        
         input_data = Serializer(data=request.data,)
         input_data.is_valid(raise_exception=True)
-
         value = api.handlers.die_roll.run(input_data.data)
 
-        return Response({"Roll": value}, status=status.HTTP_201_CREATED)
+        return Response({"roll": value}, status=status.HTTP_201_CREATED)

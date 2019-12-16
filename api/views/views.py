@@ -17,17 +17,17 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_swagger.renderers import OpenAPIRenderer
 from rest_framework_swagger.renderers import SwaggerUIRenderer
 
-@api_view()
-@renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-def schema_view(request):
-    """
-    schema_view
-    """
-    generator = schemas.SchemaGenerator(title='RPGTools API',
-                                        description='API access to tools '+
-                                        'and information for RPG players '+
-                                        'and game masters.')
-    return Response(generator.get_schema(request=request))
+# @api_view()
+# @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
+# def schema_view(request):
+#     """
+#     schema_view
+#     """
+#     generator = schemas.SchemaGenerator(title='RPGTools API',
+#                                         description='API access to tools '+
+#                                         'and information for RPG players '+
+#                                         'and game masters.')
+#     return Response(generator.get_schema(request=request))
 
 class Root(APIView):
     """

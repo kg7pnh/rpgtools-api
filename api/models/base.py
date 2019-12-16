@@ -41,17 +41,17 @@ class Base(models.Model):
                                 excluded_fields=['id', 'created', 'modified'])
 
     # Functions
-    def __str__(self):
-        '''
-        __str__
-        '''
-        return self.name
+    # def __str__(self):
+    #     '''
+    #     __str__
+    #     '''
+    #     return self.name
 
-    def __unicode__(self):
-        '''
-        __unicode__
-        '''
-        return self.name
+    # def __unicode__(self):
+    #     '''
+    #     __unicode__
+    #     '''
+    #     return self.name
 
     def save(self, *args, **kwargs): # pylint: disable=arguments-differ
         '''

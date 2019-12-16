@@ -8,21 +8,22 @@ from rest_framework import serializers
 from rest_framework.permissions import IsAdminUser
 from api.models.game_system import GameSystem
 from api.serializers.game_system import Serializer
-from api.serializers.game_system import HyperLinkedSerializer
+# from api.serializers.game_system import HyperLinkedSerializer
 from api.serializers.history import HistorySerializer
 
 
 class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the DELETE, GET, PATCH and PUT requests for a given ID.
+    Provides access to the DELETE, GET, PATCH and PUT requests for a given game_system ID.
     """
     queryset = GameSystem.objects.all() # pylint: disable=no-member
-    serializer_class = HyperLinkedSerializer
+    # serializer_class = HyperLinkedSerializer
+    serializer_class = Serializer
     lookup_field = "id"
 
 class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the PATCH and PUT requests for a given ID.
+    Provides access to the PATCH and PUT requests for a given game_system ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = GameSystem.objects.all() # pylint: disable=no-member
@@ -31,7 +32,7 @@ class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
 
 class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the DELETE requests for a given ID.
+    Provides access to the DELETE request for a given game_system ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = GameSystem.objects.all() # pylint: disable=no-member
@@ -40,14 +41,14 @@ class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancest
 
 class ListView(generics.ListAPIView):
     """
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET request for a list of all game_system objects.
     """
     queryset = GameSystem.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     """
-     Provides access to the POST request for creating game objects.
+     Provides access to the POST request for creating game_system objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = GameSystem.objects.all() # pylint: disable=no-member
@@ -67,7 +68,7 @@ class CreateView(generics.CreateAPIView):
 
 class GameSystemHistoryView(generics.RetrieveAPIView):
     """
-    Get game system history by name
+    Get game system history by id
     """
     serializer_class = HistorySerializer
     queryset = GameSystem.objects.all() # pylint: disable=no-member

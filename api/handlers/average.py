@@ -18,6 +18,7 @@ def iterate_parameters(iterate_input, additional_input):
             response[entry] = additional_input[entry]
         else:
             results = iterate_parameters(iterate_input, additional_input)
+            print(results)
     return response
 
 def run(run_input, additional_input=None):
@@ -44,7 +45,7 @@ def run(run_input, additional_input=None):
             print(run_input['additional_input'])
             # for parameter in input['additional_input']:
             values = iterate_parameters(run_input['additional_input'], additional_input)
-
+            print(values)
             total = total + additional_input[entry]
             count = count + 1
         else:
@@ -53,6 +54,8 @@ def run(run_input, additional_input=None):
                 count = count + 1
     if round_down:
         result = math.trunc(total / count)
-    else:
+    elif round_up:
         result = math.ceil(total / count)
+    else:
+        result = int(total / count)
     return result
