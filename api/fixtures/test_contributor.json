@@ -1,0 +1,847 @@
+[
+{
+    "model": "api.contributor",
+    "pk": "00484ad5-cb86-4070-9cf3-3d6378eff8e6",
+    "fields": {
+        "id": "meier-elizabeth",
+        "name": "Meier, Elizabeth",
+        "created": "2019-10-21T23:34:15.902Z",
+        "modified": "2019-11-05T18:55:54.852Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/32002/elizabeth-meier"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "00c4806c-6a1d-46ab-9284-d0e0b3626c1f",
+    "fields": {
+        "id": "griffin-dan",
+        "name": "Griffin, Dan",
+        "created": "2019-10-25T16:31:56.979Z",
+        "modified": "2019-11-05T18:48:34.733Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/49923/dan-griffin"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "0f11751f-210d-4e72-b139-65e0c4fada45",
+    "fields": {
+        "id": "mcgonigle-james-colton",
+        "name": "McGonigle, James Colton",
+        "created": "2019-08-01T19:51:08.167Z",
+        "modified": "2019-11-05T18:55:29.038Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/19337/james-colton-mcgonigle"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "148ddf7e-3b4d-4a21-afde-905c37ba24c2",
+    "fields": {
+        "id": "bergesen-alf-r",
+        "name": "Bergesen, Alf R",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:47:41.441Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/106879/alf-r-bergesen"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "1565db31-9ae5-4c5f-8d5e-2ba3c95f7b38",
+    "fields": {
+        "id": "pardoe-blaine-l",
+        "name": "Pardoe, Blaine L",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T18:58:34.991Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/6214/blaine-pardoe"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "17a95b95-fcdd-4ba0-a5f4-739c6b0cb908",
+    "fields": {
+        "id": "masinelli-radley",
+        "name": "Masinelli, Radley",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T18:54:27.860Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgartist/20191/radley-masinelli"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "18019180-1fb0-4d86-b690-110d37fee479",
+    "fields": {
+        "id": "hay-brad-r",
+        "name": "Hay, Brad R",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T18:50:49.597Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/20104/brad-r-hay"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "19002c24-cb40-40fe-8861-20290205f15c",
+    "fields": {
+        "id": "smith-lester-w",
+        "name": "Smith, Lester W",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T19:03:57.362Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/329/lester-smith"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "19cd4e0f-00a3-4050-802b-fac441bba253",
+    "fields": {
+        "id": "harris-rick",
+        "name": "Harris, Rick",
+        "created": "2019-08-01T19:42:59.903Z",
+        "modified": "2019-11-05T18:49:38.165Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/13759/rick-harris"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "1a9fb6d3-8a29-4ba5-aaf8-e961e35face9",
+    "fields": {
+        "id": "bryant-steve",
+        "name": "Bryant, Steve",
+        "created": "2019-08-01T19:45:59.655Z",
+        "modified": "2019-11-05T17:53:06.848Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/12072/steve-bryant"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "1c948919-d9e8-41e7-a71a-071a898f4d3c",
+    "fields": {
+        "id": "ryan-tim",
+        "name": "Ryan, Tim",
+        "created": "2019-08-01T19:45:42.353Z",
+        "modified": "2019-11-05T19:01:44.081Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/2143/tim-ryan"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "204cdcad-a648-4db7-ba1f-039000c00ebf",
+    "fields": {
+        "id": "pratt-barbie",
+        "name": "Pratt, Barbie",
+        "created": "2019-08-01T19:52:33.999Z",
+        "modified": "2019-11-05T18:59:22.894Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/17817/barbie-pratt"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "23158121-f38e-4355-9d3b-9fd21d2544d6",
+    "fields": {
+        "id": "fullerton-lamont",
+        "name": "Fullerton, Lamont",
+        "created": "2019-10-22T19:23:54.424Z",
+        "modified": "2019-11-05T18:47:41.300Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/13758/lamont-fullerton"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "2429e5b1-9fa5-4bf5-9296-fd9dc7f8a90f",
+    "fields": {
+        "id": "mulkey-thomas-e",
+        "name": "Mulkey, Thomas E",
+        "created": "2019-08-01T19:53:28.708Z",
+        "modified": "2019-11-05T18:57:24.873Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/20116/thomas-e-mulkey"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "2677e839-2a17-4edb-8b1f-edde62120c6e",
+    "fields": {
+        "id": "oblinger-lauretta",
+        "name": "Oblinger, Lauretta",
+        "created": "2019-08-01T19:47:20.845Z",
+        "modified": "2019-11-05T18:57:53.697Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/12248/lauretta-oblinger"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "287b4340-e3c1-4153-ac1b-95fa2dfe4b6c",
+    "fields": {
+        "id": "roth-wayne",
+        "name": "Roth, Wayne",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T19:01:03.147Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/17025/wayne-roth"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "29d28429-1bee-4ce3-8ba2-833d66499142",
+    "fields": {
+        "id": "sturgeon-michelle",
+        "name": "Sturgeon, Michelle",
+        "created": "2019-08-01T19:48:16.553Z",
+        "modified": "2019-11-05T19:06:16.387Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/20163/michelle-sturgeon"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "2d8dcba9-7a02-49f0-863d-d6943fad8c42",
+    "fields": {
+        "id": "phillipps-peter",
+        "name": "Phillipps, Peter",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-08-01T19:50:34.995Z",
+        "description": null,
+        "read_me": "",
+        "url": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "300d40e1-e0c0-4cf7-af5c-9cecf90152ed",
+    "fields": {
+        "id": "budds-cain",
+        "name": "Budds, Cain",
+        "created": "2019-10-21T23:32:43.535Z",
+        "modified": "2019-11-05T17:54:24.284Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/47604/cain-budds"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "3136b468-c0a3-4385-832d-06e0cf426fcf",
+    "fields": {
+        "id": "gibson-bryan",
+        "name": "Gibson, Bryan",
+        "created": "2019-08-01T19:45:28.732Z",
+        "modified": "2019-11-05T18:48:09.587Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/18109/bryan-gibson"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "361b4dfe-c639-45d5-8477-3393fab12d7c",
+    "fields": {
+        "id": "stephens-david",
+        "name": "Stephens, David",
+        "created": "2019-08-01T19:47:31.796Z",
+        "modified": "2019-11-05T19:05:34.765Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/21637/david-stephens"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "36221f42-329f-499c-b41e-581d2f4302e9",
+    "fields": {
+        "id": "holloway-james",
+        "name": "Holloway, James",
+        "created": "2019-08-01T19:51:53.830Z",
+        "modified": "2019-11-05T18:51:29.674Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/11998/james-holloway"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "446bed24-7ea4-403b-b07a-d538517fc9d0",
+    "fields": {
+        "id": "doyle-michael",
+        "name": "Doyle, Michael",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:56:47.306Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/11858/mike-doyle-i"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "484ed2e7-3e86-4711-a2e6-b17ec4ad4fe9",
+    "fields": {
+        "id": "sheeley-craig",
+        "name": "Sheeley, Craig",
+        "created": "2019-08-01T19:51:39.052Z",
+        "modified": "2019-11-05T19:02:08.251Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/3396/craig-sheeley"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "487deac7-8fe6-44cb-852f-7ca4a1791c39",
+    "fields": {
+        "id": "hoss-eric",
+        "name": "Hoss, Eric",
+        "created": "2019-08-01T19:44:38.949Z",
+        "modified": "2019-08-01T19:44:38.949Z",
+        "description": null,
+        "read_me": null,
+        "url": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "4d98607f-761f-43ad-82d8-3cab861f3a92",
+    "fields": {
+        "id": "emerson-paul",
+        "name": "Emerson, Paul",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:57:17.340Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/40167/paul-emerson"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "4da76ad6-e5ba-44b7-aec6-8ac6c6aea3ca",
+    "fields": {
+        "id": "frey-frank-j-iii",
+        "name": "Frey, Frank J III",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T18:00:53.915Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/2630/frank-j-frey-iii"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "53bea405-deb2-4610-ab31-aeaddc526f13",
+    "fields": {
+        "id": "lumb-karen",
+        "name": "Lumb, Karen",
+        "created": "2019-08-01T19:47:45.246Z",
+        "modified": "2019-11-05T18:53:31.850Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/34015/karen-lumb"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "58edf925-402b-4408-93f9-dc6cb48746d4",
+    "fields": {
+        "id": "fisher-mark-e",
+        "name": "Fisher, Mark E",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:59:15.025Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/16044/mark-fisher"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "5ddd3b2a-8b86-4f01-b1cd-bb364fcbc5cf",
+    "fields": {
+        "id": "ryan-shea",
+        "name": "Ryan, Shea",
+        "created": "2019-08-01T19:48:53.907Z",
+        "modified": "2019-11-05T19:01:22.649Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/12004/shea-ryan"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "5f6cd5cd-10ad-422d-be3e-45756a25a13b",
+    "fields": {
+        "id": "astell-john-m",
+        "name": "Astell, John M",
+        "created": "2019-08-01T19:47:04.263Z",
+        "modified": "2019-11-05T17:46:02.822Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/373/john-astell"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "5fb62e66-b533-4ddd-854c-b081e97805ca",
+    "fields": {
+        "id": "billings-jeff",
+        "name": "Billings, Jeff",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:47:59.560Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/2369/jeff-billings"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "6166a671-7196-44d4-9091-ef5a784bb93a",
+    "fields": {
+        "id": "fossler-charles",
+        "name": "Fossler, Charles",
+        "created": "2019-08-01T19:52:21.258Z",
+        "modified": "2019-11-05T18:00:14.717Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/34011/chuck-fossler"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "66efafd4-f5a4-4668-acb7-0ceeff949d32",
+    "fields": {
+        "id": "chadwick-frank",
+        "name": "Chadwick, Frank",
+        "created": "2019-08-01T19:48:01.743Z",
+        "modified": "2019-11-05T17:55:14.388Z",
+        "description": "Co-founder Game Designers' Workshop and original designer of Twilight: 2000",
+        "read_me": "Frank Chadwick\n==\n---\n**Frank Chadwick** is an American multiple-award-winning game designer and New York Times Best Selling author. He has designed hundreds of games, his most notable being the roleplaying games *Traveller*, *Space: 1889* and *Twilight 2000*, and the wargame series *Europa* and *The Third World War*.",
+        "url": "https://rpggeek.com/rpgdesigner/335/frank-chadwick"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "73f38185-9025-4349-b7f7-d2aba593f5d7",
+    "fields": {
+        "id": "harris-dell",
+        "name": "Harris, Dell",
+        "created": "2019-10-25T16:31:37.255Z",
+        "modified": "2019-11-05T18:49:05.586Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/13781/dell-harris"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "7513b460-5bb1-45b8-8b39-231e799dd815",
+    "fields": {
+        "id": "miller-marc-william",
+        "name": "Miller, Marc William",
+        "created": "2019-08-01T19:50:22.162Z",
+        "modified": "2019-11-05T18:56:31.681Z",
+        "description": "Co-founder of Game Designers' Workshop.",
+        "read_me": "Marc William Miller\n==\n---\nMarc Miller is a wargame and role-playing game designer and author.  Marc Miller co-founded Game Designers' Workshop with Frank Chadwick, Rich Banner, and Loren Wiseman.",
+        "url": "https://rpggeek.com/rpgdesigner/754/marc-w-miller"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "7880a154-80e0-4e60-b20b-cbde3728448e",
+    "fields": {
+        "id": "doubet-amy",
+        "name": "Doubet, Amy",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:56:04.562Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/18976/amy-doubet"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "8450bed8-0263-4f60-b527-8beee0357bd6",
+    "fields": {
+        "id": "amdor-julie",
+        "name": "Amdor, Julie",
+        "created": "2019-08-01T19:45:12.799Z",
+        "modified": "2019-11-05T17:43:54.231Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/20164/julie-amdor"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "8bc75b2d-bb94-496c-b075-11504c9e9477",
+    "fields": {
+        "id": "farley-a-c",
+        "name": "Farley, A C",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:58:36.094Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgartist/18189/c-farley"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "9131b31a-b496-4728-8867-c59ac501cebe",
+    "fields": {
+        "id": "moll-david",
+        "name": "Moll, David",
+        "created": "2019-08-01T19:46:35.435Z",
+        "modified": "2019-11-05T18:56:51.825Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/34016/david-moll"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "94c0d9c0-72cf-4a68-896f-284cdbd770c6",
+    "fields": {
+        "id": "white-scott-g",
+        "name": "White, Scott G",
+        "created": "2019-08-01T19:49:57.516Z",
+        "modified": "2019-11-05T19:11:30.945Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/27020/scott-g-white"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "99b6803b-f0fe-45e3-a32a-016630a225ad",
+    "fields": {
+        "id": "brown-timothy-b",
+        "name": "Brown, Timothy B",
+        "created": "2019-08-01T19:29:41.033Z",
+        "modified": "2019-11-05T17:51:39.022Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/2121/timothy-b-brown"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "9f6fba93-9955-4a52-99be-647e9bf58346",
+    "fields": {
+        "id": "banner-paul-richard",
+        "name": "Banner, Paul Richard",
+        "created": "2019-08-01T19:49:29.508Z",
+        "modified": "2019-11-05T17:47:04.593Z",
+        "description": "Co-founder Game Designers' Workshop.",
+        "read_me": "Rich Banner\n==\n---\n**Paul Richard \"Rich\" Banner** is an American game designer and graphic artist. Rich Banner co-founded Game Designers' Workshop with Frank Chadwick, Loren Wiseman, and Marc Miller on June 22, 1973.",
+        "url": "https://rpggeek.com/rpgdesigner/2467/rich-banner"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "a07f6d3b-6665-403f-87d8-f69fb0d8e68e",
+    "fields": {
+        "id": "mcalea-stephanie",
+        "name": "McAlea, Stephanie",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T18:54:56.922Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/14577/stephanie-mcalea"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "a26ef439-6d23-4d2e-89dd-66ce7b58cde3",
+    "fields": {
+        "id": "bradstreet-tim",
+        "name": "Bradstreet, Tim",
+        "created": "2019-08-01T19:52:46.888Z",
+        "modified": "2019-11-05T17:49:36.273Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/13703/tim-bradstreet"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "a86c06f1-eba6-48e6-b79d-7bd94c2371d6",
+    "fields": {
+        "id": "williams-dan-r",
+        "name": "Williams, Dan R",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T19:13:53.383Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgartist/8673/dan-r-williams"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "b4a7d508-9341-4ae2-a27e-6056a130b8af",
+    "fields": {
+        "id": "robbins-stephanie",
+        "name": "Robbins, Stephanie",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-08-01T19:50:34.995Z",
+        "description": null,
+        "read_me": "",
+        "url": null
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "be556bf5-e324-420b-83f7-ebff8e047ba1",
+    "fields": {
+        "id": "harshman-john",
+        "name": "Harshman, John",
+        "created": "2019-08-01T19:43:32.007Z",
+        "modified": "2019-11-05T18:50:24.536Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/657/john-harshman"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "befd62fe-0771-4edd-9565-0c79f175f46e",
+    "fields": {
+        "id": "keith-william-h-jr",
+        "name": "Keith, William H. Jr.",
+        "created": "2019-08-01T19:49:12.838Z",
+        "modified": "2019-11-05T18:52:40.259Z",
+        "description": "Once a freelance writer for GDW.",
+        "read_me": "William H. Keith\n==\n---\n**William H. Keith** is an American author, who writes also under several pen names, such as Ian Douglas, Robert Cain and H. Jay Riker. He is one of the authors of **Game Designers' Workshop**'s *Twilight: 2000* roleplaying game.",
+        "url": "https://rpggeek.com/rpgdesigner/4769/william-h-keith-jr"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "c84e86a8-8aca-408e-b31c-5645febf1eb8",
+    "fields": {
+        "id": "reischauer-dana",
+        "name": "Reischauer, Dana",
+        "created": "2019-08-01T19:52:07.359Z",
+        "modified": "2019-11-05T18:59:43.947Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/12249/dana-reischauer"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "c9c36bcf-d2b6-47c5-927c-f67970df5d03",
+    "fields": {
+        "id": "brown-john-p",
+        "name": "Brown, John P",
+        "created": "2019-08-01T19:51:26.676Z",
+        "modified": "2019-11-05T17:50:28.639Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/23981/john-p-brown"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cb4f7eb6-69bc-4df6-b6ce-73f67d6a1a52",
+    "fields": {
+        "id": "venters-steve",
+        "name": "Venters, Steve",
+        "created": "2019-08-01T19:53:16.792Z",
+        "modified": "2019-11-05T19:09:59.914Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/12251/steve-venters"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cc4704ef-261b-432d-82ce-e88a7ace7615",
+    "fields": {
+        "id": "danforth-liz",
+        "name": "Danforth, Liz",
+        "created": "2019-08-01T19:46:15.926Z",
+        "modified": "2019-11-05T17:55:39.013Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/13343/liz-danforth"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "ce78c288-421b-42ec-8d83-8f84f0f29dc8",
+    "fields": {
+        "id": "wiseman-loren-k",
+        "name": "Wiseman, Loren K",
+        "created": "2019-08-01T19:53:02.929Z",
+        "modified": "2019-11-05T19:14:29.476Z",
+        "description": "Co-founder Game Designers' Workshop.",
+        "read_me": "Loren K. Wiseman\n==\n---\n**Loren Wiseman** was an American wargame and roleplaying game designer, game developer and editor. He was also the co-founder **Game Designers' Workshop** with with Frank Chadwick, Rich Banner, and Marc Miller on June 22, 1973.",
+        "url": "https://rpggeek.com/rpgdesigner/13787/loren-k-wiseman"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "cf0d9830-d0d0-413b-b501-2780f5e7a06c",
+    "fields": {
+        "id": "adan-jay",
+        "name": "Adan, Jay",
+        "created": "2019-08-01T19:46:48.288Z",
+        "modified": "2019-12-06T15:51:55.066Z",
+        "description": "Co-designer of the City of Angels module for Twilight: 2000.",
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/19436/jay-adan"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "d3d8e6e9-9feb-4a84-ad0c-2a252a0ee52f",
+    "fields": {
+        "id": "martin-julia",
+        "name": "Martin, Julia",
+        "created": "2019-08-01T19:49:43.368Z",
+        "modified": "2019-11-05T18:54:06.006Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/13780/julia-martin"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "de2cd778-2633-40d3-863d-864e7fc14a54",
+    "fields": {
+        "id": "kuntz-james-r",
+        "name": "Kuntz, James R",
+        "created": "2019-08-01T19:44:55.674Z",
+        "modified": "2019-11-05T18:53:09.455Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgartist/12262/james-kuntz"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "e148971c-9e6c-4ff3-95b1-eac497b71ffa",
+    "fields": {
+        "id": "etter-carol",
+        "name": "Etter, Carol",
+        "created": "2019-08-01T19:48:31.770Z",
+        "modified": "2019-11-05T17:57:59.729Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/34014/carol-etter"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "eb4666df-17e0-4959-8270-29ed469e5f88",
+    "fields": {
+        "id": "walsh-kelly",
+        "name": "Walsh, Kelly",
+        "created": "2019-08-01T19:50:54.686Z",
+        "modified": "2019-11-05T19:10:38.683Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgproducer/32911/kelly-walsh"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f3d873c5-b1cb-461c-bcc9-f0ad307a8f95",
+    "fields": {
+        "id": "caskey-john",
+        "name": "Caskey, John",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:54:44.903Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/20902/john-caskey"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f4317b98-b2bd-4bfa-a9ff-76acd073d542",
+    "fields": {
+        "id": "arrowsmith-steve",
+        "name": "Arrowsmith, Steve",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T17:45:15.129Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/40166/steve-arrowsmith"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f76781d0-e6e5-4e71-b0bb-b2de99335497",
+    "fields": {
+        "id": "renner-matt",
+        "name": "Renner, Matt",
+        "created": "2019-08-01T19:50:09.948Z",
+        "modified": "2019-11-05T19:00:09.105Z",
+        "description": null,
+        "read_me": null,
+        "url": "https://rpggeek.com/rpgdesigner/18372/matt-renner"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "f9205499-43f7-47c6-ac83-356d1586a3da",
+    "fields": {
+        "id": "testing",
+        "name": "Testing",
+        "created": "2019-12-06T02:51:42.135Z",
+        "modified": "2019-12-06T02:51:42.135Z",
+        "description": "Testing",
+        "read_me": "Testing\n==\n---",
+        "url": "https://www.google.com"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "fa32574f-b116-42eb-a590-02fa66b5218f",
+    "fields": {
+        "id": "wescom-kirk",
+        "name": "Wescom, Kirk",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-11-05T19:11:05.312Z",
+        "description": null,
+        "read_me": "",
+        "url": "https://rpggeek.com/rpgdesigner/13785/kirk-wescom"
+    }
+},
+{
+    "model": "api.contributor",
+    "pk": "fb6de340-c2b8-4490-86f4-35c8db11941e",
+    "fields": {
+        "id": "brown-kevin",
+        "name": "Brown, Kevin",
+        "created": "2019-08-01T19:50:34.995Z",
+        "modified": "2019-08-01T19:50:34.995Z",
+        "description": null,
+        "read_me": null,
+        "url": null
+    }
+}
+]

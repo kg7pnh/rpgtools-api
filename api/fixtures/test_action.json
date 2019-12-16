@@ -1,0 +1,21 @@
+[
+{
+    "model": "api.action",
+    "pk": "bc7368e1-0965-4d17-9c44-0f8f690e680f",
+    "fields": {
+        "id": "attribute-generation-random-no-favor",
+        "name": "Attribute Generation - Random - No Favor",
+        "created": "2019-11-06T16:25:52.854Z",
+        "modified": "2019-11-06T16:25:52.855Z",
+        "description": null,
+        "read_me": null,
+        "url": null,
+        "game": "9d739130-b037-4425-8103-3cf13bd21fc1",
+        "handler": "07dadfbe-cf13-4030-8c66-a72b9bead477",
+        "input_json": "{\"Place\": \"Holder\"}",
+        "input_schema": "4567f493-1b2d-48f1-a2f8-fec3fc2893c6",
+        "output_schema": "079970cd-6555-4992-83e8-e06f5ee8b848",
+        "form_schema": null
+    }
+}
+]

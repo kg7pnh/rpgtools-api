@@ -1,0 +1,100 @@
+[
+{
+    "model": "api.bookformat",
+    "pk": "0611c6e6-d4f5-4b47-8e46-e57d55a06666",
+    "fields": {
+        "id": "epub",
+        "name": "EPUB",
+        "created": "2019-07-19T17:02:25.437Z",
+        "modified": "2019-11-05T17:21:45.911Z",
+        "description": "An electronic book format.",
+        "read_me": "EPUB\r\n====\r\n**EPUB** is an e-book file format that uses the `.epub` file extension. The term is short for electronic publication and is sometimes styled _ePub_.\r\n\r\nEPUB is supported by many e-readers, and compatible software is available for most smartphones, tablets, and computers.\r\n\r\nEPUB is a technical standard published by the International Digital Publishing Forum (IDPF). It became an official standard of the IDPF in September 2007, superseding the older Open eBook standard.",
+        "url": "https://en.wikipedia.org/wiki/EPUB",
+        "format_type": "Digital"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "5824260c-36f6-4196-8403-80c558ffff08",
+    "fields": {
+        "id": "pdf",
+        "name": "PDF",
+        "created": "2019-07-19T16:52:11.014Z",
+        "modified": "2019-11-05T17:19:53.877Z",
+        "description": "A digital format created by Adobe in the 1990s.",
+        "read_me": "PDF\r\n===\r\nThe **Portable Document Format** (**PDF**) (redundantly: PDF format) is a file format developed by Adobe in the 1990s to present documents, including text formatting and images, in a manner independent of application software, hardware, and operating systems.\r\n\r\nBased on the PostScript language, each PDF file encapsulates a complete read_me of a fixed-layout flat document, including the text, fonts, vector graphics, raster images and other information needed to display it.\r\n\r\nPDF was standardized as an open format, ISO 32000, in 2008, and no longer requires any royalties for its implementation.",
+        "url": "https://en.wikipedia.org/wiki/PDF",
+        "format_type": "Digital"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "738cd719-aa4a-4549-a203-ecf25abd83c8",
+    "fields": {
+        "id": "hardcover",
+        "name": "Hardcover",
+        "created": "2019-07-19T16:48:59.444Z",
+        "modified": "2019-11-05T17:23:25.828Z",
+        "description": "A book bound with a rigid protective cover.",
+        "read_me": "Hardcover\r\n========\r\nA **hardcover** or hardback (also known as hardbound, and sometimes as case-bound) book is one bound with rigid protective covers (typically of Binder's board or heavy paperboard covered with buckram or other cloth, heavy paper, or occasionally leather). Hardcovers have a flexible, sewn spine which allows the book to lie flat on a surface when opened. Many will also have a dust cover to protect the hardcover from dust collecting on the actual book cover.",
+        "url": "https://en.wikipedia.org/wiki/Hardcover",
+        "format_type": "Physical"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "7ee9c160-f471-4ba1-9d57-a3ab8f69a0f1",
+    "fields": {
+        "id": "magazine",
+        "name": "Magazine",
+        "created": "2019-07-19T17:10:21.276Z",
+        "modified": "2019-11-05T17:23:49.119Z",
+        "description": "A printed publication usually released on a schedule.",
+        "read_me": "Magazine\r\n========\r\nA **magazine** is a publication, usually a periodical publication, which is printed. Magazines are generally published on a regular schedule and contain a variety of content. They are generally financed by advertising, by a purchase price, by prepaid subscriptions, or a combination of the three.",
+        "url": "https://en.wikipedia.org/wiki/Magazine",
+        "format_type": "Physical"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "aaaf0e77-3c45-484e-9db7-fec870e58d44",
+    "fields": {
+        "id": "mobipocket",
+        "name": "Mobipocket",
+        "created": "2019-07-19T16:58:37.560Z",
+        "modified": "2019-11-05T17:22:22.843Z",
+        "description": "Electronic format for use on the Mobipocket Reader.",
+        "read_me": "Mobipocket\r\n=========\r\n**Mobipocket** SA was a French company incorporated in March 2000 that created the `.mobi` e-book file format and produced the Mobipocket Reader software for mobile phones, personal digital assistants (PDA) and desktop operating systems.",
+        "url": "https://en.wikipedia.org/wiki/Mobipocket",
+        "format_type": "Digital"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "c03b9ce4-8ad6-4277-810a-3033a752d27d",
+    "fields": {
+        "id": "paperback",
+        "name": "Paperback",
+        "created": "2019-07-19T16:43:43.335Z",
+        "modified": "2019-11-05T17:24:03.236Z",
+        "description": "A book utilizing a thick paper cover.",
+        "read_me": "Paperback\r\n========\r\nA paperback, also known as a softcover or softback, is a type of book characterized by a thick paper or paperboard cover, and often held together with glue rather than stitches or staples. In contrast, hardcover or hardback books are bound with cardboard covered with cloth. The pages on the inside are made of paper.",
+        "url": "https://en.wikipedia.org/wiki/Paperback",
+        "format_type": "Physical"
+    }
+},
+{
+    "model": "api.bookformat",
+    "pk": "dedd3bf5-5693-4cb6-8eab-5963d56d7b24",
+    "fields": {
+        "id": "box-set-softcover",
+        "name": "Box Set - Softcover",
+        "created": "2019-07-25T16:40:03.629Z",
+        "modified": "2019-11-05T17:23:04.354Z",
+        "description": "A set of softcover books contained in a hard box.",
+        "read_me": "Box Set (Softcover)\r\n=======\r\nA set of softcover books contained in a hard box of some kind and intended to be sold as a set. This format is often used to provide an easier way to acquire an entire set of books in a series or a number of books covering a specific subject.",
+        "url": "https://en.wikipedia.org/wiki/Box_set",
+        "format_type": "Physical"
+    }
+}
+]

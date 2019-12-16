@@ -1,0 +1,217 @@
+[
+{
+    "model": "api.book",
+    "pk": "513bc265-3c4e-4ee5-8548-8989a25396fd",
+    "fields": {
+        "id": "going-home",
+        "name": "Going Home",
+        "created": "2019-11-13T20:05:00.519Z",
+        "modified": "2019-12-11T19:03:10.750Z",
+        "description": "A game module for use with GDW's World War III role-playing game, Twilight: 2000.",
+        "read_me": "Going Home\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_It came as quite a surprise when we finally confirmed it. What remained of the big brass in Europe decided that it was time for everyone to get out of the pool, so they arranged for a few ships to take us back to America. Problem was, nobody believed that the ships would have enough room for everybody. We decided that this was the last ride going our way, and it was time to go home. The ships were leaving on November 15, and there were no reserved seats...what with thirty or forty thousand people looking for seats, it could get to be quite a game of musical chairs._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Going Home_ is an adventure for use with GDW's World War III role-playing game, **Twilight: 2000**. In _Going Home_, the players are presented with the challenge with getting across most of Poland and north-central Germany to catch the last ship heading back to the US for quite a while.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if the players choose to remain in Europe, _Going Home_ will still be of tremendous interest. The adventure contains:<ul><li>A full-color pull-out map, covering northern Germany which overlaps with the full-color Poland map included in the original game.</li><li>A referee's update of the location and strength of NATO and Warsaw Pact units in their winter quarters as the year 2000draws to a close.</li><li>A brief rundown of French units in the occupied area west of the Rhine and a discussion of French military activities in the so-called \\\"dead zone\\\" east of the Rhine. Also, a bonus: read_mes (in _Twilight: 2000_ terms of three French helicopters.</li><li>Details and specifications, in _Twilight: 2000_ terms, the German Leopard III and the British Challenger tanks, and British 120mm rifled gun.</li></ul>",
+        "url": "",
+        "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Going Home",
+        "abbreviation": "GH",
+        "catalog_number": "506",
+        "pages": 40,
+        "publication_year": 1986,
+        "isbn_10": "0943580560",
+        "isbn_13": "9780943580562",
+        "game": [
+            "9d739130-b037-4425-8103-3cf13bd21fc1"
+        ],
+        "art_assistant": [],
+        "art_director": [
+            "9f6fba93-9955-4a52-99be-647e9bf58346",
+            "204cdcad-a648-4db7-ba1f-039000c00ebf"
+        ],
+        "artist_cover": [
+            "cb4f7eb6-69bc-4df6-b6ce-73f67d6a1a52"
+        ],
+        "artist_interior": [
+            "cc4704ef-261b-432d-82ce-e88a7ace7615"
+        ],
+        "author": [],
+        "designer": [
+            "ce78c288-421b-42ec-8d83-8f84f0f29dc8"
+        ],
+        "developer": [],
+        "editor": [],
+        "graphic_designer": [],
+        "play_tester": [],
+        "proofreader": [],
+        "research_assistant": [
+            "c9c36bcf-d2b6-47c5-927c-f67970df5d03",
+            "66efafd4-f5a4-4668-acb7-0ceeff949d32"
+        ],
+        "text_manager": [],
+        "text_processor": [],
+        "type_setter": []
+    }
+},
+{
+    "model": "api.book",
+    "pk": "5dda36da-66a9-4a6e-9cf6-5276bc9cf340",
+    "fields": {
+        "id": "small-arms-guide",
+        "name": "Small Arms Guide",
+        "created": "2019-11-13T20:00:41.909Z",
+        "modified": "2019-12-11T19:03:35.238Z",
+        "description": "A resource and guide book for use with GDS's Twilight: 2000.",
+        "read_me": "Small Arms Guide\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The _Small Arms Guide_ is a sourcebook for **Twilight: 2000** which contains a consolidated listing of every personal firearm in the basic game, as well as additional material of interest to both players and referees.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In response to player requests, the single entry for the generic pistols (such as the 9mmP Auto) of the basic rules has now been expanded to include every major handgun type in use by the year 2000 and encompasses the full sweep of technological change, ranging from the German Luger and \\\"Broomhandle\\\" Mauser pistols of the early 1900s to the advanced materials and technology of the Austrian Glock 17. Also described are weapons not yet in service or just entering service (such as the Ruger P85), and hypothetical extensions of current firearms technology.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Increased coverage of both military and civilian rifles is also presented in the _Small Arms Guide_. Submachinegun coverage now includes all major types, from the Tommygun of the 1920s to the most modern suppressed designs, such as the H&K MP5 and Ingram MAC-10.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each weapon entry contains an illustration of that particular firearm, a few short descriptive remarks, and full details for the incorporation of the weapon into the game.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The _Small Arms Guide_ expands the ammunition covered in **Twilight: 2000**, including the ever-popular .357 and .44 magnum rounds.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The guide also includes a consolidated price and equipment listing for all weapon and ammunition types covered in **Twilight: 2000**. Special essays in the _Small Arms Guide_ cover topics such as reproduction black-powder firearms and the special low-tech auto-rifle, the M16EZ.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The _Small Arms Guide_ is a valuable resource for both players and referees of **Twilight: 2000**, and for anyone who has an interest in modern firearms.",
+        "url": "",
+        "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Small Arms Guide",
+        "abbreviation": "SAG",
+        "catalog_number": "516",
+        "pages": 56,
+        "publication_year": 1988,
+        "isbn_10": "0943580595",
+        "isbn_13": "9780943580593",
+        "game": [
+            "9d739130-b037-4425-8103-3cf13bd21fc1"
+        ],
+        "art_assistant": [],
+        "art_director": [],
+        "artist_cover": [
+            "cb4f7eb6-69bc-4df6-b6ce-73f67d6a1a52"
+        ],
+        "artist_interior": [],
+        "author": [],
+        "designer": [
+            "4da76ad6-e5ba-44b7-aec6-8ac6c6aea3ca",
+            "ce78c288-421b-42ec-8d83-8f84f0f29dc8"
+        ],
+        "developer": [
+            "ce78c288-421b-42ec-8d83-8f84f0f29dc8"
+        ],
+        "editor": [],
+        "graphic_designer": [],
+        "play_tester": [],
+        "proofreader": [],
+        "research_assistant": [],
+        "text_manager": [],
+        "text_processor": [],
+        "type_setter": []
+    }
+},
+{
+    "model": "api.book",
+    "pk": "af354b39-8be8-4c14-be68-60599bc6fa99",
+    "fields": {
+        "id": "survivors-guide-to-the-united-kingdom",
+        "name": "Survivors' Guide to the United Kingdom",
+        "created": "2019-12-11T19:02:05.566Z",
+        "modified": "2019-12-11T19:02:05.566Z",
+        "description": "A resource and guide book for use with GDS's Twilight: 2000, 1st Edition.",
+        "read_me": "Survivors' Guide to the United Kingdom\n==\n---\n* Nuclear hit list for the United Kingdom.\n* World-wide British order of battle.\n* The UK's marauder bands and free cities.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**\"There'll Always Be An England...\"**\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;From Land's End to Dover, from the Channel islands to the Shetlands, the **Survivors' Guide to the United Kingdom** describes what happened to the United Kingdom during the war and afterward. It explains just what happened to the United Kingdom during the war and afterward. It explains just what the word \"England\" means in 2000, discusses the fate of the North Sea oil platforms, and gives you the lowdown on organizations ranging from H.M. Government to the Soviet GRU.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The **Survivors' Guide** contains a detailed order of battle for the British army, updating previous versions and implementing several major changes, bringing the OB up to 1 January 2001. It presents British-oriented character generation tables and a consolidated reference for British military equipment, including many obsolete vehicles and weapons found in use only by local militias and marauder bands. Every major weapon is covered - from the Hummer \"Pig\" and the Ferret AC up to the most advanced MBT - with ever gaming aspect fully detailed.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The **Survivors' Guide** describes a country on the mend, desperately trying to restore order to a people who have had almost every semblance of government and society shattered by global warfare. H.M. Government controls only a portion of the country; the rest consists of an intricate tapestry of independent cities, petty dictatorships and broad bands of territory ruled only by brigands and marauders. A district-by-district description details what was nuked, what was destroyed by rioters, and the other damage inflicted by the war and the civil dislocation which followed.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The **Survivors' Guide** opens broad new vistas for European adventure in **Twilight: 2000**, whether the players wish to be Americans or British. The **Survivors' Guide can be used as a springboard for a British-oriented campaign, or used to give additional spice and realism to European campaigns involving British characters.",
+        "url": "https://rpggeek.com/rpgitem/51268/survivors-guide-united-kingdom",
+        "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "United Kingdom",
+        "abbreviation": "SGUK",
+        "catalog_number": "0528",
+        "pages": 48,
+        "publication_year": 1990,
+        "isbn_10": "1558780092",
+        "isbn_13": "9781558780095",
+        "game": [
+            "9d739130-b037-4425-8103-3cf13bd21fc1"
+        ],
+        "art_assistant": [],
+        "art_director": [
+            "7880a154-80e0-4e60-b20b-cbde3728448e"
+        ],
+        "artist_cover": [
+            "17a95b95-fcdd-4ba0-a5f4-739c6b0cb908"
+        ],
+        "artist_interior": [
+            "a26ef439-6d23-4d2e-89dd-66ce7b58cde3",
+            "fa32574f-b116-42eb-a590-02fa66b5218f"
+        ],
+        "author": [],
+        "designer": [
+            "2d8dcba9-7a02-49f0-863d-d6943fad8c42"
+        ],
+        "developer": [
+            "ce78c288-421b-42ec-8d83-8f84f0f29dc8"
+        ],
+        "editor": [],
+        "graphic_designer": [],
+        "play_tester": [],
+        "proofreader": [],
+        "research_assistant": [],
+        "text_manager": [
+            "29d28429-1bee-4ce3-8ba2-833d66499142"
+        ],
+        "text_processor": [
+            "8450bed8-0263-4f60-b527-8beee0357bd6",
+            "d3d8e6e9-9feb-4a84-ad0c-2a252a0ee52f"
+        ],
+        "type_setter": []
+    }
+},
+{
+    "model": "api.book",
+    "pk": "cf414007-19ed-443e-80fa-845bda1c0254",
+    "fields": {
+        "id": "bears-den",
+        "name": "Bear's Den",
+        "created": "2019-11-13T20:09:49.375Z",
+        "modified": "2019-12-11T22:16:26.201Z",
+        "description": "A game module for use with GDW's World War III role-playing game, Twilight: 2000.",
+        "read_me": "Bear's Den\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_I'd always thought that when I finally got into the Soviet Union, it would be on a recon for some massive NATO force. Well, there aren't any of those now, and here I am._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_I thought it would look different, smell bad or something, but I didn't even know we were there until sarge saie, \\\"Welcome to the bear's den, lads. This is the Ukraine. Look alive!\\\" He laughed and spat out the piece of burlap he had been chewing on. Nobody else was crazy enough to try making their way through this blizzard._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In **Bear's Den**, expatriate Soviet General Anton Chelkov battles to control Lvov and the surrounding area. The 27th NATO Division is approaching through the Carpathian Mountains to the south, and partisans attack from every direction. Celkov desperately needs fuel and food to weather the winter assault, but he remains confident. Hidden in his castle in Olesko is a Scud B nuclear missile.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Information presented in this module includes::<ul><li>Source material and maps for the Southern Soviet Union, Lvov, the Carpathian Mountains, and the Trascarpathian region.</li><li>Information on winter equipment, including dogsleds, snowmobiles, and ski-troops.</li><li>Detailed descriptiosn, illustrations, and operation instructions for the Scud B missile and the MAZ-543B launcher / erctor vehicle.</li></ul>\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Adventure in the icey steppes of the Soviet Union with **Bear's Den**.",
+        "url": "https://rpggeek.com/rpgitem/57459/bears-den",
+        "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
+        "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
+        "short_name": "Bear's Den",
+        "abbreviation": "BD",
+        "catalog_number": "524",
+        "pages": 48,
+        "publication_year": 1989,
+        "isbn_10": "0943580153",
+        "isbn_13": "9780943580159",
+        "game": [
+            "9d739130-b037-4425-8103-3cf13bd21fc1"
+        ],
+        "art_assistant": [],
+        "art_director": [
+            "5ddd3b2a-8b86-4f01-b1cd-bb364fcbc5cf"
+        ],
+        "artist_cover": [
+            "36221f42-329f-499c-b41e-581d2f4302e9"
+        ],
+        "artist_interior": [
+            "a26ef439-6d23-4d2e-89dd-66ce7b58cde3",
+            "19cd4e0f-00a3-4050-802b-fac441bba253"
+        ],
+        "author": [],
+        "designer": [
+            "1c948919-d9e8-41e7-a71a-071a898f4d3c",
+            "94c0d9c0-72cf-4a68-896f-284cdbd770c6"
+        ],
+        "developer": [
+            "1c948919-d9e8-41e7-a71a-071a898f4d3c"
+        ],
+        "editor": [],
+        "graphic_designer": [
+            "1a9fb6d3-8a29-4ba5-aaf8-e961e35face9"
+        ],
+        "play_tester": [],
+        "proofreader": [],
+        "research_assistant": [],
+        "text_manager": [
+            "29d28429-1bee-4ce3-8ba2-833d66499142"
+        ],
+        "text_processor": [
+            "8450bed8-0263-4f60-b527-8beee0357bd6",
+            "d3d8e6e9-9feb-4a84-ad0c-2a252a0ee52f",
+            "361b4dfe-c639-45d5-8477-3393fab12d7c"
+        ],
+        "type_setter": []
+    }
+}
+]
