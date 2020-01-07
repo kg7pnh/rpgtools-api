@@ -10,27 +10,40 @@ from rest_framework.response import Response
 from api.models.action_runner import ActionRunner
 from api.serializers.action_runner import Serializer
 
-def iterate_input(action_input, additional_input):
+def run_method(method, method_input, additional_input=None):
+    """
+    run_method
+    """
+    response = {}
+    try:
+        module_name = 'api.handlers.'+method
+        module = importlib.import_module(module_name)
+        response = module.run(method_input, additional_input)
+    except ModuleNotFoundError as module_not_found_error:
+        response = {
+            "error": {
+                "message": "Failed to find a method named '" + method + "'}'",
+                "exception": str(module_not_found_error)
+            }
+        }
+    return response
+
+def iterate_input(action_input, additional_input, index):
     """
     iterate_input
     """
     response = {}
-    for entry in action_input:
-        if not additional_input:
-            additional_input = response
-        if 'Method' in action_input[entry]:
-            method = action_input[entry]['Method']
-            try:
-                module_name = 'api.handlers.'+method
-                module = importlib.import_module(module_name)
-                response[entry] = module.run(action_input[entry]['Input'], additional_input)
-            except ImportError as import_error:
-                response[entry] = \
-                    'Failed to find an action method named '+method+\
-                    '('+import_error+').'
-        else:
-            additional_input = response
-            response[entry] = iterate_input(action_input[entry], additional_input)
+    if 'method' in action_input and \
+            'name' in action_input and \
+            'input' in action_input:
+        name = action_input['name']
+        method = action_input['method']
+        method_input = action_input['input']
+        response = {
+            name: run_method(method, method_input, additional_input)
+        }
+    else:
+        response['error_entry_index_' + str(index)] = 'Action Input entries require "name", "method" and "input" items to be processed.'
     return response
 
 class ActionRunnerRequest(CreateAPIView):
@@ -47,25 +60,12 @@ class ActionRunnerRequest(CreateAPIView):
         action_runner = Serializer(data=request.data, )
         action_runner.is_valid(raise_exception=True)
         action_input = action_runner.data['action_input']
+        additional_input = action_runner.data['additional_input']
 
-        response = iterate_input(action_input, None)
-
-        # previous_response = None
-        # response  = {}
-
-        # for action in action_input:
-        #     value = None
-        #     method = action_input[action]["Method"]
-
-        #     try:
-        #         module_name = 'api.handlers.'+method
-        #         module = importlib.import_module(module_name)
-
-        #         json_input = str(action_input[action]['Input']).replace('\'', '"')
-        #         action_response = module.run(json.loads(json_input))
-
-        #     except ImportError as error:
-        #         action_response = '"Failed to find an action method named '+method+'."'
-
-        #     response[action] = action_response
-        return Response(json.loads(json.dumps(response)), status=status.HTTP_201_CREATED)
+        result = {}
+        length = len(action_input)
+        for index in range(length):
+            response = iterate_input(action_input[index], additional_input, index)
+            result.update(response)
+            additional_input = result
+        return Response(json.loads(json.dumps(result)), status=status.HTTP_201_CREATED)

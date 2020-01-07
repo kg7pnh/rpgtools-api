@@ -8,7 +8,7 @@ from rest_framework import serializers
 from rest_framework.permissions import IsAdminUser
 from api.models.game import Game
 from api.serializers.game import Serializer
-from api.serializers.game import HyperLinkedSerializer
+# from api.serializers.game import HyperLinkedSerializer
 from api.serializers.history import HistorySerializer
 
 
@@ -17,7 +17,8 @@ class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     Provides access to the DELETE, GET, PATCH and PUT requests for a given ID.
     """
     queryset = Game.objects.all() # pylint: disable=no-member
-    serializer_class = HyperLinkedSerializer
+    # serializer_class = HyperLinkedSerializer
+    serializer_class = Serializer
     lookup_field = "id"
 
 class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors

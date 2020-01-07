@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Defines the die_roll actions
+Defines the die_roll handler
 """
 from random import randint
 
@@ -16,111 +16,113 @@ def process_modifier(value,
     """
     process_modifier
     """
+    result = value
     if modification == '+':
-        value = value + modifier
+        result = result + modifier
     if modification == '-':
-        value = value - modifier
+        result = result - modifier
     if modification == '*':
-        value = value * modifier
+        result = result * modifier
     if modification == '/':
-        value = value / modifier
-    return value
+        result = result / modifier
+    return int(result)
 
-def run_roll(die_size,
-             die_count,
-             per_modifier,
-             roll_modifier,
-             post_modifier):
+def run_roll(run_input):
     """
     run_roll
     """
     count = 0
     die_roll = 0
     result = 0
-    while count < die_count:
+    while count < run_input['die_count']:
         count += 1
-        die_roll = roll(die_size)
+        die_roll = roll(run_input['die_size'])
 
         # if a per roll modifier is specified, apply it
-        if per_modifier:
-            die_roll = process_modifier(die_roll, per_modifier["value"], per_modifier["type"])
-
+        if 'per_modifier' in run_input and not run_input['per_modifier'] is None:
+            die_roll = process_modifier(die_roll,
+                                        run_input['per_modifier']['value'],
+                                        run_input['per_modifier']['type'])
         result = result + die_roll
 
     # if a roll modifier is specified, apply it
-    if roll_modifier:
-        result = process_modifier(result, roll_modifier["value"], roll_modifier["type"])
+    if 'roll_modifier' in run_input and not run_input['roll_modifier'] is None:
+        result = process_modifier(result,
+                                  run_input['roll_modifier']['value'],
+                                  run_input['roll_modifier']['type'])
 
     # if a post roll modifier is specified, apply it
-    if post_modifier:
-        result = process_modifier(result, post_modifier["value"], post_modifier["type"])
+    if 'post_modifier' in run_input and not run_input['post_modifier'] is None:
+        result = process_modifier(result,
+                                  run_input['post_modifier']['value'],
+                                  run_input['post_modifier']['type'])
 
     return result
 
-def run(run_input):
+def run_condition(run_input):
+    """
+    run_condition
+    """
+    roll_result = 0
+    if run_input['reroll']['condition'] == '==':
+        roll_result = run_roll(run_input)
+        while roll_result == run_input['reroll']['value']:
+            roll_result = run_roll(run_input)
+    if run_input['reroll']['condition'] == '<=':
+        roll_result = run_roll(run_input)
+        while roll_result <= run_input['reroll']['value']:
+            roll_result = run_roll(run_input)
+    if run_input['reroll']['condition'] == '<':
+        roll_result = run_roll(run_input)
+        while roll_result < run_input['reroll']['value']:
+            roll_result = run_roll(run_input)
+    if run_input['reroll']['condition'] == '>=':
+        roll_result = run_roll(run_input)
+        while roll_result >= run_input['reroll']['value']:
+            roll_result = run_roll(run_input)
+    if run_input['reroll']['condition'] == '>':
+        roll_result = run_roll(run_input)
+        while roll_result > run_input['reroll']['value']:
+            roll_result = run_roll(run_input)
+    return roll_result
+
+def run(run_input, additional_input=None):
     """
     run
     """
-    die_size = run_input['die_size']
-    die_count = run_input['die_count']
-    per_modifier = None
-    roll_modifier = None
-    post_modifier = None
-
-    if 'per_modifier' in run_input:
-        per_modifier = run_input['per_modifier']
-    if 'roll_modifier' in run_input:
-        roll_modifier = run_input['roll_modifier']
-    if 'post_modifier' in run_input:
-        post_modifier = run_input['post_modifier']
-    if 'reroll_condition' in run_input:
-        reroll_condition = run_input['reroll_condition']
-    if 'reroll_value' in run_input:
-        reroll_value = run_input['reroll_value']
-
     roll_result = 0
-    if die_size > 0 and die_count > 0:
-        if reroll_condition == '==':
-            while roll_result == reroll_value:
-                roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
-        elif reroll_condition == '<=':
-            while roll_result <= reroll_value:
-                roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
-        elif reroll_condition == '<':
-            while roll_result < reroll_value:
-                roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
-        elif reroll_condition == '>=':
-            while roll_result >= reroll_value:
-                roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
-        elif reroll_condition == '>':
-            while roll_result > reroll_value:
-                roll_result = run_roll(die_size,
-                                       die_count,
-                                       per_modifier,
-                                       roll_modifier,
-                                       post_modifier)
+
+    if not isinstance(run_input['die_size'], int):
+        die_size = run_input['die_size']
+        run_input['die_size'] = additional_input[die_size]
+
+    if not isinstance(run_input['die_count'], int):
+        die_count = run_input['die_count']
+        run_input['die_count'] = additional_input[die_count]
+
+    if 'per_modifier' in run_input and not run_input['per_modifier'] is None:
+        if 'value' in run_input['per_modifier'] \
+            and not isinstance(run_input['per_modifier']['value'], int):
+            value = run_input['per_modifier']['value']
+            run_input['per_modifier']['value'] = additional_input[value]
+
+    if 'roll_modifier' in run_input and not run_input['roll_modifier'] is None:
+        if 'value' in run_input['roll_modifier'] \
+            and not isinstance(run_input['roll_modifier']['value'], int):
+            value = run_input['roll_modifier']['value']
+            run_input['roll_modifier']['value'] = additional_input[value]
+
+    if 'post_modifier' in run_input and not run_input['post_modifier'] is None:
+        if 'value' in run_input['post_modifier'] \
+            and not isinstance(run_input['post_modifier']['value'], int):
+            value = run_input['post_modifier']['value']
+            run_input['post_modifier']['value'] = additional_input[value]
+
+    if run_input['die_size'] > 0 and run_input['die_count'] > 0:
+        if 'reroll' in run_input and not run_input['reroll'] is None:
+            roll_result = run_condition(run_input)
         else:
-            roll_result = run_roll(die_size,
-                                   die_count,
-                                   per_modifier,
-                                   roll_modifier,
-                                   post_modifier)
+            roll_result = run_roll(run_input)
 
     # return the result
     return roll_result

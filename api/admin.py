@@ -362,7 +362,7 @@ class SchemaAdmin(admin.ModelAdmin):
               'name',
               'version',
               'enabled',
-              'depricated',
+              'deprecated',
               'created',
               'modified',
               'specification',

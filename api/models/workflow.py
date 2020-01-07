@@ -18,24 +18,8 @@ WORKFLOW_METHOD = (
 
 WORKFLOW_TYPE = (
     ('CHARACHTER', 'CHARACHTER'),
-)
-
-WORKFLOW_METHOD = (
-    ('MANUAL', 'MANUAL'),
-    ('AUTO', 'AUTO'),
-)
-
-WORKFLOW_TYPE = (
-    ('CHARACHTER', 'CHARACHTER'),
-)
-
-WORKFLOW_METHOD = (
-    ('MANUAL', 'MANUAL'),
-    ('AUTO', 'AUTO'),
-)
-
-WORKFLOW_TYPE = (
-    ('CHARACHTER', 'CHARACHTER'),
+    ('NPC', 'NPC'),
+    ('OTHER', 'OTHER')
 )
 
 # Create your models here.
@@ -50,14 +34,14 @@ class Workflow(Base):
                              blank=True)
 
     # Attributes
-    method = models.CharField(choices=WORKFLOW_METHOD,
-                              default='MANUAL',
-                              max_length=8,
-                              verbose_name='Method')
-    type = models.CharField(choices=WORKFLOW_TYPE,
-                            default='CHARACHTER',
-                            max_length=50,
-                            verbose_name='Type')
+    workflow_method = models.CharField(choices=WORKFLOW_METHOD,
+                                       default='MANUAL',
+                                       max_length=8,
+                                       verbose_name='Method')
+    workflow_type = models.CharField(choices=WORKFLOW_TYPE,
+                                     default='CHARACHTER',
+                                     max_length=50,
+                                     verbose_name='Type')
     definition = JSONField(blank=True,
                            null=True,
                            verbose_name='Definition')

@@ -13,7 +13,7 @@ from api.serializers.history import HistorySerializer
 
 class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the DELETE, GET, PATCH and PUT requests for a given ID.
+    Provides access to the GET method for a given BookFormat ID.
     """
     queryset = BookFormat.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
@@ -21,7 +21,7 @@ class ItemView(generics.RetrieveAPIView): # pylint: disable=too-many-ancestors
 
 class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the PATCH and PUT requests for a given ID.
+    Provides access to the PATCH and PUT methods for a given BookFormat ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all() # pylint: disable=no-member
@@ -30,7 +30,7 @@ class ItemEditView(generics.UpdateAPIView): # pylint: disable=too-many-ancestors
 
 class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancestors
     """
-    Provides access to the DELETE requests for a given ID.
+    Provides access to the DELETE method for a given BookFormat ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all() # pylint: disable=no-member
@@ -39,14 +39,14 @@ class ItemDeleteView(generics.DestroyAPIView): # pylint: disable=too-many-ancest
 
 class ListView(generics.ListAPIView):
     """
-    Provides access to the GET request for a list of all game objects.
+    Provides access to the GET method for a list of all BookFormat objects.
     """
     queryset = BookFormat.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
 class CreateView(generics.CreateAPIView):
     """
-     Provides access to the POST request for creating game objects.
+     Provides access to the POST method for creating BookFormat objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all() # pylint: disable=no-member
@@ -66,7 +66,7 @@ class CreateView(generics.CreateAPIView):
 
 class BookFormatHistoryView(generics.RetrieveAPIView):
     """
-    Get book format history by name
+    Get book BookFormat history by id
     """
     serializer_class = HistorySerializer
     queryset = BookFormat.objects.all() # pylint: disable=no-member

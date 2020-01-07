@@ -4,55 +4,48 @@ Defines the average actions
 """
 import math
 
-def iterate_parameters(iterate_input, additional_input):
+def get_average(round_method, total, count):
     """
-    iterate_parameters
+    get_average
     """
-    response = {}
-    print(type(iterate_input))
-    print(iterate_input)
-    for entry in iterate_input:
-        print(entry)
-        print(iterate_input[entry])
-        if isinstance(iterate_input[entry], (int, float)):
-            response[entry] = additional_input[entry]
-        else:
-            results = iterate_parameters(iterate_input, additional_input)
-    return response
+    if round_method == 'down':
+        result = math.trunc(total / count)
+    elif round_method == 'up':
+        result = math.ceil(total / count)
+    elif round_method == 'drop':
+        result = int(total / count)
+    else:
+        result = total / count
+    return result
+
 
 def run(run_input, additional_input=None):
     """
     run
     """
-    print(run_input)
-    print(additional_input)
     total = 0
     count = 0
-    round_down = False
-    round_up = False
+    round_method = None
+    move_on = True
+    result = ''
 
-    for entry in run_input:
-        print(entry)
-        if entry == 'Round':
-            if run_input[entry] == "Up":
-                round_down = False
-                round_up = True
-            elif run_input[entry] == "Down":
-                round_down = True
-                round_up = False
-        elif entry == 'additional_input':
-            print(run_input['additional_input'])
-            # for parameter in input['additional_input']:
-            values = iterate_parameters(run_input['additional_input'], additional_input)
-
-            total = total + additional_input[entry]
-            count = count + 1
-        else:
-            for value in run_input[entry]:
-                total = total + value
+    if not run_input == {}:
+        for entry in run_input:
+            if entry == 'round':
+                round_method = run_input[entry]
+            elif isinstance(run_input[entry], int):
+                total = total + run_input[entry]
                 count = count + 1
-    if round_down:
-        result = math.trunc(total / count)
+            elif run_input[entry] in additional_input:
+                total = total + additional_input[run_input[entry]]
+                count = count + 1
+            else:
+                result = result + 'additional_input["' + run_input[entry] + '"]; '
+                move_on = False
+        if move_on:
+            result = get_average(round_method, total, count)
+        else:
+            result = "Invalid Input(s): " + result[:-2]
     else:
-        result = math.ceil(total / count)
+        result = 'Incomplete Request: No input provided!'
     return result

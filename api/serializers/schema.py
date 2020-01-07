@@ -29,6 +29,7 @@ class HrefSerializer(serializers.ModelSerializer):
     HrefSerializer class
     """
     document = serializers.SerializerMethodField()
+
     class Meta: #pylint: disable=too-few-public-methods
         """
         Class meta data
@@ -41,10 +42,9 @@ class HrefSerializer(serializers.ModelSerializer):
         return document
         """
         request = self.context['request']
-        # print(request)
         document = schema.document
         document["$id"] = request.build_absolute_uri(reverse(
-            "schema_item_version_json", kwargs={'id': schema.id, 'version': schema.version}))
+            "schema_item_version", kwargs={'id': schema.id, 'version': schema.version}))
         return document
 
 class DocumentSerializer(HrefSerializer):
@@ -52,5 +52,4 @@ class DocumentSerializer(HrefSerializer):
     DocumentSerializer class
     """
     def to_representation(self, schema): #pylint: disable=arguments-differ
-        # print(schema)
         return self.get_document(schema)

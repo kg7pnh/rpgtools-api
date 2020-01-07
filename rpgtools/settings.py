@@ -25,9 +25,15 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'zx#98+_4q6--7s3yix5*nu6k-rl00w3t)%x^if6-wi!(!sn#a#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    '192.168.0.45',
+    '192.168.0.35',
+]
 
 logfile = "logs/rpgtools.log"
 
@@ -63,7 +69,7 @@ LOGGING = {
         },
         'django.template': {
             'handlers': ['file'],
-            'level': 'INFO',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }
@@ -72,12 +78,15 @@ LOGGING = {
 # Add-on Application definition
 MY_INSTALLED_APPS = [
     'api',
-    # 'ui',
     'markdownx',
     'rest_framework',
     'rest_framework.authtoken',
-    'rest_framework_swagger',
+    # 'rest_framework_swagger',
     'simple_history',
+    'debug_toolbar',
+    'drf_link_header_pagination',
+    'drf_rw_serializers',
+    'drf_yasg'
 ]
 
 # Application definition
@@ -88,6 +97,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters'
 ] + MY_INSTALLED_APPS
 
 MIDDLEWARE = [
@@ -102,11 +112,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'request_logging.middleware.LoggingMiddleware',
-    'simple_history.middleware.HistoryRequestMiddleware'
+    'simple_history.middleware.HistoryRequestMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_EXPOSE_HEADERS = ["Link"]
 ROOT_URLCONF = 'rpgtools.urls'
 
 TEMPLATES = [
@@ -196,8 +207,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'DEFAULT_PAGINATION_CLASS': 'drf_link_header_pagination.LinkHeaderPagination'
+    # 'PAGE_SIZE': 10
 }
 
 # https://github.com/davesque/django-rest-framework-simplejwt
@@ -246,10 +258,13 @@ SWAGGER_SETTINGS = {
             'in': 'header',
             'name': 'Authorization'
         }
-    }
+    },
+    'JSON_EDITOR': True,
+    'OPERATIONS_SORTER': 'alpha',
+    'SHOW_REQUEST_HEADERS': True
 }
 
-# simplehistory settings
+# # simplehistory settings
 SIMPLE_HISTORY_HISTORY_ID_USE_UUID=True
 SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD=True
 

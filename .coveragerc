@@ -1,0 +1,21 @@
+[run]
+branch = True
+
+omit = *.vitualenvs/*
+       */test*.py
+       */migrations/*
+       */urls.py
+       */manage.py
+       */admin.py
+       */apps.py
+       */site-packages/*
+       ./api/schemas/*
+       ./rpgtools/settings.py
+       ./rpgtools/wsgi.py
+       */__init__.py
+
+
+# concurrency=multiprocessing
+
+[html]
+directory = ./htmlcov

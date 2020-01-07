@@ -14,7 +14,74 @@
         "schema_type": "Output",
         "version": 1,
         "document": {},
-        "specification": "Draft-07"
+        "specification": "Draft-07",
+        "enabled": true,
+        "deprecated": false
+    }
+},
+{
+    "model": "api.schema",
+    "pk": "108a8433-29e2-48af-9f0a-d20ecbaf4e73",
+    "fields": {
+        "id": "action-runner-input",
+        "name": "Action Runner Input",
+        "created": "2019-12-17T19:23:07.769Z",
+        "modified": "2019-12-17T19:34:20.755Z",
+        "description": "Defines the acceptable input for the Action Runner handler",
+        "read_me": "Action Runner Input",
+        "url": null,
+        "form_schema": null,
+        "schema_type": "Input",
+        "version": 1,
+        "document": {
+            "type": "object",
+            "title": "Action Runner Input",
+            "$schema": "http://json-schema.org/draft-07/schema",
+            "required": [
+                "action_input"
+            ],
+            "properties": {
+                "action_input": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/action"
+                    },
+                    "title": "The Action Runner Input schema",
+                    "description": "Defines the input requirements for the Action Runner handler"
+                },
+                "additional_input": {
+                    "type": "object",
+                    "title": "The Action Runner Additional Input schema",
+                    "description": "Defines the additional input requirements for the Action Runner handler"
+                }
+            },
+            "definitions": {
+                "action": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "input": {
+                            "type": "object"
+                        },
+                        "method": {
+                            "enum": [
+                                "die_roll",
+                                "calculation",
+                                "conditional",
+                                "table"
+                            ],
+                            "type": "string"
+                        }
+                    }
+                }
+            },
+            "description": "Defines the acceptable input for the Action Runner handler"
+        },
+        "specification": "Draft-07",
+        "enabled": true,
+        "deprecated": false
     }
 },
 {
@@ -32,156 +99,116 @@
         "schema_type": "Input",
         "version": 1,
         "document": {},
-        "specification": "Draft-07"
+        "specification": "Draft-07",
+        "enabled": true,
+        "deprecated": false
     }
 },
 {
     "model": "api.schema",
-    "pk": "9cbf41cf-8862-4ec5-a014-247df0ec380d",
+    "pk": "991c1c4d-5eef-4053-b5f2-cb09b571b03c",
     "fields": {
-        "id": "handler-die-roll-output",
-        "name": "Handler - Die Roll - Output",
-        "created": "2019-11-06T16:22:39.313Z",
-        "modified": "2019-11-06T16:22:39.313Z",
-        "description": null,
-        "read_me": "",
-        "url": null,
-        "form_schema": null,
-        "schema_type": "Output",
-        "version": 1,
-        "document": {
-            "type": "object",
-            "title": "die-roll-output-schema",
-            "$schema": "http://json-schema.org/draft-07/schema#",
-            "required": [
-                "result"
-            ],
-            "properties": {
-                "result": {
-                    "$id": "#/properties/result",
-                    "type": "integer",
-                    "title": "The result of the die roll",
-                    "examples": [
-                        6
-                    ]
-                }
-            },
-            "definitions": {}
-        },
-        "specification": "Draft-07"
-    }
-},
-{
-    "model": "api.schema",
-    "pk": "b170fb64-5714-4a48-8957-f4aba0de0fd8",
-    "fields": {
-        "id": "handler-die-roll-input",
-        "name": "Handler - Die Roll - Input",
-        "created": "2019-11-06T16:20:40.965Z",
-        "modified": "2019-11-06T16:20:40.965Z",
-        "description": null,
-        "read_me": "",
+        "id": "die-roll-input",
+        "name": "Die Roll Input",
+        "created": "2019-12-17T20:34:00.331Z",
+        "modified": "2019-12-17T20:34:00.331Z",
+        "description": "Defines the acceptable input for the Die Roll handler",
+        "read_me": "Die Roll Input",
         "url": null,
         "form_schema": null,
         "schema_type": "Input",
         "version": 1,
         "document": {
             "type": "object",
-            "title": "die-roll-input-schema",
-            "$schema": "http://json-schema.org/draft-07/schema#",
+            "title": "Die Roll Input",
+            "$schema": "http://json-schema.org/draft-07/schema",
             "required": [
                 "die_size",
                 "die_count"
             ],
             "properties": {
+                "reroll": {
+                    "type": "object",
+                    "required": [
+                        "condition",
+                        "value"
+                    ],
+                    "properties": {
+                        "value": {
+                            "type": [
+                                "string",
+                                "integer"
+                            ]
+                        },
+                        "condition": {
+                            "enum": [
+                                "==",
+                                ">",
+                                ">=",
+                                "<",
+                                "<="
+                            ],
+                            "type": "string"
+                        }
+                    }
+                },
                 "die_size": {
-                    "$id": "#/properties/die_size",
-                    "type": "integer",
-                    "title": "The Die_size Schema",
-                    "default": 0,
-                    "examples": [
-                        6
-                    ]
+                    "type": [
+                        "string",
+                        "integer"
+                    ],
+                    "title": "The Die Size schema",
+                    "description": "Defines the input requirements for the die_size of the Die Roll handler"
                 },
                 "die_count": {
-                    "$id": "#/properties/die_count",
-                    "type": "integer",
-                    "title": "The Die_count Schema",
-                    "default": 0,
-                    "examples": [
-                        4
-                    ]
+                    "type": [
+                        "string",
+                        "integer"
+                    ],
+                    "title": "The Die Count schema",
+                    "description": "Defines the input requirements for the die_roll of the Die Roll handler"
                 },
-                "per_modifier": {
-                    "$id": "#/properties/per_modifier",
-                    "#ref": "#/definitions/modifier"
-                },
-                "reroll_value": {
-                    "$id": "#/properties/reroll_value",
-                    "type": "integer",
-                    "title": "The reroll_value Schema",
-                    "default": 0,
-                    "examples": [
-                        0,
-                        4,
-                        10
-                    ]
+                "pre_modifier": {
+                    "$ref": "#/definitions/modifier"
                 },
                 "post_modifier": {
-                    "$id": "#/properties/post_modifier",
-                    "#ref": "#/definitions/modifier"
+                    "$ref": "#/definitions/modifier"
                 },
                 "roll_modifier": {
-                    "$id": "#/properties/roll_modifier",
-                    "#ref": "#/definitions/modifier"
-                },
-                "reroll_condition": {
-                    "$id": "#/properties/reroll_condition",
-                    "type": "string",
-                    "enumb": [
-                        "==",
-                        "<=",
-                        "<",
-                        ">==",
-                        ">"
-                    ],
-                    "title": "The reroll_condition Schema",
-                    "default": "=="
+                    "$ref": "#/definitions/modifier"
                 }
             },
             "definitions": {
                 "modifier": {
                     "type": "object",
                     "required": [
-                        "type",
-                        "value"
+                        "value",
+                        "type"
                     ],
                     "properties": {
                         "type": {
                             "enum": [
-                                "+",
                                 "-",
+                                "+",
                                 "*",
                                 "/"
                             ],
-                            "type": "string",
-                            "default": "+"
+                            "type": "string"
                         },
                         "value": {
-                            "type": "integer",
-                            "default": 0,
-                            "examples": [
-                                3,
-                                4,
-                                10,
-                                100
+                            "type": [
+                                "string",
+                                "integer"
                             ]
                         }
                     }
                 }
-            }
+            },
+            "description": "Defines the acceptable input for the Die Roll handler"
         },
-        "specification": "Draft-07"
+        "specification": "Draft-07",
+        "enabled": true,
+        "deprecated": false
     }
 },
 {
@@ -306,7 +333,9 @@
             "definitions": {},
             "description": "Data required to populate a book class."
         },
-        "specification": "Draft-07"
+        "specification": "Draft-07",
+        "enabled": true,
+        "deprecated": false
     }
 }
 ]

@@ -4,8 +4,6 @@ Defines the Schema model
 """
 from django.contrib.postgres.fields import JSONField
 from django.db import models
-from django.db.models import ManyToManyRel
-from django.db.models import ManyToOneRel
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
@@ -51,9 +49,9 @@ class Schema(Base):
     enabled = models.BooleanField(default=True,
                                   null=False,
                                   verbose_name='Enabled')
-    depricated = models.BooleanField(default=False,
+    deprecated = models.BooleanField(default=False,
                                      null=False,
-                                     verbose_name='Debricated')
+                                     verbose_name='Deprecated')
 
     # Manager
 
@@ -70,6 +68,13 @@ class Schema(Base):
         verbose_name = 'Schema'
         verbose_name_plural = 'Schemas'
         ordering = ('name', )
+
+    # def get_secrets(self):
+    #     secrets = list()
+    #     for propName, propAttr in self.document["properties"].items():
+    #         if propAttr.get("secret"):
+    #             secrets.append(propName)
+    #     return secrets
 
 @receiver(pre_save, sender=Schema)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
