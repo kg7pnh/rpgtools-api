@@ -15,170 +15,170 @@ MODEL_URL = BASE_URL + 'die-roll'
 FIXTURES = ['test_users']
 
 REQUEST_DATA_ZEROES = {
-  "die_size": 0,
-  "die_count": 0
+    "die_size": 0,
+    "die_count": 0
 }
 
 REQUEST_DATA_ROLL_BASIC = {
-  "die_size": 6,
-  "die_count": 3
+    "die_size": 6,
+    "die_count": 3
 }
 
 REQUEST_DATA_ROLL_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "roll_modifier": {
-    "type": "+",
-    "value": 3
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "roll_modifier": {
+        "type": "+",
+        "value": 3
+    }
 }
 
 REQUEST_DATA_PER_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "per_modifier": {
-    "type": "+",
-    "value": 3
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "per_modifier": {
+        "type": "+",
+        "value": 3
+    }
 }
 
 REQUEST_DATA_POST_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "post_modifier": {
-    "type": "*",
-    "value": 100
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "post_modifier": {
+        "type": "*",
+        "value": 100
+    }
 }
 
 REQUEST_DATA_PER_ROLL_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "per_modifier": {
-    "type": "+",
-    "value": 1
-  },
-  "roll_modifier": {
-    "type": "+",
-    "value": 3
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "per_modifier": {
+        "type": "+",
+        "value": 1
+    },
+    "roll_modifier": {
+        "type": "+",
+        "value": 3
+    }
 }
 
 REQUEST_DATA_PER_POST_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "per_modifier": {
-    "type": "+",
-    "value": 1
-  },
-  "post_modifier": {
-    "type": "*",
-    "value": 10
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "per_modifier": {
+        "type": "+",
+        "value": 1
+    },
+    "post_modifier": {
+        "type": "*",
+        "value": 10
+    }
 }
 
 REQUEST_DATA_ROLL_POST_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "roll_modifier": {
-    "type": "+",
-    "value": 3
-  },
-  "post_modifier": {
-    "type": "*",
-    "value": 10
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "roll_modifier": {
+        "type": "+",
+        "value": 3
+    },
+    "post_modifier": {
+        "type": "*",
+        "value": 10
+    }
 }
 
 REQUEST_DATA_PER_ROLL_POST_MOD = {
-  "die_size": 6,
-  "die_count": 3,
-  "per_modifier": {
-    "type": "+",
-    "value": 1
-  },
-  "roll_modifier": {
-    "type": "+",
-    "value": 3
-  },
-  "post_modifier": {
-    "type": "*",
-    "value": 10
-  }
+    "die_size": 6,
+    "die_count": 3,
+    "per_modifier": {
+        "type": "+",
+        "value": 1
+    },
+    "roll_modifier": {
+        "type": "+",
+        "value": 3
+    },
+    "post_modifier": {
+        "type": "*",
+        "value": 10
+    }
 }
 
 REQUEST_DATA_REROLL_EQ = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "-",
-    "value": 4
-  },
-  "reroll": {
-    "value": 0,
-    "condition": "=="
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "-",
+        "value": 4
+    },
+    "reroll": {
+        "value": 0,
+        "condition": "=="
+    }
 }
 
 REQUEST_DATA_REROLL_LTEQ = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "-",
-    "value": 10
-  },
-  "reroll": {
-    "value": 0,
-    "condition": "<="
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "-",
+        "value": 10
+    },
+    "reroll": {
+        "value": 0,
+        "condition": "<="
+    }
 }
 
 REQUEST_DATA_REROLL_LT = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "-",
-    "value": 10
-  },
-  "reroll": {
-    "value": 1,
-    "condition": "<"
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "-",
+        "value": 10
+    },
+    "reroll": {
+        "value": 1,
+        "condition": "<"
+    }
 }
 
 REQUEST_DATA_REROLL_GTEQ = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "+",
-    "value": 1
-  },
-  "reroll": {
-    "value": 21,
-    "condition": ">="
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "+",
+        "value": 1
+    },
+    "reroll": {
+        "value": 21,
+        "condition": ">="
+    }
 }
 
 REQUEST_DATA_REROLL_GT = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "+",
-    "value": 4
-  },
-  "reroll": {
-    "value": 20,
-    "condition": ">"
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "+",
+        "value": 4
+    },
+    "reroll": {
+        "value": 20,
+        "condition": ">"
+    }
 }
 
 REQUEST_DATA_ROLL_MOD_DIV = {
-  "die_size": 6,
-  "die_count": 4,
-  "roll_modifier": {
-    "type": "/",
-    "value": 2
-  }
+    "die_size": 6,
+    "die_count": 4,
+    "roll_modifier": {
+        "type": "/",
+        "value": 2
+    }
 }
 
 @tag("die_roll_admin")
@@ -332,69 +332,69 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(2500):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_REROLL_EQ,
-                                                  format="json")
-          self.assertGreaterEqual(response.json()['roll'], 1)
-          self.assertLessEqual(response.json()['roll'], 20)
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(2500): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_REROLL_EQ,
+                                                     format="json")
+            self.assertGreaterEqual(response.json()['roll'], 1)
+            self.assertLessEqual(response.json()['roll'], 20)
+            self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_roll_mod_reroll_lteq(self):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(100):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_REROLL_LTEQ,
-                                                  format="json")
-          self.assertGreaterEqual(response.json()['roll'], 1)
-          self.assertLessEqual(response.json()['roll'], 20)
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(100): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_REROLL_LTEQ,
+                                                     format="json")
+            self.assertGreaterEqual(response.json()['roll'], 1)
+            self.assertLessEqual(response.json()['roll'], 20)
+            self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_roll_mod_reroll_lt(self):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(100):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_REROLL_LT,
-                                                  format="json")
-          self.assertGreaterEqual(response.json()['roll'], 1)
-          self.assertLessEqual(response.json()['roll'], 20)
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(100): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_REROLL_LT,
+                                                     format="json")
+            self.assertGreaterEqual(response.json()['roll'], 1)
+            self.assertLessEqual(response.json()['roll'], 20)
+            self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_roll_mod_reroll_gteq(self):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(100):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_REROLL_GTEQ,
-                                                  format="json")
-          self.assertGreaterEqual(response.json()['roll'], 1)
-          self.assertLessEqual(response.json()['roll'], 20)
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(100): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_REROLL_GTEQ,
+                                                     format="json")
+            self.assertGreaterEqual(response.json()['roll'], 1)
+            self.assertLessEqual(response.json()['roll'], 20)
+            self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_roll_mod_reroll_gt(self):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(100):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_REROLL_GT,
-                                                  format="json")
-          self.assertGreaterEqual(response.json()['roll'], 1)
-          self.assertLessEqual(response.json()['roll'], 20)
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(100): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_REROLL_GT,
+                                                     format="json")
+            self.assertGreaterEqual(response.json()['roll'], 1)
+            self.assertLessEqual(response.json()['roll'], 20)
+            self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_roll_mod_div(self):
         """
         Submits a POST request against MODEL_URL
         """
-        for x in range(100):
-          response = self.rpgtools_api_client.post(MODEL_URL,
-                                                  REQUEST_DATA_ROLL_MOD_DIV,
-                                                  format="json")
-          self.assertEqual(type(response.json()['roll']), type(1))
-          self.assertEqual(response.status_code, CODES["created"])
+        for iteration in range(100): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     REQUEST_DATA_ROLL_MOD_DIV,
+                                                     format="json")
+            self.assertEqual(type(response.json()['roll']), type(1))
+            self.assertEqual(response.status_code, CODES["created"])

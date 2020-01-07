@@ -19,18 +19,18 @@ INSTANCE_ID = 'adan-jay'
 GET_COUNT = 64
 
 FIXTURES = ['test_users',
-    'test_contributor.json',
-    'test_person.json']
+            'test_contributor.json',
+            'test_person.json']
 
-CREATE_TEST_VALUE = 'person-test'
+CREATE_TEST_VALUE = 'dr-person-test-michael-sr'
 TEST_VALUE = 'UPDATED VIA TESTS'
 
-REQUEST_DATA_CREATE = {    
-    "name_prefix": "",
+REQUEST_DATA_CREATE = {
+    "name_prefix": "Dr.",
     "name_first": "Test",
-    "name_middle": "",
+    "name_middle": "Michael",
     "name_last": "Person",
-    "name_suffix": "",
+    "name_suffix": "Sr.",
     "description": "A Test Person",
     "read_me": "Test Person==---A test person.",
     "url": "https://rpggeek.com/rpg/511/rifts",
@@ -81,7 +81,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -170,12 +170,9 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -254,7 +251,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

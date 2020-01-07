@@ -19,8 +19,8 @@ INSTANCE_ID = 'palladium-megaversal'
 GET_COUNT = 5
 
 FIXTURES = ['test_users',
-    'test_publisher.json',
-    'test_gamesystem.json']
+            'test_publisher.json',
+            'test_gamesystem.json']
 
 CREATE_TEST_VALUE = 'test-game-system'
 TEST_VALUE = 'UPDATED VIA TESTS'
@@ -37,8 +37,8 @@ REQUEST_DATA_CREATE = {
 
 REQUEST_DATA_CREATE_DUPLICATE = {
     "name": "Palladium Megaversal",
-    "description": "Also known as the Palladium Megaverse, this is a mostly unified system of rules for a wide range of games by the publisher Palladium Books.",
-    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.",
+    "description": "Also known as the Palladium Megaverse, this is a mostly unified system of rules for a wide range of games by the publisher Palladium Books.", # pylint: disable=line-too-long
+    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.", # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpgsystem/733/palladium-megaversal",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
     "short_name": "Megaversal",
@@ -52,7 +52,7 @@ REQUEST_DATA_PATCH = {
 REQUEST_DATA_PUT = {
     "name": "Palladium Megaversal",
     "description": TEST_VALUE,
-    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.",
+    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.", # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpgsystem/733/palladium-megaversal",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
     "short_name": "Megaversal",
@@ -76,7 +76,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -165,12 +165,9 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -249,7 +246,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

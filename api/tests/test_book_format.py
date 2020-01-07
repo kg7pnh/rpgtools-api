@@ -19,7 +19,7 @@ INSTANCE_ID = 'epub'
 GET_COUNT = 7
 
 FIXTURES = ['test_users',
-    'test_bookformat.json']
+            'test_bookformat.json']
 
 CREATE_TEST_VALUE = 'test-format'
 TEST_VALUE = 'UPDATED VIA TESTS'
@@ -69,7 +69,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -158,12 +158,9 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -242,7 +239,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

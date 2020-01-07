@@ -41,7 +41,7 @@ class DieRollRequest(CreateAPIView):
     def post(self, request, *args, **kwargs):
         """
         post
-        """        
+        """
         input_data = Serializer(data=request.data,)
         input_data.is_valid(raise_exception=True)
         value = api.handlers.die_roll.run(input_data.data)

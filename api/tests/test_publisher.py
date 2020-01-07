@@ -19,7 +19,7 @@ INSTANCE_ID = 'steve-jackson-games'
 GET_COUNT = 12
 
 FIXTURES = ['test_users',
-    'test_publisher.json']
+            'test_publisher.json']
 
 CREATE_TEST_VALUE = 'test-publisher'
 TEST_VALUE = 'UPDATED VIA TESTS'
@@ -35,7 +35,7 @@ REQUEST_DATA_CREATE = {
 REQUEST_DATA_CREATE_DUPLICATE = {
     "name": "Steve Jackson Games",
     "description": "Well known for their GURPS system as well as Munchkin.",
-    "read_me": "Steve Jackson Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.",
+    "read_me": "Steve Jackson Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.", # pylint: disable=line-too-long
     "url": "http://www.sjgames.com/",
     "abbreviation": "SJGames"
 }
@@ -47,7 +47,7 @@ REQUEST_DATA_PATCH = {
 REQUEST_DATA_PUT = {
     "name": "Steve Jackson Games",
     "description": TEST_VALUE,
-    "read_me": "Steve Jackson Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.",
+    "read_me": "Steve Jackson Games\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Steve Jackson Games** (**SJGames**) is a game company, founded in 1980 by Steve Jackson, that creates and publishes role-playing, board, and card games, and the gaming magazine Pyramid.", # pylint: disable=line-too-long
     "url": "http://www.sjgames.com/",
     "abbreviation": "SJGames"
 }
@@ -69,7 +69,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -158,12 +158,9 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -242,7 +239,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

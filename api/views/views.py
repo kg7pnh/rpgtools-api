@@ -3,31 +3,12 @@
 Defines the base views
 """
 from rest_framework import generics
-from rest_framework import schemas
 from rest_framework import status
-from rest_framework.decorators import api_view
-from rest_framework.decorators import renderer_classes
 from rest_framework.permissions import IsAdminUser
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
-from rest_framework_simplejwt.exceptions import InvalidToken
-from rest_framework_simplejwt.exceptions import TokenError
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from rest_framework_swagger.renderers import OpenAPIRenderer
-from rest_framework_swagger.renderers import SwaggerUIRenderer
-
-# @api_view()
-# @renderer_classes([SwaggerUIRenderer, OpenAPIRenderer])
-# def schema_view(request):
-#     """
-#     schema_view
-#     """
-#     generator = schemas.SchemaGenerator(title='RPGTools API',
-#                                         description='API access to tools '+
-#                                         'and information for RPG players '+
-#                                         'and game masters.')
-#     return Response(generator.get_schema(request=request))
 
 class Root(APIView):
     """
@@ -57,10 +38,11 @@ class TokenView(TokenObtainPairView):
         post
         """
         serializer = self.get_serializer(data=request.data)
-        try:
-            serializer.is_valid(raise_exception=True)
-        except TokenError as exception:
-            raise InvalidToken(exception.args[0])
+        serializer.is_valid(raise_exception=True)
+        # try:
+        #     serializer.is_valid(raise_exception=True)
+        # except TokenError as exception:
+        #     raise InvalidToken(exception.args[0])
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 

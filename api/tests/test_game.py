@@ -19,9 +19,9 @@ INSTANCE_ID = 'rifts'
 GET_COUNT = 4
 
 FIXTURES = ['test_users',
-    'test_publisher.json',
-    'test_gamesystem.json',
-    'test_game.json']
+            'test_publisher.json',
+            'test_gamesystem.json',
+            'test_game.json']
 
 CREATE_TEST_VALUE = 'test-game'
 TEST_VALUE = 'UPDATED VIA TESTS'
@@ -39,8 +39,8 @@ REQUEST_DATA_CREATE = {
 
 REQUEST_DATA_CREATE_DUPLICATE = {
     "name": "Rifts",
-    "description": "The Rifts Rpg is a multi-genre role-playing game that captures the elements of magic and the supernatural along with science fiction and high technology",
-    "read_me": "Rifts\n==\n---\n**_Rifts_** is a multi-genre role-playing game created by Kevin Siembieda in August 1990 and published continuously by Palladium Books since then. *Rifts* takes place in a post-apocalyptic future, deriving elements from cyberpunk, science fiction, fantasy, horror, western, mythology and many other genres.\n\n*Rifts* serves as a cross-over environment for a variety of other Palladium games with different universes connected through \"rifts\" on Earth that lead to different spaces, times, and realities that Palladium calls the \"Rifts Megaverse\". \n*Rifts* describes itself as an \"advanced\" role-playing game and not an introduction for those new to the concept.\n\nChanged\n\nPalladium continues to publish books for the Rifts series, with about 80 books published between 1990 and 2011. *Rifts Ultimate Edition* was released in August 2005 and designed to update the game with Palladium's incremental changes to its system, changes in the game world, and additional information and character types. The web site is quick to point out that this is not a second edition but an improvement and expansion of the original role playing game.",
+    "description": "The Rifts Rpg is a multi-genre role-playing game that captures the elements of magic and the supernatural along with science fiction and high technology", # pylint: disable=line-too-long
+    "read_me": "Rifts\n==\n---\n**_Rifts_** is a multi-genre role-playing game created by Kevin Siembieda in August 1990 and published continuously by Palladium Books since then. *Rifts* takes place in a post-apocalyptic future, deriving elements from cyberpunk, science fiction, fantasy, horror, western, mythology and many other genres.\n\n*Rifts* serves as a cross-over environment for a variety of other Palladium games with different universes connected through \"rifts\" on Earth that lead to different spaces, times, and realities that Palladium calls the \"Rifts Megaverse\". \n*Rifts* describes itself as an \"advanced\" role-playing game and not an introduction for those new to the concept.\n\nChanged\n\nPalladium continues to publish books for the Rifts series, with about 80 books published between 1990 and 2011. *Rifts Ultimate Edition* was released in August 2005 and designed to update the game with Palladium's incremental changes to its system, changes in the game world, and additional information and character types. The web site is quick to point out that this is not a second edition but an improvement and expansion of the original role playing game.", # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpg/511/rifts",
     "game_system": "20f5f42b-9531-47e0-a794-f6607e9520b5",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
@@ -55,7 +55,7 @@ REQUEST_DATA_PATCH = {
 REQUEST_DATA_PUT = {
     "name": "Rifts",
     "description": TEST_VALUE,
-    "read_me": "Rifts\n==\n---\n**_Rifts_** is a multi-genre role-playing game created by Kevin Siembieda in August 1990 and published continuously by Palladium Books since then. *Rifts* takes place in a post-apocalyptic future, deriving elements from cyberpunk, science fiction, fantasy, horror, western, mythology and many other genres.\n\n*Rifts* serves as a cross-over environment for a variety of other Palladium games with different universes connected through \"rifts\" on Earth that lead to different spaces, times, and realities that Palladium calls the \"Rifts Megaverse\". \n*Rifts* describes itself as an \"advanced\" role-playing game and not an introduction for those new to the concept.\n\nChanged\n\nPalladium continues to publish books for the Rifts series, with about 80 books published between 1990 and 2011. *Rifts Ultimate Edition* was released in August 2005 and designed to update the game with Palladium's incremental changes to its system, changes in the game world, and additional information and character types. The web site is quick to point out that this is not a second edition but an improvement and expansion of the original role playing game.",
+    "read_me": "Rifts\n==\n---\n**_Rifts_** is a multi-genre role-playing game created by Kevin Siembieda in August 1990 and published continuously by Palladium Books since then. *Rifts* takes place in a post-apocalyptic future, deriving elements from cyberpunk, science fiction, fantasy, horror, western, mythology and many other genres.\n\n*Rifts* serves as a cross-over environment for a variety of other Palladium games with different universes connected through \"rifts\" on Earth that lead to different spaces, times, and realities that Palladium calls the \"Rifts Megaverse\". \n*Rifts* describes itself as an \"advanced\" role-playing game and not an introduction for those new to the concept.\n\nChanged\n\nPalladium continues to publish books for the Rifts series, with about 80 books published between 1990 and 2011. *Rifts Ultimate Edition* was released in August 2005 and designed to update the game with Palladium's incremental changes to its system, changes in the game world, and additional information and character types. The web site is quick to point out that this is not a second edition but an improvement and expansion of the original role playing game.", # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpg/511/rifts",
     "game_system": "20f5f42b-9531-47e0-a794-f6607e9520b5",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
@@ -80,7 +80,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -169,12 +169,9 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -253,7 +250,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

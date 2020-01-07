@@ -264,7 +264,7 @@ SWAGGER_SETTINGS = {
     'SHOW_REQUEST_HEADERS': True
 }
 
-# simplehistory settings
+# # simplehistory settings
 SIMPLE_HISTORY_HISTORY_ID_USE_UUID=True
 SIMPLE_HISTORY_HISTORY_CHANGE_REASON_USE_TEXT_FIELD=True
 

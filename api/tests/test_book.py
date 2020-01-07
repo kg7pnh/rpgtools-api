@@ -19,12 +19,12 @@ INSTANCE_ID = 'going-home'
 GET_COUNT = 4
 
 FIXTURES = ['test_users',
-    'test_book.json',
-    'test_bookformat.json',
-    'test_contributor.json',
-    'test_game.json',
-    'test_gamesystem.json',
-    'test_publisher.json',]
+            'test_book.json',
+            'test_bookformat.json',
+            'test_contributor.json',
+            'test_game.json',
+            'test_gamesystem.json',
+            'test_publisher.json',]
 
 CREATE_TEST_VALUE = 'test-book'
 TEST_VALUE = 'UPDATED VIA TESTS'
@@ -77,8 +77,8 @@ REQUEST_DATA_CREATE = {
 
 REQUEST_DATA_CREATE_DUPLICATE = {
     "name": "Going Home",
-    "description": "A game module for use with GDW's World War III role-playing game, Twilight: 2000.",
-    "read_me": "Going Home\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_It came as quite a surprise when we finally confirmed it. What remained of the big brass in Europe decided that it was time for everyone to get out of the pool, so they arranged for a few ships to take us back to America. Problem was, nobody believed that the ships would have enough room for everybody. We decided that this was the last ride going our way, and it was time to go home. The ships were leaving on November 15, and there were no reserved seats...what with thirty or forty thousand people looking for seats, it could get to be quite a game of musical chairs._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Going Home_ is an adventure for use with GDW's World War III role-playing game, **Twilight: 2000**. In _Going Home_, the players are presented with the challenge with getting across most of Poland and north-central Germany to catch the last ship heading back to the US for quite a while.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if the players choose to remain in Europe, _Going Home_ will still be of tremendous interest. The adventure contains:<ul><li>A full-color pull-out map, covering northern Germany which overlaps with the full-color Poland map included in the original game.</li><li>A referee's update of the location and strength of NATO and Warsaw Pact units in their winter quarters as the year 2000draws to a close.</li><li>A brief rundown of French units in the occupied area west of the Rhine and a discussion of French military activities in the so-called \\\"dead zone\\\" east of the Rhine. Also, a bonus: read_mes (in _Twilight: 2000_ terms of three French helicopters.</li><li>Details and specifications, in _Twilight: 2000_ terms, the German Leopard III and the British Challenger tanks, and British 120mm rifled gun.</li></ul>",
+    "description": "A game module for use with GDW's World War III role-playing game, Twilight: 2000.", # pylint: disable=line-too-long
+    "read_me": "Going Home\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_It came as quite a surprise when we finally confirmed it. What remained of the big brass in Europe decided that it was time for everyone to get out of the pool, so they arranged for a few ships to take us back to America. Problem was, nobody believed that the ships would have enough room for everybody. We decided that this was the last ride going our way, and it was time to go home. The ships were leaving on November 15, and there were no reserved seats...what with thirty or forty thousand people looking for seats, it could get to be quite a game of musical chairs._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Going Home_ is an adventure for use with GDW's World War III role-playing game, **Twilight: 2000**. In _Going Home_, the players are presented with the challenge with getting across most of Poland and north-central Germany to catch the last ship heading back to the US for quite a while.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if the players choose to remain in Europe, _Going Home_ will still be of tremendous interest. The adventure contains:<ul><li>A full-color pull-out map, covering northern Germany which overlaps with the full-color Poland map included in the original game.</li><li>A referee's update of the location and strength of NATO and Warsaw Pact units in their winter quarters as the year 2000draws to a close.</li><li>A brief rundown of French units in the occupied area west of the Rhine and a discussion of French military activities in the so-called \\\"dead zone\\\" east of the Rhine. Also, a bonus: read_mes (in _Twilight: 2000_ terms of three French helicopters.</li><li>Details and specifications, in _Twilight: 2000_ terms, the German Leopard III and the British Challenger tanks, and British 120mm rifled gun.</li></ul>", # pylint: disable=line-too-long
     "url": "",
     "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
     "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
@@ -128,7 +128,7 @@ REQUEST_DATA_PATCH = {
 REQUEST_DATA_PUT = {
     "name": "Going Home",
     "description": TEST_VALUE,
-    "read_me": "Going Home\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_It came as quite a surprise when we finally confirmed it. What remained of the big brass in Europe decided that it was time for everyone to get out of the pool, so they arranged for a few ships to take us back to America. Problem was, nobody believed that the ships would have enough room for everybody. We decided that this was the last ride going our way, and it was time to go home. The ships were leaving on November 15, and there were no reserved seats...what with thirty or forty thousand people looking for seats, it could get to be quite a game of musical chairs._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Going Home_ is an adventure for use with GDW's World War III role-playing game, **Twilight: 2000**. In _Going Home_, the players are presented with the challenge with getting across most of Poland and north-central Germany to catch the last ship heading back to the US for quite a while.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if the players choose to remain in Europe, _Going Home_ will still be of tremendous interest. The adventure contains:<ul><li>A full-color pull-out map, covering northern Germany which overlaps with the full-color Poland map included in the original game.</li><li>A referee's update of the location and strength of NATO and Warsaw Pact units in their winter quarters as the year 2000draws to a close.</li><li>A brief rundown of French units in the occupied area west of the Rhine and a discussion of French military activities in the so-called \\\"dead zone\\\" east of the Rhine. Also, a bonus: read_mes (in _Twilight: 2000_ terms of three French helicopters.</li><li>Details and specifications, in _Twilight: 2000_ terms, the German Leopard III and the British Challenger tanks, and British 120mm rifled gun.</li></ul>",
+    "read_me": "Going Home\n==\n---\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_It came as quite a surprise when we finally confirmed it. What remained of the big brass in Europe decided that it was time for everyone to get out of the pool, so they arranged for a few ships to take us back to America. Problem was, nobody believed that the ships would have enough room for everybody. We decided that this was the last ride going our way, and it was time to go home. The ships were leaving on November 15, and there were no reserved seats...what with thirty or forty thousand people looking for seats, it could get to be quite a game of musical chairs._\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Going Home_ is an adventure for use with GDW's World War III role-playing game, **Twilight: 2000**. In _Going Home_, the players are presented with the challenge with getting across most of Poland and north-central Germany to catch the last ship heading back to the US for quite a while.\n\n&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Even if the players choose to remain in Europe, _Going Home_ will still be of tremendous interest. The adventure contains:<ul><li>A full-color pull-out map, covering northern Germany which overlaps with the full-color Poland map included in the original game.</li><li>A referee's update of the location and strength of NATO and Warsaw Pact units in their winter quarters as the year 2000draws to a close.</li><li>A brief rundown of French units in the occupied area west of the Rhine and a discussion of French military activities in the so-called \\\"dead zone\\\" east of the Rhine. Also, a bonus: read_mes (in _Twilight: 2000_ terms of three French helicopters.</li><li>Details and specifications, in _Twilight: 2000_ terms, the German Leopard III and the British Challenger tanks, and British 120mm rifled gun.</li></ul>", # pylint: disable=line-too-long
     "url": "",
     "book_format": "5824260c-36f6-4196-8403-80c558ffff08",
     "publisher": "c7348e4d-9145-421e-ab19-d5eda71a757d",
@@ -188,7 +188,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -217,8 +217,20 @@ class TestAdmin(RPGToolsApiBaseTestCase):
                                                  REQUEST_DATA_CREATE,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(response.json()['id'], "test-book")
+        self.assertEqual(response.json()['id'], CREATE_TEST_VALUE)
         self.assertEqual(response.status_code, CODES["created"])
+
+        response = self.rpgtools_api_client.patch(EDIT_URL + CREATE_TEST_VALUE,
+                                                  REQUEST_DATA_PATCH,
+                                                  format="json",
+                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
+        self.assertEqual(response.json()['description'], TEST_VALUE)
+        self.assertEqual(response.status_code, CODES["success"])
+
+        response = self.rpgtools_api_client.get(POST_URL + CREATE_TEST_VALUE + '/history',
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+        self.assertTrue(response.json())
+        self.assertEqual(response.status_code, CODES["success"])
 
     def test_post_duplicate_item(self):
         """
@@ -277,12 +289,9 @@ class BookFormatTestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        token = self.rpgtools_api_client_ro.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
-                                                 format="json").json()["access"]
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -361,7 +370,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

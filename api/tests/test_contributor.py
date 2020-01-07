@@ -7,7 +7,6 @@ from api.tests.base import RPGToolsApiBaseTestCase
 from api.tests.base import ADMIN_USER
 from api.tests.base import BASE_URL
 from api.tests.base import CODES
-from api.tests.base import READ_ONLY_USER
 from api.tests.base import TOKEN_URL
 
 MODEL_URL = BASE_URL + 'contributors'
@@ -19,7 +18,7 @@ INSTANCE_ID = 'meier-elizabeth'
 GET_COUNT = 65
 
 FIXTURES = ['test_users',
-    'test_contributor.json']
+            'test_contributor.json']
 
 @tag("contributor_admin")
 class TestAdmin(RPGToolsApiBaseTestCase):
@@ -38,7 +37,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         response = self.rpgtools_api_client.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):
@@ -64,7 +63,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(MODEL_URL)
-        self.assertEqual(len(response.json()),GET_COUNT)
+        self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_get_item_id(self):

@@ -51,7 +51,7 @@ class Schema(Base):
                                   verbose_name='Enabled')
     deprecated = models.BooleanField(default=False,
                                      null=False,
-                                     verbose_name='Debricated')
+                                     verbose_name='Deprecated')
 
     # Manager
 
@@ -68,6 +68,13 @@ class Schema(Base):
         verbose_name = 'Schema'
         verbose_name_plural = 'Schemas'
         ordering = ('name', )
+
+    # def get_secrets(self):
+    #     secrets = list()
+    #     for propName, propAttr in self.document["properties"].items():
+    #         if propAttr.get("secret"):
+    #             secrets.append(propName)
+    #     return secrets
 
 @receiver(pre_save, sender=Schema)
 def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument

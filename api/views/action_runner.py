@@ -3,7 +3,6 @@
 Defines the ActionRunner views
 """
 import importlib
-import inspect
 import json
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
@@ -11,17 +10,10 @@ from rest_framework.response import Response
 from api.models.action_runner import ActionRunner
 from api.serializers.action_runner import Serializer
 
-def print_frame(comments=None):
-  callerframerecord = inspect.stack()[1]    # 0 represents this line
-                                            # 1 represents line at caller
-  frame = callerframerecord[0]
-  info = inspect.getframeinfo(frame)
-  print(info.filename)                      # __FILE__     -> Test.py
-  print(info.function)                      # __FUNCTION__ -> Main
-  print(info.lineno)                        # __LINE__     -> 13
-  print(comments)
-
 def run_method(method, method_input, additional_input=None):
+    """
+    run_method
+    """
     response = {}
     try:
         module_name = 'api.handlers.'+method
@@ -36,25 +28,22 @@ def run_method(method, method_input, additional_input=None):
         }
     return response
 
-def iterate_input(action_input, additional_input):
+def iterate_input(action_input, additional_input, index):
     """
     iterate_input
     """
     response = {}
-    if 'method' in action_input:
+    if 'method' in action_input and \
+            'name' in action_input and \
+            'input' in action_input:
+        name = action_input['name']
         method = action_input['method']
         method_input = action_input['input']
         response = {
-            method: run_method(method, method_input, additional_input)
+            name: run_method(method, method_input, additional_input)
         }
     else:
-        for entry in action_input:
-            print(entry)
-            if not additional_input:
-                additional_input = response
-            if 'method' in action_input[entry]:
-                method = action_input[entry]['method']
-                response[entry] = run_method(method, action_input[entry]['input'], additional_input)
+        response['error_entry_index_' + str(index)] = 'Action Input entries require "name", "method" and "input" items to be processed.'
     return response
 
 class ActionRunnerRequest(CreateAPIView):
@@ -71,11 +60,12 @@ class ActionRunnerRequest(CreateAPIView):
         action_runner = Serializer(data=request.data, )
         action_runner.is_valid(raise_exception=True)
         action_input = action_runner.data['action_input']
+        additional_input = action_runner.data['additional_input']
 
-        additional_input = None
-        if 'additional_input' in action_runner.data:
-            additional_input = action_runner.data['additional_input']
-
-        response = iterate_input(action_input, additional_input)
-
-        return Response(json.loads(json.dumps(response)), status=status.HTTP_201_CREATED)
+        result = {}
+        length = len(action_input)
+        for index in range(length):
+            response = iterate_input(action_input[index], additional_input, index)
+            result.update(response)
+            additional_input = result
+        return Response(json.loads(json.dumps(result)), status=status.HTTP_201_CREATED)

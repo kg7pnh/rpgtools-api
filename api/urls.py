@@ -36,7 +36,7 @@ ROUTER = routers.DefaultRouter()
 ROUTER.register(r'users', user_group.UserViewSet)
 ROUTER.register(r'groups', user_group.GroupViewSet)
 
-schema_view = get_schema_view(
+schema_view = get_schema_view( # pylint: disable=invalid-name
     openapi.Info(
         title='RPGTools API',
         default_version='v.1.0.0',
@@ -255,7 +255,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     # Schema paths
     path('schemas/<str:id>/<int:version>',
          schema.ItemVersionView.as_view(),
-         name="schema_version"),
+         name="schema"),
     path('schemas/edit/<str:id>/<int:version>',
          schema.ItemEditView.as_view(),
          name="schema_edit"),
@@ -264,7 +264,7 @@ api_urlpatterns = [ #pylint: disable=invalid-name
          name="schema_delete"),
     path('schemas/<str:id>/<int:version>.json',
          schema.DocumentVersionView.as_view(),
-         name="schema_item_version_json"),
+         name="schema_item_version"),
     path('schemas/',
          schema.CreateView.as_view(),
          name="schema_create"),
@@ -305,20 +305,18 @@ api_urlpatterns = [ #pylint: disable=invalid-name
 ]
 
 urlpatterns = api_urlpatterns + [ #pylint: disable=invalid-name
-#     url(r'docs/',
-#         views.schema_view),
-
-    url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    # url(r'^swagger(?P<format>\.json|\.yaml)$', schema_view.without_ui(cache_timeout=0), name='schema-json'),
-    url(r'^swagger/$', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    url(r'^redoc/$', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
-    url(r'info/?',
-    views.Root.as_view(),
-    name='info'),
-    url(r'^$',
-    RedirectView.as_view(url='info')),
-    url(r'^',
-    RedirectView.as_view(url='info')),
+    url(r'^swagger(?P<format>\.json|\.yaml)$',
+        schema_view.without_ui(cache_timeout=0),
+        name='schema-json'),
+    url(r'^swagger/$',
+        schema_view.with_ui('swagger', cache_timeout=0),
+        name='schema-swagger-ui'),
+    url(r'^redoc/$',
+        schema_view.with_ui('redoc', cache_timeout=0),
+        name='schema-redoc'),
+    url(r'info/?', views.Root.as_view(), name='info'),
+    url(r'^$', RedirectView.as_view(url='info')),
+    url(r'^', RedirectView.as_view(url='info')),
     path('', include(ROUTER.urls)),
 ]
 

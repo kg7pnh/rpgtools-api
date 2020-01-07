@@ -37,21 +37,20 @@ class Base(models.Model):
     url = models.URLField(verbose_name='Website',
                           null=True,
                           blank=True)
-    history = HistoricalRecords(inherit=True,
-                                excluded_fields=['id', 'created', 'modified'])
+    history = HistoricalRecords(inherit=True)
 
     # Functions
-    # def __str__(self):
-    #     '''
-    #     __str__
-    #     '''
-    #     return self.name
+    def __str__(self):
+        '''
+        __str__
+        '''
+        return self.name
 
-    # def __unicode__(self):
-    #     '''
-    #     __unicode__
-    #     '''
-    #     return self.name
+    def __unicode__(self):
+        '''
+        __unicode__
+        '''
+        return self.name
 
     def save(self, *args, **kwargs): # pylint: disable=arguments-differ
         '''

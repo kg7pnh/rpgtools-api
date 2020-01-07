@@ -30,9 +30,9 @@ class DieRoll(models.Model):
     per_modifier = JSONField(null=True,
                              blank=True)
     roll_modifier = JSONField(null=True,
-                             blank=True)
+                              blank=True)
     post_modifier = JSONField(null=True,
-                             blank=True)
+                              blank=True)
     reroll = JSONField(null=True,
                        blank=True)
 

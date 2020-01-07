@@ -25,8 +25,8 @@ build-dev:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/gamesystem.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/game.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/book.json
-	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/handler.json
-	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/action.json
+	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/handler.json
+	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/action.json
 	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/workflow.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/token.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py populate_history --auto
@@ -57,7 +57,7 @@ init:
 	PIPENV_VERBOSITY=-1  pipenv install --skip-lock
 
 lint:
-	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,schemas,check_contributers.py --disable=R0801
+	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,schemas,check_contributers.py --disable=R0801,R0401
 
 test:
 	PIPENV_VERBOSITY=-1  pipenv run coverage run --rcfile=.coveragerc --source='.' manage.py test api
