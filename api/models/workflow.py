@@ -38,10 +38,6 @@ class Workflow(Base):
                                        default='MANUAL',
                                        max_length=8,
                                        verbose_name='Method')
-    workflow_type = models.CharField(choices=WORKFLOW_TYPE,
-                                     default='CHARACHTER',
-                                     max_length=50,
-                                     verbose_name='Type')
     definition = JSONField(blank=True,
                            null=True,
                            verbose_name='Definition')

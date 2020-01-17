@@ -399,8 +399,7 @@ class WorkflowAdmin(admin.ModelAdmin):
               'modified',
               'name',
               'game',
-              'method',
-              'type',
+              'workflow_method',
               'definition')
     readonly_fields = ('_id',
                        'id',
