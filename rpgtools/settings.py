@@ -208,7 +208,8 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_METADATA_CLASS': 'rest_framework.metadata.SimpleMetadata',
     # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'DEFAULT_PAGINATION_CLASS': 'drf_link_header_pagination.LinkHeaderPagination'
+    # 'DEFAULT_PAGINATION_CLASS': 'drf_link_header_pagination.LinkHeaderPagination'
+    'DEFAULT_PAGINATION_CLASS': None
     # 'PAGE_SIZE': 10
 }
 
