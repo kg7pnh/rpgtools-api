@@ -15,9 +15,10 @@ SCHEMA_SPECIFICATION = (
 
 SCHEMA_TYPE = (
     ('Form', 'Form'),
-    ('Object', 'Object'),
     ('Input', 'Input'),
-    ('Output', 'Output')
+    ('Object', 'Object'),
+    ('Output', 'Output'),
+    ('Workflow', 'Workflow')
 )
 
 class Schema(Base):

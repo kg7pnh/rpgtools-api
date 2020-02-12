@@ -60,11 +60,17 @@ lint:
 	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,schemas,check_contributers.py --disable=R0801,R0401
 
 test:
+	mkdir -p ui/static
+	mkdir -p fixtures
+	mkdir -p logs
 	PIPENV_VERBOSITY=-1  pipenv run coverage run --rcfile=.coveragerc --source='.' manage.py test api
 	PIPENV_VERBOSITY=-1  pipenv run coverage html --rcfile=.coveragerc
 	PIPENV_VERBOSITY=-1  pipenv run coverage report
 
 dump_test_data:
+	mkdir -p ui/static
+	mkdir -p fixtures
+	mkdir -p logs
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.contributor --indent 4 | grep -v Fetch > ./api/fixtures/test_contributor.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.organization --indent 4 | grep -v Fetch > ./api/fixtures/test_organization.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.person --indent 4 | grep -v Fetch > ./api/fixtures/test_person.json

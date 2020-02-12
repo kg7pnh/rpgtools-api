@@ -12,14 +12,8 @@ from .base import Base
 from .game import Game
 
 WORKFLOW_METHOD = (
-    ('MANUAL', 'MANUAL'),
-    ('AUTO', 'AUTO'),
-)
-
-WORKFLOW_TYPE = (
-    ('CHARACHTER', 'CHARACHTER'),
-    ('NPC', 'NPC'),
-    ('OTHER', 'OTHER')
+    ('Manual', 'Manual'),
+    ('Automatic', 'Automatic'),
 )
 
 # Create your models here.
@@ -35,12 +29,18 @@ class Workflow(Base):
 
     # Attributes
     workflow_method = models.CharField(choices=WORKFLOW_METHOD,
-                                       default='MANUAL',
+                                       default='Manual',
                                        max_length=8,
                                        verbose_name='Method')
     definition = JSONField(blank=True,
                            null=True,
                            verbose_name='Definition')
+    enabled = models.BooleanField(default=True,
+                                  null=False,
+                                  verbose_name='Enabled')
+    deprecated = models.BooleanField(default=False,
+                                     null=False,
+                                     verbose_name='Deprecated')
 
     # Manager
 
