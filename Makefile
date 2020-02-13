@@ -36,8 +36,8 @@ build-dev:
 collectstatic:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py collectstatic --noinput
 
-delete-db:
-	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
+# delete-db:
+# 	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
 
 dumpdata:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.contributor --indent 4 | grep -v Fetch > ./fixtures/contributor.json
@@ -88,8 +88,8 @@ dump_test_data:
 run:
 	PIPENV_VERBOSITY=-1  pipenv run python ./manage.py runserver --settings rpgtools.settings
 
-setup-db:
-	psql -h localhost -U postgres -c "CREATE USER rpgtools_admin with PASSWORD 'Gerrit8684!';"
-	psql -h localhost -U postgres -c 'ALTER USER rpgtools_admin WITH SUPERUSER;'
-	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
-	psql -h localhost -U postgres -c 'CREATE database rpgtools';
+# setup-db:
+# 	psql -h localhost -U postgres -c "CREATE USER rpgtools_admin with PASSWORD 'Gerrit8684!';"
+# 	psql -h localhost -U postgres -c 'ALTER USER rpgtools_admin WITH SUPERUSER;'
+# 	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
+# 	psql -h localhost -U postgres -c 'CREATE database rpgtools';
