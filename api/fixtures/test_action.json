@@ -12,10 +12,7 @@
         "url": null,
         "game": "9d739130-b037-4425-8103-3cf13bd21fc1",
         "handler": "07dadfbe-cf13-4030-8c66-a72b9bead477",
-        "input_json": "{\"Place\": \"Holder\"}",
-        "input_schema": "4567f493-1b2d-48f1-a2f8-fec3fc2893c6",
-        "output_schema": "079970cd-6555-4992-83e8-e06f5ee8b848",
-        "form_schema": null
+        "input_json": "{\"Place\": \"Holder\"}"
     }
 }
 ]

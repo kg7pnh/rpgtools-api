@@ -19,7 +19,6 @@ build-dev:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_user('read-only', 'ro@bayhasworld.com', 'ropassword',first_name='read',last_name='only')"
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/publisher.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/bookformat.json
-	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/schema.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/contributor.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/person.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/organization.json
@@ -48,7 +47,6 @@ dumpdata:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.bookformat --indent 4 | grep -v Fetch > ./fixtures/bookformat.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.book --indent 4 | grep -v Fetch > ./fixtures/book.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.game --indent 4 | grep -v Fetch > ./fixtures/game.json
-	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.schema --indent 4 | grep -v Fetch > ./fixtures/schema.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.handler --indent 4 | grep -v Fetch > ./fixtures/handler.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.action --indent 4 | grep -v Fetch > ./fixtures/action.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.workflow --indent 4 | grep -v Fetch > ./fixtures/workflow.json
@@ -58,7 +56,7 @@ init:
 	PIPENV_VERBOSITY=-1  pipenv install --skip-lock
 
 lint:
-	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,schemas,check_contributers.py --disable=R0801,R0401
+	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,check_contributers.py --disable=R0801,R0401
 
 test:
 	mkdir -p ui/static
@@ -80,7 +78,6 @@ dump_test_data:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.bookformat --indent 4 | grep -v Fetch > ./api/fixtures/test_bookformat.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.book --indent 4 | grep -v Fetch > ./api/fixtures/test_book.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.game --indent 4 | grep -v Fetch > ./api/fixtures/test_game.json
-	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.schema --indent 4 | grep -v Fetch > ./api/fixtures/test_schema.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.handler --indent 4 | grep -v Fetch > ./api/fixtures/test_handler.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.action --indent 4 | grep -v Fetch > ./api/fixtures/test_action.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.workflow --indent 4 | grep -v Fetch > ./api/fixtures/test_workflow.json
