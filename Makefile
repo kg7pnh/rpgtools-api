@@ -11,8 +11,8 @@ build-dev:
 	mkdir -p fixtures
 	mkdir -p logs
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py collectstatic --noinput
-	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
-	psql -h localhost -U postgres -c 'CREATE database rpgtools';
+	# psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
+	# psql -h localhost -U postgres -c 'CREATE database rpgtools';
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py makemigrations
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py migrate
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@bayhasworld.com', 'adminpass',first_name='admin',last_name='admin')"
