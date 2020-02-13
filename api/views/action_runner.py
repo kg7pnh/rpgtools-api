@@ -58,9 +58,11 @@ class ActionRunnerRequest(CreateAPIView):
         post
         """
         action_runner = Serializer(data=request.data, )
-        action_runner.is_valid(raise_exception=True)
-        action_input = action_runner.data['action_input']
-        additional_input = action_runner.data['additional_input']
+        action_input = json.loads(json.dumps(action_runner.initial_data['action_input']))
+        if 'additional_input' in action_runner.initial_data:
+            additional_input = json.loads(json.dumps(action_runner.initial_data['additional_input']))
+        else:
+            additional_input = None
 
         result = {}
         length = len(action_input)

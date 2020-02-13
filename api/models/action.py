@@ -2,7 +2,7 @@
 """
 Defines the BookFormat model
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -23,8 +23,8 @@ class Action(Base):
                              on_delete=models.PROTECT)
     handler = models.ForeignKey(Handler,
                                 on_delete=models.PROTECT)
-    input_json = JSONField(default='{"Place": "Holder"}',
-                           verbose_name='Input JSON')
+    input_json = models.TextField(default='{"Place": "Holder"}',
+                                  verbose_name='Input JSON')
     input_schema = models.ForeignKey(Schema,
                                      blank=True,
                                      limit_choices_to={'schema_type': 'Input'},

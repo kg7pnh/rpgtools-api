@@ -2,7 +2,7 @@
 """
 Defines the Schema model
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -40,9 +40,9 @@ class Schema(Base):
                                    verbose_name='Schema Type')
     version = models.IntegerField(default=1,
                                   verbose_name='Version')
-    document = JSONField(verbose_name='Document',
-                         null=True,
-                         blank=True)
+    document = models.TextField(verbose_name='Document',
+                                null=True,
+                                blank=True)
     specification = models.CharField(max_length=64,
                                      choices=SCHEMA_SPECIFICATION,
                                      default='Draft-07',

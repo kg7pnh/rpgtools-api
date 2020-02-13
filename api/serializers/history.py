@@ -29,10 +29,10 @@ class HistorySerializer(serializers.Serializer): # pylint: disable=abstract-meth
             }
             if _change["history_type"] ==  "Created":
                 for field in record.history_object._meta.get_fields():
-                    change_count += 1
+                    
                     if field.editable \
                         and not field.__class__.__name__ == 'ManyToManyField':
-
+                        change_count += 1
                         value = str(getattr(record.history_object, field.name))
                         _change["changes"].append({
                             "field": field.name,
@@ -42,6 +42,7 @@ class HistorySerializer(serializers.Serializer): # pylint: disable=abstract-meth
                     elif field.__class__.__name__ == 'ManyToManyField':
                         result = []
                         try:
+                            change_count += 1
                             items = getattr(record.history_object, field.name).all()
                             for item in items:
                                 result.append(str(item))

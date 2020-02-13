@@ -2,7 +2,7 @@
 """
 Defines the Workflow model
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -32,9 +32,9 @@ class Workflow(Base):
                                        default='Manual',
                                        max_length=8,
                                        verbose_name='Method')
-    definition = JSONField(blank=True,
-                           null=True,
-                           verbose_name='Definition')
+    definition = models.TextField(blank=True,
+                                  null=True,
+                                  verbose_name='Definition')
     enabled = models.BooleanField(default=True,
                                   null=False,
                                   verbose_name='Enabled')

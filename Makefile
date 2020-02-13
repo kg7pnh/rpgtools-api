@@ -2,6 +2,7 @@
 
 build-dev:
 	PIPENV_VERBOSITY=-1  pipenv lock --requirements > requirements.txt
+	rm -f db.sqlite3
 	rm -f ./api/migrations/0001_initial.py
 	rm -f ./base/migrations/0001_initial.py
 	rm -f ./ui/migrations/0001_initial.py
@@ -27,7 +28,7 @@ build-dev:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/book.json
 	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/handler.json
 	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/action.json
-	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/workflow.json
+	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/workflow.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/token.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py populate_history --auto
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata auth.User --indent 4 | grep -v Fetch > ./fixtures/users.json
