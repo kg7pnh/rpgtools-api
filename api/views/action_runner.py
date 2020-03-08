@@ -69,5 +69,8 @@ class ActionRunnerRequest(CreateAPIView):
         for index in range(length):
             response = iterate_input(action_input[index], additional_input, index)
             result.update(response)
-            additional_input = result
+            if additional_input:
+                additional_input.update(response)
+            else:
+                additional_input = response
         return Response(json.loads(json.dumps(result)), status=status.HTTP_201_CREATED)
