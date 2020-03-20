@@ -1,6 +1,6 @@
 .PHONY: build
 
-build-dev:
+build:
 	PIPENV_VERBOSITY=-1  pipenv lock --requirements > requirements.txt
 	rm -f db.sqlite3
 	rm -f ./api/migrations/0001_initial.py
