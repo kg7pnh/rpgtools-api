@@ -62,7 +62,7 @@ test:
 	mkdir -p ui/static
 	mkdir -p fixtures
 	mkdir -p logs
-	echo CODECOV_TOKEN
+	echo $CODECOV_TOKEN
 	PIPENV_VERBOSITY=-1  pipenv run coverage run --rcfile=.coveragerc --source='.' manage.py test api
 	PIPENV_VERBOSITY=-1  pipenv run coverage html --rcfile=.coveragerc
 	PIPENV_VERBOSITY=-1  pipenv run coverage report
