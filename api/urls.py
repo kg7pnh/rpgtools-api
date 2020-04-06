@@ -27,7 +27,6 @@ from api.views import handler
 from api.views import organization
 from api.views import person
 from api.views import publisher
-from api.views import schema
 from api.views import user_group
 from api.views import views
 from api.views import workflow
@@ -251,29 +250,6 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('publishers/<str:id>/history',
          publisher.PublisherHistoryView.as_view(),
          name="publisher_history"),
-
-    # Schema paths
-    path('schemas/<str:id>/<int:version>',
-         schema.ItemVersionView.as_view(),
-         name="schema"),
-    path('schemas/edit/<str:id>/<int:version>',
-         schema.ItemEditView.as_view(),
-         name="schema_edit"),
-    path('schemas/delete/<str:id>/<int:version>',
-         schema.ItemDeleteView.as_view(),
-         name="schema_delete"),
-    path('schemas/<str:id>/<int:version>.json',
-         schema.DocumentVersionView.as_view(),
-         name="schema_item_version"),
-    path('schemas/',
-         schema.CreateView.as_view(),
-         name="schema_create"),
-    path('schemas',
-         schema.ListView.as_view(),
-         name="schema_list"),
-    path('schemas/<str:id>/<int:version>/history',
-         schema.SchemaHistoryView.as_view(),
-         name="schema_history"),
 
     # Workflow paths
     path('workflows/<str:id>',

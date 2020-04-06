@@ -2,7 +2,7 @@
 """
 Defines the Workflow model
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -12,14 +12,8 @@ from .base import Base
 from .game import Game
 
 WORKFLOW_METHOD = (
-    ('MANUAL', 'MANUAL'),
-    ('AUTO', 'AUTO'),
-)
-
-WORKFLOW_TYPE = (
-    ('CHARACHTER', 'CHARACHTER'),
-    ('NPC', 'NPC'),
-    ('OTHER', 'OTHER')
+    ('Manual', 'Manual'),
+    ('Automatic', 'Automatic'),
 )
 
 # Create your models here.
@@ -35,12 +29,18 @@ class Workflow(Base):
 
     # Attributes
     workflow_method = models.CharField(choices=WORKFLOW_METHOD,
-                                       default='MANUAL',
+                                       default='Manual',
                                        max_length=8,
                                        verbose_name='Method')
-    definition = JSONField(blank=True,
-                           null=True,
-                           verbose_name='Definition')
+    definition = models.TextField(blank=True,
+                                  null=True,
+                                  verbose_name='Definition')
+    enabled = models.BooleanField(default=True,
+                                  null=False,
+                                  verbose_name='Enabled')
+    deprecated = models.BooleanField(default=False,
+                                     null=False,
+                                     verbose_name='Deprecated')
 
     # Manager
 

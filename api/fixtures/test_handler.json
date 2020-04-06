@@ -10,8 +10,6 @@
         "description": null,
         "read_me": null,
         "url": null,
-        "input_schema": "b170fb64-5714-4a48-8957-f4aba0de0fd8",
-        "output_schema": "9cbf41cf-8862-4ec5-a014-247df0ec380d",
         "method": "POST",
         "api_handler": "die_roll"
     }

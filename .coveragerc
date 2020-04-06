@@ -9,7 +9,6 @@ omit = *.vitualenvs/*
        */admin.py
        */apps.py
        */site-packages/*
-       ./api/schemas/*
        ./rpgtools/settings.py
        ./rpgtools/wsgi.py
        */__init__.py

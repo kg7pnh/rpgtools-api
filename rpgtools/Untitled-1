@@ -1,0 +1,515 @@
+{
+    "action_input":  [
+        {
+            "name": "Fitness",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Agility",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Constitution",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Stature",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Intelligence",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Education",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Total",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "int",
+                    "1": "(",
+                    "2": "Fitness",
+                    "3": "+",
+                    "4": "Agility",
+                    "5": "+",
+                    "6": "Constitution",
+                    "7": "+",
+                    "8": "Stature",
+                    "9": "+",
+                    "10": "Intelligence",
+                    "11": "+",
+                    "12": "Education",
+                    "13": ")"
+                }
+            }
+        },
+        {
+            "name": "Strength",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "math.trunc",
+                    "1": "(",
+                    "2": "(",
+                    "3": "Fitness",
+                    "4": "+",
+                    "5": "Stature",
+                    "6": ")",
+                    "7": "/",
+                    "8": 2,
+                    "9": ")"
+                }
+            }
+        },
+        {
+            "name": "Hit Capacity - Head",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "Constitution"
+                }
+            }
+        },
+        {
+            "name": "Hit Capacity - Chest",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "Strength",
+                    "1": "+",
+                    "2": "Constitution",
+                    "3": "+",
+                    "4": "Stature"
+                }
+            }
+        },
+        {
+            "name": "Hit Capacity - Other",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "Constitution",
+                    "1": "+",
+                    "2": "Stature"
+                }
+            }
+        },
+        {
+            "name": "Weight",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": 40,
+                    "1": "+",
+                    "2": 4,
+                    "3": "*",
+                    "4": "Stature"
+                }
+            }
+        },
+        {
+            "name": "Load",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "(",
+                    "1": "Strength",
+                    "2": "*",
+                    "3": 2,
+                    "4": ")",
+                    "5": "+",
+                    "6": "Constitution"
+                }
+            }
+        },
+        {
+            "name": "Throw Range",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "Strength",
+                    "1": "*",
+                    "2": 2
+                }
+            }
+        },
+        {
+            "name": "Military Experience Base",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "math.trunc",
+                    "1": "(",
+                    "2": "(",
+                    "3": 120,
+                    "4": "-",
+                    "5": "Total",
+                    "6": ")",
+                    "7": "/",
+                    "8": 7,
+                    "9": ")"
+                }
+            }
+        },
+        {
+            "name": "Time In Combat",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": "Military Experience Base"
+            }
+        },
+        {
+            "name": "Coolness",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": 10,
+                    "1": "-",
+                    "2": "int",
+                    "3": "(",
+                    "4": "Time In Combat",
+                    "5": "/",
+                    "6": 10,
+                    "7": "+",
+                    "8": {
+                        "die_roll": {
+                            "input": {
+                                "die_size": 6,
+                                "die_count": 1
+                            }
+                        }
+                    },
+                    "9": ")"
+                }
+            }
+        },
+        {
+            "name": "RADS",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": "Military Experience Base"
+            }
+        },
+        {
+            "name": "Age",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "Education",
+                    "1": "+",
+                    "2": 8,
+                    "3": "+",
+                    "4": "math.ceil",
+                    "5": "(",
+                    "6": "Time In Combat",
+                    "7": "/",
+                    "8": 12,
+                    "9": ")",
+                    "10": "+",
+                    "11": {
+                        "conditional": {
+                            "input": {
+                                "test_value": "Time In Combat",
+                                "conditions": {
+                                    "0": {
+                                        "test": ">=",
+                                        "eval": 70,
+                                        "result": {
+                                            "die_roll": {
+                                                "input": {
+                                                    "die_size": 6,
+                                                    "die_count": 4
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "1": {
+                                        "test": ">=",
+                                        "eval": 60,
+                                        "result": {
+                                            "die_roll": {
+                                                "input": {
+                                                    "die_size": 6,
+                                                    "die_count": 3
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "2": {
+                                        "test": ">=",
+                                        "eval": 50,
+                                        "result": {
+                                            "die_roll": {
+                                                "input": {
+                                                    "die_size": 6,
+                                                    "die_count": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "3": {
+                                        "test": "<",
+                                        "eval": 50,
+                                        "result": {
+                                            "die_roll": {
+                                                "input": {
+                                                    "die_size": 6,
+                                                    "die_count": 1
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "Officer",
+            "method": "conditional",
+            "input": {
+                "test_value": {
+                    "die_roll": {
+                        "input": {
+                            "die_size": 6,
+                            "die_count": 1,
+                            "roll_modifier": {
+                                "type": "+",
+                                "value": 16
+                            }
+                        }
+                    }
+                },
+                "conditions": {
+                    "0": {
+                        "test": "<=",
+                        "eval": {
+                            "calculation": {
+                                "input": {
+                                    "formula": {
+                                        "0": "Education",
+                                        "1": "+",
+                                        "2": "Intelligence"
+                                    }
+                                }
+                            }
+                        },
+                        "result": true
+                    },
+                    "1": {
+                        "test": ">",
+                        "eval": {
+                            "calculation": {
+                                "input": {
+                                    "formula": {
+                                        "0": "Education",
+                                        "1": "+",
+                                        "2": "Intelligence"
+                                    }
+                                }
+                            }
+                        },
+                        "result": false
+                    }
+                }
+            }
+        },
+        {
+            "name": "Rank Number",
+            "method": "calculation",
+            "input": {
+                "formula": {
+                    "0": "math.trunc",
+                    "1": "(",
+                    "2": "Time In Combat",
+                    "3": "/",
+                    "4": 10,
+                    "5": ")",
+                    "6": "+",
+                    "7": {
+                        "conditional": {
+                            "input": {
+                                "test_value": {
+                                    "die_roll": {
+                                        "input": {
+                                            "die_size": 6,
+                                            "die_count": 1
+                                        }
+                                    }
+                                },
+                                "conditions": {
+                                    "1": {
+                                        "test": "==",
+                                        "eval": 1,
+                                        "result": -1
+                                    },
+                                    "2": {
+                                        "test": "==",
+                                        "eval": 2,
+                                        "result": -1
+                                    },
+                                    "3": {
+                                        "test": "==",
+                                        "eval": 3,
+                                        "result": 0
+                                    },
+                                    "4": {
+                                        "test": "==",
+                                        "eval": 4,
+                                        "result": 0
+                                    },
+                                    "5": {
+                                        "test": "==",
+                                        "eval": 5,
+                                        "result": 1
+                                    },
+                                    "6": {
+                                        "test": "==",
+                                        "eval": 6,
+                                        "result": 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        {
+            "name": "Rank",
+            "method": "conditional",
+            "input": {
+                "test_value": "Officer",
+                "conditions": {
+                    "0": {
+                        "test": "==",
+                        "eval": true,
+                        "result": {
+                            "table": {
+                                "input": {
+                                    "style": "simple",
+                                    "choice": "Rank Number",
+                                    "choices": {
+                                        "-1": "2nd Lieutenant",
+                                        "0": "2nd Lieutenant",
+                                        "1": "2nd Lieutenant",
+                                        "2": "1st Lieutenant",
+                                        "3": "1st Lieutenant",
+                                        "4": "Captain",
+                                        "5": "Captain",
+                                        "6": "Major",
+                                        "7": "Major",
+                                        "8": "Lieutenant Colonel"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "1": {
+                        "test": "==",
+                        "eval": false,
+                        "result": {
+                            "table": {
+                                "input": {
+                                    "style": "simple",
+                                    "choice": "Rank Number",
+                                    "choices": {
+                                        "-1": "Spec 4",
+                                        "0": "Spec 4",
+                                        "1": "Spec 4",
+                                        "2": "Spec 4",
+                                        "3": "Sergeant",
+                                        "4": "Sergeant",
+                                        "5": "Staff Sergeant",
+                                        "6": "Platoon Sergeant",
+                                        "7": "Master Sergeant",
+                                        "8": "Sergeant Major"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    ]
+}

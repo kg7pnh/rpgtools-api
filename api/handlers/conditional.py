@@ -74,8 +74,13 @@ def run(run_input, additional_input=None):
 
             if eval(test): # pylint: disable=eval-used
                 if not isinstance(run_input['conditions'][condition]['result'], int):
-                    result = run_child(run_input['conditions'][condition]['result'],
-                                       additional_input)
+                    if isinstance(run_input['conditions'][condition]['result'], dict):
+                        result = run_child(run_input['conditions'][condition]['result'], additional_input)
+                    elif run_input['conditions'][condition]['result'] in additional_input:
+                        result = additional_input[run_input['conditions'][condition]['result']]
+                    else:
+                        result = run_child(run_input['conditions'][condition]['result'],
+                                           additional_input)
                 else:
                     result = run_input['conditions'][condition]['result']
         else:

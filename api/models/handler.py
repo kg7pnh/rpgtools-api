@@ -6,7 +6,6 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
 from django.utils.text import slugify
-from .schema import Schema
 from .base import Base
 
 HANDLER_ACTIONS = (
@@ -30,18 +29,6 @@ class Handler(Base):
     Definition for Handler
     """
     # Relationships
-    input_schema = models.ForeignKey(Schema,
-                                     blank=True,
-                                     limit_choices_to={'schema_type': 'Input'},
-                                     null=True,
-                                     on_delete=models.PROTECT,
-                                     related_name='handler_input_schema')
-    output_schema = models.ForeignKey(Schema,
-                                      blank=True,
-                                      limit_choices_to={'schema_type': 'Output'},
-                                      null=True,
-                                      on_delete=models.PROTECT,
-                                      related_name='handler_output_schema')
 
     # Attributes
     method = models.CharField(choices=HADNLER_METHODS,

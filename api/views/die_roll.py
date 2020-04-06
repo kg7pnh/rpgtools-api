@@ -2,6 +2,7 @@
 """
 Defines the DieRoll. views
 """
+import json
 from rest_framework import status
 from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
@@ -43,7 +44,9 @@ class DieRollRequest(CreateAPIView):
         post
         """
         input_data = Serializer(data=request.data,)
-        input_data.is_valid(raise_exception=True)
-        value = api.handlers.die_roll.run(input_data.data)
+
+        # input_data.is_valid(raise_exception=True)
+
+        value = api.handlers.die_roll.run(json.loads(json.dumps(input_data.initial_data)))
 
         return Response({"roll": value}, status=status.HTTP_201_CREATED)

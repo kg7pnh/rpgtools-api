@@ -15,7 +15,6 @@ from api.models.handler import Handler
 from api.models.organization import Organization
 from api.models.person import Person
 from api.models.publisher import Publisher
-from api.models.schema import Schema
 from api.models.workflow import Workflow
 
 # Register your models here.
@@ -32,10 +31,7 @@ class ActionAdmin(admin.ModelAdmin):
               'modified',
               'name',
               'game',
-              'handler',
-              'input_schema',
-              'output_schema',
-              'form_schema')
+              'handler')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -244,9 +240,7 @@ class HandlerAdmin(admin.ModelAdmin):
               'modified',
               'name',
               'method',
-              'api_handler',
-              'input_schema',
-              'output_schema')
+              'api_handler')
     readonly_fields = ('_id',
                        'id',
                        'created',
@@ -349,42 +343,6 @@ class PublisherAdmin(admin.ModelAdmin):
                     '_id')
 
 admin.site.register(Publisher, PublisherAdmin)
-
-class SchemaAdmin(admin.ModelAdmin):
-    """
-    SchemaAdmin
-    """
-    formfield_overrides = {
-        models.TextField: {'widget': AdminMarkdownxWidget},
-    }
-    fields = ('_id',
-              'id',
-              'name',
-              'version',
-              'enabled',
-              'deprecated',
-              'created',
-              'modified',
-              'specification',
-              'schema_type',
-              'form_schema',
-              'description',
-              'document',
-              'read_me',
-              'url')
-    readonly_fields = ('_id',
-                       'id',
-                       'version',
-                       'created',
-                       'modified')
-    list_display = ('name',
-                    'created',
-                    'modified',
-                    'id',
-                    'version',
-                    '_id')
-
-admin.site.register(Schema, SchemaAdmin)
 
 class WorkflowAdmin(admin.ModelAdmin):
     """

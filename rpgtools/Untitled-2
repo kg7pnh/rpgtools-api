@@ -1,0 +1,100 @@
+{
+    "action_input": [
+        {
+            "name": "Fitness",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Agility",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Constitution",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Stature",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Intelligence",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        },
+        {
+            "name": "Education",
+            "method": "die_roll",
+            "input": {
+                "die_size": 6,
+                "die_count": 4,
+                "roll_modifier": {
+                    "type": "-",
+                    "value": 4
+                },
+                "reroll": {
+                    "condition": "==",
+                    "value": 0
+                }
+            }
+        }
+    ]
+}

@@ -3,7 +3,7 @@
 Defines the DieRoll model
 """
 from django.db import models
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 
 CONDITION_TYPE = {
     ('==', '=='),
@@ -27,14 +27,14 @@ class DieRoll(models.Model):
     # Attributes
     die_size = models.PositiveIntegerField(default=0)
     die_count = models.PositiveIntegerField(default=0)
-    per_modifier = JSONField(null=True,
-                             blank=True)
-    roll_modifier = JSONField(null=True,
+    per_modifier = models.TextField(null=True,
+                                    blank=True)
+    roll_modifier = models.TextField(null=True,
+                                     blank=True)
+    post_modifier = models.TextField(null=True,
+                                     blank=True)
+    reroll = models.TextField(null=True,
                               blank=True)
-    post_modifier = JSONField(null=True,
-                              blank=True)
-    reroll = JSONField(null=True,
-                       blank=True)
 
     # Manager
 

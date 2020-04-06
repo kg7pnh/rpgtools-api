@@ -2,7 +2,7 @@
 """
 Defines the BookFormat model
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -11,7 +11,6 @@ from rest_framework import serializers
 from .base import Base
 from .game import Game
 from .handler import Handler
-from .schema import Schema
 
 # Create your models here.
 class Action(Base):
@@ -23,29 +22,8 @@ class Action(Base):
                              on_delete=models.PROTECT)
     handler = models.ForeignKey(Handler,
                                 on_delete=models.PROTECT)
-    input_json = JSONField(default='{"Place": "Holder"}',
-                           verbose_name='Input JSON')
-    input_schema = models.ForeignKey(Schema,
-                                     blank=True,
-                                     limit_choices_to={'schema_type': 'Input'},
-                                     null=True,
-                                     on_delete=models.PROTECT,
-                                     related_name='action_input_schema',
-                                     verbose_name='Input Schema')
-    output_schema = models.ForeignKey(Schema,
-                                      blank=True,
-                                      limit_choices_to={'schema_type': 'Output'},
-                                      null=True,
-                                      on_delete=models.PROTECT,
-                                      related_name='action_output_schema',
-                                      verbose_name='Output Schema')
-    form_schema = models.ForeignKey(Schema,
-                                    blank=True,
-                                    limit_choices_to={'schema_type': 'Form'},
-                                    null=True,
-                                    on_delete=models.PROTECT,
-                                    related_name='action_form_schema',
-                                    verbose_name='Form Schema')
+    input_json = models.TextField(default='{"Place": "Holder"}',
+                                  verbose_name='Input JSON')
 
     # Attributes
 
