@@ -2,7 +2,7 @@
 """
 Defines the ActionRunner serializers
 """
-from django.contrib.postgres.fields import JSONField
+# from django.contrib.postgres.fields import JSONField
 from django.core.validators import MaxValueValidator
 from django.core.validators import MinValueValidator
 from django.db import models

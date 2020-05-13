@@ -84,7 +84,7 @@ MY_INSTALLED_APPS = [
     # 'rest_framework_swagger',
     'simple_history',
     'debug_toolbar',
-    'drf_link_header_pagination',
+    # 'drf_link_header_pagination',
     'drf_rw_serializers',
     'drf_yasg'
 ]

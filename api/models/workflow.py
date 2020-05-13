@@ -30,7 +30,7 @@ class Workflow(Base):
     # Attributes
     workflow_method = models.CharField(choices=WORKFLOW_METHOD,
                                        default='Manual',
-                                       max_length=8,
+                                       max_length=15,
                                        verbose_name='Method')
     definition = models.TextField(blank=True,
                                   null=True,
