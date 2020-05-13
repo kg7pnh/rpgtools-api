@@ -17,7 +17,7 @@ from dotenv import find_dotenv
 from dotenv import load_dotenv
 
 load_dotenv(find_dotenv())
-print(os.getenv("DEBUG"))
+# print(os.getenv("DEBUG"))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -55,12 +55,12 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'WARNING',
+            # 'level': 'WARNING',
             'class': 'logging.StreamHandler',
             'formatter': 'simple'
         },
         'file': {
-            'level': 'WARNING',
+            # 'level': 'WARNING',
             'class': 'logging.FileHandler',
             'filename': logfile,
             'formatter': 'simple'
@@ -68,13 +68,13 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console'],
+            'handlers': ['file'],
             'level': 'WARNING',
             'propagate': True,
         },
         'django.template': {
             'handlers': ['file'],
-            'level': 'WARNING',
+            'level': 'DEBUG',
             'propagate': True,
         },
     }

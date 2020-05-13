@@ -6,9 +6,10 @@ install:
   - pip install pylint
   - pip install -r requirements.txt
 # command to run tests
+before_script:
+  - make travis-build
+  - make travis-lint
 script:
-  - make lint
-  - make build
   - make test
 # safelist
 # branches:
