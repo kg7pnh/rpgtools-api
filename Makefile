@@ -49,7 +49,7 @@ init:
 	PIPENV_VERBOSITY=-1  pipenv install --skip-lock
 
 lint:
-	PIPENV_VERBOSITY=-1  pipenv run pylint api --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,check_contributers.py,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903
+	PIPENV_VERBOSITY=-1  pipenv run pylint api --ignore=migrations,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903
 
 test:
 	mkdir -p ui/static
