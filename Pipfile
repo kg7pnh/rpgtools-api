@@ -20,6 +20,8 @@ django-request-logging = "*"
 django-currentuser = "*"
 django-cors-headers = "*"
 python-dotenv = "*"
+python-coveralls = "*"
+coveralls = "*"
 
 [requires]
 python_version = "3.6"

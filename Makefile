@@ -55,10 +55,10 @@ test:
 	mkdir -p ui/static
 	mkdir -p fixtures
 	mkdir -p logs
-	echo ${CODECOV_TOKEN}
 	PIPENV_VERBOSITY=-1  pipenv run coverage run --rcfile=.coveragerc --source='.' manage.py test api
 	PIPENV_VERBOSITY=-1  pipenv run coverage html --rcfile=.coveragerc
-	PIPENV_VERBOSITY=-1  pipenv run coverage report
+	PIPENV_VERBOSITY=-1  pipenv run coveralls
+	# PIPENV_VERBOSITY=-1  pipenv run coverage report
 
 dump_test_data:
 	mkdir -p ui/static
@@ -78,9 +78,3 @@ dump_test_data:
 
 run:
 	PIPENV_VERBOSITY=-1  pipenv run python ./manage.py runserver --settings rpgtools.settings
-
-# setup-db:
-# 	psql -h localhost -U postgres -c "CREATE USER rpgtools_admin with PASSWORD 'Gerrit8684!';"
-# 	psql -h localhost -U postgres -c 'ALTER USER rpgtools_admin WITH SUPERUSER;'
-# 	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
-# 	psql -h localhost -U postgres -c 'CREATE database rpgtools';
