@@ -4,20 +4,17 @@ Defines the Words module
 """
 import random
 
-
 def random_word():
     """
     returns a ranodom word
     """
     return random.choice(WORDS)
 
-
 def random_name(count=1, separator=" "):
     """
     given an integer, produces a string of several random words
     """
     return separator.join([random_word() for w in range(0, count)])
-
 
 WORDS = [
     "prodslice",

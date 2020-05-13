@@ -52,6 +52,9 @@ class CreateView(generics.CreateAPIView):
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
+        """
+        create
+        """
         name = request.data['name']
         item_id = slugify(name)
 

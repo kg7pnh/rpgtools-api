@@ -49,13 +49,16 @@ class ListView(generics.ListAPIView):
 
 class CreateView(generics.CreateAPIView):
     """
-     Provides access to the POST request for creating game objects.
+    Provides access to the POST request for creating game objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = Game.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
+        """
+        create
+        """
         name = request.data['name']
         item_id = slugify(name)
 

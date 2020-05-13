@@ -1151,7 +1151,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         self.assertGreaterEqual(response.json()['Education'], 1)
         self.assertLessEqual(response.json()['Education'], 20)
 
-@tag("action_runner_anonymous")
+@tag("action_runner_anonymous") # pylint: disable=too-many-public-methods
 class TestAnonymous(RPGToolsApiBaseTestCase):
     """
     TestAnonymous
@@ -1238,7 +1238,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         self.assertTrue(response.json()['Strength'])
         self.assertEqual(response.json()['Strength'],
                          int((response.json()['Fitness'] +
-                             response.json()['Stature']) / 2))
+                              response.json()['Stature']) / 2))
         self.assertTrue(response.json()['Hit Capacity - Head'])
         self.assertEqual(response.json()['Hit Capacity - Head'],
                          response.json()['Constitution'])
@@ -1341,7 +1341,9 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
                                                  ACTION_RUNNER_NO_METHOD,
                                                  format="json")
         self.assertEqual(response.status_code, CODES["created"])
-        self.assertEqual(response.json()["error_entry_index_0"], "Action Input entries require \"name\", \"method\" and \"input\" items to be processed.")
+        self.assertEqual(response.json()["error_entry_index_0"],
+                         "Action Input entries require \"name\", \"method\" and \
+                         \"input\" items to be processed.")
 
     def test_post_avg_noinput(self):
         """
@@ -1463,5 +1465,5 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
                                                  ACTION_RUNNER_CON_NESTED_BAD_OPTION,
                                                  format="json")
         self.assertEqual(response.status_code, CODES["created"])
-        self.assertEqual(response.json()["test_case"], 
+        self.assertEqual(response.json()["test_case"],
                          'Invalid Method Option: "fudge"!')

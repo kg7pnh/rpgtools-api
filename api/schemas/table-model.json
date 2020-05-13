@@ -1,4 +1,4 @@
-table_model = {
+{
     "definitions": {
         "tablerow": {
             "type": "array",
@@ -19,28 +19,21 @@ table_model = {
     "title": "Table",
     "description": "Data required to populate a table object.",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "required": [
-    	"name",
-        "columns",
-        "rows"
-    ],
+    "required": ["name", "columns", "rows"],
     "properties": {
         "name": {
             "type": "string",
             "title": "The Table name schema",
             "description": "The name of the table.",
-            "examples": [
-                "Consolidated Effects of Age",
-                "Language List"
-            ]
+            "examples": ["Consolidated Effects of Age", "Language List"]
         },
         "description": {
             "type": "string",
             "title": "The Table description schema",
             "description": "The description of the table.",
             "examples": [
-              "Represents the various modifiers / stats for a character based on age / term.",
-              "List of available languages and the groups and families they belong to."
+                "Represents the various modifiers / stats for a character based on age / term.",
+                "List of available languages and the groups and families they belong to."
             ]
         },
         "columns": {
@@ -58,6 +51,5 @@ table_model = {
                 "$ref": "#/definitions/footnote"
             }
         }
-
     }
 }

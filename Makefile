@@ -11,8 +11,6 @@ build:
 	mkdir -p fixtures
 	mkdir -p logs
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py collectstatic --noinput
-	# psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
-	# psql -h localhost -U postgres -c 'CREATE database rpgtools';
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py makemigrations
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py migrate
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@bayhasworld.com', 'adminpass',first_name='admin',last_name='admin')"
@@ -25,8 +23,6 @@ build:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/gamesystem.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/game.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/book.json
-	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/handler.json
-	# PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/action.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/workflow.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py loaddata ./fixtures/token.json
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py populate_history --auto
@@ -34,9 +30,6 @@ build:
 
 collectstatic:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py collectstatic --noinput
-
-# delete-db:
-# 	psql -h localhost -U postgres -c 'DROP database IF EXISTS rpgtools';
 
 dumpdata:
 	PIPENV_VERBOSITY=-1  pipenv run python manage.py dumpdata api.contributor --indent 4 | grep -v Fetch > ./fixtures/contributor.json
@@ -56,7 +49,7 @@ init:
 	PIPENV_VERBOSITY=-1  pipenv install --skip-lock
 
 lint:
-	PIPENV_VERBOSITY=-1  pipenv run pylint * --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,check_contributers.py --disable=R0801,R0401
+	PIPENV_VERBOSITY=-1  pipenv run pylint api --ignore=manage.py,Makefile,LICENSE,Pipfile,Pipfile.lock,README.md,requirements.txt,settings.py,wsgi.py,migrations,check_contributers.py,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903
 
 test:
 	mkdir -p ui/static

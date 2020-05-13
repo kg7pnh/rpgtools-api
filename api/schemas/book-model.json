@@ -1,24 +1,17 @@
-book_model = {
+{
     "definitions": {},
     "$id": "http://127.0.0.1:8000/api/v1/schemas/book-model",
     "type": "object",
     "title": "Book",
     "description": "Data required to populate a book class.",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "required": [
-        "title",
-        "publisher",
-        "pages"
-    ],
+    "required": ["title", "publisher", "pages"],
     "properties": {
         "pages": {
             "type": "integer",
             "title": "The Book pages schema",
             "description": "The number of pages in the book.",
-            "examples": [
-                "23",
-                "456"
-            ]
+            "examples": ["23", "456"]
         },
         "title": {
             "type": "string",
@@ -34,19 +27,13 @@ book_model = {
             "title": "The Book publisher schema",
             "minimum": 1,
             "description": "The publisher of the book.",
-            "examples": [
-                "Palladium Books",
-                "Game Designers' Workshop"
-            ]
+            "examples": ["Palladium Books", "Game Designers' Workshop"]
         },
         "short title": {
             "type": "string",
             "title": "The Book short title schema",
             "description": "The short version of the title for the book.",
-            "examples": [
-                "Twilight: 2000",
-                "Dark Conspiracy"
-            ]
+            "examples": ["Twilight: 2000", "Dark Conspiracy"]
         },
         "description": {
             "type": "string",
@@ -60,25 +47,14 @@ book_model = {
         "format": {
             "type": "string",
             "title": "The Book format schema",
-            "description": "The format the book was published in.",            
-            "enum": [
-                "soft cover",
-                "hard cover",
-                "magazine",
-                "pdf",
-                "epub",
-                "mobi"
-            ]
+            "description": "The format the book was published in.",
+            "enum": ["soft cover", "hard cover", "magazine", "pdf", "epub", "mobi"]
         },
         "catalog number": {
             "type": "string",
             "title": "The Book catalog number schema",
             "description": "The catalog number associated with the book from the publisher.",
-            "examples": [
-                "2000",
-                "2100",
-                "800-HC"
-            ]
+            "examples": ["2000", "2100", "800-HC"]
         },
         "isbn 10": {
             "type": "string",

@@ -4,10 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-django-debug-toolbar = "*"
 
 [packages]
 Django = ">=2.2.10"
+django-debug-toolbar = "*"
 django-markdownx = "*"
 django-filter = "*"
 djangorestframework = "*"
@@ -19,6 +19,7 @@ coverage = "*"
 django-request-logging = "*"
 django-currentuser = "*"
 django-cors-headers = "*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.6"

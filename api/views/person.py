@@ -47,13 +47,16 @@ class ListView(generics.ListAPIView):
 
 class CreateView(generics.CreateAPIView):
     """
-     Provides access to the POST request for creating Person objects.
+    Provides access to the POST request for creating Person objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = Person.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
     def create(self, request, *args, **kwargs):
+        """
+        create
+        """
         name_prefix = ""
 
         if 'name_prefix' in request.data:

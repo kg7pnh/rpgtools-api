@@ -13,6 +13,11 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 import random
 from datetime import timedelta
+from dotenv import find_dotenv
+from dotenv import load_dotenv
+
+load_dotenv(find_dotenv())
+print(os.getenv("DEBUG"))
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -75,19 +80,20 @@ LOGGING = {
     }
 }
 
+
 # Add-on Application definition
 MY_INSTALLED_APPS = [
     'api',
     'markdownx',
     'rest_framework',
     'rest_framework.authtoken',
-    # 'rest_framework_swagger',
     'simple_history',
-    'debug_toolbar',
-    # 'drf_link_header_pagination',
     'drf_rw_serializers',
     'drf_yasg'
 ]
+
+if DEBUG:
+    MY_INSTALLED_APPS.append('debug_toolbar')
 
 # Application definition
 INSTALLED_APPS = [
@@ -113,8 +119,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'request_logging.middleware.LoggingMiddleware',
     'simple_history.middleware.HistoryRequestMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
+
+if DEBUG:
+    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_EXPOSE_HEADERS = ["Link"]

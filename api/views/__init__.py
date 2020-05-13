@@ -2,7 +2,7 @@
 '''
 __init__
 '''
-from django.shortcuts import get_object_or_404
+# from django.shortcuts import get_object_or_404
 
 from .book import *
 from .book_format import *

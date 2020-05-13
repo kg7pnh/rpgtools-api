@@ -39,7 +39,7 @@ class DieRollRequest(CreateAPIView):
     queryset = DieRoll.objects.all() # pylint: disable=no-member
     serializer_class = Serializer
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs): # pylint: disable=no-member
         """
         post
         """

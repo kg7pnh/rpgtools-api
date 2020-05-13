@@ -34,16 +34,51 @@ def run_child(run_input, additional_input):
             table.run(run_input['table']['input'],
                       additional_input)
     else:
-        res = list(run_input.keys())[0] 
+        res = list(run_input.keys())[0]
         result = 'Invalid Method Option: "' + str(res) + '"!'
     return result
 
+def process_condition(run_input, additional_input, condition):
+    """
+    loop_conditions
+    """
+    test = ''
+    result = 0
+    test = str(run_input['test_value'])
+
+    if run_input['conditions'][condition]['test'] in OPERATORS:
+        test = test + run_input['conditions'][condition]['test']
+        if not isinstance(run_input['conditions'][condition]['eval'], int):
+            if not isinstance(run_input['conditions'][condition]['eval'], str):
+                run_input['conditions'][condition]['eval'] = \
+                    run_child(
+                        run_input['conditions'][condition]['eval'],
+                        additional_input)
+            else:
+                test_eval = run_input['conditions'][condition]['eval']
+                run_input['conditions'][condition]['eval'] = additional_input[test_eval]
+        test = test + str(run_input['conditions'][condition]['eval'])
+
+        if eval(test): # pylint: disable=eval-used
+            if not isinstance(run_input['conditions'][condition]['result'], int):
+                if isinstance(run_input['conditions'][condition]['result'], dict):
+                    result = run_child(run_input['conditions'][condition]['result'],
+                                       additional_input)
+                elif run_input['conditions'][condition]['result'] in additional_input:
+                    result = additional_input[run_input['conditions'][condition]['result']]
+                else:
+                    result = run_child(run_input['conditions'][condition]['result'],
+                                       additional_input)
+            else:
+                result = run_input['conditions'][condition]['result']
+    else:
+        result = 'Invalid Operator: "' + str(run_input['conditions'][condition]['test']) + '"!'
+    return result
 
 def run(run_input, additional_input=None):
     """
     run
     """
-    test = ''
     result = 0
 
     if not isinstance(run_input['test_value'], int):
@@ -57,32 +92,7 @@ def run(run_input, additional_input=None):
             run_input['test_value'] = additional_input[test_value]
 
     for condition in run_input['conditions']:
-        test = str(run_input['test_value'])
+        # test = str(run_input['test_value'])
+        result = process_condition(run_input, additional_input, condition)
 
-        if run_input['conditions'][condition]['test'] in OPERATORS:
-            test = test + run_input['conditions'][condition]['test']
-            if not isinstance(run_input['conditions'][condition]['eval'], int):
-                if not isinstance(run_input['conditions'][condition]['eval'], str):
-                    run_input['conditions'][condition]['eval'] = \
-                        run_child(
-                            run_input['conditions'][condition]['eval'],
-                            additional_input)
-                else:
-                    test_eval = run_input['conditions'][condition]['eval']
-                    run_input['conditions'][condition]['eval'] = additional_input[test_eval]
-            test = test + str(run_input['conditions'][condition]['eval'])
-
-            if eval(test): # pylint: disable=eval-used
-                if not isinstance(run_input['conditions'][condition]['result'], int):
-                    if isinstance(run_input['conditions'][condition]['result'], dict):
-                        result = run_child(run_input['conditions'][condition]['result'], additional_input)
-                    elif run_input['conditions'][condition]['result'] in additional_input:
-                        result = additional_input[run_input['conditions'][condition]['result']]
-                    else:
-                        result = run_child(run_input['conditions'][condition]['result'],
-                                           additional_input)
-                else:
-                    result = run_input['conditions'][condition]['result']
-        else:
-            result = 'Invalid Operator: "' + str(run_input['conditions'][condition]['test']) + '"!'
     return result

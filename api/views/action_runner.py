@@ -43,7 +43,8 @@ def iterate_input(action_input, additional_input, index):
             name: run_method(method, method_input, additional_input)
         }
     else:
-        response['error_entry_index_' + str(index)] = 'Action Input entries require "name", "method" and "input" items to be processed.'
+        response['error_entry_index_' + str(index)] = \
+            'Action Input entries require "name", "method" and "input" items to be processed.'
     return response
 
 class ActionRunnerRequest(CreateAPIView):
@@ -60,7 +61,8 @@ class ActionRunnerRequest(CreateAPIView):
         action_runner = Serializer(data=request.data, )
         action_input = json.loads(json.dumps(action_runner.initial_data['action_input']))
         if 'additional_input' in action_runner.initial_data:
-            additional_input = json.loads(json.dumps(action_runner.initial_data['additional_input']))
+            additional_input = json.loads(json.dumps(
+                action_runner.initial_data['additional_input']))
         else:
             additional_input = None
 

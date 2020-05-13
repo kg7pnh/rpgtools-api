@@ -6,9 +6,10 @@ install:
   - pip install -r requirements.txt
 # command to run tests
 script:
+  - make lint
   - make build
   - make test
 # safelist
-branches:
-    only:
-    - master
+# branches:
+#     only:
+#     - master
