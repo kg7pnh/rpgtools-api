@@ -44,7 +44,7 @@ class Base(models.Model):
         '''
         __str__
         '''
-        return self.name
+        return str(self.name)
 
     def __unicode__(self):
         '''
@@ -52,7 +52,7 @@ class Base(models.Model):
         '''
         return self.name
 
-    def save(self, *args, **kwargs): # pylint: disable=arguments-differ
+    def save(self, *args, **kwargs): # pylint: disable=arguments-differ,signature-differs
         '''
         On save, update timestamps and parameters
         '''

@@ -1266,7 +1266,8 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         self.assertTrue(response.json()['Coolness'])
         self.assertTrue(response.json()['RADS'])
         self.assertTrue(response.json()['Age'])
-        self.assertTrue(isinstance(response.json()['Officer'], bool))
+        self.assertGreaterEqual(response.json()['Officer'],0)
+        self.assertLessEqual(response.json()['Officer'],1)
         self.assertTrue(response.json()['Rank Number'])
         self.assertTrue(response.json()['Rank'])
 
@@ -1342,8 +1343,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
                                                  format="json")
         self.assertEqual(response.status_code, CODES["created"])
         self.assertEqual(response.json()["error_entry_index_0"],
-                         "Action Input entries require \"name\", \"method\" and \
-                         \"input\" items to be processed.")
+                         "Action Input entries require \"name\", \"method\" and \"input\" items to be processed.")
 
     def test_post_avg_noinput(self):
         """
