@@ -68,8 +68,8 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['file'],
-            'level': 'WARNING',
+            'handlers': ['file','console'],
+            'level': 'INFO',
             'propagate': True,
         },
         'django.template': {

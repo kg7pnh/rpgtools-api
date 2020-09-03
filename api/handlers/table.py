@@ -8,7 +8,8 @@ def run(run_input, additional_input=None):
     run
     """
     result = ''
-    # style = run_input['style']
+    style = run_input['style']
+    print(style)
 
     if not isinstance(run_input['choice'], int):
         choice = run_input['choice']
