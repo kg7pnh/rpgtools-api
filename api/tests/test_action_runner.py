@@ -1151,8 +1151,8 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         self.assertGreaterEqual(response.json()['Education'], 1)
         self.assertLessEqual(response.json()['Education'], 20)
 
-@tag("action_runner_anonymous") # pylint: disable=too-many-public-methods
-class TestAnonymous(RPGToolsApiBaseTestCase):
+@tag("action_runner_anonymous")
+class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-methods
     """
     TestAnonymous
     """
