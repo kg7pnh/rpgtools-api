@@ -1268,7 +1268,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-
         self.assertTrue(response.json()['Age'])
         self.assertGreaterEqual(response.json()['Officer'], 0)
         self.assertLessEqual(response.json()['Officer'], 1)
-        self.assertTrue(response.json()['Rank Number'])
+        self.assertTrue(str(response.json()['Rank Number']))
         self.assertTrue(response.json()['Rank'])
 
     def test_post_simple_fail_import(self):
