@@ -1072,6 +1072,47 @@ ACTION_RUNNER_CON_NESTED_BAD_OPTION = {
     ]
 }
 
+ACTION_RUNNER_INPUT_SIMPLE_CON_RSLT_ADD_INPUT = {
+    "action_input":  [
+        {
+            "name": "test_case",
+            "method": "conditional",
+            "input": {
+                "test_value": 6,
+                "conditions": {
+                    "0": {
+                        "test": "==",
+                        "eval": 6,
+                        "result": "test"
+                    }
+                }
+            }
+        }
+    ],
+    "additional_input": {
+        "test": 0
+    }
+}
+
+ACTION_RUNNER_INPUT_CON_RESULT_STR = {
+    "action_input":  [
+        {
+            "name": "test_case",
+            "method": "conditional",
+            "input": {
+                "test_value": 6,
+                "conditions": {
+                    "0": {
+                        "test": "==",
+                        "eval": 6,
+                        "result": "test"
+                    }
+                }
+            }
+        }
+    ]
+}
+
 @tag("action_runner_admin")
 class TestAdmin(RPGToolsApiBaseTestCase):
     """
@@ -1152,7 +1193,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         self.assertLessEqual(response.json()['Education'], 20)
 
 @tag("action_runner_anonymous")
-class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-methods
+class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-methods
     """
     TestAnonymous
     """
@@ -1238,7 +1279,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-
         self.assertTrue(response.json()['Strength'])
         self.assertEqual(response.json()['Strength'],
                          int((response.json()['Fitness'] +
-                              response.json()['Stature']) / 2))
+                             response.json()['Stature']) / 2))
         self.assertTrue(response.json()['Hit Capacity - Head'])
         self.assertEqual(response.json()['Hit Capacity - Head'],
                          response.json()['Constitution'])
@@ -1266,9 +1307,8 @@ class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-
         self.assertTrue(response.json()['Coolness'])
         self.assertTrue(response.json()['RADS'])
         self.assertTrue(response.json()['Age'])
-        self.assertGreaterEqual(response.json()['Officer'], 0)
-        self.assertLessEqual(response.json()['Officer'], 1)
-        self.assertTrue(str(response.json()['Rank Number']))
+        self.assertTrue(isinstance(response.json()['Officer'], bool))
+        self.assertTrue(response.json()['Rank Number'])
         self.assertTrue(response.json()['Rank'])
 
     def test_post_simple_fail_import(self):
@@ -1343,8 +1383,8 @@ class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-
                                                  format="json")
         self.assertEqual(response.status_code, CODES["created"])
         self.assertEqual(response.json()["error_entry_index_0"],
-                         "Action Input entries require \"name\", " + \
-                         "\"method\" and \"input\" items to be processed.")
+            "Action Input entries require \"name\", \"method\""\
+            " and \"input\" items to be processed.")
 
     def test_post_avg_noinput(self):
         """
@@ -1468,3 +1508,25 @@ class TestAnonymous(RPGToolsApiBaseTestCase): # pylint: disable=too-many-public-
         self.assertEqual(response.status_code, CODES["created"])
         self.assertEqual(response.json()["test_case"],
                          'Invalid Method Option: "fudge"!')
+
+    def test_post_conditional_result_additionalinput(self):
+        """
+        test_post_conditional_result_additionalinput
+        """
+        for iteration in range(1000): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     ACTION_RUNNER_INPUT_SIMPLE_CON_RSLT_ADD_INPUT,
+                                                     format="json")
+            self.assertEqual(response.status_code, CODES["created"])
+            self.assertEqual(response.json()['test_case'], 0)
+
+    def test_post_conditional_restult_string(self):
+        """
+        test_post_conditional_restult_string
+        """
+        for iteration in range(1000): # pylint: disable=unused-variable
+            response = self.rpgtools_api_client.post(MODEL_URL,
+                                                     ACTION_RUNNER_INPUT_CON_RESULT_STR,
+                                                     format="json")
+            self.assertEqual(response.status_code, CODES["created"])
+            self.assertEqual(response.json()['test_case'], "test")

@@ -13,7 +13,6 @@ from rest_framework import permissions
 from rest_framework import routers
 from rest_framework_simplejwt.views import TokenRefreshView
 from rest_framework_simplejwt.views import TokenVerifyView
-# from api.views import action
 from api.views import action_runner
 from api.views import book
 from api.views import book_format
@@ -23,7 +22,6 @@ from api.views import die_roll
 from api.views import game
 from api.views import game_system
 from api.views import IsAdminView
-# from api.views import handler
 from api.views import organization
 from api.views import person
 from api.views import publisher
@@ -58,23 +56,6 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     url(r'is-admin/?$',
         IsAdminView.as_view(),
         name='is_admin'),
-
-    # Action paths
-    #     path('actions/<str:id>',
-    #          action.ItemView.as_view(),
-    #          name="action"),
-    #     path('actions/edit/<str:id>',
-    #          action.ItemEditView.as_view(),
-    #          name="action_edit"),
-    #     path('actions/delete/<str:id>',
-    #          action.ItemDeleteView.as_view(),
-    #          name="action_delete"),
-    #     path('actions/',
-    #          action.CreateView.as_view(),
-    #          name="action_create"),
-    #     path('actions',
-    #          action.ListView.as_view(),
-    #          name="action_list"),
 
     # Action Runner paths
     path('action-runner',
@@ -173,23 +154,6 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('gamesystems/<str:id>/history',
          game_system.GameSystemHistoryView.as_view(),
          name="gamesystem_history"),
-
-    #   Handler paths
-    #   path('handlers/<str:id>',
-    #        handler.ItemView.as_view(),
-    #        name="handler_detail"),
-    #   path('handlers/edit/<str:id>',
-    #        handler.ItemEditView.as_view(),
-    #        name="handler_edit"),
-    #   path('handlers/delete/<str:id>',
-    #        handler.ItemDeleteView.as_view(),
-    #        name="handler_delete"),
-    #   path('handlers/',
-    #        handler.CreateView.as_view(),
-    #        name="handler_create"),
-    #   path('handlers',
-    #        handler.ListView.as_view(),
-    #        name="handler_list"),
 
     # Organization paths
     path('organizations/<str:id>',

@@ -38,44 +38,6 @@ def run_child(run_input, additional_input):
         result = 'Invalid Method Option: "' + str(res) + '"!'
     return result
 
-# def process_condition(run_input, additional_input, condition):
-#     """
-#     loop_conditions
-#     """
-#     test = ''
-#     result = 0
-#     test = str(run_input['test_value'])
-
-#     if run_input['conditions'][condition]['test'] in OPERATORS:
-#         test = test + run_input['conditions'][condition]['test']
-#         if not isinstance(run_input['conditions'][condition]['eval'], int):
-#             if not isinstance(run_input['conditions'][condition]['eval'], str):
-#                 run_input['conditions'][condition]['eval'] = \
-#                     run_child(
-#                         run_input['conditions'][condition]['eval'],
-#                         additional_input)
-#             else:
-#                 test_eval = run_input['conditions'][condition]['eval']
-#                 run_input['conditions'][condition]['eval'] = additional_input[test_eval]
-#         test = test + str(run_input['conditions'][condition]['eval'])
-
-#         if eval(test): # pylint: disable=eval-used
-#             if not isinstance(run_input['conditions'][condition]['result'], int):
-#                 if isinstance(run_input['conditions'][condition]['result'], dict):
-#                     result = run_child(run_input['conditions'][condition]['result'],
-#                                        additional_input)
-#                 elif run_input['conditions'][condition]['result'] in additional_input:
-#                     result = additional_input[run_input['conditions'][condition]['result']]
-#                 else:
-#                     result = run_child(run_input['conditions'][condition]['result'],
-#                                        additional_input)
-#             else:
-#                 result = run_input['conditions'][condition]['result']
-#     else:
-#         result = 'Invalid Operator: "' + str(run_input['conditions'][condition]['test']) + '"!'
-
-#     return result
-
 def run(run_input, additional_input=None): # pylint: disable=too-many-branches
     """
     run
@@ -115,11 +77,11 @@ def run(run_input, additional_input=None): # pylint: disable=too-many-branches
                     if isinstance(run_input['conditions'][condition]['result'], dict):
                         result = run_child(run_input['conditions'][condition]['result'],
                                            additional_input)
-                    elif run_input['conditions'][condition]['result'] in additional_input:
+                    elif additional_input and \
+                        run_input['conditions'][condition]['result'] in additional_input:
                         result = additional_input[run_input['conditions'][condition]['result']]
                     else:
-                        result = run_child(run_input['conditions'][condition]['result'],
-                                           additional_input)
+                        result = run_input['conditions'][condition]['result']
                 else:
                     result = run_input['conditions'][condition]['result']
         else:
