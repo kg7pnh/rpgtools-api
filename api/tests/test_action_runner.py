@@ -1308,7 +1308,9 @@ class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-m
         self.assertTrue(response.json()['RADS'])
         self.assertTrue(response.json()['Age'])
         self.assertTrue(isinstance(response.json()['Officer'], bool))
-        self.assertTrue(response.json()['Rank Number'])
+        self.assertTrue(isinstance(response.json()['Rank Number'], int))
+        self.assertGreaterEqual(response.json()['Rank Number'], -1)
+        self.assertLessEqual(response.json()['Rank Number'], 8)
         self.assertTrue(response.json()['Rank'])
 
     def test_post_simple_fail_import(self):
