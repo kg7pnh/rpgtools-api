@@ -88,4 +88,3 @@ travis-test:
 
 travis-lint:
 	pylint api --ignore=migrations,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903
-	
