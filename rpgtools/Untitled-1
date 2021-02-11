@@ -7,7 +7,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -23,7 +23,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -39,7 +39,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -55,7 +55,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -71,7 +71,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -87,7 +87,7 @@
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -353,7 +353,7 @@
                             "die_size": 6,
                             "die_count": 1,
                             "roll_modifier": {
-                                "type": "+",
+                                "mod_type": "+",
                                 "value": 16
                             }
                         }
