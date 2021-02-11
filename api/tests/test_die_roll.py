@@ -28,7 +28,7 @@ REQUEST_DATA_ROLL_MOD = {
     "die_size": 6,
     "die_count": 3,
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 3
     }
 }
@@ -37,7 +37,7 @@ REQUEST_DATA_PER_MOD = {
     "die_size": 6,
     "die_count": 3,
     "per_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 3
     }
 }
@@ -46,7 +46,7 @@ REQUEST_DATA_POST_MOD = {
     "die_size": 6,
     "die_count": 3,
     "post_modifier": {
-        "type": "*",
+        "mod_type": "*",
         "value": 100
     }
 }
@@ -55,11 +55,11 @@ REQUEST_DATA_PER_ROLL_MOD = {
     "die_size": 6,
     "die_count": 3,
     "per_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 1
     },
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 3
     }
 }
@@ -68,11 +68,11 @@ REQUEST_DATA_PER_POST_MOD = {
     "die_size": 6,
     "die_count": 3,
     "per_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 1
     },
     "post_modifier": {
-        "type": "*",
+        "mod_type": "*",
         "value": 10
     }
 }
@@ -81,11 +81,11 @@ REQUEST_DATA_ROLL_POST_MOD = {
     "die_size": 6,
     "die_count": 3,
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 3
     },
     "post_modifier": {
-        "type": "*",
+        "mod_type": "*",
         "value": 10
     }
 }
@@ -94,15 +94,15 @@ REQUEST_DATA_PER_ROLL_POST_MOD = {
     "die_size": 6,
     "die_count": 3,
     "per_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 1
     },
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 3
     },
     "post_modifier": {
-        "type": "*",
+        "mod_type": "*",
         "value": 10
     }
 }
@@ -111,7 +111,7 @@ REQUEST_DATA_REROLL_EQ = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "-",
+        "mod_type": "-",
         "value": 4
     },
     "reroll": {
@@ -124,7 +124,7 @@ REQUEST_DATA_REROLL_LTEQ = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "-",
+        "mod_type": "-",
         "value": 10
     },
     "reroll": {
@@ -137,7 +137,7 @@ REQUEST_DATA_REROLL_LT = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "-",
+        "mod_type": "-",
         "value": 10
     },
     "reroll": {
@@ -150,7 +150,7 @@ REQUEST_DATA_REROLL_GTEQ = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 1
     },
     "reroll": {
@@ -163,7 +163,7 @@ REQUEST_DATA_REROLL_GT = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "+",
+        "mod_type": "+",
         "value": 4
     },
     "reroll": {
@@ -176,7 +176,7 @@ REQUEST_DATA_ROLL_MOD_DIV = {
     "die_size": 6,
     "die_count": 4,
     "roll_modifier": {
-        "type": "/",
+        "mod_type": "/",
         "value": 2
     }
 }

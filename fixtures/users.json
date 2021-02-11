@@ -3,7 +3,7 @@
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$216000$8VG2LNLqL0g0$tF60oC15ml7rZd01wIblREwgLHtCYMBSvXuZeKNTRzs=",
+        "password": "pbkdf2_sha256$216000$INQCwOoqDBcq$mCTLdsQUHw+lsqPQtlWVdAV9PndkMahF4qu4vOfBImc=",
         "last_login": null,
         "is_superuser": true,
         "username": "admin",
@@ -12,7 +12,7 @@
         "email": "admin@bayhasworld.com",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2021-02-10T18:39:20.803Z",
+        "date_joined": "2021-02-11T03:42:36.722Z",
         "groups": [],
         "user_permissions": []
     }
@@ -21,7 +21,7 @@
     "model": "auth.user",
     "pk": 2,
     "fields": {
-        "password": "pbkdf2_sha256$216000$kQOe2PkroNth$r/A5Erh8Usr4RdgeyJBKb2LVd/9GZK14Bcu5LGp0Jz4=",
+        "password": "pbkdf2_sha256$216000$Jmckk3qXhfCl$1RyjHrgb2fjwiQJWgl2G/5Cb9Q0+kofdyT795Z3mSEk=",
         "last_login": null,
         "is_superuser": false,
         "username": "read-only",
@@ -30,7 +30,7 @@
         "email": "ro@bayhasworld.com",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2021-02-10T18:39:21.601Z",
+        "date_joined": "2021-02-11T03:42:37.599Z",
         "groups": [],
         "user_permissions": []
     }
