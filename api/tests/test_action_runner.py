@@ -23,15 +23,15 @@ ACTION_RUNNER_INPUT_DIEROLL_ADD_INPUT = {
                 "die_size": "die_size",
                 "die_count": "die_count",
                 "per_modifier": {
-                    "type": "+",
+                    "mod_type": "+",
                     "value": "per_value"
                 },
                 "roll_modifier": {
-                    "type": "+",
+                    "mod_type": "+",
                     "value": "roll_value"
                 },
                 "post_modifier": {
-                    "type": "*",
+                    "mod_type": "*",
                     "value": "post_value"
                 }
             }
@@ -55,7 +55,7 @@ ACTION_RUNNER_INPUT_SIMPLE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -76,7 +76,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -92,7 +92,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -108,7 +108,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -124,7 +124,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -140,7 +140,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -156,7 +156,7 @@ ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -177,7 +177,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -193,7 +193,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -209,7 +209,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -225,7 +225,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -241,7 +241,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -257,7 +257,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                 "die_size": 6,
                 "die_count": 4,
                 "roll_modifier": {
-                    "type": "-",
+                    "mod_type": "-",
                     "value": 4
                 },
                 "reroll": {
@@ -523,7 +523,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                             "die_size": 6,
                             "die_count": 1,
                             "roll_modifier": {
-                                "type": "+",
+                                "mod_type": "+",
                                 "value": 16
                             }
                         }

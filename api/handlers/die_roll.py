@@ -42,20 +42,20 @@ def run_roll(run_input):
         if 'per_modifier' in run_input and not run_input['per_modifier'] is None:
             die_roll = process_modifier(die_roll,
                                         run_input['per_modifier']['value'],
-                                        run_input['per_modifier']['type'])
+                                        run_input['per_modifier']['mod_type'])
         result = result + die_roll
 
     # if a roll modifier is specified, apply it
     if 'roll_modifier' in run_input and not run_input['roll_modifier'] is None:
         result = process_modifier(result,
                                   run_input['roll_modifier']['value'],
-                                  run_input['roll_modifier']['type'])
+                                  run_input['roll_modifier']['mod_type'])
 
     # if a post roll modifier is specified, apply it
     if 'post_modifier' in run_input and not run_input['post_modifier'] is None:
         result = process_modifier(result,
                                   run_input['post_modifier']['value'],
-                                  run_input['post_modifier']['type'])
+                                  run_input['post_modifier']['mod_type'])
 
     return result
 

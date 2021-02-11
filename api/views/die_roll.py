@@ -20,15 +20,15 @@ class DieRollRequest(CreateAPIView):
             "die_count": 0,
             "per_modifier": {
                 "value": 0,
-                "type": "+"
+                "mod_type": "+"
             },
             "roll_modifier": {
                 "value": 0,
-                "type": "+"
+                "mod_type": "+"
             },
             "post_modifier": {
                 "value": 0,
-                "type": "+"
+                "mod_type": "+"
             },
             "reroll": {
                 "value": 0,
