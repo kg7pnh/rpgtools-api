@@ -2,6 +2,7 @@
 """
 Defines test case run against the API for DieRoll model
 """
+import math
 from django.test import tag
 from api.tests.base import RPGToolsApiBaseTestCase
 from api.tests.base import ADMIN_USER
@@ -1302,11 +1303,13 @@ class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-m
         self.assertTrue(response.json()['Throw Range'])
         self.assertEqual(response.json()['Throw Range'],
                          response.json()['Strength'] * 2)
-        self.assertTrue(response.json()['Military Experience Base'])
-        self.assertTrue(response.json()['Time In Combat'])
-        self.assertTrue(response.json()['Coolness'])
-        self.assertTrue(response.json()['RADS'])
-        self.assertTrue(response.json()['Age'])
+        self.assertEqual(response.json()['Military Experience Base'], math.trunc((120 - response.json()['Total']) / 7))
+        self.assertGreaterEqual(response.json()['Time In Combat'], response.json()['Military Experience Base'])
+        self.assertLessEqual(response.json()['Time In Combat'], response.json()['Military Experience Base'] * 6)
+        self.assertGreaterEqual(response.json()['Coolness'], 0)
+        self.assertGreaterEqual(response.json()['RADS'], 6)
+        self.assertLessEqual(response.json()['RADS'], response.json()['RADS'] * 6)
+        self.assertTrue(isinstance(response.json()['Age']),int)
         self.assertTrue(isinstance(response.json()['Officer'], bool))
         self.assertTrue(isinstance(response.json()['Rank Number'], int))
         self.assertGreaterEqual(response.json()['Rank Number'], -1)
