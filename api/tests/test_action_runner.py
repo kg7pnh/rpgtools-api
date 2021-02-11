@@ -1309,7 +1309,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-m
         self.assertGreaterEqual(response.json()['Coolness'], 0)
         self.assertGreaterEqual(response.json()['RADS'], 6)
         self.assertLessEqual(response.json()['RADS'], response.json()['RADS'] * 6)
-        self.assertTrue(isinstance(response.json()['Age']),int)
+        self.assertTrue(isinstance(response.json()['Age'],int))
         self.assertTrue(isinstance(response.json()['Officer'], bool))
         self.assertTrue(isinstance(response.json()['Rank Number'], int))
         self.assertGreaterEqual(response.json()['Rank Number'], -1)
