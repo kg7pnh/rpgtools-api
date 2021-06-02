@@ -1,7 +1,7 @@
 -i https://pypi.org/simple/
 asgiref==3.2.10
 astroid==2.5
-certifi==2020.12.5
+certifi==2021.5.30
 chardet==4.0.0
 coreapi==2.3.3
 coreschema==0.0.4
@@ -24,26 +24,26 @@ idna==2.10
 inflection==0.5.1
 isort==5.8.0
 itypes==1.2.0
-jinja2==2.11.3
+jinja2==3.0.1
 lazy-object-proxy==1.6.0
 markdown==3.3.4
-markupsafe==1.1.1
+markupsafe==2.0.1
 mccabe==0.6.1
 packaging==20.9
-pillow==8.1.2
-pyjwt==2.0.1
+pillow==8.2.0
+pyjwt==2.1.0
 pylint==2.6.0
 pyparsing==2.4.7
 python-coveralls==2.9.3
 python-dotenv==0.14.0
 pytz==2021.1
-pyyaml==5.4
+pyyaml==5.4.1
 requests==2.25.1
 ruamel.yaml.clib==0.2.2 ; platform_python_implementation == 'CPython' and python_version < '3.10'
-ruamel.yaml==0.16.13
-six==1.15.0
+ruamel.yaml==0.17.7
+six==1.16.0
 sqlparse==0.4.1
 toml==0.10.2
 uritemplate==3.0.1
-urllib3==1.26.4
+urllib3==1.26.5
 wrapt==1.12.1
