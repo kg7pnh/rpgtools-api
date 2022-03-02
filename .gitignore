@@ -67,7 +67,7 @@ coverage.xml
 .ipynb_checkpoints 
 
 # pyenv 
-.python-version 
+# .python-version 
 
 # celery 
 celerybeat-schedule.* 
@@ -76,8 +76,8 @@ celerybeat-schedule.*
 *.sage.py 
 
 # Environments 
-.env 
-.venv 
+# .env 
+# .venv 
 env/ 
 venv/ 
 ENV/ 

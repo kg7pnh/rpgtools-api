@@ -24,6 +24,7 @@ CODES = {
     "success": 200,
     "created": 201,
     "deleted": 204,
+    "found": 302,
     "bad_request": 400,
     "no_creds": 401,
     "no_permission": 403
