@@ -8,6 +8,7 @@ from rest_framework import serializers
 from rest_framework.permissions import IsAdminUser
 from api.models.workflow import Workflow
 from api.models.workflow import Serializer
+from api.serializers.history import HistorySerializer
 
 
 class ItemView(generics.RetrieveAPIView):  # pylint: disable=too-many-ancestors
@@ -70,3 +71,11 @@ class CreateView(generics.CreateAPIView):
             raise serializers.ValidationError(detail)
 
         return super(CreateView, self).create(request, *args, **kwargs)  # pylint: disable=super-with-arguments
+
+class WorkflowHistoryView(generics.RetrieveAPIView):
+    """
+    Get Workflow history by name
+    """
+    serializer_class = HistorySerializer
+    queryset = Workflow.objects.all()  # pylint: disable=no-member
+    lookup_field = "id"

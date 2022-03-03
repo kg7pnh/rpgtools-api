@@ -58,6 +58,9 @@ test:
 	coverage html --rcfile=.coveragerc
 	coverage report
 
+coverage:
+	xdg-open file:///home/mbayha/development/rpgtools-api/htmlcov/index.html
+
 run:
 	python ./manage.py runserver --settings rpgtools.settings
 

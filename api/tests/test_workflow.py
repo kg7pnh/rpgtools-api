@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Defines test case run against the API for Person model
+Defines test case run against the API for Publisher model
 """
 from django.test import tag
 from api.tests.base import RPGToolsApiBaseTestCase
@@ -9,72 +9,47 @@ from api.tests.base import BASE_URL
 from api.tests.base import CODES
 from api.tests.base import READ_ONLY_USER
 from api.tests.base import TOKEN_URL
+from api.tests.test_person import INSTANCE_ID
 
-MODEL_URL = BASE_URL + 'persons'
+MODEL_URL = BASE_URL + 'workflows'
 POST_URL = MODEL_URL + '/'
 EDIT_URL = POST_URL + 'edit/'
 DELETE_URL = POST_URL + 'delete/'
-
-INSTANCE_ID = 'adan-jay'
-GET_COUNT = 64
-
-FIXTURES = ['test_users',
-            'test_contributor.json',
-            'test_person.json']
-
-CREATE_TEST_VALUE = 'person-test'
-CREATE_TEST_VALUE_FULL = 'dr-person-test-michael-sr'
+GET_COUNT = 1
+INSTANCE_ID = 'player-character-single-page-tk2e1'
+CREATE_TEST_VALUE = 'created-for-testing'
 TEST_VALUE = 'UPDATED VIA TESTS'
 
 REQUEST_DATA_CREATE = {
-    "name_first": "Test",
-    "name_last": "Person",
-    "description": "A Test Person",
-    "read_me": "Test Person==---A test person.",
-    "url": "https://rpggeek.com/rpg/511/rifts",
-    "abbreviation": "TG"
-}
-
-REQUEST_DATA_CREATE_FULL = {
-    "name_prefix": "Dr.",
-    "name_first": "Test",
-    "name_middle": "Michael",
-    "name_last": "Person",
-    "name_suffix": "Sr.",
-    "description": "A Test Person",
-    "read_me": "Test Person==---A test person.",
-    "url": "https://rpggeek.com/rpg/511/rifts",
-    "abbreviation": "TG"
+    "name": "Created For Testing"
 }
 
 REQUEST_DATA_CREATE_DUPLICATE = {
-    "name_prefix": "",
-    "name_first": "Jay",
-    "name_middle": "",
-    "name_last": "Adan",
-    "name_suffix": "",
-    "description": TEST_VALUE,
-    "read_me": None,
-    "url": "https://rpggeek.com/rpgdesigner/19436/jay-adan"
+    "name": "Player Character - Single Page (TK2E1)"
 }
 
 REQUEST_DATA_PATCH = {
-    "description": TEST_VALUE,
+    "description": TEST_VALUE
 }
 
-REQUEST_DATA_PUT = {
-    "name": "Adan, Jay",
-    "name_prefix": "",
-    "name_first": "Jay",
-    "name_middle": "",
-    "name_last": "Adan",
-    "name_suffix": "",
-    "description": TEST_VALUE,
-    "read_me": None,
-    "url": "https://rpggeek.com/rpgdesigner/19436/jay-adan"
+REQUEST_DATA_PUT = {    
+        "name": "Player Character - Single Page (TK2E1)",
+        "description": TEST_VALUE,
+        "read_me": "",
+        "url": "",
+        "game": "9d739130-b037-4425-8103-3cf13bd21fc1",
+        "workflow_method": "Manual",
+        "enabled": True,
+        "deprecated": False
 }
 
-@tag("person_admin")
+FIXTURES = ['test_users',
+            'test_publisher',
+            'test_gamesystem',
+            'test_game',
+            'test_workflow']
+
+@tag("workflow_admin")
 class TestAdmin(RPGToolsApiBaseTestCase):
     """
     Defines person test case class
@@ -83,8 +58,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
     token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
                                                              ADMIN_USER,
                                                              format="json").json()["access"]
-
-    # admin user operations
+        # admin user operations
     def test_get_item(self):
         """
         Submits a GET request against MODEL_URL
@@ -97,6 +71,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
     def test_get_item_id(self):
         """
         Submits a GET request against POST_URL + INSTANCE_ID
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -106,6 +81,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
     def test_get_item_id_history(self):
         """
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID + '/history',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -115,23 +91,12 @@ class TestAdmin(RPGToolsApiBaseTestCase):
     def test_post_item(self):
         """
         Submits a POST request against POST_URL
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
                                                  format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(response.json()['id'], CREATE_TEST_VALUE)
-        self.assertEqual(response.status_code, CODES["created"])
-
-    def test_post_full_item(self):
-        """
-        Submits a POST request against POST_URL
-        """
-        response = self.rpgtools_api_client.post(POST_URL,
-                                                 REQUEST_DATA_CREATE_FULL,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(response.json()['id'], CREATE_TEST_VALUE_FULL)
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["created"])
 
     def test_post_duplicate_item(self):
@@ -148,31 +113,32 @@ class TestAdmin(RPGToolsApiBaseTestCase):
     def test_patch_item(self):
         """
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.patch(EDIT_URL + INSTANCE_ID,
                                                   REQUEST_DATA_PATCH,
                                                   format="json",
-                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(response.json()['description'], TEST_VALUE)
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_put_item(self):
         """
         Submits a PUT request against EDIT_URL + INSTANCE_ID
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.put(EDIT_URL + INSTANCE_ID,
                                                 REQUEST_DATA_PUT,
                                                 format="json",
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
-        self.assertEqual(response.json()['description'], TEST_VALUE)
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_delete_item(self):
         """
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.delete(DELETE_URL + INSTANCE_ID,
-                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["deleted"])
 
 @tag("person_readonly")
@@ -199,7 +165,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
     def test_get_item_id(self):
         """
         Submits a GET request against POST_URL + INSTANCE_ID
-        Uses read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -209,7 +175,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
     def test_get_item_id_history(self):
         """
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
-        Uses read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID + '/history',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -219,10 +185,21 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
     def test_post_item(self):
         """
         Submits a POST request against POST_URL
-        Uses read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
+                                                 format="json",
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+        self.assertEqual(response.status_code, CODES["no_permission"])
+
+    def test_post_duplicate_item(self):
+        """
+        Submits a POST request against POST_URL
+        Attemptes to create a duplicate instance
+        """
+        response = self.rpgtools_api_client.post(POST_URL,
+                                                 REQUEST_DATA_CREATE_DUPLICATE,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
@@ -230,18 +207,18 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
     def test_patch_item(self):
         """
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
-        Uses read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.patch(EDIT_URL + INSTANCE_ID,
                                                   REQUEST_DATA_PATCH,
                                                   format="json",
-                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
     def test_put_item(self):
         """
         Submits a PUT request against EDIT_URL + INSTANCE_ID
-        USES read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.put(EDIT_URL + INSTANCE_ID,
                                                 REQUEST_DATA_PUT,
@@ -252,11 +229,12 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
     def test_delete_item(self):
         """
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
-        Uses read-only creds
+        Uses anonymouse access
         """
         response = self.rpgtools_api_client.delete(DELETE_URL + INSTANCE_ID,
-                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
+
 
 @tag("person_anonymous")
 class TestAnonymous(RPGToolsApiBaseTestCase):
@@ -301,6 +279,16 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         response = self.rpgtools_api_client.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
                                                  format="json")
+        self.assertEqual(response.status_code, CODES["no_creds"])
+
+    def test_post_duplicate_item(self):
+        """
+        Submits a POST request against POST_URL
+        Attemptes to create a duplicate instance
+        """
+        response = self.rpgtools_api_client.post(POST_URL,
+                                                 REQUEST_DATA_CREATE_DUPLICATE,
+                                                 format="json",)
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_patch_item(self):

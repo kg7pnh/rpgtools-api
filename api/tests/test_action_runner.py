@@ -1240,7 +1240,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-m
             self.assertGreaterEqual(response.json()['Education'], 1)
             self.assertLessEqual(response.json()['Education'], 20)
 
-    def test_post_complex_success(self):
+    def test_post_complex_success(self): # pylint: disable=too-many-statements
         """
         test_post_complex_success
         """
@@ -1303,9 +1303,12 @@ class TestAnonymous(RPGToolsApiBaseTestCase): #pylint: disable=too-many-public-m
         self.assertTrue(response.json()['Throw Range'])
         self.assertEqual(response.json()['Throw Range'],
                          response.json()['Strength'] * 2)
-        self.assertEqual(response.json()['Military Experience Base'], math.trunc((120 - response.json()['Total']) / 7))
-        self.assertGreaterEqual(response.json()['Time In Combat'], response.json()['Military Experience Base'])
-        self.assertLessEqual(response.json()['Time In Combat'], response.json()['Military Experience Base'] * 6)
+        self.assertEqual(response.json()['Military Experience Base'],
+                         math.trunc((120 - response.json()['Total']) / 7))
+        self.assertGreaterEqual(response.json()['Time In Combat'],
+                                response.json()['Military Experience Base'])
+        self.assertLessEqual(response.json()['Time In Combat'],
+                             response.json()['Military Experience Base'] * 6)
         self.assertGreaterEqual(response.json()['Coolness'], 0)
         self.assertGreaterEqual(response.json()['RADS'], 6)
         self.assertLessEqual(response.json()['RADS'], response.json()['RADS'] * 6)

@@ -231,6 +231,9 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('workflows',
          workflow.ListView.as_view(),
          name="workflow_list"),
+    path('workflows/<str:id>/history',
+         workflow.WorkflowHistoryView.as_view(),
+         name="person_history"),
 
     # system paths
     path('token',

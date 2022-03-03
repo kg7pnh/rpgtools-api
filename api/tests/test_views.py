@@ -28,7 +28,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/current-user',
+        response = self.rpgtools_api_client.get(BASE_URL + 'current-user',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
@@ -41,7 +41,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/is-admin',
+        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -91,7 +91,7 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/current-user',
+        response = self.rpgtools_api_client.get(BASE_URL + 'current-user',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
@@ -104,7 +104,7 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/is-admin',
+        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
@@ -151,7 +151,7 @@ class TestsAnonymous(RPGToolsApiBaseTestCase):
         """
         test_get_current_user
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/current-user')
+        response = self.rpgtools_api_client.get(BASE_URL + 'current-user')
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], False)
         self.assertEqual(response.json()['username'], None)
@@ -163,14 +163,14 @@ class TestsAnonymous(RPGToolsApiBaseTestCase):
         """
         test_get_is_admin
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/is-admin')
+        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin')
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_get_info(self):
         """
         test_get_info
         """
-        response = self.rpgtools_api_client.get(BASE_URL + '/info')
+        response = self.rpgtools_api_client.get(BASE_URL + 'info')
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_post_token_failure(self):
