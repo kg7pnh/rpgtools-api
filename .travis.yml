@@ -1,16 +1,16 @@
 language: python
 python:
-  - "3.8"
+  - "3.9.6"
 # command to install dependencies
 install:
   - pip install pylint
   - pip install -r requirements.txt
 # command to run tests
 before_script:
-  - make travis-build
-  - make travis-lint
+  - make build
+  - make lint
 script:
-  - make travis-test
+  - make test
 # safelist
 # branches:
 #     only:

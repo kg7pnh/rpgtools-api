@@ -10,7 +10,7 @@ init:
 	mkdir -p logs
 	rm -f db.sqlite3
 	rm -f ./api/migrations/0001_initial.py
-	pip install -r  requirements.txt
+	python -m pip install -r  requirements.txt
 
 collectstatic:
 	python manage.py collectstatic --noinput

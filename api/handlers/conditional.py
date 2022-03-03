@@ -38,7 +38,7 @@ def run_child(run_input, additional_input):
         result = 'Invalid Method Option: "' + str(res) + '"!'
     return result
 
-def run(run_input, additional_input=None): # pylint: disable=too-many-branches
+def run(run_input, additional_input=None):
     """
     run
     """
