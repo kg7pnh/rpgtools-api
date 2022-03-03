@@ -9,7 +9,6 @@ from api.tests.base import BASE_URL
 from api.tests.base import CODES
 from api.tests.base import READ_ONLY_USER
 from api.tests.base import TOKEN_URL
-from api.tests.test_person import INSTANCE_ID
 
 MODEL_URL = BASE_URL + 'workflows'
 POST_URL = MODEL_URL + '/'
