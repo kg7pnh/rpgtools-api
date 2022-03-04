@@ -3,22 +3,22 @@
 Defines test case run against the API for DieRoll model
 """
 from django.test import tag
-from api.tests.base import RPGToolsApiBaseTestCase
+from api.tests.base import RpgtApiBTC
 from api.tests.base import ADMIN_USER
-from api.tests.base import BASE_URL
+from api.tests.base import API_URL
 from api.tests.base import CODES
-from api.tests.base import READ_ONLY_USER
-from api.tests.base import TOKEN_URL
+from api.tests.base import RO_USER
+from api.tests.base import T_URL
 
 FIXTURES = ['test_users']
 
 @tag("views_admin")
-class TestsAdmin(RPGToolsApiBaseTestCase):
+class TestsAdmin(RpgtApiBTC):
     """
     Defines TestAdmin class
     """
     fixtures = FIXTURES
-    response = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
+    response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
                                                                 ADMIN_USER,
                                                                 format="json").json()
     token = response['access']
@@ -28,7 +28,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'current-user',
+        response = self.rpgt_api_cli.get(API_URL + 'current-user',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
@@ -41,7 +41,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin',
+        response = self.rpgt_api_cli.get(API_URL + 'is-admin',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -49,7 +49,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL,
+        response = self.rpgt_api_cli.post(T_URL,
                                                  ADMIN_USER,
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
@@ -59,7 +59,7 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL + '/refresh',
+        response = self.rpgt_api_cli.post(T_URL + '/refresh',
                                                  {"refresh": self.refresh},
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
@@ -69,20 +69,20 @@ class TestsAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL + '/refresh/',
+        response = self.rpgt_api_cli.post(T_URL + '/refresh/',
                                                  {"token": self.token},
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertFalse(response.json())
 
 @tag("views_readonly")
-class TestsReadOnly(RPGToolsApiBaseTestCase):
+class TestsReadOnly(RpgtApiBTC):
     """
     Defines TestsReadOnly class
     """
     fixtures = FIXTURES
-    response = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
-                                                                READ_ONLY_USER,
+    response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
+                                                                RO_USER,
                                                                 format="json").json()
     token = response['access']
     refresh = response['refresh']
@@ -91,7 +91,7 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'current-user',
+        response = self.rpgt_api_cli.get(API_URL + 'current-user',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
@@ -104,7 +104,7 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         """
         Submits a POST request
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin',
+        response = self.rpgt_api_cli.get(API_URL + 'is-admin',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
@@ -113,8 +113,8 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         Validates admin access
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL,
-                                                 READ_ONLY_USER,
+        response = self.rpgt_api_cli.post(T_URL,
+                                                 RO_USER,
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertTrue(response.json()['access'])
@@ -124,7 +124,7 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         Validates admin access
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL + '/refresh',
+        response = self.rpgt_api_cli.post(T_URL + '/refresh',
                                                  {"refresh": self.refresh},
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
@@ -135,14 +135,14 @@ class TestsReadOnly(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         Validates admin access
         """
-        response = self.rpgtools_api_client.post(TOKEN_URL + '/refresh/',
+        response = self.rpgt_api_cli.post(T_URL + '/refresh/',
                                                  {"token": self.token},
                                                  format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertFalse(response.json())
 
 @tag("views_anonymous")
-class TestsAnonymous(RPGToolsApiBaseTestCase):
+class TestsAnonymous(RpgtApiBTC):
     """
     Defines TestsAnonymous class
     """
@@ -151,7 +151,7 @@ class TestsAnonymous(RPGToolsApiBaseTestCase):
         """
         test_get_current_user
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'current-user')
+        response = self.rpgt_api_cli.get(API_URL + 'current-user')
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], False)
         self.assertEqual(response.json()['username'], None)
@@ -163,21 +163,21 @@ class TestsAnonymous(RPGToolsApiBaseTestCase):
         """
         test_get_is_admin
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'is-admin')
+        response = self.rpgt_api_cli.get(API_URL + 'is-admin')
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_get_info(self):
         """
         test_get_info
         """
-        response = self.rpgtools_api_client.get(BASE_URL + 'info')
+        response = self.rpgt_api_cli.get(API_URL + 'info')
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_post_token_failure(self):
         """
         test_post_token_failure
         """
-        response = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
+        response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
                                                                     {"username": "foo",
                                                                      "password": "bar"},
                                                                     format="json")

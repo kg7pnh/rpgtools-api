@@ -3,14 +3,14 @@
 Defines test case run against the API for Organization model
 """
 from django.test import tag
-from api.tests.base import RPGToolsApiBaseTestCase
+from api.tests.base import RpgtApiBTC
 from api.tests.base import ADMIN_USER
-from api.tests.base import BASE_URL
+from api.tests.base import API_URL
 from api.tests.base import CODES
-from api.tests.base import READ_ONLY_USER
-from api.tests.base import TOKEN_URL
+from api.tests.base import RO_USER
+from api.tests.base import T_URL
 
-MODEL_URL = BASE_URL + 'organizations'
+MODEL_URL = API_URL + 'organizations'
 POST_URL = MODEL_URL + '/'
 EDIT_URL = POST_URL + 'edit/'
 DELETE_URL = POST_URL + 'delete/'
@@ -54,12 +54,12 @@ REQUEST_DATA_PUT = {
 }
 
 @tag("organization_admin")
-class TestAdmin(RPGToolsApiBaseTestCase):
+class TestAdmin(RpgtApiBTC):
     """
     Defines organization test case class
     """
     fixtures = FIXTURES
-    token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
+    token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
                                                              ADMIN_USER,
                                                              format="json").json()["access"]
 
@@ -68,7 +68,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a GET request against MODEL_URL
         """
-        response = self.rpgtools_api_client.get(MODEL_URL,
+        response = self.rpgt_api_cli.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
@@ -77,7 +77,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a GET request against POST_URL + INSTANCE_ID
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
@@ -86,7 +86,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID + '/history',
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID + '/history',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertTrue(response.json())
         self.assertEqual(response.status_code, CODES["success"])
@@ -95,7 +95,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against POST_URL
         """
-        response = self.rpgtools_api_client.post(POST_URL,
+        response = self.rpgt_api_cli.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -107,7 +107,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         Submits a POST request against POST_URL
         Attemptes to create a duplicate instance
         """
-        response = self.rpgtools_api_client.post(POST_URL,
+        response = self.rpgt_api_cli.post(POST_URL,
                                                  REQUEST_DATA_CREATE_DUPLICATE,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -117,7 +117,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
         """
-        response = self.rpgtools_api_client.patch(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
                                                   REQUEST_DATA_PATCH,
                                                   format="json",
                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -128,7 +128,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a PUT request against EDIT_URL + INSTANCE_ID
         """
-        response = self.rpgtools_api_client.put(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
                                                 REQUEST_DATA_PUT,
                                                 format="json",
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -139,18 +139,18 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         """
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
         """
-        response = self.rpgtools_api_client.delete(DELETE_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.delete(DELETE_URL + INSTANCE_ID,
                                                    HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["deleted"])
 
 @tag("organization_readonly")
-class TestReadOnly(RPGToolsApiBaseTestCase):
+class TestReadOnly(RpgtApiBTC):
     """
     Defines organization test case class
     """
     fixtures = FIXTURES
-    token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
-                                                             READ_ONLY_USER,
+    token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
+                                                             RO_USER,
                                                              format="json").json()["access"]
 
     # read-only user operations
@@ -159,7 +159,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.get(MODEL_URL,
+        response = self.rpgt_api_cli.get(MODEL_URL,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
@@ -169,7 +169,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL + INSTANCE_ID
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID,
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
@@ -179,7 +179,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID + '/history',
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID + '/history',
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertTrue(response.json())
         self.assertEqual(response.status_code, CODES["success"])
@@ -189,7 +189,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a POST request against POST_URL
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.post(POST_URL,
+        response = self.rpgt_api_cli.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -200,7 +200,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.patch(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
                                                   REQUEST_DATA_PATCH,
                                                   format="json",
                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -211,7 +211,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a PUT request against EDIT_URL + INSTANCE_ID
         USES read-only creds
         """
-        response = self.rpgtools_api_client.put(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
                                                 REQUEST_DATA_PUT,
                                                 format="json",
                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -222,12 +222,12 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
         Uses read-only creds
         """
-        response = self.rpgtools_api_client.delete(DELETE_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.delete(DELETE_URL + INSTANCE_ID,
                                                    HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
 @tag("organization_anonymous")
-class TestAnonymous(RPGToolsApiBaseTestCase):
+class TestAnonymous(RpgtApiBTC):
     """
     Defines organization test case class
     """
@@ -239,7 +239,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.get(MODEL_URL)
+        response = self.rpgt_api_cli.get(MODEL_URL)
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -248,7 +248,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL + INSTANCE_ID
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID)
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID)
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -257,7 +257,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.get(POST_URL + INSTANCE_ID + '/history')
+        response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID + '/history')
         self.assertTrue(response.json())
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -266,7 +266,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against POST_URL
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.post(POST_URL,
+        response = self.rpgt_api_cli.post(POST_URL,
                                                  REQUEST_DATA_CREATE,
                                                  format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
@@ -276,7 +276,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.patch(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
                                                   REQUEST_DATA_PATCH,
                                                   format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
@@ -286,7 +286,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a PUT request against EDIT_URL + INSTANCE_ID
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.put(EDIT_URL + INSTANCE_ID,
+        response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
                                                 REQUEST_DATA_PUT,
                                                 format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
@@ -296,5 +296,5 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
         Uses anonymouse access
         """
-        response = self.rpgtools_api_client.delete(DELETE_URL + INSTANCE_ID)
+        response = self.rpgt_api_cli.delete(DELETE_URL + INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["no_creds"])

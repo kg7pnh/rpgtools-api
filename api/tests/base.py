@@ -11,14 +11,14 @@ ADMIN_USER = {
     "password": "adminpass"
 }
 
-READ_ONLY_USER = {
+RO_USER = {
     "username": "read-only",
     "password": "ropassword"
 }
 
-BASE_URL = '/api/v1/'
+API_URL = '/api/v1/'
 
-TOKEN_URL = BASE_URL + 'token'
+T_URL = API_URL + 'token'
 
 CODES = {
     "success": 200,
@@ -31,9 +31,9 @@ CODES = {
 }
 
 @override_settings(AUTHENTICATION_BACKENDS=('django.contrib.auth.backends.ModelBackend',))
-class RPGToolsApiBaseTestCase(TestCase):
+class RpgtApiBTC(TestCase):
     """
     http://jmoiron.net/blog/subclassing-djangos-testcase/
     """
-    rpgtools_api_client = APIClient()
+    rpgt_api_cli = APIClient()
     rpgtools_api_client_ro = APIClient()
