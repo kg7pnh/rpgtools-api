@@ -3,18 +3,18 @@
 Defines test case run against the API for DieRoll model
 """
 from django.test import tag
-from api.tests.base import RPGToolsApiBaseTestCase
-from api.tests.base import BASE_URL
+from api.tests.base import RpgtApiBTC
+from api.tests.base import API_URL
 from api.tests.base import CODES
-from api.tests.base import READ_ONLY_USER
-from api.tests.base import TOKEN_URL
+from api.tests.base import RO_USER
+from api.tests.base import T_URL
 
-MODEL_URL = BASE_URL + 'action-runner'
+MODEL_URL = API_URL + 'action-runner'
 
 FIXTURES = ['test_users']
 
 @tag("action_runner_readonly")
-class TestPost(RPGToolsApiBaseTestCase):
+class TestPost(RpgtApiBTC):
     """Posts a json package to the action-runner url to test a specific use case.
 
     Attributes:
@@ -23,8 +23,8 @@ class TestPost(RPGToolsApiBaseTestCase):
                              a specific value range.
     """
     fixtures = FIXTURES
-    token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
-                                                             READ_ONLY_USER,
+    token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
+                                                             RO_USER,
                                                              format="json").json()["access"]
 
     JSON_INPUT = {
@@ -131,7 +131,7 @@ class TestPost(RPGToolsApiBaseTestCase):
 
     def test_run(self):
         """Executes a test against the target url using the defined json package."""
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                     self.JSON_INPUT,
                                                     format="json",
                                                     HTTP_AUTHORIZATION=f"Bearer {self.token}")

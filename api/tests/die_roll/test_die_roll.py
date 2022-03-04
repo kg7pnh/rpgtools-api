@@ -3,14 +3,14 @@
 Defines test case run against the API for DieRoll model
 """
 from django.test import tag
-from api.tests.base import RPGToolsApiBaseTestCase
+from api.tests.base import RpgtApiBTC
 from api.tests.base import ADMIN_USER
-from api.tests.base import BASE_URL
+from api.tests.base import API_URL
 from api.tests.base import CODES
-from api.tests.base import READ_ONLY_USER
-from api.tests.base import TOKEN_URL
+from api.tests.base import RO_USER
+from api.tests.base import T_URL
 
-MODEL_URL = BASE_URL + 'die-roll'
+MODEL_URL = API_URL + 'die-roll'
 
 FIXTURES = ['test_users']
 
@@ -182,12 +182,12 @@ REQUEST_DATA_ROLL_MOD_DIV = {
 }
 
 @tag("die_roll_admin")
-class TestAdmin(RPGToolsApiBaseTestCase):
+class TestAdmin(RpgtApiBTC):
     """
     Defines die_roll test case class
     """
     fixtures = FIXTURES
-    token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
+    token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
                                                              ADMIN_USER,
                                                              format="json").json()["access"]
 
@@ -196,7 +196,7 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         Validates admin access
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ZEROES,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -204,20 +204,20 @@ class TestAdmin(RPGToolsApiBaseTestCase):
         self.assertEqual(response.status_code, CODES["created"])
 
 @tag("die_roll_readonly")
-class TestReadOnly(RPGToolsApiBaseTestCase):
+class TestReadOnly(RpgtApiBTC):
     """
     Defines die_roll test case class
     """
     fixtures = FIXTURES
-    token = RPGToolsApiBaseTestCase.rpgtools_api_client.post(TOKEN_URL,
-                                                             READ_ONLY_USER,
+    token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
+                                                             RO_USER,
                                                              format="json").json()["access"]
 
     def test_post_zeroes(self):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ZEROES,
                                                  format="json",
                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
@@ -225,7 +225,7 @@ class TestReadOnly(RPGToolsApiBaseTestCase):
         self.assertEqual(response.status_code, CODES["created"])
 
 @tag("die_roll_anonymous")
-class TestAnonymous(RPGToolsApiBaseTestCase):
+class TestAnonymous(RpgtApiBTC):
     """
     Defines die_roll test case class for anonymous access
     """
@@ -234,7 +234,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ZEROES,
                                                  format="json")
         self.assertEqual(response.json()['roll'], 0)
@@ -244,7 +244,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ROLL_BASIC,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 3)
@@ -255,7 +255,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ROLL_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 6)
@@ -266,7 +266,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_PER_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 12)
@@ -277,7 +277,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_POST_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 300)
@@ -288,7 +288,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_PER_ROLL_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 9)
@@ -299,7 +299,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_PER_POST_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 60)
@@ -310,7 +310,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_ROLL_POST_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 60)
@@ -321,7 +321,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         """
         Submits a POST request against MODEL_URL
         """
-        response = self.rpgtools_api_client.post(MODEL_URL,
+        response = self.rpgt_api_cli.post(MODEL_URL,
                                                  REQUEST_DATA_PER_ROLL_POST_MOD,
                                                  format="json")
         self.assertGreaterEqual(response.json()['roll'], 90)
@@ -333,7 +333,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(2500): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_REROLL_EQ,
                                                      format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
@@ -345,7 +345,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(100): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_REROLL_LTEQ,
                                                      format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
@@ -357,7 +357,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(100): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_REROLL_LT,
                                                      format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
@@ -369,7 +369,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(100): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_REROLL_GTEQ,
                                                      format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
@@ -381,7 +381,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(100): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_REROLL_GT,
                                                      format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
@@ -393,7 +393,7 @@ class TestAnonymous(RPGToolsApiBaseTestCase):
         Submits a POST request against MODEL_URL
         """
         for iteration in range(100): # pylint: disable=unused-variable
-            response = self.rpgtools_api_client.post(MODEL_URL,
+            response = self.rpgt_api_cli.post(MODEL_URL,
                                                      REQUEST_DATA_ROLL_MOD_DIV,
                                                      format="json")
             self.assertEqual(type(response.json()['roll']), type(1))
