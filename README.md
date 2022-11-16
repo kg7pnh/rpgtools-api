@@ -1,2 +1,1 @@
-
 # <img src="dice-d20-solid.svg" width="35" height="35" alt="RPG Tools API"/> RPG Tools API
