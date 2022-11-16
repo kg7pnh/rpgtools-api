@@ -10,7 +10,7 @@ coveralls==2.1.2
 django-cors-headers==3.5.0
 django-currentuser==0.5.1
 django-debug-toolbar==2.2
-django-filter==2.3.0
+django-filter==2.4.0
 django-markdownx==3.0.1
 django-request-logging==0.7.2
 django-simple-history==2.11.0
