@@ -2,17 +2,17 @@
 
 launch: build run
 
-build: init collectstatic migrate import dumpdata lint test
+build: init static migrate import dumpdata lint test
 
 init:
-	mkdir -p ui/static
+	mkdir -p static
 	mkdir -p fixtures
 	mkdir -p logs
 	rm -f db.sqlite3
 	rm -f ./api/migrations/0001_initial.py
 	python -m pip install -r  requirements.txt
 
-collectstatic:
+static:
 	python manage.py collectstatic --noinput
 
 migrate:
@@ -48,10 +48,10 @@ dumpdata:
 	python manage.py dumpdata authtoken.token --indent 4 | grep -v Fetch > ./fixtures/token.json
 
 lint:
-	pylint api --ignore=migrations,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903
+	pylint api --ignore=migrations,settings.py --disable=R0801,W0511
 
 test:
-	mkdir -p ui/static
+	mkdir -p static
 	mkdir -p fixtures
 	mkdir -p logs
 	coverage run --rcfile=.coveragerc --source='.' manage.py test api
@@ -63,27 +63,3 @@ coverage:
 
 run:
 	python ./manage.py runserver --settings rpgtools.settings
-
-# travis-build:
-# 	rm -f db.sqlite3
-# 	rm -f ./api/migrations/0001_initial.py
-# 	rm -f ./base/migrations/0001_initial.py
-# 	rm -f ./ui/migrations/0001_initial.py
-# 	mkdir -p ui/static
-# 	mkdir -p fixtures
-# 	mkdir -p logs
-# 	python manage.py collectstatic -v 0 --noinput
-# 	python manage.py makemigrations -v 0
-# 	python manage.py migrate -v 0
-# 	python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@bayhasworld.com', 'adminpass',first_name='admin',last_name='admin')"
-# 	python manage.py shell -c "from django.contrib.auth.models import User; User.objects.create_user('read-only', 'ro@bayhasworld.com', 'ropassword',first_name='read',last_name='only')"
-# 	python manage.py loaddata -v 0 ./fixtures/publisher.json
-# 	python manage.py loaddata -v 0 ./fixtures/bookformat.json ./fixtures/contributor.json ./fixtures/person.json ./fixtures/organization.json ./fixtures/gamesystem.json ./fixtures/game.json ./fixtures/book.json ./fixtures/workflow.json ./fixtures/token.json
-# 	python manage.py populate_history -v 0 --auto
-
-# travis-test:
-# 	coverage run --rcfile=.coveragerc --source='.' manage.py test api -v 0
-# 	coveralls
-
-# travis-lint:
-# 	pylint api --ignore=migrations,settings.py --disable=E0401,W0613,R0201,R0401,R0801,R0903

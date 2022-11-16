@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: break out into individual files under api/tests/views
 """
 Defines test case run against the API for DieRoll model
 """
@@ -12,6 +13,7 @@ from api.tests.base import T_URL
 
 FIXTURES = ['test_users']
 
+
 @tag("views_admin")
 class TestsAdmin(RpgtApiBTC):
     """
@@ -19,8 +21,8 @@ class TestsAdmin(RpgtApiBTC):
     """
     fixtures = FIXTURES
     response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                                ADMIN_USER,
-                                                                format="json").json()
+                                            ADMIN_USER,
+                                            format="json").json()
     token = response['access']
     refresh = response['refresh']
 
@@ -29,7 +31,7 @@ class TestsAdmin(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.get(API_URL + 'current-user',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
         self.assertEqual(response.json()['username'], 'admin')
@@ -42,7 +44,7 @@ class TestsAdmin(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.get(API_URL + 'is-admin',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
 
     def test_post_token(self):
@@ -50,8 +52,8 @@ class TestsAdmin(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.post(T_URL,
-                                                 ADMIN_USER,
-                                                 format="json")
+                                          ADMIN_USER,
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertTrue(response.json()['access'])
 
@@ -60,8 +62,8 @@ class TestsAdmin(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.post(T_URL + '/refresh',
-                                                 {"refresh": self.refresh},
-                                                 format="json")
+                                          {"refresh": self.refresh},
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertTrue(response.json()['access'])
 
@@ -70,10 +72,11 @@ class TestsAdmin(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.post(T_URL + '/refresh/',
-                                                 {"token": self.token},
-                                                 format="json")
+                                          {"token": self.token},
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertFalse(response.json())
+
 
 @tag("views_readonly")
 class TestsReadOnly(RpgtApiBTC):
@@ -82,8 +85,8 @@ class TestsReadOnly(RpgtApiBTC):
     """
     fixtures = FIXTURES
     response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                                RO_USER,
-                                                                format="json").json()
+                                            RO_USER,
+                                            format="json").json()
     token = response['access']
     refresh = response['refresh']
 
@@ -92,7 +95,7 @@ class TestsReadOnly(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.get(API_URL + 'current-user',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertEqual(response.json()['is_authenticated'], True)
         self.assertEqual(response.json()['username'], 'read-only')
@@ -105,7 +108,7 @@ class TestsReadOnly(RpgtApiBTC):
         Submits a POST request
         """
         response = self.rpgt_api_cli.get(API_URL + 'is-admin',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
     def test_post_token(self):
@@ -114,8 +117,8 @@ class TestsReadOnly(RpgtApiBTC):
         Validates admin access
         """
         response = self.rpgt_api_cli.post(T_URL,
-                                                 RO_USER,
-                                                 format="json")
+                                          RO_USER,
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertTrue(response.json()['access'])
 
@@ -125,8 +128,8 @@ class TestsReadOnly(RpgtApiBTC):
         Validates admin access
         """
         response = self.rpgt_api_cli.post(T_URL + '/refresh',
-                                                 {"refresh": self.refresh},
-                                                 format="json")
+                                          {"refresh": self.refresh},
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertTrue(response.json()['access'])
 
@@ -136,10 +139,11 @@ class TestsReadOnly(RpgtApiBTC):
         Validates admin access
         """
         response = self.rpgt_api_cli.post(T_URL + '/refresh/',
-                                                 {"token": self.token},
-                                                 format="json")
+                                          {"token": self.token},
+                                          format="json")
         self.assertEqual(response.status_code, CODES["success"])
         self.assertFalse(response.json())
+
 
 @tag("views_anonymous")
 class TestsAnonymous(RpgtApiBTC):
@@ -178,7 +182,7 @@ class TestsAnonymous(RpgtApiBTC):
         test_post_token_failure
         """
         response = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                                    {"username": "foo",
-                                                                     "password": "bar"},
-                                                                    format="json")
+                                                {"username": "foo",
+                                                 "password": "bar"},
+                                                format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])

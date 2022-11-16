@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*- # pylint: disable=too-many-lines
-"""
-Defines test case run against the API for DieRoll model
+"""Defines test case run against the API for DieRoll model
 """
 import math
 from django.test import tag
@@ -10,8 +9,10 @@ from api.tests.base import CODES
 
 MODEL_URL = API_URL + 'action-runner'
 
+
 @tag("action_runner_anonymous")
 class TestPost(RpgtApiBTC):
+    # TODO: update docstring
     """Posts a json package to the action-runner url to test a specific use case.
 
     Attributes:
@@ -144,7 +145,7 @@ class TestPost(RpgtApiBTC):
                 "method": "calculation",
                 "input": {
                     "formula": {
-                        "0": "math.trunc",
+                        "0": "trunc",
                         "1": "(",
                         "2": "(",
                         "3": "Fitness",
@@ -234,7 +235,7 @@ class TestPost(RpgtApiBTC):
                 "method": "calculation",
                 "input": {
                     "formula": {
-                        "0": "math.trunc",
+                        "0": "trunc",
                         "1": "(",
                         "2": "(",
                         "3": 120,
@@ -316,7 +317,7 @@ class TestPost(RpgtApiBTC):
                         "1": "+",
                         "2": 8,
                         "3": "+",
-                        "4": "math.ceil",
+                        "4": "ceil",
                         "5": "(",
                         "6": "Time In Combat",
                         "7": "/",
@@ -438,7 +439,7 @@ class TestPost(RpgtApiBTC):
                 "method": "calculation",
                 "input": {
                     "formula": {
-                        "0": "math.trunc",
+                        "0": "trunc",
                         "1": "(",
                         "2": "Time In Combat",
                         "3": "/",
@@ -553,74 +554,78 @@ class TestPost(RpgtApiBTC):
             }
         ]
     }
-    ATTR_RANGE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+    ATTR_RANGE = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+                  11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
 
     def test_run(self):
-        """Executes a test against the target url using the defined json package 1000 times."""
-        for iteration in range(1000): # pylint: disable=unused-variable
+        # TODO: update docstring
+        """Executes a test against the target url using the defined json package 1000 times.
+        """
+        for iteration in range(1000):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     self.JSON_INPUT,
-                                                     format="json")
+                                              self.JSON_INPUT,
+                                              format="json")
             self.assertEqual(response.status_code, CODES["created"])
             self.assertTrue(response.json())
             self.assertTrue(response.json()['Fitness'])
-            self.assertIn(response.json()['Fitness'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Fitness'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Agility'])
-            self.assertIn(response.json()['Agility'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Agility'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Constitution'])
-            self.assertIn(response.json()['Constitution'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Constitution'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Stature'])
-            self.assertIn(response.json()['Stature'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Stature'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Intelligence'])
-            self.assertIn(response.json()['Intelligence'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Intelligence'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Education'])
-            self.assertIn(response.json()['Education'],self.ATTR_RANGE)
+            self.assertIn(response.json()['Education'], self.ATTR_RANGE)
             self.assertTrue(response.json()['Total'])
             self.assertGreaterEqual(response.json()['Total'], 6)
             self.assertLessEqual(response.json()['Total'], 120)
             self.assertEqual(response.json()['Total'],
-                            response.json()['Fitness'] +
-                            response.json()['Agility'] +
-                            response.json()['Constitution'] +
-                            response.json()['Stature'] +
-                            response.json()['Intelligence'] +
-                            response.json()['Education'])
+                             response.json()['Fitness'] +
+                             response.json()['Agility'] +
+                             response.json()['Constitution'] +
+                             response.json()['Stature'] +
+                             response.json()['Intelligence'] +
+                             response.json()['Education'])
             self.assertTrue(response.json()['Strength'])
             self.assertEqual(response.json()['Strength'],
-                            int((response.json()['Fitness'] +
-                                response.json()['Stature']) / 2))
+                             int((response.json()['Fitness'] +
+                                  response.json()['Stature']) / 2))
             self.assertTrue(response.json()['Hit Capacity - Head'])
             self.assertEqual(response.json()['Hit Capacity - Head'],
-                            response.json()['Constitution'])
+                             response.json()['Constitution'])
             self.assertTrue(response.json()['Hit Capacity - Chest'])
             self.assertEqual(response.json()['Hit Capacity - Chest'],
-                            response.json()['Strength'] +
-                            response.json()['Constitution'] +
-                            response.json()['Stature'])
+                             response.json()['Strength'] +
+                             response.json()['Constitution'] +
+                             response.json()['Stature'])
             self.assertTrue(response.json()['Hit Capacity - Other'])
             self.assertEqual(response.json()['Hit Capacity - Other'],
-                            response.json()['Constitution'] +
-                            response.json()['Stature'])
+                             response.json()['Constitution'] +
+                             response.json()['Stature'])
             self.assertTrue(response.json()['Weight'])
             self.assertEqual(response.json()['Weight'],
-                            response.json()['Stature'] * 4 + 40)
+                             response.json()['Stature'] * 4 + 40)
             self.assertTrue(response.json()['Load'])
             self.assertEqual(response.json()['Load'],
-                            (response.json()['Strength'] * 2) +
-                            response.json()['Constitution'])
+                             (response.json()['Strength'] * 2) +
+                             response.json()['Constitution'])
             self.assertTrue(response.json()['Throw Range'])
             self.assertEqual(response.json()['Throw Range'],
-                            response.json()['Strength'] * 2)
+                             response.json()['Strength'] * 2)
             self.assertEqual(response.json()['Military Experience Base'],
-                            math.trunc((120 - response.json()['Total']) / 7))
+                             math.trunc((120 - response.json()['Total']) / 7))
             self.assertGreaterEqual(response.json()['Time In Combat'],
                                     response.json()['Military Experience Base'])
             self.assertLessEqual(response.json()['Time In Combat'],
-                                response.json()['Military Experience Base'] * 6)
+                                 response.json()['Military Experience Base'] * 6)
             self.assertGreaterEqual(response.json()['Coolness'], 0)
             self.assertGreaterEqual(response.json()['RADS'], 6)
-            self.assertLessEqual(response.json()['RADS'], response.json()['RADS'] * 6)
-            self.assertTrue(isinstance(response.json()['Age'],int))
+            self.assertLessEqual(
+                response.json()['RADS'], response.json()['RADS'] * 6)
+            self.assertTrue(isinstance(response.json()['Age'], int))
             self.assertTrue(isinstance(response.json()['Officer'], bool))
             self.assertTrue(isinstance(response.json()['Rank Number'], int))
             self.assertGreaterEqual(response.json()['Rank Number'], -1)

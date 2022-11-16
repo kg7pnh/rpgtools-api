@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the base views
+# TODO: update docstring
+"""Defines the base views
 """
 from rest_framework import generics
 from rest_framework import status
@@ -10,49 +10,54 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 
+
 class Root(APIView):
+    # TODO: update docstring
+    """Root
     """
-    Root
-    """
-    def get(self, request, *args, **kwargs): # pylint: disable=unused-argument, no-self-use
-        """
-        get
+    service = "rpg-tools"
+    version = "1.0.0"
+    description = "API access to tools " + \
+        "and information for RPG players " + \
+        "and game masters."
+    swagger_docs = "/api/v1/swagger/"
+
+    def get(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """get
         """
         return Response({
-            "service": "rpg-tools",
-            "verion": "1.0.0",
-            "description": "API access to tools "+
-                           "and information for RPG players "+
-                           "and game masters.",
-            "swagger_docs": "/api/v1/docs"
+            "service": self.service,
+            "verion": self.version,
+            "description": self.description,
+            "swagger_docs": self.swagger_docs
         })
 
+
 class TokenView(TokenObtainPairView):
-    """
-    TokenView
+    # TODO: update docstring
+    """TokenView
     """
     serializer_class = TokenObtainPairSerializer
 
-    def post(self, request, *args, **kwargs):
-        """
-        post
+    def post(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """post
         """
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        # try:
-        #     serializer.is_valid(raise_exception=True)
-        # except TokenError as exception:
-        #     raise InvalidToken(exception.args[0])
 
         return Response(serializer.validated_data, status=status.HTTP_200_OK)
 
+
 class CurrentUser(generics.GenericAPIView):
+    # TODO: update docstring
+    """CurrentUser
     """
-    CurrentUser
-    """
-    def get(self, request, *args, **kwargs): # pylint: disable=unused-argument
-        """
-        get
+
+    def get(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """get
         """
         user = self.request.user
         is_authenticated = user.is_authenticated
@@ -73,14 +78,15 @@ class CurrentUser(generics.GenericAPIView):
             response["is_superuser"] = user.is_superuser
         return Response(response)
 
+
 class IsAdminView(generics.GenericAPIView):
-    """
-    Is Admin View
+    # TODO: update docstring
+    """Is Admin View
     """
     permission_classes = (IsAdminUser,)
 
-    def get(self, request, *args, **kwargs): # pylint: disable=unused-argument, no-self-use
-        """
-        get
+    def get(self, request, *args, **kwargs):  # pylint: disable=unused-argument, no-self-use
+        # TODO: update docstring
+        """get
         """
         return Response()

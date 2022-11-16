@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the DieRoll. views
+# TODO: update docstring
+"""Defines the DieRoll. views
 """
 import json
 from rest_framework import status
@@ -10,9 +10,10 @@ import api.handlers.die_roll
 from api.models.die_roll import DieRoll
 from api.serializers.die_roll import Serializer
 
+
 class DieRollRequest(CreateAPIView):
-    """
-    DieRollRequest
+    # TODO: update docstring
+    """DieRollRequest
     Excpects a JSON package in the following format:
 
         {
@@ -36,17 +37,16 @@ class DieRollRequest(CreateAPIView):
             }
         }
     """
-    queryset = DieRoll.objects.all() # pylint: disable=no-member
+    queryset = DieRoll.objects.all()  # pylint: disable=no-member
     serializer_class = Serializer
 
-    def post(self, request, *args, **kwargs): # pylint: disable=no-member
-        """
-        post
+    def post(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """post
         """
         input_data = Serializer(data=request.data,)
 
-        # input_data.is_valid(raise_exception=True)
-
-        value = api.handlers.die_roll.run(json.loads(json.dumps(input_data.initial_data)))
+        value = api.handlers.die_roll.run(
+            json.loads(json.dumps(input_data.initial_data)))
 
         return Response({"roll": value}, status=status.HTTP_201_CREATED)

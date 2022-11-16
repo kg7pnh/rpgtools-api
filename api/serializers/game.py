@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the Game serializers
+# TODO: update docstring
+"""_summary_
 """
 from django.db import models
 from django.db.models import ManyToManyRel
@@ -13,14 +13,18 @@ from api.models.game import Game
 from api.serializers.game_system import Serializer as GameSystemSerializer
 from api.serializers.publisher import Serializer as PublisherSerializer
 
-class Serializer(serializers.ModelSerializer):
-    '''
-    Serializer class
-    '''
 
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
+class Serializer(serializers.ModelSerializer):
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        serializers (_type_): _description_
+    """
+
+    class Meta:  # pylint: disable=too-few-public-methods
+        # TODO: update docstring
+        """_summary_
         """
         model = Game
         fields = ('__all__')
@@ -29,7 +33,7 @@ class Serializer(serializers.ModelSerializer):
 #     '''
 #     HyperLinkedSerializer class
 #     '''
-    
+
 #     game_system = GameSystemSerializer(many=False, read_only=True)
 #     publisher = PublisherSerializer(many=False, read_only=True)
 

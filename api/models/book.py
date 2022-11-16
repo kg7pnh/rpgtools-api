@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the Book model
+# TODO: update docstring
+"""_summary_
 """
 from django.db import models
 from django.db.models.signals import pre_save
@@ -19,9 +19,14 @@ VALIDATE_ISBN_13 = RegexValidator(r'^(?:ISBN(?:13)?(?:\-13)?\x20)?:?97(?:8|9)[0-
                                   'Only ISNB-13 formatted strings are allowd.')
 
 # Create your models here.
+
+
 class Book(Base):
-    """
-    Definition for Book
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        Base (_type_): _description_
     """
     # Relationships
     book_format = models.ForeignKey(BookFormat,
@@ -132,18 +137,23 @@ class Book(Base):
     # Functions
 
     # Meta
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Model meta data
+    class Meta:  # pylint: disable=too-few-public-methods
+        # TODO: update docstring
+        """_summary_
         """
         db_table = 'book'
         verbose_name = 'Book'
         verbose_name_plural = 'Books'
         ordering = ('name', )
 
+
 @receiver(pre_save, sender=Book)
-def set_fields(sender, instance, **kwargs): # pylint: disable=unused-argument
-    '''
-    Set parameter values to html friendly format
-    '''
+def set_fields(sender, instance, **kwargs):  # pylint: disable=unused-argument
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        sender (_type_): _description_
+        instance (_type_): _description_
+    """
     instance.id = slugify(instance.name)

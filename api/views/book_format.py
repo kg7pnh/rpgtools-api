@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the BookFormat views
+# TODO: update docstring
+"""Defines the BookFormat views
 """
 from django.utils.text import slugify
 from rest_framework import generics
@@ -11,18 +11,18 @@ from api.serializers.book_format import Serializer
 from api.serializers.history import HistorySerializer
 
 
-class ItemView(generics.RetrieveAPIView):  # pylint: disable=too-many-ancestors
-    """
-    Provides access to the GET method for a given BookFormat ID.
+class ItemView(generics.RetrieveAPIView):
+    # TODO: update docstring
+    """Provides access to the GET method for a given BookFormat ID.
     """
     queryset = BookFormat.objects.all()  # pylint: disable=no-member
     serializer_class = Serializer
     lookup_field = "id"
 
 
-class ItemEditView(generics.UpdateAPIView):  # pylint: disable=too-many-ancestors
-    """
-    Provides access to the PATCH and PUT methods for a given BookFormat ID.
+class ItemEditView(generics.UpdateAPIView):
+    # TODO: update docstring
+    """Provides access to the PATCH and PUT methods for a given BookFormat ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all()  # pylint: disable=no-member
@@ -30,9 +30,9 @@ class ItemEditView(generics.UpdateAPIView):  # pylint: disable=too-many-ancestor
     lookup_field = "id"
 
 
-class ItemDeleteView(generics.DestroyAPIView):  # pylint: disable=too-many-ancestors
-    """
-    Provides access to the DELETE method for a given BookFormat ID.
+class ItemDeleteView(generics.DestroyAPIView):
+    # TODO: update docstring
+    """Provides access to the DELETE method for a given BookFormat ID.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all()  # pylint: disable=no-member
@@ -41,24 +41,24 @@ class ItemDeleteView(generics.DestroyAPIView):  # pylint: disable=too-many-ances
 
 
 class ListView(generics.ListAPIView):
-    """
-    Provides access to the GET method for a list of all BookFormat objects.
+    # TODO: update docstring
+    """Provides access to the GET method for a list of all BookFormat objects.
     """
     queryset = BookFormat.objects.all()  # pylint: disable=no-member
     serializer_class = Serializer
 
 
 class CreateView(generics.CreateAPIView):
-    """
-     Provides access to the POST method for creating BookFormat objects.
+    # TODO: update docstring
+    """Provides access to the POST method for creating BookFormat objects.
     """
     permission_classes = (IsAdminUser,)
     queryset = BookFormat.objects.all()  # pylint: disable=no-member
     serializer_class = Serializer
 
-    def create(self, request, *args, **kwargs):
-        """
-        create
+    def create(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """create
         """
         name = request.data['name']
         item_id = slugify(name)
@@ -70,12 +70,12 @@ class CreateView(generics.CreateAPIView):
             detail = 'A Book Format entry already exists with the id '+item_id
             raise serializers.ValidationError(detail)
 
-        return super(CreateView, self).create(request, *args, **kwargs)  # pylint: disable=super-with-arguments
+        return super().create(request, *args, **kwargs)
 
 
 class BookFormatHistoryView(generics.RetrieveAPIView):
-    """
-    Get book BookFormat history by id
+    # TODO: update docstring
+    """Get book BookFormat history by id
     """
     serializer_class = HistorySerializer
     queryset = BookFormat.objects.all()  # pylint: disable=no-member

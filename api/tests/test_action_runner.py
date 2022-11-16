@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*- # pylint: disable=too-many-lines
-"""
-Defines test case run against the API for DieRoll model
+# -*- coding: utf-8 -*-
+# TODO: migrate all tests to single file instances under api/tests/action_runner
+"""_summary_
 """
 import math
 from django.test import tag
@@ -294,7 +294,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
             "method": "calculation",
             "input": {
                 "formula": {
-                    "0": "math.trunc",
+                    "0": "trunc",
                     "1": "(",
                     "2": "(",
                     "3": "Fitness",
@@ -384,7 +384,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
             "method": "calculation",
             "input": {
                 "formula": {
-                    "0": "math.trunc",
+                    "0": "trunc",
                     "1": "(",
                     "2": "(",
                     "3": 120,
@@ -447,7 +447,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
                     "1": "+",
                     "2": 8,
                     "3": "+",
-                    "4": "math.ceil",
+                    "4": "ceil",
                     "5": "(",
                     "6": "Time In Combat",
                     "7": "/",
@@ -569,7 +569,7 @@ ACTION_RUNNER_INPUT_COMPLEX_SUCCESSFULL = {
             "method": "calculation",
             "input": {
                 "formula": {
-                    "0": "math.trunc",
+                    "0": "trunc",
                     "1": "(",
                     "2": "Time In Combat",
                     "3": "/",
@@ -1114,6 +1114,7 @@ ACTION_RUNNER_INPUT_CON_RESULT_STR = {
     ]
 }
 
+
 @tag("action_runner_admin")
 class TestAdmin(RpgtApiBTC):
     """
@@ -1121,8 +1122,8 @@ class TestAdmin(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             ADMIN_USER,
-                                                             format="json").json()["access"]
+                                         ADMIN_USER,
+                                         format="json").json()["access"]
 
     def test_post_success(self):
         """
@@ -1130,9 +1131,9 @@ class TestAdmin(RpgtApiBTC):
         Validates admin access
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["created"])
         self.assertTrue(response.json())
         self.assertTrue(response.json()['Fitness'])
@@ -1153,6 +1154,7 @@ class TestAdmin(RpgtApiBTC):
         self.assertTrue(response.json()['Education'])
         self.assertGreaterEqual(response.json()['Education'], 1)
         self.assertLessEqual(response.json()['Education'], 20)
+
 
 @tag("action_runner_readonly")
 class TestReadOnly(RpgtApiBTC):
@@ -1161,17 +1163,17 @@ class TestReadOnly(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                RO_USER,
-                                                format="json").json()["access"]
+                                         RO_USER,
+                                         format="json").json()["access"]
 
     def test_post_success(self):
         """
         test_post_success
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["created"])
         self.assertTrue(response.json())
         self.assertTrue(response.json()['Fitness'])
@@ -1193,8 +1195,9 @@ class TestReadOnly(RpgtApiBTC):
         self.assertGreaterEqual(response.json()['Education'], 1)
         self.assertLessEqual(response.json()['Education'], 20)
 
+
 @tag("action_runner_anonymous")
-class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
+class TestAnonymous(RpgtApiBTC):  # pylint: disable=too-many-public-methods
     """
     TestAnonymous
     """
@@ -1203,7 +1206,7 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         """
         test_post_simple_success
         """
-        for iteration in range(1000): # pylint: disable=unused-variable
+        for iteration in range(1000):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
                                               ACTION_RUNNER_INPUT_SIMPLE_SUCCESSFULL,
                                               format="json")
@@ -1215,7 +1218,7 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         """
         test_post_large_success
         """
-        for iteration in range(1000): # pylint: disable=unused-variable
+        for iteration in range(1000):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
                                               ACTION_RUNNER_INPUT_LARGE_SUCCESSFULL,
                                               format="json")
@@ -1240,7 +1243,7 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
             self.assertGreaterEqual(response.json()['Education'], 1)
             self.assertLessEqual(response.json()['Education'], 20)
 
-    def test_post_complex_success(self): # pylint: disable=too-many-statements
+    def test_post_complex_success(self):  # pylint: disable=too-many-statements
         """
         test_post_complex_success
         """
@@ -1311,8 +1314,9 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
                              response.json()['Military Experience Base'] * 6)
         self.assertGreaterEqual(response.json()['Coolness'], 0)
         self.assertGreaterEqual(response.json()['RADS'], 6)
-        self.assertLessEqual(response.json()['RADS'], response.json()['RADS'] * 6)
-        self.assertTrue(isinstance(response.json()['Age'],int))
+        self.assertLessEqual(
+            response.json()['RADS'], response.json()['RADS'] * 6)
+        self.assertTrue(isinstance(response.json()['Age'], int))
         self.assertTrue(isinstance(response.json()['Officer'], bool))
         self.assertTrue(isinstance(response.json()['Rank Number'], int))
         self.assertGreaterEqual(response.json()['Rank Number'], -1)
@@ -1349,7 +1353,8 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
                                           ACTION_RUNNER_INPUT_BAD_CALCULATION_BAD_FORMULA,
                                           format="json")
         self.assertEqual(response.status_code, CODES["created"])
-        self.assertTrue(response.json()["test_case"], "Invalid option \"[formula][1]\"!")
+        self.assertTrue(response.json()["test_case"],
+                        "Invalid option \"[formula][1]\"!")
 
     def test_post_dieroll_add_input(self):
         """
@@ -1391,8 +1396,8 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
                                           format="json")
         self.assertEqual(response.status_code, CODES["created"])
         self.assertEqual(response.json()["error_entry_index_0"],
-            "Action Input entries require \"name\", \"method\""\
-            " and \"input\" items to be processed.")
+                         "Action Input entries require \"name\", \"method\""
+                         " and \"input\" items to be processed.")
 
     def test_post_avg_noinput(self):
         """
@@ -1402,7 +1407,8 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
                                           ACTION_RUNNER_AVG_NOINPUT,
                                           format="json")
         self.assertEqual(response.status_code, CODES["created"])
-        self.assertEqual(response.json()["test_case"], "Incomplete Request: No input provided!")
+        self.assertEqual(
+            response.json()["test_case"], "Incomplete Request: No input provided!")
 
     def test_post_avg_noaddinput_no_round(self):
         """
@@ -1496,9 +1502,9 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         self.assertEqual(response.json()["test_case"],
                          'Invalid Operator: "f"!')
 
-    def test_post_conditional_netsed_conditional(self):
+    def test_post_conditional_nested_conditional(self):
         """
-        test_post_conditional_netsed_conditional
+        test_post_conditional_nested_conditional
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
                                           ACTION_RUNNER_CON_NESTED_CON,
@@ -1506,9 +1512,9 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         self.assertEqual(response.status_code, CODES["created"])
         self.assertEqual(response.json()["test_case"], True)
 
-    def test_post_conditional_netsed_bad_option(self):
+    def test_post_conditional_nested_bad_option(self):
         """
-        test_post_conditional_netsed_conditional
+        test_post_conditional_nested_conditional
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
                                           ACTION_RUNNER_CON_NESTED_BAD_OPTION,
@@ -1521,7 +1527,7 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         """
         test_post_conditional_result_additionalinput
         """
-        for iteration in range(1000): # pylint: disable=unused-variable
+        for iteration in range(1000):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
                                               ACTION_RUNNER_INPUT_SIMPLE_CON_RSLT_ADD_INPUT,
                                               format="json")
@@ -1532,7 +1538,7 @@ class TestAnonymous(RpgtApiBTC): #pylint: disable=too-many-public-methods
         """
         test_post_conditional_restult_string
         """
-        for iteration in range(1000): # pylint: disable=unused-variable
+        for iteration in range(1000):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
                                               ACTION_RUNNER_INPUT_CON_RESULT_STR,
                                               format="json")

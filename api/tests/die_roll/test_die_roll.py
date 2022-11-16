@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: break out into individual files under api/tests/die_roll
 """
 Defines test case run against the API for DieRoll model
 """
@@ -181,6 +182,7 @@ REQUEST_DATA_ROLL_MOD_DIV = {
     }
 }
 
+
 @tag("die_roll_admin")
 class TestAdmin(RpgtApiBTC):
     """
@@ -188,8 +190,8 @@ class TestAdmin(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             ADMIN_USER,
-                                                             format="json").json()["access"]
+                                         ADMIN_USER,
+                                         format="json").json()["access"]
 
     def test_post_zeroes(self):
         """
@@ -197,11 +199,12 @@ class TestAdmin(RpgtApiBTC):
         Validates admin access
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ZEROES,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          REQUEST_DATA_ZEROES,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['roll'], 0)
         self.assertEqual(response.status_code, CODES["created"])
+
 
 @tag("die_roll_readonly")
 class TestReadOnly(RpgtApiBTC):
@@ -210,19 +213,20 @@ class TestReadOnly(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             RO_USER,
-                                                             format="json").json()["access"]
+                                         RO_USER,
+                                         format="json").json()["access"]
 
     def test_post_zeroes(self):
         """
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ZEROES,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          REQUEST_DATA_ZEROES,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['roll'], 0)
         self.assertEqual(response.status_code, CODES["created"])
+
 
 @tag("die_roll_anonymous")
 class TestAnonymous(RpgtApiBTC):
@@ -235,8 +239,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ZEROES,
-                                                 format="json")
+                                          REQUEST_DATA_ZEROES,
+                                          format="json")
         self.assertEqual(response.json()['roll'], 0)
         self.assertEqual(response.status_code, CODES["created"])
 
@@ -245,8 +249,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ROLL_BASIC,
-                                                 format="json")
+                                          REQUEST_DATA_ROLL_BASIC,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 3)
         self.assertLessEqual(response.json()['roll'], 18)
         self.assertEqual(response.status_code, CODES["created"])
@@ -256,8 +260,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ROLL_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_ROLL_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 6)
         self.assertLessEqual(response.json()['roll'], 21)
         self.assertEqual(response.status_code, CODES["created"])
@@ -267,8 +271,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_PER_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_PER_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 12)
         self.assertLessEqual(response.json()['roll'], 27)
         self.assertEqual(response.status_code, CODES["created"])
@@ -278,8 +282,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_POST_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_POST_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 300)
         self.assertLessEqual(response.json()['roll'], 1800)
         self.assertEqual(response.status_code, CODES["created"])
@@ -289,8 +293,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_PER_ROLL_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_PER_ROLL_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 9)
         self.assertLessEqual(response.json()['roll'], 24)
         self.assertEqual(response.status_code, CODES["created"])
@@ -300,8 +304,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_PER_POST_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_PER_POST_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 60)
         self.assertLessEqual(response.json()['roll'], 210)
         self.assertEqual(response.status_code, CODES["created"])
@@ -311,8 +315,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_ROLL_POST_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_ROLL_POST_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 60)
         self.assertLessEqual(response.json()['roll'], 210)
         self.assertEqual(response.status_code, CODES["created"])
@@ -322,8 +326,8 @@ class TestAnonymous(RpgtApiBTC):
         Submits a POST request against MODEL_URL
         """
         response = self.rpgt_api_cli.post(MODEL_URL,
-                                                 REQUEST_DATA_PER_ROLL_POST_MOD,
-                                                 format="json")
+                                          REQUEST_DATA_PER_ROLL_POST_MOD,
+                                          format="json")
         self.assertGreaterEqual(response.json()['roll'], 90)
         self.assertLessEqual(response.json()['roll'], 240)
         self.assertEqual(response.status_code, CODES["created"])
@@ -332,10 +336,10 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(2500): # pylint: disable=unused-variable
+        for iteration in range(2500):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_REROLL_EQ,
-                                                     format="json")
+                                              REQUEST_DATA_REROLL_EQ,
+                                              format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
             self.assertLessEqual(response.json()['roll'], 20)
             self.assertEqual(response.status_code, CODES["created"])
@@ -344,10 +348,10 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(100): # pylint: disable=unused-variable
+        for iteration in range(100):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_REROLL_LTEQ,
-                                                     format="json")
+                                              REQUEST_DATA_REROLL_LTEQ,
+                                              format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
             self.assertLessEqual(response.json()['roll'], 20)
             self.assertEqual(response.status_code, CODES["created"])
@@ -356,10 +360,10 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(100): # pylint: disable=unused-variable
+        for iteration in range(100):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_REROLL_LT,
-                                                     format="json")
+                                              REQUEST_DATA_REROLL_LT,
+                                              format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
             self.assertLessEqual(response.json()['roll'], 20)
             self.assertEqual(response.status_code, CODES["created"])
@@ -368,10 +372,10 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(100): # pylint: disable=unused-variable
+        for iteration in range(100):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_REROLL_GTEQ,
-                                                     format="json")
+                                              REQUEST_DATA_REROLL_GTEQ,
+                                              format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
             self.assertLessEqual(response.json()['roll'], 20)
             self.assertEqual(response.status_code, CODES["created"])
@@ -380,10 +384,10 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(100): # pylint: disable=unused-variable
+        for iteration in range(100):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_REROLL_GT,
-                                                     format="json")
+                                              REQUEST_DATA_REROLL_GT,
+                                              format="json")
             self.assertGreaterEqual(response.json()['roll'], 1)
             self.assertLessEqual(response.json()['roll'], 20)
             self.assertEqual(response.status_code, CODES["created"])
@@ -392,9 +396,9 @@ class TestAnonymous(RpgtApiBTC):
         """
         Submits a POST request against MODEL_URL
         """
-        for iteration in range(100): # pylint: disable=unused-variable
+        for iteration in range(100):  # pylint: disable=unused-variable
             response = self.rpgt_api_cli.post(MODEL_URL,
-                                                     REQUEST_DATA_ROLL_MOD_DIV,
-                                                     format="json")
+                                              REQUEST_DATA_ROLL_MOD_DIV,
+                                              format="json")
             self.assertEqual(type(response.json()['roll']), type(1))
             self.assertEqual(response.status_code, CODES["created"])

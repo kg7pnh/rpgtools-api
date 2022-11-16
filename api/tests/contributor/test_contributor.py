@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: break out into individual files under api/tests/contributor
 """
 Defines test case run against the API for the Contributor model
 """
@@ -20,6 +21,7 @@ GET_COUNT = 65
 FIXTURES = ['test_users',
             'test_contributor.json']
 
+
 @tag("contributor_admin")
 class TestAdmin(RpgtApiBTC):
     """
@@ -27,8 +29,8 @@ class TestAdmin(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             ADMIN_USER,
-                                                             format="json").json()["access"]
+                                         ADMIN_USER,
+                                         format="json").json()["access"]
 
     # admin user operations
     def test_get_item(self):
@@ -36,7 +38,7 @@ class TestAdmin(RpgtApiBTC):
         Submits a GET request against MODEL_URL
         """
         response = self.rpgt_api_cli.get(MODEL_URL,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -45,9 +47,10 @@ class TestAdmin(RpgtApiBTC):
         Submits a GET request against POST_URL + INSTANCE_ID
         """
         response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
+
 
 @tag("contributor_anonymous")
 class TestAnonymous(RpgtApiBTC):

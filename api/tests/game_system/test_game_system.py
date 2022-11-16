@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: break out into individual files under api/tests/game_system
 """
 Defines test case run against the API for GameSystem model
 """
@@ -37,13 +38,13 @@ REQUEST_DATA_CREATE = {
 
 REQUEST_DATA_CREATE_DUPLICATE = {
     "name": "Palladium Megaversal",
-    "description": "Also known as the Palladium Megaverse, this is a mostly unified system of rules for a wide range of games by the publisher Palladium Books.", # pylint: disable=line-too-long
-    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.", # pylint: disable=line-too-long
+    "description": "Also known as the Palladium Megaverse, this is a mostly unified system of rules for a wide range of games by the publisher Palladium Books.",  # pylint: disable=line-too-long
+    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.",  # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpgsystem/733/palladium-megaversal",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
     "short_name": "Megaversal",
     "abbreviation": "PALMGVL"
-    }
+}
 
 REQUEST_DATA_PATCH = {
     "description": TEST_VALUE,
@@ -52,12 +53,13 @@ REQUEST_DATA_PATCH = {
 REQUEST_DATA_PUT = {
     "name": "Palladium Megaversal",
     "description": TEST_VALUE,
-    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.", # pylint: disable=line-too-long
+    "read_me": "Palladium Megaversal==---The **Megaversal system**, sometimes known as the **Palladium system**, is a set of mechanics specifically employed in most role-playing games published by Palladium Books, with the exception of *Recon*. It uses dice for roll-under percentile skill checks, roll-high combat checks and saving throws, and determination of damage (i.e. Mega Damage is to M.D.C. what \"damage\" is to S.D.C. ) sustained in melee encounters by which a character's Hit Points, Structural Damage Capacity (S.D.C.), or Mega-Damage Capacity (M.D.C.) is reduced accordingly.",  # pylint: disable=line-too-long
     "url": "https://rpggeek.com/rpgsystem/733/palladium-megaversal",
     "publisher": "e835030d-fbcf-4747-9dbf-fbb0e5e79f39",
     "short_name": "Megaversal",
     "abbreviation": "PALMGVL"
 }
+
 
 @tag("game_system_admin")
 class TestAdmin(RpgtApiBTC):
@@ -66,8 +68,8 @@ class TestAdmin(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             ADMIN_USER,
-                                                             format="json").json()["access"]
+                                         ADMIN_USER,
+                                         format="json").json()["access"]
 
     # admin user operations
     def test_get_item(self):
@@ -75,7 +77,7 @@ class TestAdmin(RpgtApiBTC):
         Submits a GET request against MODEL_URL
         """
         response = self.rpgt_api_cli.get(MODEL_URL,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -84,7 +86,7 @@ class TestAdmin(RpgtApiBTC):
         Submits a GET request against POST_URL + INSTANCE_ID
         """
         response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -93,7 +95,7 @@ class TestAdmin(RpgtApiBTC):
         Submits a GET request against POST_URL + INSTANCE_ID + '/history'
         """
         response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID + '/history',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertTrue(response.json())
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -102,9 +104,9 @@ class TestAdmin(RpgtApiBTC):
         Submits a POST request against POST_URL
         """
         response = self.rpgt_api_cli.post(POST_URL,
-                                                 REQUEST_DATA_CREATE,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          REQUEST_DATA_CREATE,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], CREATE_TEST_VALUE)
         self.assertEqual(response.status_code, CODES["created"])
 
@@ -114,9 +116,9 @@ class TestAdmin(RpgtApiBTC):
         Attemptes to create a duplicate instance
         """
         response = self.rpgt_api_cli.post(POST_URL,
-                                                 REQUEST_DATA_CREATE_DUPLICATE,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          REQUEST_DATA_CREATE_DUPLICATE,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["bad_request"])
 
     def test_patch_item(self):
@@ -124,9 +126,9 @@ class TestAdmin(RpgtApiBTC):
         Submits a PATCH request against EDIT_URL + INSTANCE_ID
         """
         response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
-                                                  REQUEST_DATA_PATCH,
-                                                  format="json",
-                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                           REQUEST_DATA_PATCH,
+                                           format="json",
+                                           HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['description'], TEST_VALUE)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -135,9 +137,9 @@ class TestAdmin(RpgtApiBTC):
         Submits a PUT request against EDIT_URL + INSTANCE_ID
         """
         response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
-                                                REQUEST_DATA_PUT,
-                                                format="json",
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         REQUEST_DATA_PUT,
+                                         format="json",
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['description'], TEST_VALUE)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -146,8 +148,9 @@ class TestAdmin(RpgtApiBTC):
         Submits a DELETE request against DELETE_URL + INSTANCE_ID
         """
         response = self.rpgt_api_cli.delete(DELETE_URL + INSTANCE_ID,
-                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                            HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["deleted"])
+
 
 @tag("game_system_readonly")
 class TestReadOnly(RpgtApiBTC):
@@ -156,8 +159,8 @@ class TestReadOnly(RpgtApiBTC):
     """
     fixtures = FIXTURES
     token = RpgtApiBTC.rpgt_api_cli.post(T_URL,
-                                                             RO_USER,
-                                                             format="json").json()["access"]
+                                         RO_USER,
+                                         format="json").json()["access"]
 
     # read-only user operations
     def test_get_item(self):
@@ -166,7 +169,7 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.get(MODEL_URL,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(len(response.json()), GET_COUNT)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -176,7 +179,7 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID,
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.json()['id'], INSTANCE_ID)
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -186,7 +189,7 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.get(POST_URL + INSTANCE_ID + '/history',
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertTrue(response.json())
         self.assertEqual(response.status_code, CODES["success"])
 
@@ -196,9 +199,9 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.post(POST_URL,
-                                                 REQUEST_DATA_CREATE,
-                                                 format="json",
-                                                 HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                          REQUEST_DATA_CREATE,
+                                          format="json",
+                                          HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
     def test_patch_item(self):
@@ -207,9 +210,9 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
-                                                  REQUEST_DATA_PATCH,
-                                                  format="json",
-                                                  HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                           REQUEST_DATA_PATCH,
+                                           format="json",
+                                           HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
     def test_put_item(self):
@@ -218,9 +221,9 @@ class TestReadOnly(RpgtApiBTC):
         USES read-only creds
         """
         response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
-                                                REQUEST_DATA_PUT,
-                                                format="json",
-                                                HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                         REQUEST_DATA_PUT,
+                                         format="json",
+                                         HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
 
     def test_delete_item(self):
@@ -229,8 +232,9 @@ class TestReadOnly(RpgtApiBTC):
         Uses read-only creds
         """
         response = self.rpgt_api_cli.delete(DELETE_URL + INSTANCE_ID,
-                                                   HTTP_AUTHORIZATION=f"Bearer {self.token}")
+                                            HTTP_AUTHORIZATION=f"Bearer {self.token}")
         self.assertEqual(response.status_code, CODES["no_permission"])
+
 
 @tag("game_system_anonymous")
 class TestAnonymous(RpgtApiBTC):
@@ -273,8 +277,8 @@ class TestAnonymous(RpgtApiBTC):
         Uses anonymouse access
         """
         response = self.rpgt_api_cli.post(POST_URL,
-                                                 REQUEST_DATA_CREATE,
-                                                 format="json")
+                                          REQUEST_DATA_CREATE,
+                                          format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_patch_item(self):
@@ -283,8 +287,8 @@ class TestAnonymous(RpgtApiBTC):
         Uses anonymouse access
         """
         response = self.rpgt_api_cli.patch(EDIT_URL + INSTANCE_ID,
-                                                  REQUEST_DATA_PATCH,
-                                                  format="json")
+                                           REQUEST_DATA_PATCH,
+                                           format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_put_item(self):
@@ -293,8 +297,8 @@ class TestAnonymous(RpgtApiBTC):
         Uses anonymouse access
         """
         response = self.rpgt_api_cli.put(EDIT_URL + INSTANCE_ID,
-                                                REQUEST_DATA_PUT,
-                                                format="json")
+                                         REQUEST_DATA_PUT,
+                                         format="json")
         self.assertEqual(response.status_code, CODES["no_creds"])
 
     def test_delete_item(self):

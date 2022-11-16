@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+# TODO: update docstring
 """
 Registers modesl for the admin section
 """
@@ -15,9 +16,13 @@ from api.models.person import Person
 from api.models.publisher import Publisher
 from api.models.workflow import Workflow
 
+
 class BookAdmin(admin.ModelAdmin):
-    """
-    BookAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -80,11 +85,16 @@ class BookAdmin(admin.ModelAdmin):
                          'text_processor',
                          'type_setter',)
 
+
 admin.site.register(Book, BookAdmin)
 
+
 class BookFormatAdmin(admin.ModelAdmin):
-    """
-    BookFormatAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -108,11 +118,16 @@ class BookFormatAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(BookFormat, BookFormatAdmin)
 
+
 class ContributorAdmin(admin.ModelAdmin):
-    """
-    ContributorAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -135,11 +150,16 @@ class ContributorAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(Contributor, ContributorAdmin)
 
+
 class GameAdmin(admin.ModelAdmin):
-    """
-    GameAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -166,11 +186,16 @@ class GameAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(Game, GameAdmin)
 
+
 class GameSystemAdmin(admin.ModelAdmin):
-    """
-    GameSystemAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -196,11 +221,16 @@ class GameSystemAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(GameSystem, GameSystemAdmin)
 
+
 class OrganizationAdmin(admin.ModelAdmin):
-    """
-    ContributorAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -224,11 +254,16 @@ class OrganizationAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(Organization, OrganizationAdmin)
 
+
 class PersonAdmin(admin.ModelAdmin):
-    """
-    PersonAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -259,11 +294,16 @@ class PersonAdmin(admin.ModelAdmin):
                     'modified',
                     '_id')
 
+
 admin.site.register(Person, PersonAdmin)
 
+
 class PublisherAdmin(admin.ModelAdmin):
-    """
-    PublisherAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
         models.TextField: {'widget': AdminMarkdownxWidget},
@@ -287,14 +327,19 @@ class PublisherAdmin(admin.ModelAdmin):
                     'id',
                     '_id')
 
+
 admin.site.register(Publisher, PublisherAdmin)
 
+
 class WorkflowAdmin(admin.ModelAdmin):
-    """
-    WorkflowAdmin
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        admin (_type_): _description_
     """
     formfield_overrides = {
-        models.TextField: {'widget': AdminMarkdownxWidget,}
+        models.TextField: {'widget': AdminMarkdownxWidget, }
     }
     fields = ('_id',
               'id',
@@ -313,5 +358,6 @@ class WorkflowAdmin(admin.ModelAdmin):
                     'modified',
                     'id',
                     '_id')
+
 
 admin.site.register(Workflow, WorkflowAdmin)

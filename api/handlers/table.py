@@ -1,11 +1,22 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the table handler
+# TODO: update docstring
+"""_summary_
+
+Returns:
+    _type_: _description_
 """
 
+
 def run(run_input, additional_input=None):
-    """
-    run
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        run_input (_type_): _description_
+        additional_input (_type_, optional): _description_. Defaults to None.
+
+    Returns:
+        _type_: _description_
     """
     result = ''
     style = run_input['style']

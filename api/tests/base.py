@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Base module for all tests
+# TODO: update docstring
+"""_summary_
 """
 from django.test import TestCase
 from django.test.utils import override_settings
@@ -30,10 +30,15 @@ CODES = {
     "no_permission": 403
 }
 
+
 @override_settings(AUTHENTICATION_BACKENDS=('django.contrib.auth.backends.ModelBackend',))
 class RpgtApiBTC(TestCase):
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        TestCase (_type_): _description_
     """
-    http://jmoiron.net/blog/subclassing-djangos-testcase/
-    """
+    # http://jmoiron.net/blog/subclassing-djangos-testcase/
     rpgt_api_cli = APIClient()
     rpgtools_api_client_ro = APIClient()

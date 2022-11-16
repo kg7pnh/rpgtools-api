@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-"""
-Base definition of the api application
+# TODO: update docstring
+"""_summary_
 """
 from django.apps import AppConfig
 
 
 class ApiConfig(AppConfig):
-    """
-    App config
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        AppConfig (_type_): _description_
     """
     name = 'api'
