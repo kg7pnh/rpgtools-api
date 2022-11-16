@@ -1,12 +1,24 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the average actions
+# TODO: update docstring
+"""_summary_
+
+Returns:
+    _type_: _description_
 """
 import math
 
+
 def get_average(round_method, total, count):
-    """
-    get_average
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        round_method (_type_): _description_
+        total (_type_): _description_
+        count (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     if round_method == 'down':
         result = math.trunc(total / count)
@@ -20,8 +32,15 @@ def get_average(round_method, total, count):
 
 
 def run(run_input, additional_input=None):
-    """
-    run
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        run_input (_type_): _description_
+        additional_input (_type_, optional): _description_. Defaults to None.
+
+    Returns:
+        _type_: _description_
     """
     total = 0
     count = 0
@@ -40,7 +59,8 @@ def run(run_input, additional_input=None):
                 total = total + additional_input[run_input[entry]]
                 count = count + 1
             else:
-                result = result + 'additional_input["' + run_input[entry] + '"]; '
+                result = result + \
+                    'additional_input["' + run_input[entry] + '"]; '
                 move_on = False
         if move_on:
             result = get_average(round_method, total, count)

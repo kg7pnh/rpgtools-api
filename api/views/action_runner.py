@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the ActionRunner views
+# TODO: update docstring
+"""Defines the ActionRunner views
 """
 import importlib
 import json
@@ -10,9 +10,10 @@ from rest_framework.response import Response
 from api.models.action_runner import ActionRunner
 from api.serializers.action_runner import Serializer
 
+
 def run_method(method, method_input, additional_input=None):
-    """
-    run_method
+    # TODO: update docstring
+    """run_method
     """
     response = {}
     try:
@@ -28,9 +29,10 @@ def run_method(method, method_input, additional_input=None):
         }
     return response
 
+
 def iterate_input(action_input, additional_input, index):
-    """
-    iterate_input
+    # TODO: update docstring
+    """iterate_input
     """
     response = {}
     if 'method' in action_input and \
@@ -47,32 +49,39 @@ def iterate_input(action_input, additional_input, index):
             'Action Input entries require "name", "method" and "input" items to be processed.'
     return response
 
+
 class ActionRunnerRequest(CreateAPIView):
+    # TODO: update docstring
+    """ActionRunnerRequest
     """
-    ActionRunnerRequest
-    """
-    queryset = ActionRunner.objects.all() # pylint: disable=no-member
+    queryset = ActionRunner.objects.all()  # pylint: disable=no-member
     serializer_class = Serializer
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):  # pylint: disable=unused-argument
+        # TODO: update docstring
+        """post
         """
-        post
-        """
-        action_runner = Serializer(data=request.data, )
-        action_input = json.loads(json.dumps(action_runner.initial_data['action_input']))
-        if 'additional_input' in action_runner.initial_data:
-            additional_input = json.loads(json.dumps(
-                action_runner.initial_data['additional_input']))
-        else:
-            additional_input = None
 
         result = {}
-        length = len(action_input)
-        for index in range(length):
-            response = iterate_input(action_input[index], additional_input, index)
-            result.update(response)
-            if additional_input:
-                additional_input.update(response)
+        action_runner = Serializer(data=request.data, )
+        if 'action_input' in action_runner.initial_data:
+            action_input = json.loads(json.dumps(
+                action_runner.initial_data['action_input']))
+            if 'additional_input' in action_runner.initial_data:
+                additional_input = json.loads(json.dumps(
+                    action_runner.initial_data['additional_input']))
             else:
-                additional_input = response
+                additional_input = None
+            length = len(action_input)
+            for index in range(length):
+                response = iterate_input(
+                    action_input[index], additional_input, index)
+                result.update(response)
+                if additional_input:
+                    additional_input.update(response)
+                else:
+                    additional_input = response
+        else:
+            result['Invalid submission'] = '"action_input" was empty or missing!'
+
         return Response(json.loads(json.dumps(result)), status=status.HTTP_201_CREATED)

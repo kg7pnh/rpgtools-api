@@ -1,2 +1,17 @@
-[
-]
+[{
+    "model": "api.workflow",
+    "pk": "3ccfc868-db4c-4e01-8cce-d5cd98eda992",
+    "fields": {
+        "id": "player-character-single-page-tk2e1",
+        "name": "Player Character - Single Page (TK2E1)",
+        "created": "2020-03-07T18:40:34.744Z",
+        "modified": "2021-02-11T04:08:09.891Z",
+        "description": "",
+        "read_me": "",
+        "url": "",
+        "game": "9d739130-b037-4425-8103-3cf13bd21fc1",
+        "workflow_method": "Manual",
+        "enabled": true,
+        "deprecated": false
+    }
+}]

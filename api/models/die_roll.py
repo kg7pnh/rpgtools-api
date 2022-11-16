@@ -1,7 +1,8 @@
 #!/usr/bin/python
+# TODO: update docstring
+"""_summary_
 """
-Defines the DieRoll model
-"""
+from uuid import uuid4
 from django.db import models
 # from django.contrib.postgres.fields import JSONField
 
@@ -16,15 +17,25 @@ CONDITION_TYPE = {
 MODIFIER_TYPE = {
     ('+', '+'),
     ('-', '-'),
+    ('*', 'X'),
+    ('*', 'x'),
     ('*', '×'),
     ('/', '÷')
 }
 
+
 class DieRoll(models.Model):
-    """
-    Definition for DieRoll
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        models (_type_): _description_
     """
     # Attributes
+    _id = models.UUIDField(primary_key=True,
+                           default=uuid4,
+                           editable=False,
+                           verbose_name='_ID')
     die_size = models.PositiveIntegerField(default=0)
     die_count = models.PositiveIntegerField(default=0)
     per_modifier = models.TextField(null=True,
@@ -38,8 +49,8 @@ class DieRoll(models.Model):
 
     # Manager
 
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Meta
+    class Meta:  # pylint: disable=too-few-public-methods
+        # TODO: update docstring
+        """_summary_
         """
         managed = False

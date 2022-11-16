@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Url cofigurations
+# TODO: update docstring
+"""_summary_
 """
 from django.conf import settings
 from django.conf.urls import url
@@ -33,22 +33,22 @@ ROUTER = routers.DefaultRouter()
 ROUTER.register(r'users', user_group.UserViewSet)
 ROUTER.register(r'groups', user_group.GroupViewSet)
 
-schema_view = get_schema_view( # pylint: disable=invalid-name
+SchemaView = get_schema_view(
     openapi.Info(
         title='RPGTools API',
         default_version='v.1.0.0',
-        description='API access to tools '+
-        'and information for RPG players '+
+        description='API access to tools ' +
+        'and information for RPG players ' +
         'and game masters.',
         # terms_of_service="https://www.google.com/policies/terms/",
-        # contact=openapi.Contact(email="contact@snippets.local"),
+        contact=openapi.Contact(email="kg7pnh@arrl.net"),
         # license=openapi.License(name="BSD License"
     ),
     public=True,
     permission_classes=(permissions.AllowAny, )
 )
 
-api_urlpatterns = [ #pylint: disable=invalid-name
+api_urlpatterns = [
 
     url(r'current-user/?$',
         CurrentUser.as_view(),
@@ -231,6 +231,9 @@ api_urlpatterns = [ #pylint: disable=invalid-name
     path('workflows',
          workflow.ListView.as_view(),
          name="workflow_list"),
+    path('workflows/<str:id>/history',
+         workflow.WorkflowHistoryView.as_view(),
+         name="person_history"),
 
     # system paths
     path('token',
@@ -244,24 +247,24 @@ api_urlpatterns = [ #pylint: disable=invalid-name
          name="token_verify"),
 ]
 
-urlpatterns = api_urlpatterns + [ #pylint: disable=invalid-name
+urlpatterns = api_urlpatterns + [
     url(r'^swagger(?P<format>\.json|\.yaml)$',
-        schema_view.without_ui(cache_timeout=0),
+        SchemaView.without_ui(cache_timeout=0),
         name='schema-json'),
     url(r'^swagger/$',
-        schema_view.with_ui('swagger', cache_timeout=0),
+        SchemaView.with_ui('swagger', cache_timeout=0),
         name='schema-swagger-ui'),
     url(r'^redoc/$',
-        schema_view.with_ui('redoc', cache_timeout=0),
+        SchemaView.with_ui('redoc', cache_timeout=0),
         name='schema-redoc'),
-    url(r'info/?', views.Root.as_view(), name='info'),
-    url(r'^$', RedirectView.as_view(url='info')),
-    url(r'^', RedirectView.as_view(url='info')),
+#     url(r'info/?', views.Root.as_view(), name='info'),
+#     url(r'^$', RedirectView.as_view(url='info')),
+#     url(r'^', RedirectView.as_view(url='info')),
     path('', include(ROUTER.urls)),
 ]
 
 if settings.DEBUG:
     import debug_toolbar
-    urlpatterns = [ # pylint: disable=invalid-name
+    urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns

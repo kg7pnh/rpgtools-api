@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the BookFormat model
+# TODO: update docstring
+"""_summary_
+
+Returns:
+    _type_: _description_
 """
 from uuid import uuid4
 from django.db import models
@@ -9,9 +12,17 @@ from django.utils import timezone
 from simple_history.models import HistoricalRecords
 
 # Create your models here.
+
+
 class Base(models.Model):
-    """
-    Definition for Base
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        models (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     # Attributes
     _id = models.UUIDField(primary_key=True,
@@ -41,32 +52,41 @@ class Base(models.Model):
 
     # Functions
     def __str__(self):
-        '''
-        __str__
-        '''
+        # TODO: update docstring
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return str(self.name)
 
     def __unicode__(self):
-        '''
-        __unicode__
-        '''
+        # TODO: update docstring
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         return self.name
 
-    def save(self, *args, **kwargs): # pylint: disable=arguments-differ,signature-differs
-        '''
-        On save, update timestamps and parameters
-        '''
+    def save(self, *args, **kwargs):  # pylint: disable=arguments-differ,signature-differs
+        # TODO: update docstring
+        """_summary_
+
+        Returns:
+            _type_: _description_
+        """
         if not self.id or not self.created:
             self.created = timezone.now()
-            self.id = slugify(self.name) # pylint: disable=invalid-name
+            self.id = slugify(self.name)  # pylint: disable=invalid-name
         self.modified = timezone.now()
-        self.id = slugify(self.name) # pylint: disable=invalid-name
+        self.id = slugify(self.name)  # pylint: disable=invalid-name
         return super().save(*args, **kwargs)
 
     # Meta
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Model meta data
+    class Meta:  # pylint: disable=too-few-public-methods
+        # TODO: update docstring
+        """_summary_
         """
         abstract = True
         get_latest_by = 'modified'

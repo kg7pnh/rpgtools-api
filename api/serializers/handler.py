@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the Handler model
+# TODO: update docstring
+"""_summary_
 """
 from django.db import models
 from django.db.models.signals import pre_save
@@ -9,13 +9,17 @@ from django.utils.text import slugify
 from rest_framework import serializers
 from api.models.handler import Handler
 
+
 class Serializer(serializers.ModelSerializer):
-    '''
-    Serializer class
-    '''
-    class Meta: # pylint: disable=too-few-public-methods
-        """
-        Class meta data
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        serializers (_type_): _description_
+    """
+    class Meta:  # pylint: disable=too-few-public-methods
+        # TODO: update docstring
+        """_summary_
         """
         model = Handler
         fields = ('__all__')

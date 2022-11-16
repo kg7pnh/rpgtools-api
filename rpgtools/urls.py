@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-"""
-rpgtools URL Configuration
+# TODO: update docstring
+"""rpgtools URL Configuration
 """
 from django.conf.urls import url
 from django.contrib import admin
@@ -11,7 +11,7 @@ from django.urls import reverse_lazy
 from django.urls import re_path
 from markdownx import urls as markdownx
 
-urlpatterns = [ # pylint: disable=invalid-name
+urlpatterns = [
     path('', RedirectView.as_view(url=reverse_lazy('admin:index'))),
     path('admin/', admin.site.urls),
     path('api/', RedirectView.as_view(url='/api/v1/')),

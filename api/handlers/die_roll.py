@@ -1,20 +1,37 @@
 # -*- coding: utf-8 -*-
-"""
-Defines the die_roll handler
+# TODO: update docstring
+"""_summary_
+
 """
 from random import randint
 
+
 def roll(die_size):
-    """
-    roll
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        die_size (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     return randint(1, die_size)
+
 
 def process_modifier(value,
                      modifier,
                      modification):
-    """
-    process_modifier
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        value (_type_): _description_
+        modifier (_type_): _description_
+        modification (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     result = value
     if modification == '+':
@@ -27,9 +44,16 @@ def process_modifier(value,
         result = result / modifier
     return int(result)
 
+
 def run_roll(run_input):
-    """
-    run_roll
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        run_input (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     count = 0
     die_roll = 0
@@ -59,9 +83,16 @@ def run_roll(run_input):
 
     return result
 
+
 def run_condition(run_input):
-    """
-    run_condition
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        run_input (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     roll_result = 0
     if run_input['reroll']['condition'] == '==':
@@ -86,9 +117,17 @@ def run_condition(run_input):
             roll_result = run_roll(run_input)
     return roll_result
 
+
 def run(run_input, additional_input=None):
-    """
-    run
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        run_input (_type_): _description_
+        additional_input (_type_, optional): _description_. Defaults to None.
+
+    Returns:
+        _type_: _description_
     """
     roll_result = 0
 
@@ -102,19 +141,19 @@ def run(run_input, additional_input=None):
 
     if 'per_modifier' in run_input and not run_input['per_modifier'] is None:
         if 'value' in run_input['per_modifier'] \
-            and not isinstance(run_input['per_modifier']['value'], int):
+                and not isinstance(run_input['per_modifier']['value'], int):
             value = run_input['per_modifier']['value']
             run_input['per_modifier']['value'] = additional_input[value]
 
     if 'roll_modifier' in run_input and not run_input['roll_modifier'] is None:
         if 'value' in run_input['roll_modifier'] \
-            and not isinstance(run_input['roll_modifier']['value'], int):
+                and not isinstance(run_input['roll_modifier']['value'], int):
             value = run_input['roll_modifier']['value']
             run_input['roll_modifier']['value'] = additional_input[value]
 
     if 'post_modifier' in run_input and not run_input['post_modifier'] is None:
         if 'value' in run_input['post_modifier'] \
-            and not isinstance(run_input['post_modifier']['value'], int):
+                and not isinstance(run_input['post_modifier']['value'], int):
             value = run_input['post_modifier']['value']
             run_input['post_modifier']['value'] = additional_input[value]
 

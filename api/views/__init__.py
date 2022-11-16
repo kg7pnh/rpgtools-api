@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
-'''
-__init__
-'''
-# from django.shortcuts import get_object_or_404
+# TODO: update docstring
+"""_summary_
+"""
 
 from .book import *
 from .book_format import *

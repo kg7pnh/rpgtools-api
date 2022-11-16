@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
-"""
-history serializer
+# TODO: update docstring
+"""_summary_
+
+Returns:
+    _type_: _description_
 """
 from django.db.models import ManyToManyRel
 from django.db.models import ManyToOneRel
@@ -8,15 +11,28 @@ from django.db.models.fields.related import ManyToManyField
 from django.db.models.fields.related import ManyToManyRel
 from rest_framework import serializers
 
-class HistorySerializer(serializers.Serializer): # pylint: disable=abstract-method
-    """
-    Publisher history serializer
+
+class HistorySerializer(serializers.Serializer):  # pylint: disable=abstract-method
+    # TODO: update docstring
+    """_summary_
+
+    Args:
+        serializers (_type_): _description_
+
+    Returns:
+        _type_: _description_
     """
     changes = serializers.SerializerMethodField()
 
-    def get_changes(self, obj): # pylint: disable=no-self-use
-        """
-        get_changes
+    def get_changes(self, obj):  # pylint: disable=no-self-use
+        # TODO: update docstring
+        """_summary_
+
+        Args:
+            obj (_type_): _description_
+
+        Returns:
+            _type_: _description_
         """
         changes = []
         for record in obj.history.all():
@@ -27,11 +43,11 @@ class HistorySerializer(serializers.Serializer): # pylint: disable=abstract-meth
                 "history_id": record.history_id,
                 "changes": []
             }
-            if _change["history_type"] ==  "Created":
+            if _change["history_type"] == "Created":
                 for field in record.history_object._meta.get_fields():
-                    
+
                     if field.editable \
-                        and not field.__class__.__name__ == 'ManyToManyField':
+                            and not field.__class__.__name__ == 'ManyToManyField':
                         change_count += 1
                         value = str(getattr(record.history_object, field.name))
                         _change["changes"].append({
@@ -43,7 +59,8 @@ class HistorySerializer(serializers.Serializer): # pylint: disable=abstract-meth
                         result = []
                         try:
                             change_count += 1
-                            items = getattr(record.history_object, field.name).all()
+                            items = getattr(
+                                record.history_object, field.name).all()
                             for item in items:
                                 result.append(str(item))
                         except:
